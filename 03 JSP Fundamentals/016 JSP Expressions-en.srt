@@ -1,0 +1,612 @@
+1
+00:00:01,359 --> 00:00:02,298
+<v Chad>Hello.</v>
+
+2
+00:00:02,298 --> 00:00:06,465
+In this video, we're gonna learn how to use JSP expressions.
+
+3
+00:00:09,622 --> 00:00:11,755
+So, in JSP, there's actually
+
+4
+00:00:11,755 --> 00:00:14,543
+different types of scripting elements.
+
+5
+00:00:14,543 --> 00:00:17,324
+There's three actually, JSP expressions,
+
+6
+00:00:17,324 --> 00:00:19,801
+JSP scriptlets, and declarations.
+
+7
+00:00:19,801 --> 00:00:22,106
+Now, what we'll do is we'll actually have a deep dive
+
+8
+00:00:22,106 --> 00:00:24,463
+on each one of these topics in separate videos
+
+9
+00:00:24,463 --> 00:00:27,457
+but I wanted to give you just an overview real quick.
+
+10
+00:00:27,457 --> 00:00:31,299
+So a JSP expression is basically a small Java expression
+
+11
+00:00:31,299 --> 00:00:32,975
+that you can include in the page
+
+12
+00:00:32,975 --> 00:00:36,425
+of the syntax's angle bracket percent with an equal symbol.
+
+13
+00:00:36,425 --> 00:00:38,499
+And we'll see a lot of that in this video.
+
+14
+00:00:38,499 --> 00:00:41,224
+There's also what we call a JSP scriptlet.
+
+15
+00:00:41,224 --> 00:00:44,074
+So a JSP scriptlet is simply an angle bracket percent
+
+16
+00:00:44,074 --> 00:00:45,643
+and then you add some Java code.
+
+17
+00:00:45,643 --> 00:00:48,249
+You can add one to many lines of Java code
+
+18
+00:00:48,249 --> 00:00:50,426
+and we'll see that in a following video.
+
+19
+00:00:50,426 --> 00:00:52,975
+And then finally, there's a JSP declaration.
+
+20
+00:00:52,975 --> 00:00:56,126
+So this is angle bracket percent with an exclamation point.
+
+21
+00:00:56,126 --> 00:01:00,399
+And so here, you can define a Java variable or method.
+
+22
+00:01:00,399 --> 00:01:02,796
+And again, we'll do a deep dive on that.
+
+23
+00:01:02,796 --> 00:01:05,293
+So this next slide here is on JSP expressions.
+
+24
+00:01:05,293 --> 00:01:08,379
+So, basically you can compute some type of expression
+
+25
+00:01:08,379 --> 00:01:11,327
+and the result of that is included in the HTML page
+
+26
+00:01:11,327 --> 00:01:14,230
+that's returned to the browser.
+
+27
+00:01:14,230 --> 00:01:15,420
+And so, here's an example
+
+28
+00:01:15,420 --> 00:01:17,691
+and we saw this from one of our previous videos.
+
+29
+00:01:17,691 --> 00:01:20,362
+Actually the previous Hello World video.
+
+30
+00:01:20,362 --> 00:01:23,487
+In your JSP file, you can say the time on the server is
+
+31
+00:01:23,487 --> 00:01:24,978
+and then you can add an expression.
+
+32
+00:01:24,978 --> 00:01:27,050
+So again, remember, angle bracket percent
+
+33
+00:01:27,050 --> 00:01:30,698
+with an equal symbol and we can place a Java object there.
+
+34
+00:01:30,698 --> 00:01:32,954
+Once this is processed by the server,
+
+35
+00:01:32,954 --> 00:01:35,953
+then the generated HTML is simply the two string version
+
+36
+00:01:35,953 --> 00:01:38,120
+of that given date object.
+
+37
+00:01:39,610 --> 00:01:41,332
+But let's take a look at some more examples
+
+38
+00:01:41,332 --> 00:01:43,415
+of using JSP expressions.
+
+39
+00:01:46,834 --> 00:01:48,396
+So in this next example,
+
+40
+00:01:48,396 --> 00:01:51,757
+I'm gonna show you how we can convert a string.
+
+41
+00:01:51,757 --> 00:01:55,045
+So here I have this new string Hello World.
+
+42
+00:01:55,045 --> 00:01:57,495
+And then I can say .toUpperCase.
+
+43
+00:01:57,495 --> 00:02:00,395
+So I'm gonna basically convert this string to all caps
+
+44
+00:02:00,395 --> 00:02:02,004
+or to all upper case.
+
+45
+00:02:02,004 --> 00:02:03,674
+And the result of that will be included
+
+46
+00:02:03,674 --> 00:02:05,167
+right here in the page.
+
+47
+00:02:05,167 --> 00:02:07,903
+So that's for like strings and objects.
+
+48
+00:02:07,903 --> 00:02:11,547
+You can also make use of mathematical expressions.
+
+49
+00:02:11,547 --> 00:02:15,250
+So here I can multiply a value 25 times four equals
+
+50
+00:02:15,250 --> 00:02:17,023
+and you could put any math expression in there
+
+51
+00:02:17,023 --> 00:02:18,487
+that you'd like.
+
+52
+00:02:18,487 --> 00:02:21,780
+You can also have Boolean expressions.
+
+53
+00:02:21,780 --> 00:02:25,197
+So here, I could say, is 75 less than 69?
+
+54
+00:02:26,305 --> 00:02:29,138
+And it'll give me a value of true or false.
+
+55
+00:02:29,138 --> 00:02:31,766
+And that's an example here of using JSP expressions.
+
+56
+00:02:31,766 --> 00:02:34,829
+So we saw objects, mathematical expressions,
+
+57
+00:02:34,829 --> 00:02:37,329
+and also, Boolean expressions.
+
+58
+00:02:42,126 --> 00:02:43,873
+OK great, so let's move into Eclipse
+
+59
+00:02:43,873 --> 00:02:46,290
+and let's try this stuff out.
+
+60
+00:02:48,416 --> 00:02:49,747
+I like to continue to use the same project
+
+61
+00:02:49,747 --> 00:02:52,747
+from the previous video, jspdemo.
+
+62
+00:02:52,747 --> 00:02:55,315
+I'd like to move down to my WebContent folder
+
+63
+00:02:55,315 --> 00:02:58,424
+and what I wanna do here is actually create a new file.
+
+64
+00:02:58,424 --> 00:03:02,174
+So I'll just right click, I'll say new, file.
+
+65
+00:03:03,534 --> 00:03:05,043
+And for the name of this file,
+
+66
+00:03:05,043 --> 00:03:08,376
+I'll simply call it expression-test.jsp.
+
+67
+00:03:13,632 --> 00:03:14,803
+And once you're happy with that file name,
+
+68
+00:03:14,803 --> 00:03:18,553
+you can go ahead and click the finish button.
+
+69
+00:03:19,691 --> 00:03:22,636
+OK great, so we have a very basic file here
+
+70
+00:03:22,636 --> 00:03:24,256
+and actually an empty file.
+
+71
+00:03:24,256 --> 00:03:25,806
+And we need to add something in it.
+
+72
+00:03:25,806 --> 00:03:28,587
+So let's go ahead and start off with our basic HTML.
+
+73
+00:03:28,587 --> 00:03:30,587
+I'll set up my body tag.
+
+74
+00:03:32,479 --> 00:03:34,926
+And now I'll go ahead and type out that first bit
+
+75
+00:03:34,926 --> 00:03:38,009
+of converting a string to upper case.
+
+76
+00:03:41,559 --> 00:03:44,251
+And now what I'd like to do is add a JSP expression.
+
+77
+00:03:44,251 --> 00:03:46,349
+So again, angle bracket percent.
+
+78
+00:03:46,349 --> 00:03:49,682
+And so here I say new string Hello World
+
+79
+00:03:51,043 --> 00:03:53,660
+and I do a dot and I get the code completion here
+
+80
+00:03:53,660 --> 00:03:56,139
+and I'll say .toUpperCase.
+
+81
+00:03:56,139 --> 00:03:58,472
+I'll select that item there.
+
+82
+00:04:03,230 --> 00:04:04,862
+It's kinda cool Eclipse can kinda help you out
+
+83
+00:04:04,862 --> 00:04:08,473
+with some of the code completion there in a JSP file.
+
+84
+00:04:08,473 --> 00:04:10,677
+Alright, so that's it, so, that's the file.
+
+85
+00:04:10,677 --> 00:04:12,927
+I can go ahead and save it.
+
+86
+00:04:13,945 --> 00:04:15,751
+And what I'd like to do is go ahead and run this file.
+
+87
+00:04:15,751 --> 00:04:19,096
+So I'll just do a right click, I'll say run as,
+
+88
+00:04:19,096 --> 00:04:22,013
+and then I'll choose run on server.
+
+89
+00:04:23,535 --> 00:04:25,674
+Alright so this will start up my Tomcat server
+
+90
+00:04:25,674 --> 00:04:27,259
+if it's not running already.
+
+91
+00:04:27,259 --> 00:04:29,736
+And then right here in the browser it'll give us the result.
+
+92
+00:04:29,736 --> 00:04:31,555
+Converting a string to uppercase.
+
+93
+00:04:31,555 --> 00:04:33,696
+And remember we had Hello World as normal case
+
+94
+00:04:33,696 --> 00:04:36,265
+and now this basically converted Hello World
+
+95
+00:04:36,265 --> 00:04:37,765
+to all upper case.
+
+96
+00:04:38,718 --> 00:04:40,904
+So that's the result of our JSP expression running
+
+97
+00:04:40,904 --> 00:04:42,654
+which is really cool.
+
+98
+00:04:47,634 --> 00:04:51,986
+Alright, so let's take this a little bit further.
+
+99
+00:04:51,986 --> 00:04:55,653
+I'm just gonna add some line breaks in here.
+
+100
+00:04:57,522 --> 00:04:59,020
+And now I wanna do an example
+
+101
+00:04:59,020 --> 00:05:02,059
+using a mathematical expression here.
+
+102
+00:05:02,059 --> 00:05:05,809
+So here I'll say 25 multiplied by four equals
+
+103
+00:05:10,517 --> 00:05:13,379
+and now again I'll make use of my JSP expression.
+
+104
+00:05:13,379 --> 00:05:17,409
+Angle bracket percent with an equal symbol, 25 times four.
+
+105
+00:05:17,409 --> 00:05:19,836
+So the result of this is of course is 100, right?
+
+106
+00:05:19,836 --> 00:05:22,512
+And the value of 100 will be included right there.
+
+107
+00:05:22,512 --> 00:05:24,679
+So I simply save the file.
+
+108
+00:05:26,109 --> 00:05:28,248
+So now here I can simply go back to my browser.
+
+109
+00:05:28,248 --> 00:05:29,256
+I don't have to run it again.
+
+110
+00:05:29,256 --> 00:05:31,559
+All I have to do is simply reload this page
+
+111
+00:05:31,559 --> 00:05:32,717
+and the results will show up.
+
+112
+00:05:32,717 --> 00:05:36,098
+So I'll simply hit the reload or the refresh button here.
+
+113
+00:05:36,098 --> 00:05:37,157
+And there it is.
+
+114
+00:05:37,157 --> 00:05:40,166
+25 multiplied by four equals 100.
+
+115
+00:05:40,166 --> 00:05:42,461
+Mission accomplished, very good.
+
+116
+00:05:42,461 --> 00:05:44,138
+So again, a nice thing here with JSP.
+
+117
+00:05:44,138 --> 00:05:45,579
+If you make any changes to the file,
+
+118
+00:05:45,579 --> 00:05:47,141
+you don't have to rerun it or redeploy.
+
+119
+00:05:47,141 --> 00:05:51,308
+You simply just reload that page and you're ready to go.
+
+120
+00:05:53,065 --> 00:05:54,527
+OK, let's do one more thing.
+
+121
+00:05:54,527 --> 00:05:56,693
+Let's play around with Boolean expressions.
+
+122
+00:05:56,693 --> 00:05:59,938
+So let me just move down here, add a line break.
+
+123
+00:05:59,938 --> 00:06:01,975
+Let me just add some extra white space here
+
+124
+00:06:01,975 --> 00:06:04,475
+just so we can see everything.
+
+125
+00:06:05,968 --> 00:06:10,135
+And I'll just have a very basic Boolean expression example.
+
+126
+00:06:11,195 --> 00:06:12,778
+Is 75 less than 69?
+
+127
+00:06:13,925 --> 00:06:16,282
+And now I'll let Java compute this for me.
+
+128
+00:06:16,282 --> 00:06:17,631
+Again, very trivial, right?
+
+129
+00:06:17,631 --> 00:06:19,834
+But we're just showing you an example here
+
+130
+00:06:19,834 --> 00:06:21,834
+of a Boolean expression.
+
+131
+00:06:22,696 --> 00:06:25,041
+So, 75 less than 69.
+
+132
+00:06:25,041 --> 00:06:26,974
+This will evaluate as true or false.
+
+133
+00:06:26,974 --> 00:06:29,411
+Of course, we know this will return false, right?
+
+134
+00:06:29,411 --> 00:06:31,700
+But we'll see how the JSP program
+
+135
+00:06:31,700 --> 00:06:33,950
+will help us out with this.
+
+136
+00:06:38,881 --> 00:06:41,218
+Alright, so I'll save the file here.
+
+137
+00:06:41,218 --> 00:06:42,961
+I'll move back over to the browser.
+
+138
+00:06:42,961 --> 00:06:47,128
+And again, all I have to do is just reload or refresh.
+
+139
+00:06:48,559 --> 00:06:50,403
+And then there it is.
+
+140
+00:06:50,403 --> 00:06:51,876
+Is 75 less than 69?
+
+141
+00:06:51,876 --> 00:06:52,709
+False.
+
+142
+00:06:52,709 --> 00:06:53,542
+So very good.
+
+143
+00:06:53,542 --> 00:06:55,500
+So we saw a really good example there
+
+144
+00:06:55,500 --> 00:06:58,382
+of using JSP expressions for Booleans.
+
+145
+00:06:58,382 --> 00:07:01,882
+Also for math and also for string objects.
+
+146
+00:07:04,521 --> 00:07:06,271
+Alright, so let's go ahead and wrap up this video.
+
+147
+00:07:06,271 --> 00:07:08,418
+We did a deep dive on JSP expressions.
+
+148
+00:07:08,418 --> 00:07:10,236
+I showed you different types of expressions
+
+149
+00:07:10,236 --> 00:07:12,491
+using objects, math expressions,
+
+150
+00:07:12,491 --> 00:07:14,278
+and also Boolean expressions.
+
+151
+00:07:14,278 --> 00:07:17,828
+In the following videos, we'll dive into JSP scriptlets
+
+152
+00:07:17,828 --> 00:07:20,787
+and we'll also dive into JSP declarations.
+
+153
+00:07:20,787 --> 00:07:23,620
+So stay tuned, I'll see you there.
+

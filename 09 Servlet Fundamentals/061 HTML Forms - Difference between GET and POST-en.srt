@@ -1,0 +1,412 @@
+1
+00:00:01,335 --> 00:00:02,894
+<v Instructor>Hey, in this video,</v>
+
+2
+00:00:02,894 --> 00:00:07,061
+we're gonna discuss the differences between GET and POST.
+
+3
+00:00:11,034 --> 00:00:13,043
+Well, so far we've learned how to read form data,
+
+4
+00:00:13,043 --> 00:00:15,340
+both with JSPs and Servlets,
+
+5
+00:00:15,340 --> 00:00:17,806
+and we sent data over using the GET method.
+
+6
+00:00:17,806 --> 00:00:20,422
+Now, you also may have noticed that there's a POST method,
+
+7
+00:00:20,422 --> 00:00:22,214
+and wondered how that works and
+
+8
+00:00:22,214 --> 00:00:24,044
+how's it different from the GET method,
+
+9
+00:00:24,044 --> 00:00:25,944
+so we'll cover all the gory details of it
+
+10
+00:00:25,944 --> 00:00:27,527
+here in this video.
+
+11
+00:00:32,362 --> 00:00:34,986
+So, just as a recap of what we've seen so far,
+
+12
+00:00:34,986 --> 00:00:37,422
+we've sent data over using the GET method,
+
+13
+00:00:37,422 --> 00:00:40,431
+so we have our form action, and we have method=GET.
+
+14
+00:00:40,431 --> 00:00:42,045
+So, that's the HTML form.
+
+15
+00:00:42,045 --> 00:00:44,051
+Then in our Java Servlet code,
+
+16
+00:00:44,051 --> 00:00:46,003
+we have to override the appropriate method,
+
+17
+00:00:46,003 --> 00:00:49,063
+so in this case we need to override the doGet method
+
+18
+00:00:49,063 --> 00:00:51,407
+because they're passing in a GET request.
+
+19
+00:00:51,407 --> 00:00:55,481
+So here in red, we have a request.getParameter.
+
+20
+00:00:55,481 --> 00:00:57,190
+That's for reading the form data.
+
+21
+00:00:57,190 --> 00:01:01,273
+And so, we've seen this before, just kinda recap.
+
+22
+00:01:02,563 --> 00:01:06,003
+Now let's move forward a bit and let's look at POST method.
+
+23
+00:01:06,003 --> 00:01:08,195
+So, to send data over using POST,
+
+24
+00:01:08,195 --> 00:01:10,271
+in our form we say form action,
+
+25
+00:01:10,271 --> 00:01:12,061
+and then we have method="POST."
+
+26
+00:01:12,061 --> 00:01:14,016
+So now, in our Servlet code,
+
+27
+00:01:14,016 --> 00:01:17,462
+we need to override the doPost method.
+
+28
+00:01:17,462 --> 00:01:20,223
+Now, this doPost method has the same parameters as doGet,
+
+29
+00:01:20,223 --> 00:01:23,524
+it has a request and a response.
+
+30
+00:01:23,524 --> 00:01:24,847
+So, for the doPost method,
+
+31
+00:01:24,847 --> 00:01:27,136
+you simply read the form data by saying
+
+32
+00:01:27,136 --> 00:01:30,489
+request.getParameters, so the exact same method call
+
+33
+00:01:30,489 --> 00:01:32,906
+to read form data using POST.
+
+34
+00:01:36,269 --> 00:01:40,193
+Now, when data's being sent using the GET method,
+
+35
+00:01:40,193 --> 00:01:42,246
+the form data is actually appended
+
+36
+00:01:42,246 --> 00:01:45,283
+to the end of a URL as name/value pairs.
+
+37
+00:01:45,283 --> 00:01:48,182
+So, here we'll have a URL with a question mark,
+
+38
+00:01:48,182 --> 00:01:51,022
+and then with our field1=value1,
+
+39
+00:01:51,022 --> 00:01:54,084
+and with an and symbol, field2=value2
+
+40
+00:01:54,084 --> 00:01:56,099
+with another and symbol, and so on.
+
+41
+00:01:56,099 --> 00:01:58,426
+And that's basically how form data is sent
+
+42
+00:01:58,426 --> 00:02:00,176
+using the GET method.
+
+43
+00:02:04,848 --> 00:02:07,486
+Now, sending form data using a POST method,
+
+44
+00:02:07,486 --> 00:02:08,854
+the form data is actually passed
+
+45
+00:02:08,854 --> 00:02:11,755
+in the body of the HTTP request message,
+
+46
+00:02:11,755 --> 00:02:14,169
+so the request message has a body section,
+
+47
+00:02:14,169 --> 00:02:15,796
+and the name/value pairs are included
+
+48
+00:02:15,796 --> 00:02:18,794
+inside of the body of the POST method,
+
+49
+00:02:18,794 --> 00:02:22,211
+so you won't see it in the browser's URL.
+
+50
+00:02:25,598 --> 00:02:27,271
+All right, so you see all this stuff and you're like,
+
+51
+00:02:27,271 --> 00:02:30,069
+okay, well, which one should I use?
+
+52
+00:02:30,069 --> 00:02:32,038
+So, a recap, the GET method here
+
+53
+00:02:32,038 --> 00:02:33,571
+is very good for debugging
+
+54
+00:02:33,571 --> 00:02:35,061
+because you can see the name/value pairs
+
+55
+00:02:35,061 --> 00:02:36,521
+right there in the URL.
+
+56
+00:02:36,521 --> 00:02:38,895
+You can also manually change them if you want.
+
+57
+00:02:38,895 --> 00:02:40,948
+You can also bookmark the URL,
+
+58
+00:02:40,948 --> 00:02:43,026
+and you can also email it.
+
+59
+00:02:43,026 --> 00:02:45,704
+With the GET method, there's a limitation on data length,
+
+60
+00:02:45,704 --> 00:02:47,397
+and it varies between browsers,
+
+61
+00:02:47,397 --> 00:02:48,728
+so you just need to be aware of that.
+
+62
+00:02:48,728 --> 00:02:53,557
+You're normally safe with about 1000 characters.
+
+63
+00:02:53,557 --> 00:02:55,481
+Now, with the POST method, you can't really
+
+64
+00:02:55,481 --> 00:02:57,315
+bookmark or email the URL,
+
+65
+00:02:57,315 --> 00:02:59,616
+because the URL doesn't contain the data.
+
+66
+00:02:59,616 --> 00:03:01,637
+Remember, the name/value pairs are sent
+
+67
+00:03:01,637 --> 00:03:04,268
+in the body of a request message.
+
+68
+00:03:04,268 --> 00:03:06,530
+But a really nice thing about the POST method
+
+69
+00:03:06,530 --> 00:03:09,311
+is that there's no limitation on data length,
+
+70
+00:03:09,311 --> 00:03:11,249
+so if you have a very large form
+
+71
+00:03:11,249 --> 00:03:12,395
+with a lot of fields,
+
+72
+00:03:12,395 --> 00:03:15,274
+you can send as much data as you want to.
+
+73
+00:03:15,274 --> 00:03:18,099
+Also, the POST method is very good
+
+74
+00:03:18,099 --> 00:03:20,206
+for sending binary data.
+
+75
+00:03:20,206 --> 00:03:21,232
+And you're probably wondering, well,
+
+76
+00:03:21,232 --> 00:03:22,333
+what type of binary data?
+
+77
+00:03:22,333 --> 00:03:24,220
+Well, if you do an email program,
+
+78
+00:03:24,220 --> 00:03:26,302
+and you do a form attachment,
+
+79
+00:03:26,302 --> 00:03:29,159
+you can attach a binary file to the form,
+
+80
+00:03:29,159 --> 00:03:30,010
+and then submit it.
+
+81
+00:03:30,010 --> 00:03:34,093
+So that's one use case there for the POST method.
+
+82
+00:03:36,115 --> 00:03:37,750
+So, my normal recommendation,
+
+83
+00:03:37,750 --> 00:03:40,968
+for non-sensitive data, you can use the GET method.
+
+84
+00:03:40,968 --> 00:03:42,532
+It's very good when you're first starting out
+
+85
+00:03:42,532 --> 00:03:45,324
+with your application for debugging and so on.
+
+86
+00:03:45,324 --> 00:03:47,472
+However, if you have some sensitive data,
+
+87
+00:03:47,472 --> 00:03:49,608
+then I'd recommend that you use POST data.
+
+88
+00:03:49,608 --> 00:03:52,001
+So, here sensitive means that
+
+89
+00:03:52,001 --> 00:03:54,772
+the POST method can encode some of it.
+
+90
+00:03:54,772 --> 00:03:57,380
+It doesn't do any real heavy encryption,
+
+91
+00:03:57,380 --> 00:03:59,106
+but it can kinda encode it,
+
+92
+00:03:59,106 --> 00:04:02,740
+so this is more security by obscurity.
+
+93
+00:04:02,740 --> 00:04:06,264
+But for full security, for full encryption,
+
+94
+00:04:06,264 --> 00:04:09,127
+you would implement a secure sockets layer.
+
+95
+00:04:09,127 --> 00:04:11,049
+But anyway, that's just a rule of thumb
+
+96
+00:04:11,049 --> 00:04:11,910
+between the two.
+
+97
+00:04:11,910 --> 00:04:14,795
+So, GET for very simple examples,
+
+98
+00:04:14,795 --> 00:04:18,378
+POST if you wanna encode some of your data.
+
+99
+00:04:20,968 --> 00:04:22,834
+So, this basically wraps up the video.
+
+100
+00:04:22,834 --> 00:04:25,449
+We discussed the GET method and the POST method.
+
+101
+00:04:25,449 --> 00:04:27,206
+Hopefully this clarifies it for you
+
+102
+00:04:27,206 --> 00:04:28,915
+as far as the differences between the two,
+
+103
+00:04:28,915 --> 00:04:32,665
+and how you can use them in your application.
+

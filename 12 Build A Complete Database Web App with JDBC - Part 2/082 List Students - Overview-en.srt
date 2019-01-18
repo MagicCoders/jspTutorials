@@ -1,0 +1,428 @@
+1
+00:00:01,476 --> 00:00:03,242
+<v Narrator>Hey, in this video we're going to look</v>
+
+2
+00:00:03,242 --> 00:00:05,575
+at the list student feature.
+
+3
+00:00:07,938 --> 00:00:10,358
+So, basically in the following set of videos we're
+
+4
+00:00:10,358 --> 00:00:12,965
+going to write all the code to list the students.
+
+5
+00:00:12,965 --> 00:00:14,793
+So, we're going to talk to the database,
+
+6
+00:00:14,793 --> 00:00:16,621
+get a list of students, and then we're going to create
+
+7
+00:00:16,621 --> 00:00:19,912
+this very pretty table of our data,
+
+8
+00:00:19,912 --> 00:00:22,034
+and I'll show you how to do all of this from scratch.
+
+9
+00:00:22,034 --> 00:00:25,174
+So, we'll just drill down, we'll take it one step at a time,
+
+10
+00:00:25,174 --> 00:00:26,546
+and we'll work through it.
+
+11
+00:00:26,546 --> 00:00:29,801
+So speaking of steps, you know how I love to do lists.
+
+12
+00:00:29,801 --> 00:00:33,644
+So, I'm going to break this down into four main steps.
+
+13
+00:00:33,644 --> 00:00:36,703
+So the first step is creating a student class,
+
+14
+00:00:36,703 --> 00:00:38,248
+student dot java.
+
+15
+00:00:38,248 --> 00:00:41,167
+Then we're going to create our student database utility.
+
+16
+00:00:41,167 --> 00:00:44,140
+Next, we're going to create our controller servlet.
+
+17
+00:00:44,140 --> 00:00:46,344
+And then finally we'll wrap it up all together
+
+18
+00:00:46,344 --> 00:00:48,767
+with our final JSP page.
+
+19
+00:00:48,767 --> 00:00:51,728
+Alright so that's the big picture, let's go ahead
+
+20
+00:00:51,728 --> 00:00:55,895
+and dive in and let's start writing some code, yeah.
+
+21
+00:01:00,345 --> 00:01:03,091
+Alright so moving into Eclipse, we're going to use that
+
+22
+00:01:03,091 --> 00:01:07,290 line:15% 
+project that we've been using already, web student tracker.
+
+23
+00:01:07,290 --> 00:01:09,266 line:15% 
+And the first thing we want to do is create this
+
+24
+00:01:09,266 --> 00:01:12,268 line:15% 
+student dot java class, it's simply just a Java class
+
+25
+00:01:12,268 --> 00:01:14,828 line:15% 
+that's going to hold the student's first name,
+
+26
+00:01:14,828 --> 00:01:16,647 line:15% 
+last name and email address.
+
+27
+00:01:16,647 --> 00:01:20,241 line:15% 
+So, I'm moving to this Java resources directory,
+
+28
+00:01:20,241 --> 00:01:24,643 line:15% 
+move to my package, and I'll simply do a right click
+
+29
+00:01:24,643 --> 00:01:26,976
+and I'll say new Java class.
+
+30
+00:01:32,922 --> 00:01:34,861
+Alright so that brings up the dialog here,
+
+31
+00:01:34,861 --> 00:01:38,694 line:15% 
+for the name of the class it's simply student,
+
+32
+00:01:40,109 --> 00:01:41,855 line:15% 
+and once you're happy with that then go ahead
+
+33
+00:01:41,855 --> 00:01:44,438 line:15% 
+and click on the finish button.
+
+34
+00:01:47,681 --> 00:01:50,769
+Alright so we have this very basic student class here,
+
+35
+00:01:50,769 --> 00:01:54,936 line:15% 
+nothing's here, so let's go ahead and define four fields.
+
+36
+00:01:56,014 --> 00:02:00,033 line:15% 
+So, I'll need a field for the student id,
+
+37
+00:02:00,033 --> 00:02:02,384 line:15% 
+and then I'll also add fields here for the student's
+
+38
+00:02:02,384 --> 00:02:06,217 line:15% 
+first name, last name, and also email address.
+
+39
+00:02:08,378 --> 00:02:10,694 line:15% 
+So, this is the basic data that we want to
+
+40
+00:02:10,694 --> 00:02:14,861 line:15% 
+you know keep track of when we're building our application.
+
+41
+00:02:16,227 --> 00:02:18,738 line:15% 
+Okay great, so now we want to create some constructors,
+
+42
+00:02:18,738 --> 00:02:20,893 line:15% 
+and we'll actually create two constructors,
+
+43
+00:02:20,893 --> 00:02:23,168
+I'll actually make use of Eclipse to help me out
+
+44
+00:02:23,168 --> 00:02:24,997
+with creating the constructors.
+
+45
+00:02:24,997 --> 00:02:28,200
+So first I'll do a right click, I'll go to source and
+
+46
+00:02:28,200 --> 00:02:32,033
+I'll choose generate constructor using fields.
+
+47
+00:02:34,883 --> 00:02:37,489
+And Eclipse will pop up a dialog asking me which fields
+
+48
+00:02:37,489 --> 00:02:40,496
+to initialize, make sure they're all selected here
+
+49
+00:02:40,496 --> 00:02:42,781
+with the check boxes, and then we'll go ahead
+
+50
+00:02:42,781 --> 00:02:44,992
+and click on the finish button.
+
+51
+00:02:44,992 --> 00:02:47,616
+So this will give me a constructor for all of the fields,
+
+52
+00:02:47,616 --> 00:02:49,565
+right, so this is really cool, Eclipse created all this
+
+53
+00:02:49,565 --> 00:02:51,732
+code for us automatically.
+
+54
+00:02:55,276 --> 00:02:57,913
+Alright, and I'll just remove line 11, we don't need that,
+
+55
+00:02:57,913 --> 00:02:59,982
+and this is basically our constructor.
+
+56
+00:02:59,982 --> 00:03:03,186
+Now I want to add one more constructor here.
+
+57
+00:03:03,186 --> 00:03:06,153
+So I'll right click, I'll say source, generate constructor
+
+58
+00:03:06,153 --> 00:03:09,506
+using fields, and I want to create a version of the
+
+59
+00:03:09,506 --> 00:03:12,411
+constructor that doesn't use the id, so I'll simply
+
+60
+00:03:12,411 --> 00:03:15,862
+deselect or uncheck the box for id, but I'll keep
+
+61
+00:03:15,862 --> 00:03:18,627
+the others for first name, last name, and email address,
+
+62
+00:03:18,627 --> 00:03:20,689
+because there's certain scenarios where we don't have
+
+63
+00:03:20,689 --> 00:03:24,606
+the id or we don't need the id for our student.
+
+64
+00:03:25,448 --> 00:03:27,577
+Alright so make sure your screen looks like this,
+
+65
+00:03:27,577 --> 00:03:29,471
+and keep all the other defaults, and then go ahead
+
+66
+00:03:29,471 --> 00:03:31,721
+and click on the ok button.
+
+67
+00:03:37,488 --> 00:03:39,778
+Alright, so that's the new constructor that Eclipse
+
+68
+00:03:39,778 --> 00:03:41,598
+just created for us, which is really cool,
+
+69
+00:03:41,598 --> 00:03:43,695
+first name, last name, and email.
+
+70
+00:03:43,695 --> 00:03:46,017
+I'll take out that line for the for the super,
+
+71
+00:03:46,017 --> 00:03:47,871
+and then here's our other guy, so we're good to go.
+
+72
+00:03:47,871 --> 00:03:50,680
+So, we have two constructors now, we have two different
+
+73
+00:03:50,680 --> 00:03:53,176
+ways of creating this student class,
+
+74
+00:03:53,176 --> 00:03:56,343
+okay so this looks really good so far.
+
+75
+00:03:58,107 --> 00:04:00,791 line:15% 
+Now what I'd like to do is go through and create getter
+
+76
+00:04:00,791 --> 00:04:02,905 line:15% 
+and setter methods for this class.
+
+77
+00:04:02,905 --> 00:04:05,832 line:15% 
+So again, make use of Eclipse, I'll do a right click,
+
+78
+00:04:05,832 --> 00:04:09,999 line:15% 
+choose source, and go to generate getters and setters.
+
+79
+00:04:11,883 --> 00:04:14,713
+Eclipse will bring up this dialog, and again we go
+
+80
+00:04:14,713 --> 00:04:17,295
+through and select all the items here, for email,
+
+81
+00:04:17,295 --> 00:04:18,751
+first name, id, and last name.
+
+82
+00:04:18,751 --> 00:04:21,281
+Make sure they're all selected, keep all of the
+
+83
+00:04:21,281 --> 00:04:23,261
+other defaults, and then go ahead and click
+
+84
+00:04:23,261 --> 00:04:24,844
+on the okay button.
+
+85
+00:04:27,802 --> 00:04:30,154
+Okay cool, so Eclipse created a lot of getter and setter
+
+86
+00:04:30,154 --> 00:04:32,544
+methods for us, and again this is really fun that
+
+87
+00:04:32,544 --> 00:04:37,103
+Eclipse is generating code for us, I love that.
+
+88
+00:04:37,103 --> 00:04:41,518 line:15% 
+Now, one last thing I want to do is add a toString method.
+
+89
+00:04:41,518 --> 00:04:45,611 line:15% 
+So, I'll simply do a right click here, I'll choose source
+
+90
+00:04:45,611 --> 00:04:48,611 line:15% 
+and then I'll say generate toString.
+
+91
+00:04:49,630 --> 00:04:52,497 line:15% 
+The toString method is very useful for debugging
+
+92
+00:04:52,497 --> 00:04:54,710
+and logging information.
+
+93
+00:04:54,710 --> 00:04:57,400
+So, here I make sure that we have all the fields selected
+
+94
+00:04:57,400 --> 00:05:00,105
+id, first name, last name, and email, and I'll keep
+
+95
+00:05:00,105 --> 00:05:02,932
+all the other defaults, and then I hit ok.
+
+96
+00:05:02,932 --> 00:05:05,886
+So again, if I need to do some debugging or logging
+
+97
+00:05:05,886 --> 00:05:08,614
+on this application, by having the toString method
+
+98
+00:05:08,614 --> 00:05:11,824
+we can easily get a dump of the students information
+
+99
+00:05:11,824 --> 00:05:13,820
+without having to manually do it ourselves,
+
+100
+00:05:13,820 --> 00:05:16,667
+so this is good, so we're in good shape here.
+
+101
+00:05:16,667 --> 00:05:18,954
+So that's it, that's our student class that we had
+
+102
+00:05:18,954 --> 00:05:21,329
+four fields that we created, id, first name, last name,
+
+103
+00:05:21,329 --> 00:05:24,552
+and email, we created constructors, and then we also
+
+104
+00:05:24,552 --> 00:05:27,245
+created getters and setters, and finally toStrings.
+
+105
+00:05:27,245 --> 00:05:29,438
+This is kind of like some basic house keeping
+
+106
+00:05:29,438 --> 00:05:31,694
+that we needed to take care of, but we're in really
+
+107
+00:05:31,694 --> 00:05:34,027
+good shape now, so good job.
+

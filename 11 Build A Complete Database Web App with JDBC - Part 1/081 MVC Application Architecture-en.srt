@@ -1,0 +1,208 @@
+1
+00:00:00,850 --> 00:00:02,662
+<v Narrator>In this video, we're gonna cover</v>
+
+2
+00:00:02,662 --> 00:00:06,484
+the sample architecture for our classroom project.
+
+3
+00:00:06,484 --> 00:00:08,943
+So, we'll cover the following topics.
+
+4
+00:00:08,943 --> 00:00:12,542
+We'll first do a fresh on the application features,
+
+5
+00:00:12,542 --> 00:00:14,785
+then we'll look at the big picture,
+
+6
+00:00:14,785 --> 00:00:17,873
+and then we'll discuss the Student Database Utility.
+
+7
+00:00:17,873 --> 00:00:19,493
+So, before we get into all the code,
+
+8
+00:00:19,493 --> 00:00:21,035
+I just wanted to make sure you understood
+
+9
+00:00:21,035 --> 00:00:24,187
+the big picture of the project.
+
+10
+00:00:24,187 --> 00:00:26,174
+Alright, so just as a refresher,
+
+11
+00:00:26,174 --> 00:00:29,133
+we're building an app for this FooBar University,
+
+12
+00:00:29,133 --> 00:00:32,169
+so they can list the student and update
+
+13
+00:00:32,169 --> 00:00:34,308
+and perform a delete on the student.
+
+14
+00:00:34,308 --> 00:00:37,193
+Those are the major CRUD functions.
+
+15
+00:00:37,193 --> 00:00:39,245
+So, looking at the big picture,
+
+16
+00:00:39,245 --> 00:00:41,541
+we're gonna have this web browser submit a request
+
+17
+00:00:41,541 --> 00:00:43,705
+to our Servlet controller.
+
+18
+00:00:43,705 --> 00:00:44,985
+Our Servlet controller will make use
+
+19
+00:00:44,985 --> 00:00:48,669
+of this helper class called a Student Database Utility,
+
+20
+00:00:48,669 --> 00:00:50,396
+it'll talk to the DB.
+
+21
+00:00:50,396 --> 00:00:52,569
+The data will come back to the controller,
+
+22
+00:00:52,569 --> 00:00:55,847
+it'll forward it over to our JSP page, which is our view,
+
+23
+00:00:55,847 --> 00:00:58,480
+and then finally will send that view back to the browser.
+
+24
+00:00:58,480 --> 00:01:01,741
+So, this is kinda like our big picture for our application,
+
+25
+00:01:01,741 --> 00:01:05,298
+this is the big MVC architecture,
+
+26
+00:01:05,298 --> 00:01:09,465
+and we'll build this all out in the following videos.
+
+27
+00:01:11,657 --> 00:01:14,631
+Now, a little bit more about this Student Database Utility.
+
+28
+00:01:14,631 --> 00:01:18,334
+Its main purpose is for interfacing with the database
+
+29
+00:01:18,334 --> 00:01:20,283
+using JDBC code.
+
+30
+00:01:20,283 --> 00:01:23,643
+So, this is actually a very common design pattern,
+
+31
+00:01:23,643 --> 00:01:27,814
+it's called the Data Accessor Object design pattern, or DAO.
+
+32
+00:01:27,814 --> 00:01:29,692
+So, if you join a new project team
+
+33
+00:01:29,692 --> 00:01:32,691
+or a new enterprise project at your company or job,
+
+34
+00:01:32,691 --> 00:01:35,498
+you're gonna hear other developers say DAO.
+
+35
+00:01:35,498 --> 00:01:37,573
+So, it's a very common design pattern,
+
+36
+00:01:37,573 --> 00:01:40,103
+it's pretty much used by all of the major
+
+37
+00:01:40,103 --> 00:01:43,216
+Java development teams and Java development shops,
+
+38
+00:01:43,216 --> 00:01:45,501
+and basically just isolates the JDBC code
+
+39
+00:01:45,501 --> 00:01:48,065
+to one class or collection of classes
+
+40
+00:01:48,065 --> 00:01:50,592
+for you to use in your actual project.
+
+41
+00:01:50,592 --> 00:01:53,710
+And we'll build this out from scratch.
+
+42
+00:01:53,710 --> 00:01:55,077
+Alright, so anyways, wanted to give you
+
+43
+00:01:55,077 --> 00:01:58,623
+a head's up about the project, the big picture architecture.
+
+44
+00:01:58,623 --> 00:02:00,759
+And then in the following videos,
+
+45
+00:02:00,759 --> 00:02:01,931
+we'll kinda break this down,
+
+46
+00:02:01,931 --> 00:02:04,351
+and we'll break it up into smaller sections.
+
+47
+00:02:04,351 --> 00:02:06,162
+We'll deep dive into each section,
+
+48
+00:02:06,162 --> 00:02:09,091
+and then we'll build it out from scratch.
+
+49
+00:02:09,091 --> 00:02:11,178
+Alright, a lot of good stuff.
+
+50
+00:02:11,178 --> 00:02:12,147
+I'm excited.
+
+51
+00:02:12,147 --> 00:02:13,888
+Let's go ahead and start coding.
+
+52
+00:02:13,888 --> 00:02:16,471
+I'll see you in the next video.
+

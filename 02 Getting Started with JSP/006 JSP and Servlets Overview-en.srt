@@ -1,0 +1,392 @@
+1
+00:00:01,185 --> 00:00:02,121
+<v Voiceover>Welcome back.</v>
+
+2
+00:00:02,121 --> 00:00:04,282
+In this video, I'm gonna give you an overview
+
+3
+00:00:04,282 --> 00:00:05,949
+of JSP and Servlets.
+
+4
+00:00:08,560 --> 00:00:10,493
+We'll cover the following topics.
+
+5
+00:00:10,493 --> 00:00:13,314
+We'll first find out what is a Web Application.
+
+6
+00:00:13,314 --> 00:00:15,956
+Then we'll learn about JSP and Servlets
+
+7
+00:00:15,956 --> 00:00:18,825
+and finally, I'll show you different types of apps
+
+8
+00:00:18,825 --> 00:00:21,908
+you can create with JSP and Servlets.
+
+9
+00:00:22,981 --> 00:00:24,137
+So what we're gonna do in this course
+
+10
+00:00:24,137 --> 00:00:26,247
+is we're gonna build web applications.
+
+11
+00:00:26,247 --> 00:00:28,678
+So you may wonder, oh, what is a web application?
+
+12
+00:00:28,678 --> 00:00:30,038
+We'll you've used this before.
+
+13
+00:00:30,038 --> 00:00:31,932
+If you have gone to any e-commerce site
+
+14
+00:00:31,932 --> 00:00:33,630
+like Amazon or any travel site,
+
+15
+00:00:33,630 --> 00:00:36,256
+you've used a web app and it's basically a site
+
+16
+00:00:36,256 --> 00:00:38,648
+that builds HTML pages on the fly
+
+17
+00:00:38,648 --> 00:00:41,003
+based on your user actions.
+
+18
+00:00:41,003 --> 00:00:43,048
+So I'd like to show you and example of this
+
+19
+00:00:43,048 --> 00:00:45,548
+using one of the travel sites.
+
+20
+00:00:47,402 --> 00:00:50,753
+So here's expedia.com, I use this site a lot for travel.
+
+21
+00:00:50,753 --> 00:00:53,636
+I travel a lot from Philadelphia to India.
+
+22
+00:00:53,636 --> 00:00:57,024
+So, here I'll enter my, where I'm flying from,
+
+23
+00:00:57,024 --> 00:00:58,409
+where I'm flying to.
+
+24
+00:00:58,409 --> 00:01:00,894
+I'll enter some dates here for my travel,
+
+25
+00:01:00,894 --> 00:01:03,339
+and then the key here is that once I hit Search,
+
+26
+00:01:03,339 --> 00:01:06,042
+it's actually gonna generate HTML pages
+
+27
+00:01:06,042 --> 00:01:08,215
+for me based on my request.
+
+28
+00:01:08,215 --> 00:01:10,008
+All right, so these pages that you see here,
+
+29
+00:01:10,008 --> 00:01:12,470
+it's not a hard-coded page.
+
+30
+00:01:12,470 --> 00:01:16,794
+It's actually generated on the fly based on my input,
+
+31
+00:01:16,794 --> 00:01:19,461
+Philadelphia going to Bangalore.
+
+32
+00:01:21,321 --> 00:01:23,980
+All right, so you may wonder what happens behind the scenes.
+
+33
+00:01:23,980 --> 00:01:26,204
+Well, behind the scenes in the web browser,
+
+34
+00:01:26,204 --> 00:01:29,874
+you select search flights, then it goes to the web server.
+
+35
+00:01:29,874 --> 00:01:31,606
+What the web server would do is it'll actually
+
+36
+00:01:31,606 --> 00:01:34,877
+submit a request to the Database using SQL.
+
+37
+00:01:34,877 --> 00:01:37,352
+And then once it has results, then it'll take
+
+38
+00:01:37,352 --> 00:01:41,518
+that information and then send back an HTML page on the fly.
+
+39
+00:01:41,518 --> 00:01:43,613
+And that's the idea of a web application.
+
+40
+00:01:43,613 --> 00:01:45,200
+And this is actually very generic.
+
+41
+00:01:45,200 --> 00:01:48,083
+You can build web apps using any type of technology,
+
+42
+00:01:48,083 --> 00:01:52,118
+such as JSP or Servlets or dotnet technologies
+
+43
+00:01:52,118 --> 00:01:55,277
+or PHP technologies and so on.
+
+44
+00:01:55,277 --> 00:01:56,594
+But that's the basic idea.
+
+45
+00:01:56,594 --> 00:01:58,095
+And what I'll do in this course
+
+46
+00:01:58,095 --> 00:01:59,786
+is I'll show you a very high level
+
+47
+00:01:59,786 --> 00:02:03,777
+on how to get started with JSP for building pages.
+
+48
+00:02:03,777 --> 00:02:04,956
+So that's the next question here,
+
+49
+00:02:04,956 --> 00:02:07,136
+what are JSPs and Servlets?
+
+50
+00:02:07,136 --> 00:02:10,742
+We'll, a JSP and Servlet, they're basically Java code
+
+51
+00:02:10,742 --> 00:02:12,772
+that runs on the web server.
+
+52
+00:02:12,772 --> 00:02:16,507
+So, they can read user input, normally from an HTML Form.
+
+53
+00:02:16,507 --> 00:02:18,130
+And then they can perform the work,
+
+54
+00:02:18,130 --> 00:02:19,719
+maybe talking to a Database,
+
+55
+00:02:19,719 --> 00:02:22,099
+talking to a web service or whatever.
+
+56
+00:02:22,099 --> 00:02:24,635
+And finally, it'll return an HTML page
+
+57
+00:02:24,635 --> 00:02:28,091
+that is generated dynamically on the fly.
+
+58
+00:02:28,091 --> 00:02:30,732
+So, kinda pulling it together with this big picture,
+
+59
+00:02:30,732 --> 00:02:35,530
+our Servelts and JSPs could actually run on the web server.
+
+60
+00:02:35,530 --> 00:02:38,626
+So they could read information for flight information,
+
+61
+00:02:38,626 --> 00:02:40,535
+send information or so with the Database,
+
+62
+00:02:40,535 --> 00:02:43,355
+get the results and then send back an HTML page.
+
+63
+00:02:43,355 --> 00:02:47,432
+So, that's kinda the area of where Servlets and JSPs
+
+64
+00:02:47,432 --> 00:02:51,930
+can fit in your web application architecture.
+
+65
+00:02:51,930 --> 00:02:54,313
+All right, so here's another frequently asked question.
+
+66
+00:02:54,313 --> 00:02:56,941
+Well, what types of apps can we create?
+
+67
+00:02:56,941 --> 00:02:58,319
+Well, I always like to say that you
+
+68
+00:02:58,319 --> 00:03:00,606
+can create apps for any industry.
+
+69
+00:03:00,606 --> 00:03:03,696
+So, you can build e-commerce apps, you could build maybe
+
+70
+00:03:03,696 --> 00:03:06,286
+a student or employee tracking application.
+
+71
+00:03:06,286 --> 00:03:08,774
+If you're building like a hotel or restaurant
+
+72
+00:03:08,774 --> 00:03:11,469
+reservation app or a social media app,
+
+73
+00:03:11,469 --> 00:03:13,106
+like Twitter or Facebook.
+
+74
+00:03:13,106 --> 00:03:14,737
+Really, any type of app.
+
+75
+00:03:14,737 --> 00:03:18,646
+There's really no limit on the apps that you can create.
+
+76
+00:03:18,646 --> 00:03:20,801
+JSP and Servlets are the key components
+
+77
+00:03:20,801 --> 00:03:22,570
+of the Java Enterprise Edition.
+
+78
+00:03:22,570 --> 00:03:24,493
+They're the most popular pieces of technology
+
+79
+00:03:24,493 --> 00:03:26,675
+and I always like to say they're the bread and butter
+
+80
+00:03:26,675 --> 00:03:28,913
+because a lot of popular MVC frameworks
+
+81
+00:03:28,913 --> 00:03:31,035
+actually use JSP and Servlets.
+
+82
+00:03:31,035 --> 00:03:34,976
+So, for example, Spring, JSF and Struts.
+
+83
+00:03:34,976 --> 00:03:38,513
+They all use JSP and Servlets at the low level.
+
+84
+00:03:38,513 --> 00:03:40,229
+Now, when you're using these technologies,
+
+85
+00:03:40,229 --> 00:03:43,245
+you may not see it directly at the high level
+
+86
+00:03:43,245 --> 00:03:46,323
+but behind the scenes, Spring, JSF and Struts,
+
+87
+00:03:46,323 --> 00:03:48,786
+they all make use of JSP and Servlets.
+
+88
+00:03:48,786 --> 00:03:50,484
+So, they're the key components
+
+89
+00:03:50,484 --> 00:03:52,209
+of the Java Enterprise Edition.
+
+90
+00:03:52,209 --> 00:03:54,295
+So, by you understanding JSP,
+
+91
+00:03:54,295 --> 00:03:56,454
+this'll help you when you move forward,
+
+92
+00:03:56,454 --> 00:04:00,506
+if you use some of those frameworks later on in your career.
+
+93
+00:04:00,506 --> 00:04:02,934
+All right, so let's go ahead and wrap up this video.
+
+94
+00:04:02,934 --> 00:04:05,001
+So we defined what are web applications,
+
+95
+00:04:05,001 --> 00:04:06,654
+we saw a demo of a web app,
+
+96
+00:04:06,654 --> 00:04:09,017
+we also discussed JSP and Servlets,
+
+97
+00:04:09,017 --> 00:04:11,618
+and then finally, we discussed the various types of apps
+
+98
+00:04:11,618 --> 00:04:14,618
+you can create with this technology.
+

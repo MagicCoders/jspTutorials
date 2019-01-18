@@ -1,0 +1,372 @@
+1
+00:00:01,247 --> 00:00:02,281
+<v Narrator>Hey.</v>
+
+2
+00:00:02,281 --> 00:00:03,784
+In this video, we're gonna learn how to create
+
+3
+00:00:03,784 --> 00:00:07,617
+a database application using servlets and JSP.
+
+4
+00:00:10,118 --> 00:00:11,918
+So for our class project,
+
+5
+00:00:11,918 --> 00:00:13,824
+the main idea is that we're gonna build
+
+6
+00:00:13,824 --> 00:00:16,798
+a full working JSP and servlet application
+
+7
+00:00:16,798 --> 00:00:19,196
+that connects to a database.
+
+8
+00:00:19,196 --> 00:00:22,479
+So, we're gonna build the front end pages using JSP.
+
+9
+00:00:22,479 --> 00:00:24,481
+We'll build some of the back end controller code
+
+10
+00:00:24,481 --> 00:00:28,232
+using servlets, and we'll hook all of this into a database,
+
+11
+00:00:28,232 --> 00:00:30,990
+and it will actually talk to a MySQL database.
+
+12
+00:00:30,990 --> 00:00:35,157
+Now, I'll show you how to build all of this from scratch.
+
+13
+00:00:36,984 --> 00:00:38,544
+Alright, so before we get into the coding,
+
+14
+00:00:38,544 --> 00:00:41,063
+let's look at a quick demo of the application.
+
+15
+00:00:41,063 --> 00:00:43,062
+This is an application for a fictional company
+
+16
+00:00:43,062 --> 00:00:44,802
+called FooBar University.
+
+17
+00:00:44,802 --> 00:00:46,847
+We can list all of the students,
+
+18
+00:00:46,847 --> 00:00:49,198
+we can add a new student,
+
+19
+00:00:49,198 --> 00:00:51,663
+and we can also perform some actions on a student,
+
+20
+00:00:51,663 --> 00:00:54,359
+like updating or deleting a student.
+
+21
+00:00:54,359 --> 00:00:58,526
+Let's go ahead and start off with adding a student.
+
+22
+00:00:59,806 --> 00:01:01,486
+Here's our add student form.
+
+23
+00:01:01,486 --> 00:01:05,653
+We can type in a first name and last name for a student,
+
+24
+00:01:07,233 --> 00:01:10,955
+and then we'll give his email address, bill@foo.com.
+
+25
+00:01:10,955 --> 00:01:12,005
+Once we're happy with this,
+
+26
+00:01:12,005 --> 00:01:15,755
+we can go ahead and click on the save button.
+
+27
+00:01:18,059 --> 00:01:19,402
+Okay, this looks really good.
+
+28
+00:01:19,402 --> 00:01:22,464
+So note here, we have this new student, Bill Appleby,
+
+29
+00:01:22,464 --> 00:01:24,895
+and his email address is bill@foo.com.
+
+30
+00:01:24,895 --> 00:01:25,728
+This is great.
+
+31
+00:01:25,728 --> 00:01:28,228
+So, we've added a new student.
+
+32
+00:01:29,177 --> 00:01:31,554
+Alright, so now let's go ahead and update a student.
+
+33
+00:01:31,554 --> 00:01:34,442
+I'll go ahead and click the update button here.
+
+34
+00:01:34,442 --> 00:01:36,161
+So for Bill Appleby,
+
+35
+00:01:36,161 --> 00:01:38,986
+I'm simply gonna change his email address.
+
+36
+00:01:38,986 --> 00:01:40,440
+So instead of foo.com,
+
+37
+00:01:40,440 --> 00:01:41,665
+we'll change it to
+
+38
+00:01:41,665 --> 00:01:45,415
+bill@luv2code.com, because he loves to code.
+
+39
+00:01:45,415 --> 00:01:46,396
+Yeah.
+
+40
+00:01:46,396 --> 00:01:49,803
+Then we'll hit the save button.
+
+41
+00:01:49,803 --> 00:01:50,914
+Okay, so this looks good also.
+
+42
+00:01:50,914 --> 00:01:53,603
+Here's Bill Appleby, and note his email address,
+
+43
+00:01:53,603 --> 00:01:56,737
+bill@luv2code.com, so we were successful there
+
+44
+00:01:56,737 --> 00:01:59,237
+in updating his email address.
+
+45
+00:02:01,525 --> 00:02:05,234
+Now, let's try this other item here of deleting the student.
+
+46
+00:02:05,234 --> 00:02:07,865
+It'll first prompt you if you want to delete the student.
+
+47
+00:02:07,865 --> 00:02:10,683
+We'll go ahead and click on OK.
+
+48
+00:02:10,683 --> 00:02:12,897
+Now, note it refreshes the screen,
+
+49
+00:02:12,897 --> 00:02:14,559
+it deleted that user,
+
+50
+00:02:14,559 --> 00:02:18,100
+so Bill Appleby is no longer in our list of students.
+
+51
+00:02:18,100 --> 00:02:22,494
+So, the delete operation worked out just fine for us.
+
+52
+00:02:22,494 --> 00:02:24,874
+Alright, so that covers the main CRUD features here
+
+53
+00:02:24,874 --> 00:02:26,008
+for an application.
+
+54
+00:02:26,008 --> 00:02:29,184
+So, we'll learn how to insert, update, delete,
+
+55
+00:02:29,184 --> 00:02:32,235
+and list all of the students for a database,
+
+56
+00:02:32,235 --> 00:02:34,469
+and we'll actually learn how to do all of this from scratch
+
+57
+00:02:34,469 --> 00:02:36,890
+in the following videos.
+
+58
+00:02:36,890 --> 00:02:38,561
+But first, what I wanna do is go ahead
+
+59
+00:02:38,561 --> 00:02:40,078
+and take a look at the actual database.
+
+60
+00:02:40,078 --> 00:02:41,669
+So, we have a database out here
+
+61
+00:02:41,669 --> 00:02:43,845
+with the given database table.
+
+62
+00:02:43,845 --> 00:02:45,685
+We have a table called student.
+
+63
+00:02:45,685 --> 00:02:48,583
+If we simply do a query on this table,
+
+64
+00:02:48,583 --> 00:02:50,411
+we can see the list of students that we have.
+
+65
+00:02:50,411 --> 00:02:53,723
+So select rows, and it'll show us our five students.
+
+66
+00:02:53,723 --> 00:02:56,080
+So, these are the five students that we have out here
+
+67
+00:02:56,080 --> 00:02:57,441
+in our database right now.
+
+68
+00:02:57,441 --> 00:02:59,647
+And again, when we write all the code,
+
+69
+00:02:59,647 --> 00:03:02,373
+our application's gonna interact with this database table,
+
+70
+00:03:02,373 --> 00:03:03,964
+insert, update, and delete,
+
+71
+00:03:03,964 --> 00:03:06,381
+and perform queries on this table.
+
+72
+00:03:06,381 --> 00:03:07,895
+And again, we'll figure out all the details
+
+73
+00:03:07,895 --> 00:03:10,222
+on how to set this database table up,
+
+74
+00:03:10,222 --> 00:03:11,696
+how to populate it with data,
+
+75
+00:03:11,696 --> 00:03:15,738
+and then how we can manage it and use it in our application.
+
+76
+00:03:15,738 --> 00:03:17,443
+Alright, so we have a lot of good things in store here,
+
+77
+00:03:17,443 --> 00:03:18,383
+but you know me.
+
+78
+00:03:18,383 --> 00:03:19,718
+I love to-do lists.
+
+79
+00:03:19,718 --> 00:03:20,557
+So, the first thing we're gonna do
+
+80
+00:03:20,557 --> 00:03:24,070
+is learn how to set up our database dev environment.
+
+81
+00:03:24,070 --> 00:03:26,194
+Then, we'll learn how to list the students.
+
+82
+00:03:26,194 --> 00:03:29,857
+Next, I'll show you how to add a new student,
+
+83
+00:03:29,857 --> 00:03:32,586
+and then from there, we'll learn how to update a student.
+
+84
+00:03:32,586 --> 00:03:35,196
+And then finally, I'll show you how to delete a student.
+
+85
+00:03:35,196 --> 00:03:36,798
+And again, we're gonna cover all of this
+
+86
+00:03:36,798 --> 00:03:38,605
+step-by-step from scratch.
+
+87
+00:03:38,605 --> 00:03:41,900
+So, we'll cover each section here in separate videos,
+
+88
+00:03:41,900 --> 00:03:43,701
+and I'll walk you through all of the code.
+
+89
+00:03:43,701 --> 00:03:45,249
+We'll write all the code together,
+
+90
+00:03:45,249 --> 00:03:47,504
+and we'll test it out, and we'll make sure it works.
+
+91
+00:03:47,504 --> 00:03:49,003
+By the end of the video series,
+
+92
+00:03:49,003 --> 00:03:51,189
+we'll have a full database application
+
+93
+00:03:51,189 --> 00:03:53,106
+using servlets and JSP.
+

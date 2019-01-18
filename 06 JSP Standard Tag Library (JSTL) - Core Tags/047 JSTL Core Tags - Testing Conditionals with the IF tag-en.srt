@@ -1,0 +1,456 @@
+1
+00:00:01,392 --> 00:00:02,331
+<v Narrator>Hey!</v>
+
+2
+00:00:02,331 --> 00:00:06,498
+In this video we're gonna learn about the JSTL Core Tag if.
+
+3
+00:00:07,943 --> 00:00:11,066
+So the if tag is used for a conditional test.
+
+4
+00:00:11,066 --> 00:00:14,350
+So basically the tag will evaluate an expression and
+
+5
+00:00:14,350 --> 00:00:17,672
+it'll display the body content only if the expression
+
+6
+00:00:17,672 --> 00:00:19,172
+evaluates to true.
+
+7
+00:00:20,798 --> 00:00:23,109
+And I have a nice little example of how we can use this
+
+8
+00:00:23,109 --> 00:00:25,109
+in our existing project.
+
+9
+00:00:28,092 --> 00:00:30,926
+So what we like to do is display Special Discount if
+
+10
+00:00:30,926 --> 00:00:33,509
+the student is a gold customer.
+
+11
+00:00:34,537 --> 00:00:38,345
+So here's a little code snippet of using this if tag.
+
+12
+00:00:38,345 --> 00:00:41,451
+So basically we say if and then we give test equals
+
+13
+00:00:41,451 --> 00:00:44,999
+and then we specify what we're testing.
+
+14
+00:00:44,999 --> 00:00:46,621
+So here I have a JSP expression.
+
+15
+00:00:46,621 --> 00:00:49,795
+Temp student dot gold customer.
+
+16
+00:00:49,795 --> 00:00:53,928
+Now again remember JSP will call the method for you
+
+17
+00:00:53,928 --> 00:00:55,209
+automatically in the background.
+
+18
+00:00:55,209 --> 00:00:59,706
+JSP will call temp student dot is gold customer.
+
+19
+00:00:59,706 --> 00:01:02,184
+This method, as you recall from the previous videos,
+
+20
+00:01:02,184 --> 00:01:04,405
+will return a value of true or false.
+
+21
+00:01:04,405 --> 00:01:05,311
+A boolean.
+
+22
+00:01:05,311 --> 00:01:08,694
+So if this value is true then it will display
+
+23
+00:01:08,694 --> 00:01:10,494
+special discount.
+
+24
+00:01:10,494 --> 00:01:14,761
+If it evaluates to false it won't display anything.
+
+25
+00:01:14,761 --> 00:01:16,536
+Alright, so a lot of good stuff here.
+
+26
+00:01:16,536 --> 00:01:20,703
+Let's move into Eclipse and let's try this code out.
+
+27
+00:01:22,271 --> 00:01:23,787
+Alright, so I'm in Eclipse.
+
+28
+00:01:23,787 --> 00:01:26,454
+I'm using this project tag demo.
+
+29
+00:01:27,917 --> 00:01:31,016
+And what I wanna do is move down to my WebContent folder
+
+30
+00:01:31,016 --> 00:01:33,116
+and I'm basically gonna make some enhancements to
+
+31
+00:01:33,116 --> 00:01:34,743
+our previous project.
+
+32
+00:01:34,743 --> 00:01:38,264
+So what I'll do is I'll actually copy our previous file
+
+33
+00:01:38,264 --> 00:01:40,940
+for each student test JSP.
+
+34
+00:01:40,940 --> 00:01:45,294
+I'll simply right click and copy that file.
+
+35
+00:01:45,294 --> 00:01:49,461
+And then likewise I'll right click and do a paste.
+
+36
+00:01:50,572 --> 00:01:51,985
+And I'll give it a new name here.
+
+37
+00:01:51,985 --> 00:01:54,402
+I'll call it if student test.
+
+38
+00:01:57,120 --> 00:01:58,782
+And once I'm happy with that name I'll go ahead and
+
+39
+00:01:58,782 --> 00:02:00,449
+click the OK button.
+
+40
+00:02:03,647 --> 00:02:04,517
+Alright.
+
+41
+00:02:04,517 --> 00:02:07,602
+So now I have this new file here if student test dot JSP.
+
+42
+00:02:07,602 --> 00:02:10,010
+It's basically a copy of our previous file.
+
+43
+00:02:10,010 --> 00:02:12,279
+We're simply gonna make some enhancements to it.
+
+44
+00:02:12,279 --> 00:02:14,047
+So everything that you see here is what we did
+
+45
+00:02:14,047 --> 00:02:15,591
+in our previous video.
+
+46
+00:02:15,591 --> 00:02:19,987
+I wanna move down to this section here for gold customer.
+
+47
+00:02:19,987 --> 00:02:23,958
+So remember, we wanna display a Special Discount if
+
+48
+00:02:23,958 --> 00:02:26,291
+the user is a gold customer.
+
+49
+00:02:27,489 --> 00:02:29,324
+Alright, so let me give me some space.
+
+50
+00:02:29,324 --> 00:02:30,673
+Some room to work here.
+
+51
+00:02:30,673 --> 00:02:32,202
+So I make use of the if tag.
+
+52
+00:02:32,202 --> 00:02:36,177
+C colon if test equals and then I put this expression
+
+53
+00:02:36,177 --> 00:02:37,010
+in quotes.
+
+54
+00:02:38,508 --> 00:02:42,675
+So again, JSP will call temp student dot is gold customer.
+
+55
+00:02:43,706 --> 00:02:48,554
+If that returns true then we'll display Special Discount.
+
+56
+00:02:48,554 --> 00:02:51,938
+If it returns false we won't display anything.
+
+57
+00:02:51,938 --> 00:02:55,271
+So just a very simply if then statement.
+
+58
+00:02:57,745 --> 00:02:59,389
+Alright so let's go ahead and try it out.
+
+59
+00:02:59,389 --> 00:03:00,943
+So I'll save my file.
+
+60
+00:03:00,943 --> 00:03:02,256
+I move over to the file.
+
+61
+00:03:02,256 --> 00:03:06,423
+I'll do a right click and I'll say run as run on server.
+
+62
+00:03:10,764 --> 00:03:11,597
+Okay good.
+
+63
+00:03:11,597 --> 00:03:13,131
+So this is some good results here.
+
+64
+00:03:13,131 --> 00:03:14,510
+So we have our students listed.
+
+65
+00:03:14,510 --> 00:03:17,842
+And then we have Mary Public and she's a gold customer
+
+66
+00:03:17,842 --> 00:03:20,592
+so it displayed Special Discount.
+
+67
+00:03:22,543 --> 00:03:23,916
+Notice for the other two students
+
+68
+00:03:23,916 --> 00:03:25,337
+it didn't display anything.
+
+69
+00:03:25,337 --> 00:03:27,628
+And let's just kinda review our data again.
+
+70
+00:03:27,628 --> 00:03:28,914
+And this is our test data.
+
+71
+00:03:28,914 --> 00:03:31,837
+So John, Doe, Maxwelll and Mary Public.
+
+72
+00:03:31,837 --> 00:03:35,071
+So Mary Public is the only one that's a gold customer.
+
+73
+00:03:35,071 --> 00:03:36,538
+She has a value of true.
+
+74
+00:03:36,538 --> 00:03:38,842
+And so that's why we have this given display
+
+75
+00:03:38,842 --> 00:03:40,041
+here on the screen.
+
+76
+00:03:40,041 --> 00:03:41,758
+So this looks really really good so far.
+
+77
+00:03:41,758 --> 00:03:44,675
+So we're making some good progress.
+
+78
+00:03:45,697 --> 00:03:47,889
+But what I'd like to do is somehow change this to
+
+79
+00:03:47,889 --> 00:03:51,036
+display something if they're not a gold customer.
+
+80
+00:03:51,036 --> 00:03:52,751
+So how can I do that?
+
+81
+00:03:52,751 --> 00:03:54,841
+Well, you would normally think you could make use of an
+
+82
+00:03:54,841 --> 00:03:58,687
+else statement but unfortunately this tag library
+
+83
+00:03:58,687 --> 00:04:00,838
+doesn't have an else for ifs.
+
+84
+00:04:00,838 --> 00:04:03,272
+So, kinda weird I know.
+
+85
+00:04:03,272 --> 00:04:05,816
+What we can do is we can just check the inverse.
+
+86
+00:04:05,816 --> 00:04:09,983
+So here I can say test equals not temp gold student.
+
+87
+00:04:10,841 --> 00:04:12,037
+So basically I'm checking to see
+
+88
+00:04:12,037 --> 00:04:13,685
+if it's not a gold customer.
+
+89
+00:04:13,685 --> 00:04:16,839
+If it's not a gold customer then I'll display something
+
+90
+00:04:16,839 --> 00:04:17,672
+different.
+
+91
+00:04:17,672 --> 00:04:19,433
+So here I'll just put a little dash meaning just
+
+92
+00:04:19,433 --> 00:04:20,524
+ya know, nothing.
+
+93
+00:04:20,524 --> 00:04:22,335
+We can say whatever we wanted to here for the body
+
+94
+00:04:22,335 --> 00:04:25,527
+but I'll just keep it simple and put a dash here.
+
+95
+00:04:25,527 --> 00:04:28,095
+And so this is how we can make use of an else kinda sort
+
+96
+00:04:28,095 --> 00:04:29,839
+kinda doing a hack work around.
+
+97
+00:04:29,839 --> 00:04:31,643
+But don't worry, in a following video I'll show you
+
+98
+00:04:31,643 --> 00:04:34,142
+some other options for handling this
+
+99
+00:04:34,142 --> 00:04:35,519
+type of scenario.
+
+100
+00:04:35,519 --> 00:04:37,382
+But let's go with what we have for right now.
+
+101
+00:04:37,382 --> 00:04:38,864
+So I'll save the file.
+
+102
+00:04:38,864 --> 00:04:40,508
+Move back to my browser.
+
+103
+00:04:40,508 --> 00:04:43,425
+And I will simply refresh the page.
+
+104
+00:04:46,943 --> 00:04:48,600
+Wow, this looks awesome.
+
+105
+00:04:48,600 --> 00:04:49,433
+Okay, good.
+
+106
+00:04:49,433 --> 00:04:51,666
+So now if they're not a gold customer we will display
+
+107
+00:04:51,666 --> 00:04:52,958
+a dash.
+
+108
+00:04:52,958 --> 00:04:54,338
+If they are a gold customer
+
+109
+00:04:54,338 --> 00:04:56,731
+then we display Special Discount.
+
+110
+00:04:56,731 --> 00:04:57,564
+Right.
+
+111
+00:04:57,564 --> 00:04:58,397
+So this is pretty cool.
+
+112
+00:04:58,397 --> 00:04:59,768
+And you can think of all different types of ways of
+
+113
+00:04:59,768 --> 00:05:02,729
+how you could use this in your application.
+
+114
+00:05:02,729 --> 00:05:05,896
+But this is good so far so great job.
+

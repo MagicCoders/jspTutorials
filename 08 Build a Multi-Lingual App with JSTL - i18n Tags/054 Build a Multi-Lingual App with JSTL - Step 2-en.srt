@@ -1,0 +1,260 @@
+1
+00:00:01,267 --> 00:00:02,100
+<v Narrator>Alright, so we have our</v>
+
+2
+00:00:02,100 --> 00:00:03,741
+resource files taken care of.
+
+3
+00:00:03,741 --> 00:00:07,227
+The next step is creating the JSP page with labels.
+
+4
+00:00:07,227 --> 00:00:09,238
+So we're actually gonna use those labels
+
+5
+00:00:09,238 --> 00:00:12,405
+that we defined in our resource files.
+
+6
+00:00:15,199 --> 00:00:18,002
+Alright, so lets move down to our web content directory.
+
+7
+00:00:18,002 --> 00:00:20,501
+What we wanna do here is create a new JSP file.
+
+8
+00:00:20,501 --> 00:00:24,668
+So I'll simply do a right click, I'll say new...file.
+
+9
+00:00:26,120 --> 00:00:27,787
+And the name that I will give for the file
+
+10
+00:00:27,787 --> 00:00:31,787
+I'll call it i18n-messages-test.JSP.
+
+11
+00:00:38,511 --> 00:00:42,178
+We can go ahead and click the finish button.
+
+12
+00:00:45,784 --> 00:00:49,951
+Alright, so imma go ahead and expand the window here.
+
+13
+00:00:50,990 --> 00:00:53,443
+And i'll do my normal housekeeping work.
+
+14
+00:00:53,443 --> 00:00:57,111
+So first I'll drop in the taglib references
+
+15
+00:00:57,111 --> 00:01:00,611
+for the core tags and the formatting tags.
+
+16
+00:01:02,510 --> 00:01:04,785
+Now let me just fix up line one for a second.
+
+17
+00:01:04,785 --> 00:01:06,624
+Just throw the pre-fix down at the end.
+
+18
+00:01:06,624 --> 00:01:08,736
+I don't know I'd like to keep it consistent there.
+
+19
+00:01:08,736 --> 00:01:11,424
+Alright so those are our taglibs.
+
+20
+00:01:11,424 --> 00:01:13,875
+Now we'll do the normal html housekeeping.
+
+21
+00:01:13,875 --> 00:01:16,208
+Just html tags and our body.
+
+22
+00:01:19,137 --> 00:01:20,812
+Alright, So now we can start coding
+
+23
+00:01:20,812 --> 00:01:22,306
+and so what we're gonna do is make use
+
+24
+00:01:22,306 --> 00:01:25,052
+of the formatting tag. And we're gonna reference
+
+25
+00:01:25,052 --> 00:01:28,135
+those labels from our resource files.
+
+26
+00:01:34,305 --> 00:01:36,742
+So here I make use of format message.
+
+27
+00:01:36,742 --> 00:01:38,985
+I'll say key=label.greeting
+
+28
+00:01:38,985 --> 00:01:42,024
+So that's the actual entry or the properties file
+
+29
+00:01:42,024 --> 00:01:44,477
+that's in our resource file label.greeting
+
+30
+00:01:44,477 --> 00:01:46,335
+I'll just put a little line break here
+
+31
+00:01:46,335 --> 00:01:47,526
+to make things look pretty.
+
+32
+00:01:47,526 --> 00:01:50,247
+So that should give me the greeting
+
+33
+00:01:50,247 --> 00:01:54,086
+based on whatever resource that we're using at a given time
+
+34
+00:01:54,086 --> 00:01:56,279
+and then I'll just repeat that process here.
+
+35
+00:01:56,279 --> 00:01:59,112
+Format message key label.firstname
+
+36
+00:02:05,397 --> 00:02:09,564
+and then we'll just put a first name in here, John.
+
+37
+00:02:11,665 --> 00:02:15,007
+And again drop in another line break.
+
+38
+00:02:15,007 --> 00:02:16,454
+And let me just copy this first name line
+
+39
+00:02:16,454 --> 00:02:18,883
+and do a similar thing here for last name.
+
+40
+00:02:18,883 --> 00:02:21,316
+So I'll just change, instead of first name,
+
+41
+00:02:21,316 --> 00:02:25,483
+I'll say last name. And I'll just fix this name to be Doe.
+
+42
+00:02:27,826 --> 00:02:28,659
+Alright, cool.
+
+43
+00:02:28,659 --> 00:02:30,325
+So that takes care of first name and last name.
+
+44
+00:02:30,325 --> 00:02:33,109
+Now our final thing is our welcome message.
+
+45
+00:02:33,109 --> 00:02:36,550
+So we'll say format message and then the
+
+46
+00:02:36,550 --> 00:02:38,467
+key=label.welcome.
+
+47
+00:02:47,256 --> 00:02:49,155
+Okay, great. So this looks really good so far.
+
+48
+00:02:49,155 --> 00:02:51,797
+So, What we did here was we made use
+
+49
+00:02:51,797 --> 00:02:54,205
+of that format message tag and we give our
+
+50
+00:02:54,205 --> 00:02:57,313
+reference to the key and they key is the actual property
+
+51
+00:02:57,313 --> 00:03:00,239
+from our resource file that we're gonna reference.
+
+52
+00:03:00,239 --> 00:03:01,969
+So we use the key for our label.greeeting.
+
+53
+00:03:01,969 --> 00:03:04,552
+First name, last name, welcome.
+
+54
+00:03:07,720 --> 00:03:09,449
+And I can swing back over to that property
+
+55
+00:03:09,449 --> 00:03:12,039
+so I'll just verify that label.greeting
+
+56
+00:03:12,039 --> 00:03:13,419
+first name, last name, welcome.
+
+57
+00:03:13,419 --> 00:03:15,506
+And the key is, they each have to be consistent.
+
+58
+00:03:15,506 --> 00:03:17,085
+Make sure you use the same names
+
+59
+00:03:17,085 --> 00:03:20,252
+that you have in your properties file.
+
+60
+00:03:21,233 --> 00:03:23,106
+Alright, well this looks good so far.
+
+61
+00:03:23,106 --> 00:03:24,859
+This takes care of step two as far as
+
+62
+00:03:24,859 --> 00:03:28,623
+making use of our labels in our JSP page.
+
+63
+00:03:28,623 --> 00:03:31,057
+On the following video, we'll actually show you
+
+64
+00:03:31,057 --> 00:03:35,221
+how to set the low cal based on the user selection.
+
+65
+00:03:35,221 --> 00:03:38,888
+But this is good work so far. So, great job.
+

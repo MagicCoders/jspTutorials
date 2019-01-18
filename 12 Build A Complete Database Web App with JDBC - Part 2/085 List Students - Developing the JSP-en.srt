@@ -1,0 +1,752 @@
+1
+00:00:00,797 --> 00:00:02,367
+<v Teacher>Alright, so we have our</v>
+
+2
+00:00:02,367 --> 00:00:03,880
+controller servlet completed.
+
+3
+00:00:03,880 --> 00:00:07,694
+Let's go ahead and focus in on our JSP page now.
+
+4
+00:00:07,694 --> 00:00:10,938
+So in our project, in our WebContent folder,
+
+5
+00:00:10,938 --> 00:00:14,325
+let's go ahead and create a new file for our JSP.
+
+6
+00:00:14,325 --> 00:00:18,424
+So I'll right-click, I'll say: new, file.
+
+7
+00:00:18,424 --> 00:00:19,910
+and for the name of the file;
+
+8
+00:00:19,910 --> 00:00:22,660
+I'll call it "list-students.jsp".
+
+9
+00:00:32,147 --> 00:00:34,655
+And once I'm happy with that I'll hit okay,
+
+10
+00:00:34,655 --> 00:00:36,621
+and now we have this empty file here,
+
+11
+00:00:36,621 --> 00:00:40,843
+and we need to go ahead and add some information to it.
+
+12
+00:00:40,843 --> 00:00:43,284
+So the first thing we need to do is our JSP's gonna make
+
+13
+00:00:43,284 --> 00:00:46,280
+use of some Java packages so I need to do an import.
+
+14
+00:00:46,280 --> 00:00:49,146
+So I need to import java dot util dot star,
+
+15
+00:00:49,146 --> 00:00:50,179
+because I'm gonna use--
+
+16
+00:00:50,179 --> 00:00:51,409
+list an array list,
+
+17
+00:00:51,409 --> 00:00:54,560
+and also some of my own custom classes from my package;
+
+18
+00:00:54,560 --> 00:00:56,477
+com.Luv2code.web.jdbc.*
+
+19
+00:00:57,541 --> 00:00:59,929
+So this is basically just an import for two packages,
+
+20
+00:00:59,929 --> 00:01:01,156
+and then remember in JSP
+
+21
+00:01:01,156 --> 00:01:03,437
+we can import multiple packages
+
+22
+00:01:03,437 --> 00:01:06,671
+by giving a comma with unlimited list of package names.
+
+23
+00:01:06,671 --> 00:01:08,242
+Alright, so we have the packages here,
+
+24
+00:01:08,242 --> 00:01:11,159
+now I'll just do my very basic HTML
+
+25
+00:01:12,342 --> 00:01:14,776
+setup work, so I'll set up my HTML head,
+
+26
+00:01:14,776 --> 00:01:17,193
+and I'll set up my HTML body.
+
+27
+00:01:21,938 --> 00:01:24,085
+Alright, so we have our general HTML housekeeping
+
+28
+00:01:24,085 --> 00:01:25,021
+taken care of.
+
+29
+00:01:25,021 --> 00:01:27,326
+Let me just set up a title here for this page;
+
+30
+00:01:27,326 --> 00:01:30,159
+I'll call it: Student Tracker App.
+
+31
+00:01:33,995 --> 00:01:35,769
+Alright, so that parts taken care of.
+
+32
+00:01:35,769 --> 00:01:37,640
+Now, what I wanna do is actually make use of that
+
+33
+00:01:37,640 --> 00:01:40,590
+request object and use some of its data.
+
+34
+00:01:40,590 --> 00:01:42,819
+So I'll set up a JSP scriptlet
+
+35
+00:01:42,819 --> 00:01:44,569
+and I want to get the
+
+36
+00:01:45,413 --> 00:01:47,832
+list of students from that request attribute that was
+
+37
+00:01:47,832 --> 00:01:50,082
+passed over by the servlet.
+
+38
+00:01:54,024 --> 00:01:56,350
+So I know the servlet has a list of students
+
+39
+00:01:56,350 --> 00:01:58,081
+that it put into that request object
+
+40
+00:01:58,081 --> 00:02:00,168
+so I'll simply say: theStudents equals
+
+41
+00:02:00,168 --> 00:02:03,173
+and then I'll retrieve that information and I'll downcast
+
+42
+00:02:03,173 --> 00:02:05,151
+it, so I'll say: List Student
+
+43
+00:02:05,151 --> 00:02:08,318
+and I'll say request dot get attribute
+
+44
+00:02:09,689 --> 00:02:12,379
+and I'll give the attribute name that was used by
+
+45
+00:02:12,379 --> 00:02:16,212
+the servlet. So it's: student underscore list.
+
+46
+00:02:20,291 --> 00:02:22,372
+And that will give me a handle to the students.
+
+47
+00:02:22,372 --> 00:02:25,067
+Now, I always like to go into the servlet source code
+
+48
+00:02:25,067 --> 00:02:28,105
+and just verify that I have the correct attribute name
+
+49
+00:02:28,105 --> 00:02:30,593
+so I'll swing back over to the servlet source code
+
+50
+00:02:30,593 --> 00:02:32,702
+for my student controller servlet,
+
+51
+00:02:32,702 --> 00:02:34,391
+and I'll move down to the section
+
+52
+00:02:34,391 --> 00:02:37,392
+where we did our request dispatcher and here we go,
+
+53
+00:02:37,392 --> 00:02:40,456
+great. So this line's 58 and 59.
+
+54
+00:02:40,456 --> 00:02:42,352
+This is where we set the students and
+
+55
+00:02:42,352 --> 00:02:44,920
+the request attribute and note here what's highlighted:
+
+56
+00:02:44,920 --> 00:02:47,928
+Student underscore list. So that's the same attribute name.
+
+57
+00:02:47,928 --> 00:02:50,932
+So, just make sure you follow that pattern there.
+
+58
+00:02:50,932 --> 00:02:51,792
+Student underscore list.
+
+59
+00:02:51,792 --> 00:02:52,625
+Good.
+
+60
+00:02:52,625 --> 00:02:55,625
+So now we have the list of students.
+
+61
+00:02:58,421 --> 00:03:00,472
+So let me stretch out and get some white space here.
+
+62
+00:03:00,472 --> 00:03:03,362
+And now what I always like to do is just a very simple
+
+63
+00:03:03,362 --> 00:03:05,609
+proof of concept, that hey, we can get the data.
+
+64
+00:03:05,609 --> 00:03:08,869
+So, before I get into displaying the actual
+
+65
+00:03:08,869 --> 00:03:11,446
+HTML table, I just want to dump out those students,
+
+66
+00:03:11,446 --> 00:03:14,694
+just so it can print the information to the browser,
+
+67
+00:03:14,694 --> 00:03:15,750
+just to make sure that hey,
+
+68
+00:03:15,750 --> 00:03:17,368
+we can actually get some data.
+
+69
+00:03:17,368 --> 00:03:18,801
+And the output will be ugly,
+
+70
+00:03:18,801 --> 00:03:20,979
+but at least we can verify that we have data
+
+71
+00:03:20,979 --> 00:03:23,312
+right now from that servlet.
+
+72
+00:03:25,262 --> 00:03:26,823
+So let me go ahead and run this servlet,
+
+73
+00:03:26,823 --> 00:03:29,055
+so student controller servlet,
+
+74
+00:03:29,055 --> 00:03:30,055
+right-click.
+
+75
+00:03:34,660 --> 00:03:38,827
+I'll choose run as, and I'll choose run on server.
+
+76
+00:03:42,541 --> 00:03:45,837
+Alright, so here's the output, so our servlet just ran
+
+77
+00:03:45,837 --> 00:03:48,763
+so again, remember our servlet talks to the database util
+
+78
+00:03:48,763 --> 00:03:50,204
+gets that list of students,
+
+79
+00:03:50,204 --> 00:03:51,454
+forwards it over to the JSP
+
+80
+00:03:51,454 --> 00:03:53,572
+and right now our JSP is just very simple.
+
+81
+00:03:53,572 --> 00:03:55,291
+We're just dumping out the list of students,
+
+82
+00:03:55,291 --> 00:03:57,689
+and again, it's really really ugly right now.
+
+83
+00:03:57,689 --> 00:03:59,346
+(laughs)
+
+84
+00:03:59,346 --> 00:04:00,820
+<v ->But don't worry, we'll actually get into all the</v>
+
+85
+00:04:00,820 --> 00:04:04,769
+HTML table stuff. Again, I just like to make sure that
+
+86
+00:04:04,769 --> 00:04:07,625
+we can get the data and we can get it to the JSP.
+
+87
+00:04:07,625 --> 00:04:10,144
+Now, this is just more of a-- making things
+
+88
+00:04:10,144 --> 00:04:14,990
+look pretty inside the house right now, that's all.
+
+89
+00:04:14,990 --> 00:04:16,944
+Alright, so let's go ahead and move back into our JSP.
+
+90
+00:04:16,944 --> 00:04:21,364
+And now we actually want to build the HTML table.
+
+91
+00:04:21,364 --> 00:04:24,318
+And so I'll kinda work on my HTML page.
+
+92
+00:04:24,318 --> 00:04:26,633
+We'll actually make use of some style sheets a little later
+
+93
+00:04:26,633 --> 00:04:29,973
+on, but for now, I'll go ahead and just kinda lay out
+
+94
+00:04:29,973 --> 00:04:32,315
+some of the content here for this HTML page
+
+95
+00:04:32,315 --> 00:04:37,190
+and we'll apply some styles in the following video.
+
+96
+00:04:37,190 --> 00:04:39,337
+Alright, so here I'll just set up some div's.
+
+97
+00:04:39,337 --> 00:04:41,594
+So div's are basically just little containers or
+
+98
+00:04:41,594 --> 00:04:43,965
+placeholders for putting information or
+
+99
+00:04:43,965 --> 00:04:47,397
+managing information on an HTML page.
+
+100
+00:04:47,397 --> 00:04:49,185
+So we're going to use style sheets later,
+
+101
+00:04:49,185 --> 00:04:50,826
+so I'm just going to make use of some div's
+
+102
+00:04:50,826 --> 00:04:52,726
+for the wrapper, for the header.
+
+103
+00:04:52,726 --> 00:04:56,893
+So our header will show up, h2 as: Foobar University
+
+104
+00:04:59,850 --> 00:05:03,222
+and again, stretch out, get some white space here.
+
+105
+00:05:03,222 --> 00:05:04,847
+Then I'll go ahead and start working on
+
+106
+00:05:04,847 --> 00:05:06,514
+my main content div.
+
+107
+00:05:08,053 --> 00:05:10,470
+So this is my container here.
+
+108
+00:05:13,956 --> 00:05:18,360
+And then the div for this one will be: content,
+
+109
+00:05:18,360 --> 00:05:22,885
+and again, we'll apply-- CSS styles for these
+
+110
+00:05:22,885 --> 00:05:26,181
+given items, but for now, we're just laying it out.
+
+111
+00:05:26,181 --> 00:05:28,252
+The main part here is just focusing on
+
+112
+00:05:28,252 --> 00:05:30,288
+building out our table. So we want to have an
+
+113
+00:05:30,288 --> 00:05:33,839
+HTML table that'll give the students:
+
+114
+00:05:33,839 --> 00:05:37,172
+First name, last name and email address.
+
+115
+00:05:38,093 --> 00:05:40,266
+So to handle that, I'll first-- in my table here,
+
+116
+00:05:40,266 --> 00:05:43,121
+I'll set up a table-row and I'll set up a table header
+
+117
+00:05:43,121 --> 00:05:45,186
+so just so we can see the actual headers here,
+
+118
+00:05:45,186 --> 00:05:46,353
+for the table.
+
+119
+00:05:47,454 --> 00:05:50,531
+So again, we'll have: first name,
+
+120
+00:05:50,531 --> 00:05:52,387
+and I just copy/paste this line.
+
+121
+00:05:52,387 --> 00:05:55,284
+And then paste that a couple of times here,
+
+122
+00:05:55,284 --> 00:05:57,353
+and then here, we'll have it for last name,
+
+123
+00:05:57,353 --> 00:06:00,520
+and then we'll also have it for email.
+
+124
+00:06:04,121 --> 00:06:07,365
+Okay, great. So this takes care of our headers right now
+
+125
+00:06:07,365 --> 00:06:11,198
+for our HTML table. So this looks good so far.
+
+126
+00:06:12,655 --> 00:06:14,173
+Now, what I wanna do is, move down a bit,
+
+127
+00:06:14,173 --> 00:06:17,439
+and then I actually loop through that list of students
+
+128
+00:06:17,439 --> 00:06:21,810
+and put this information in different table rows.
+
+129
+00:06:21,810 --> 00:06:23,514
+So here I'll just do a "for" loop, I'll say:
+
+130
+00:06:23,514 --> 00:06:27,097
+student, temp student. Colon, the students.
+
+131
+00:06:28,655 --> 00:06:30,234
+Now the students; you may wonder well where did
+
+132
+00:06:30,234 --> 00:06:33,975
+that come from? Well that's the variable that we
+
+133
+00:06:33,975 --> 00:06:36,514
+set up earlier in this JSP page.
+
+134
+00:06:36,514 --> 00:06:38,360
+So on line 11, we have "the students";
+
+135
+00:06:38,360 --> 00:06:40,153
+that's the list that we retrieved from that
+
+136
+00:06:40,153 --> 00:06:43,393
+request attribute. So that's the list of students
+
+137
+00:06:43,393 --> 00:06:46,226
+that we're looping over right now.
+
+138
+00:06:47,844 --> 00:06:50,684
+So I just have my open curly brace and my close
+
+139
+00:06:50,684 --> 00:06:53,542
+curly brace, and then basically inside of this loop
+
+140
+00:06:53,542 --> 00:06:55,415
+this is where we're gonna print out the students
+
+141
+00:06:55,415 --> 00:06:58,902
+first name, last name and email address.
+
+142
+00:06:58,902 --> 00:07:02,583
+So I'll set up a table row for this
+
+143
+00:07:02,583 --> 00:07:05,479
+and then I'll set up table data.
+
+144
+00:07:05,479 --> 00:07:06,485
+So table data,
+
+145
+00:07:06,485 --> 00:07:09,043
+I'll make use of a JSP expression, so angle bracket, percent
+
+146
+00:07:09,043 --> 00:07:10,633
+with an equal, and I'll say
+
+147
+00:07:10,633 --> 00:07:13,300
+temp student dot get first name.
+
+148
+00:07:14,962 --> 00:07:18,694
+So that'll get me the first name for the student
+
+149
+00:07:18,694 --> 00:07:20,689
+and then I'll copy this line and I'll paste it
+
+150
+00:07:20,689 --> 00:07:22,606
+a couple of times here,
+
+151
+00:07:24,247 --> 00:07:25,409
+and so here I'll have a
+
+152
+00:07:25,409 --> 00:07:28,659
+get last name, and then also get email.
+
+153
+00:07:32,459 --> 00:07:35,169
+Alright, good, so there's the email portion of it.
+
+154
+00:07:35,169 --> 00:07:38,588
+So that's basically the looping portion here
+
+155
+00:07:38,588 --> 00:07:39,755
+for our table.
+
+156
+00:07:42,806 --> 00:07:43,926
+So this looks really good,
+
+157
+00:07:43,926 --> 00:07:46,554
+so here's our table, we have our table headers up top
+
+158
+00:07:46,554 --> 00:07:48,820
+and then we looped that list of students
+
+159
+00:07:48,820 --> 00:07:51,265
+and we print out the first name, last name and
+
+160
+00:07:51,265 --> 00:07:53,919
+email address. So this looks really, really good.
+
+161
+00:07:53,919 --> 00:07:56,669
+I'm excited about this right now.
+
+162
+00:07:58,891 --> 00:08:01,756
+Alright so, let's save it and let's test it out.
+
+163
+00:08:01,756 --> 00:08:04,171
+So all I have to do is go back to my previous
+
+164
+00:08:04,171 --> 00:08:06,944
+screen here, my browser screen here for the servlet
+
+165
+00:08:06,944 --> 00:08:09,884
+and all I have to do is simply reload.
+
+166
+00:08:09,884 --> 00:08:11,566
+Remember with JSP's if you change it,
+
+167
+00:08:11,566 --> 00:08:13,276
+there's no need to re-run the code,
+
+168
+00:08:13,276 --> 00:08:15,154
+you simply just refresh and there you go,
+
+169
+00:08:15,154 --> 00:08:17,555
+so bam! I love this.
+
+170
+00:08:17,555 --> 00:08:19,892
+So here's our table for FooBar University,
+
+171
+00:08:19,892 --> 00:08:21,872
+we have our five students listed out,
+
+172
+00:08:21,872 --> 00:08:23,803
+so this is really, really cool
+
+173
+00:08:23,803 --> 00:08:27,213
+so we have this information in tabular data.
+
+174
+00:08:27,213 --> 00:08:28,857
+Now, it's a little ugly right now
+
+175
+00:08:28,857 --> 00:08:30,770
+(laughs)
+
+176
+00:08:30,770 --> 00:08:32,952
+the table is kinda plain, it's kinda blah,
+
+177
+00:08:32,952 --> 00:08:36,217
+it doesn't really match the screenshots we had earlier.
+
+178
+00:08:36,217 --> 00:08:37,608
+But don't worry,
+
+179
+00:08:37,608 --> 00:08:41,209
+in the following video, I'll show you how to apply
+
+180
+00:08:41,209 --> 00:08:43,574
+Cascading Style Sheets to this table,
+
+181
+00:08:43,574 --> 00:08:45,159
+to make it look pretty.
+
+182
+00:08:45,159 --> 00:08:46,745
+To make it look beautiful.
+
+183
+00:08:46,745 --> 00:08:47,851
+(laughs)
+
+184
+00:08:47,851 --> 00:08:49,515
+Alright, So I'm having a lot of fun here.
+
+185
+00:08:49,515 --> 00:08:51,887
+So, in the next video, we'll cover CSS
+
+186
+00:08:51,887 --> 00:08:54,103
+and I'll show you how to apply those styles
+
+187
+00:08:54,103 --> 00:08:55,652
+in our JSP page.
+
+188
+00:08:55,652 --> 00:08:57,985
+Alright, I'll see you soon.
+

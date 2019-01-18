@@ -1,0 +1,388 @@
+1
+00:00:01,125 --> 00:00:03,486
+<v Chad Darby>Hi. In this video, we're gonna learn</v>
+
+2
+00:00:03,486 --> 00:00:07,153
+how to use Servlet Configuration Parameters.
+
+3
+00:00:09,605 --> 00:00:11,852
+Now, when you're developing applications,
+
+4
+00:00:11,852 --> 00:00:14,160
+you never want to hard code special values
+
+5
+00:00:14,160 --> 00:00:15,649
+in your application.
+
+6
+00:00:15,649 --> 00:00:17,303
+It would be great if you could put that information
+
+7
+00:00:17,303 --> 00:00:19,096
+in a configuration file
+
+8
+00:00:19,096 --> 00:00:21,174
+to make your application more flexible.
+
+9
+00:00:21,174 --> 00:00:23,398
+So with servlets and JSPs,
+
+10
+00:00:23,398 --> 00:00:25,917
+your web app can actually make use of
+
+11
+00:00:25,917 --> 00:00:28,285
+configuration parameters as part of
+
+12
+00:00:28,285 --> 00:00:29,907
+the servlet's specification
+
+13
+00:00:29,907 --> 00:00:31,323
+they have a standard file where you can
+
+14
+00:00:31,323 --> 00:00:32,879
+place this information.
+
+15
+00:00:32,879 --> 00:00:36,124
+It's in the WEB-INF/web.xml file.
+
+16
+00:00:36,124 --> 00:00:38,031
+And again, it's a standard part of the servlet's
+
+17
+00:00:38,031 --> 00:00:40,579
+specification where you can set your data.
+
+18
+00:00:40,579 --> 00:00:44,437
+So here's an example of this file, web.xml.
+
+19
+00:00:44,437 --> 00:00:47,505
+Here, we have a section here for context params
+
+20
+00:00:47,505 --> 00:00:49,305
+and this is where you define your properties
+
+21
+00:00:49,305 --> 00:00:50,584
+or your parameters.
+
+22
+00:00:50,584 --> 00:00:52,505
+So you can specify a parameter name
+
+23
+00:00:52,505 --> 00:00:53,957
+and a parameter value
+
+24
+00:00:53,957 --> 00:00:55,862
+and it's totally up to you as far as the name
+
+25
+00:00:55,862 --> 00:00:57,891
+and values that you specify.
+
+26
+00:00:57,891 --> 00:00:59,895
+So in this example, I'm gonna set up
+
+27
+00:00:59,895 --> 00:01:01,890
+a max shopping cart size,
+
+28
+00:01:01,890 --> 00:01:04,521
+and I set the value to 99.
+
+29
+00:01:04,521 --> 00:01:07,729
+Then I'll have another parameter here called
+
+30
+00:01:07,729 --> 00:01:10,164
+the param name is project-team-name,
+
+31
+00:01:10,164 --> 00:01:12,558
+and I give the value of The Coding Gurus.
+
+32
+00:01:12,558 --> 00:01:14,605
+Again, I'm just making this up.
+
+33
+00:01:14,605 --> 00:01:17,307
+You can have as many parameters as you'd like.
+
+34
+00:01:17,307 --> 00:01:20,349
+There's no limit, and you can place all this information
+
+35
+00:01:20,349 --> 00:01:23,932
+in this web.xml file, which is really cool.
+
+36
+00:01:26,662 --> 00:01:28,455
+All right, so let's look at how to actually read
+
+37
+00:01:28,455 --> 00:01:30,399
+these configuration parameters.
+
+38
+00:01:30,399 --> 00:01:32,498
+So in this servlet's source code,
+
+39
+00:01:32,498 --> 00:01:34,778
+either a doGet or doPost method,
+
+40
+00:01:34,778 --> 00:01:37,169
+we can read this information.
+
+41
+00:01:37,169 --> 00:01:38,625
+So remember in the bottom right,
+
+42
+00:01:38,625 --> 00:01:40,012
+there's this web.xml file
+
+43
+00:01:40,012 --> 00:01:43,985
+that has all this configuration information as xml.
+
+44
+00:01:43,985 --> 00:01:48,086
+We can read this information in our servlet source code.
+
+45
+00:01:48,086 --> 00:01:49,204
+So the first thing we need to do
+
+46
+00:01:49,204 --> 00:01:51,483
+is we need to get the servlet context.
+
+47
+00:01:51,483 --> 00:01:55,518
+So here we say ServletContext = getServletContext.
+
+48
+00:01:55,518 --> 00:01:57,150
+The method getServletContext
+
+49
+00:01:57,150 --> 00:02:00,593
+is a method we inherit from the http server.
+
+50
+00:02:00,593 --> 00:02:03,558
+So that's a method that we inherit that we get for free.
+
+51
+00:02:03,558 --> 00:02:06,062
+So to give us a ServletContext object,
+
+52
+00:02:06,062 --> 00:02:10,231
+this ServletContext object is basically just a helper class
+
+53
+00:02:10,231 --> 00:02:13,180
+that allows us to do web-related stuff.
+
+54
+00:02:13,180 --> 00:02:15,361
+One of those features is that it allows us
+
+55
+00:02:15,361 --> 00:02:18,962
+to read information from that web.xml file.
+
+56
+00:02:18,962 --> 00:02:22,926
+So that web.xml file is actually an xml file.
+
+57
+00:02:22,926 --> 00:02:26,738
+However, this ServletContext will actually read that file,
+
+58
+00:02:26,738 --> 00:02:30,082
+parse it, and then have this information in memory
+
+59
+00:02:30,082 --> 00:02:32,082
+that we can make use of.
+
+60
+00:02:34,447 --> 00:02:37,491
+So I can read the parameter information
+
+61
+00:02:37,491 --> 00:02:40,324
+by saying context.getInitParameter
+
+62
+00:02:41,537 --> 00:02:43,552
+and I give the parameter name.
+
+63
+00:02:43,552 --> 00:02:45,850
+So here I'm gonna read parameter name
+
+64
+00:02:45,850 --> 00:02:47,917
+max-shopping-cart-size.
+
+65
+00:02:47,917 --> 00:02:51,430
+It'll return this value as a string.
+
+66
+00:02:51,430 --> 00:02:54,359
+I can do a similar thing here for project-team-name.
+
+67
+00:02:54,359 --> 00:02:59,109
+So I can say context.getInitParameter("project-team-name")
+
+68
+00:02:59,109 --> 00:03:01,785
+and it'll return the value.
+
+69
+00:03:01,785 --> 00:03:04,694
+All right, now two things here on this method.
+
+70
+00:03:04,694 --> 00:03:07,832
+First off is that the context.getInitParameter method,
+
+71
+00:03:07,832 --> 00:03:11,032
+it'll always return the data as a String.
+
+72
+00:03:11,032 --> 00:03:12,719
+So if you want to use it as a different data type
+
+73
+00:03:12,719 --> 00:03:14,673
+like an image or a Boolean,
+
+74
+00:03:14,673 --> 00:03:17,427
+you'd have to convert it yourself.
+
+75
+00:03:17,427 --> 00:03:20,320
+Also, this context.getInitParameter method,
+
+76
+00:03:20,320 --> 00:03:22,531
+if the parameter does not exist,
+
+77
+00:03:22,531 --> 00:03:25,468
+this method will simply return a value of null.
+
+78
+00:03:25,468 --> 00:03:26,728
+Okay, so no exceptions thrown in there
+
+79
+00:03:26,728 --> 00:03:29,057
+will simply return a null value.
+
+80
+00:03:29,057 --> 00:03:31,152
+So you'll have to do some additional checks on that
+
+81
+00:03:31,152 --> 00:03:33,152
+for that property value.
+
+82
+00:03:35,334 --> 00:03:36,501
+All right, but hey, so we've read
+
+83
+00:03:36,501 --> 00:03:38,652
+the property values here so we have max-cart,
+
+84
+00:03:38,652 --> 00:03:41,946
+we have team-name, then we can display this information
+
+85
+00:03:41,946 --> 00:03:43,431
+in our servlet, so here I say
+
+86
+00:03:43,431 --> 00:03:46,720
+out.println("Max cart: give the value
+
+87
+00:03:46,720 --> 00:03:48,915
+and then out.println("Team name:
+
+88
+00:03:48,915 --> 00:03:50,790
+and then give the actual team name.
+
+89
+00:03:50,790 --> 00:03:52,796
+And that's basically it so that's the java code
+
+90
+00:03:52,796 --> 00:03:57,494
+there for reading information from that configuration file.
+
+91
+00:03:57,494 --> 00:04:01,077
+Reading information from that web.xml file.
+
+92
+00:04:03,030 --> 00:04:04,554
+All right, so good job, so what we're gonna do
+
+93
+00:04:04,554 --> 00:04:07,438
+in the next video is we're gonna move and save clips,
+
+94
+00:04:07,438 --> 00:04:09,430
+we're gonna write some code from scratch,
+
+95
+00:04:09,430 --> 00:04:11,324
+and we're gonna see how we can read
+
+96
+00:04:11,324 --> 00:04:14,244
+configuration parameters for our application.
+
+97
+00:04:14,244 --> 00:04:17,327
+Okay, I'll see ya in the next video.
+

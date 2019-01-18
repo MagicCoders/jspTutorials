@@ -1,0 +1,440 @@
+1
+00:00:01,138 --> 00:00:02,636
+<v Narrator>Hey! In this video,</v>
+
+2
+00:00:02,636 --> 00:00:06,803
+we're gonna learn how to install MySQL on Microsoft Windows.
+
+3
+00:00:08,563 --> 00:00:09,793
+So as far as the topics here,
+
+4
+00:00:09,793 --> 00:00:11,854
+the first thing we're gonna do is download MySQL,
+
+5
+00:00:11,854 --> 00:00:14,170
+and then we'll install MySQL,
+
+6
+00:00:14,170 --> 00:00:17,769
+and then finally we'll verify our installation.
+
+7
+00:00:17,769 --> 00:00:18,872
+Alright, so a lot of good stuff.
+
+8
+00:00:18,872 --> 00:00:22,455
+Let's go ahead and jump in and get started.
+
+9
+00:00:26,709 --> 00:00:28,793
+Alright, so what we need to do is open up a web browser,
+
+10
+00:00:28,793 --> 00:00:30,668
+and visit the MySQL website.
+
+11
+00:00:30,668 --> 00:00:33,251
+So, here in my browser I'll type in
+
+12
+00:00:33,251 --> 00:00:37,553
+dev.mysql.com/downloads and this will take me to the
+
+13
+00:00:37,553 --> 00:00:39,303
+MySQL downloads site.
+
+14
+00:00:41,651 --> 00:00:42,818
+Alright, once I'm at the page
+
+15
+00:00:42,818 --> 00:00:46,069
+I want to download the MySQL community server
+
+16
+00:00:46,069 --> 00:00:48,797
+and on the community server page
+
+17
+00:00:48,797 --> 00:00:50,498
+they have an option here for downloading it
+
+18
+00:00:50,498 --> 00:00:51,972
+for Microsoft Windows.
+
+19
+00:00:51,972 --> 00:00:56,139
+I'll go ahead and select that option for download.
+
+20
+00:00:57,174 --> 00:00:59,159
+This will take me to the download page
+
+21
+00:00:59,159 --> 00:01:01,034
+and I'll select the option here for downloading
+
+22
+00:01:01,034 --> 00:01:03,246
+the Microsoft Windows MSI Installer,
+
+23
+00:01:03,246 --> 00:01:05,155
+and I'll choose the web version.
+
+24
+00:01:05,155 --> 00:01:07,905
+It's a small lightweight version.
+
+25
+00:01:08,965 --> 00:01:10,810
+Now, normally they want you to log-in,
+
+26
+00:01:10,810 --> 00:01:12,371
+but in this case I'll say no thanks,
+
+27
+00:01:12,371 --> 00:01:15,371
+just go ahead and start my download.
+
+28
+00:01:18,025 --> 00:01:20,336
+Alright, so your browser will prompt you to save the file.
+
+29
+00:01:20,336 --> 00:01:22,031
+I'll go ahead and save the file and
+
+30
+00:01:22,031 --> 00:01:25,781
+let's start downloading it to my file system.
+
+31
+00:01:28,868 --> 00:01:30,511
+Okay, great, so it's downloaded.
+
+32
+00:01:30,511 --> 00:01:32,769
+We can open up our Windows Explorer,
+
+33
+00:01:32,769 --> 00:01:34,702
+move into the downloads folder,
+
+34
+00:01:34,702 --> 00:01:38,917
+and now what I want to do is simply start the installer.
+
+35
+00:01:38,917 --> 00:01:40,147
+So this will start up a normal
+
+36
+00:01:40,147 --> 00:01:42,897
+Microsoft Windows install wizard.
+
+37
+00:01:44,721 --> 00:01:46,295
+Alright, so the standard thing here, right?
+
+38
+00:01:46,295 --> 00:01:48,431
+License agreement, go ahead and check the box
+
+39
+00:01:48,431 --> 00:01:50,027
+I accept the agreement.
+
+40
+00:01:50,027 --> 00:01:52,001
+Go ahead and click next.
+
+41
+00:01:52,001 --> 00:01:54,416
+Here we want to keep the developer defaults,
+
+42
+00:01:54,416 --> 00:01:58,083
+so make no changes there, developer default.
+
+43
+00:02:01,410 --> 00:02:03,067
+Next, they're gonna check
+
+44
+00:02:03,067 --> 00:02:04,768
+some of the requirements on your system.
+
+45
+00:02:04,768 --> 00:02:07,943
+So, the first product listed here is the MySQL workbench.
+
+46
+00:02:07,943 --> 00:02:11,810
+We need to install the Microsoft Visual C++ run time
+
+47
+00:02:11,810 --> 00:02:14,149
+but the installer will actually do this for you.
+
+48
+00:02:14,149 --> 00:02:16,419
+So, we'll simply select that and we hit execute,
+
+49
+00:02:16,419 --> 00:02:17,922
+and it'll go out to the web and
+
+50
+00:02:17,922 --> 00:02:21,074
+it'll download the appropriate dependencies that you need.
+
+51
+00:02:21,074 --> 00:02:22,584
+So, I'll just click, click, click,
+
+52
+00:02:22,584 --> 00:02:26,235
+accept all the defaults as it goes through this example.
+
+53
+00:02:26,235 --> 00:02:28,313
+And at that point, we have everything available
+
+54
+00:02:28,313 --> 00:02:29,695
+for MySQL Workbench.
+
+55
+00:02:29,695 --> 00:02:31,692
+They'll prompt us about some of the other products,
+
+56
+00:02:31,692 --> 00:02:33,915
+you can just go ahead and click past that,
+
+57
+00:02:33,915 --> 00:02:36,347
+and then just hit execute and it'll start
+
+58
+00:02:36,347 --> 00:02:38,855
+downloading all the dependencies that you need.
+
+59
+00:02:38,855 --> 00:02:40,620
+So, this will take awhile.
+
+60
+00:02:40,620 --> 00:02:43,087
+I'll kind of step away and I'll come back once
+
+61
+00:02:43,087 --> 00:02:45,170
+everything is downloaded.
+
+62
+00:02:46,692 --> 00:02:48,131
+Okay, great, so we've downloaded everything.
+
+63
+00:02:48,131 --> 00:02:49,856
+Note here we have all green checks here
+
+64
+00:02:49,856 --> 00:02:51,928
+and the status is complete for everything.
+
+65
+00:02:51,928 --> 00:02:52,967
+So we're in good shape.
+
+66
+00:02:52,967 --> 00:02:56,154
+So, we can go ahead and click next.
+
+67
+00:02:56,154 --> 00:02:58,371
+Click next one more time.
+
+68
+00:02:58,371 --> 00:03:01,193
+Here, we'll set up some of the networking.
+
+69
+00:03:01,193 --> 00:03:02,679
+We'll just keep all the defaults.
+
+70
+00:03:02,679 --> 00:03:03,666
+Click next.
+
+71
+00:03:03,666 --> 00:03:06,748
+At this point, we need to define our root password.
+
+72
+00:03:06,748 --> 00:03:09,674
+So, you can give whatever you want for your root password.
+
+73
+00:03:09,674 --> 00:03:11,142
+You can call it fubar or whatever.
+
+74
+00:03:11,142 --> 00:03:12,791
+I'm gonna give a long password,
+
+75
+00:03:12,791 --> 00:03:15,728
+just so it comes out as a strong password,
+
+76
+00:03:15,728 --> 00:03:17,325
+but you can give whatever you want.
+
+77
+00:03:17,325 --> 00:03:19,177
+You can give a four letter password if you'd like.
+
+78
+00:03:19,177 --> 00:03:20,523
+They key item here is that you need
+
+79
+00:03:20,523 --> 00:03:22,276
+to remember that password.
+
+80
+00:03:22,276 --> 00:03:25,225
+Make sure you write it down. (laughs lightly)
+
+81
+00:03:25,225 --> 00:03:26,984
+Alright, I'll go ahead and click next.
+
+82
+00:03:26,984 --> 00:03:28,186
+I'll keep the defaults here.
+
+83
+00:03:28,186 --> 00:03:30,160
+It's gonna run MySQL as a Windows service.
+
+84
+00:03:30,160 --> 00:03:32,586
+I'll click execute, and it'll go off
+
+85
+00:03:32,586 --> 00:03:35,889
+and it'll start applying our server configurations.
+
+86
+00:03:35,889 --> 00:03:38,472
+I'll hit finish, I'll hit next.
+
+87
+00:03:41,191 --> 00:03:42,971
+And, now we're going to do a simple test
+
+88
+00:03:42,971 --> 00:03:43,999
+to connect to our server.
+
+89
+00:03:43,999 --> 00:03:45,311
+Click the check button.
+
+90
+00:03:45,311 --> 00:03:47,104
+Connection is successful, we're okay.
+
+91
+00:03:47,104 --> 00:03:51,087
+And then we hit next and finished, and next one more time.
+
+92
+00:03:51,087 --> 00:03:52,689
+And at this point we hit finish,
+
+93
+00:03:52,689 --> 00:03:55,353
+and it'll actually start up the MySQL server.
+
+94
+00:03:55,353 --> 00:03:58,070
+So, now what we're gonna do is verify our installation.
+
+95
+00:03:58,070 --> 00:04:00,049
+So, we're gonna use this MySQL workbench.
+
+96
+00:04:00,049 --> 00:04:01,849
+It's simply a web gooey tool.
+
+97
+00:04:01,849 --> 00:04:04,090
+I'm sorry, it's simply just a gooey tool,
+
+98
+00:04:04,090 --> 00:04:07,259
+that allows you to connect to your MySQL database.
+
+99
+00:04:07,259 --> 00:04:09,070
+So, here I just enter that same password
+
+100
+00:04:09,070 --> 00:04:10,353
+I did during installation,
+
+101
+00:04:10,353 --> 00:04:12,931
+and at this point I have a gooey open,
+
+102
+00:04:12,931 --> 00:04:15,543
+and I can actually query some of the tables.
+
+103
+00:04:15,543 --> 00:04:19,397
+So, MySQL always starts off with some sample tables for you.
+
+104
+00:04:19,397 --> 00:04:23,409
+I'm gonna access this one table called city.
+
+105
+00:04:23,409 --> 00:04:26,207
+And I'll just do a right click, say select rows,
+
+106
+00:04:26,207 --> 00:04:28,865
+and this'll give me all the rows from this sample table.
+
+107
+00:04:28,865 --> 00:04:30,769
+So again, really here, we're just verifying
+
+108
+00:04:30,769 --> 00:04:33,904
+that we can connect to the database and do a basic query.
+
+109
+00:04:33,904 --> 00:04:35,913
+So, this all looks really, really good.
+
+110
+00:04:35,913 --> 00:04:40,080
+So, our server is up and running and we can query it.
+

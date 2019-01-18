@@ -1,0 +1,556 @@
+1
+00:00:01,481 --> 00:00:02,506
+<v Instructor>All right, so let's go ahead</v>
+
+2
+00:00:02,506 --> 00:00:03,746
+and start with our to-do list.
+
+3
+00:00:03,746 --> 00:00:06,278
+The first thing we're gonna work on is step number one,
+
+4
+00:00:06,278 --> 00:00:09,528
+adding a "Delete" link on our JSP page.
+
+5
+00:00:14,619 --> 00:00:18,768
+So let's go ahead and move into Eclipse.
+
+6
+00:00:18,768 --> 00:00:21,302
+What I want to do is actually open up that file
+
+7
+00:00:21,302 --> 00:00:22,885 line:15% 
+"list-students.jsp"
+
+8
+00:00:26,928 --> 00:00:30,424 line:15% 
+and I want to add a "Delete" link on this JSP,
+
+9
+00:00:30,424 --> 00:00:34,591 line:15% 
+and we'll do small iterations on it to get us going.
+
+10
+00:00:38,519 --> 00:00:41,229
+So let's move down a bit in this table,
+
+11
+00:00:41,229 --> 00:00:42,838
+the table rows, and we're gonna add this
+
+12
+00:00:42,838 --> 00:00:45,133
+right next to the "Update" link.
+
+13
+00:00:45,133 --> 00:00:46,293
+We're actually gonna add it
+
+14
+00:00:46,293 --> 00:00:49,460
+in the same cell as the "Update" link.
+
+15
+00:00:53,900 --> 00:00:55,756 line:15% 
+So this is our normal table row, "firstName",
+
+16
+00:00:55,756 --> 00:00:58,267 line:15% 
+"lastName", "email", and right now we have "Update" link.
+
+17
+00:00:58,267 --> 00:01:00,610 line:15% 
+We're gonna use that same cell for the "Update" link
+
+18
+00:01:00,610 --> 00:01:05,314 line:15% 
+and we're gonna add another link here for "Delete".
+
+19
+00:01:05,314 --> 00:01:08,240 line:15% 
+But just to get us started, I just want to put
+
+20
+00:01:08,240 --> 00:01:10,431 line:15% 
+just a plain-text version of "Delete" in here right now.
+
+21
+00:01:10,431 --> 00:01:13,598 line:15% 
+So I'll do a space with a vertical bar
+
+22
+00:01:16,352 --> 00:01:19,156 line:15% 
+and then I'll hit return, and then I'll just add
+
+23
+00:01:19,156 --> 00:01:22,381 line:15% 
+the word "Delete". I'll get into the link stuff
+
+24
+00:01:22,381 --> 00:01:23,976 line:15% 
+in a second, but I just want to make sure
+
+25
+00:01:23,976 --> 00:01:26,093 line:15% 
+that this thing lays out properly.
+
+26
+00:01:26,093 --> 00:01:28,747 line:15% 
+So I just want to keep it simple, just to get us started.
+
+27
+00:01:28,747 --> 00:01:31,027 line:15% 
+But the key here is that there is one cell,
+
+28
+00:01:31,027 --> 00:01:34,522 line:15% 
+we have our "Update" link already with a vertical bar,
+
+29
+00:01:34,522 --> 00:01:37,535 line:15% 
+and then the text "Delete".
+
+30
+00:01:37,535 --> 00:01:39,580
+So let's save this, and let's run it,
+
+31
+00:01:39,580 --> 00:01:43,247 line:15% 
+just to make sure we have our HTML in order.
+
+32
+00:01:47,742 --> 00:01:48,795
+All right, so this looks really good.
+
+33
+00:01:48,795 --> 00:01:51,482
+So here's our "Action". We have "Update".
+
+34
+00:01:51,482 --> 00:01:54,989
+With a vertical bar, "Delete". So it's plain-text right now.
+
+35
+00:01:54,989 --> 00:01:56,583
+Don't worry about the link stuff, we'll cover that
+
+36
+00:01:56,583 --> 00:01:58,623
+in a second, but at least I wanted to make sure that
+
+37
+00:01:58,623 --> 00:02:01,706
+we could lay it out properly in HTML.
+
+38
+00:02:02,611 --> 00:02:04,778
+So this looks good so far.
+
+39
+00:02:07,707 --> 00:02:09,007
+So let's go ahead and swing back
+
+40
+00:02:09,007 --> 00:02:11,424 line:15% 
+into our "list-students.jsp".
+
+41
+00:02:14,244 --> 00:02:15,740 line:15% 
+And what I'd like to do here
+
+42
+00:02:15,740 --> 00:02:19,657 line:15% 
+is actually define a "deleteLink" for that URL.
+
+43
+00:02:20,807 --> 00:02:22,950 line:15% 
+So I want to do something very similar to what I did
+
+44
+00:02:22,950 --> 00:02:26,474 line:15% 
+for "Update", but I want to just copy that,
+
+45
+00:02:26,474 --> 00:02:29,207 line:15% 
+and actually copy-paste it, and I'll set up
+
+46
+00:02:29,207 --> 00:02:32,059 line:15% 
+a similar link here for "Delete".
+
+47
+00:02:32,059 --> 00:02:36,226 line:15% 
+So let me just write a quick comment here to myself.
+
+48
+00:02:37,618 --> 00:02:40,443 line:15% 
+So I'll just highlight these lines, and I'll copy them,
+
+49
+00:02:40,443 --> 00:02:42,526 line:15% 
+and I'll just paste them.
+
+50
+00:02:44,670 --> 00:02:46,303
+Okay, great. So they're pasted here.
+
+51
+00:02:46,303 --> 00:02:47,693
+Let me make some small mods.
+
+52
+00:02:47,693 --> 00:02:51,480
+So the variable name is not gonna be "tempLink" anymore.
+
+53
+00:02:51,480 --> 00:02:53,573
+I'll call this guy "deleteLink."
+
+54
+00:02:53,573 --> 00:02:55,337
+That's the name of the variable that we can use
+
+55
+00:02:55,337 --> 00:02:57,087
+later on in our page.
+
+56
+00:03:01,412 --> 00:03:03,149
+And they're gonna send it to this servlet.
+
+57
+00:03:03,149 --> 00:03:04,395
+I want to change the command.
+
+58
+00:03:04,395 --> 00:03:06,312
+So instead of the "LOAD" command,
+
+59
+00:03:06,312 --> 00:03:10,479
+I want to give the command name "Delete" in all-caps.
+
+60
+00:03:15,023 --> 00:03:16,771
+All right, so that's basically it.
+
+61
+00:03:16,771 --> 00:03:20,938
+That's how we can define a link to delete a student.
+
+62
+00:03:24,992 --> 00:03:29,624
+All right, let me clean up some extra white space here.
+
+63
+00:03:29,624 --> 00:03:31,933 line:15% 
+Now let's move down to this "Delete" section here,
+
+64
+00:03:31,933 --> 00:03:35,649 line:15% 
+and this is where I'm gonna add or make use of that link.
+
+65
+00:03:35,649 --> 00:03:37,899 line:15% 
+I'll set up an href for it.
+
+66
+00:03:40,383 --> 00:03:43,050 line:15% 
+So here I'll say, "a href="
+
+67
+00:03:49,621 --> 00:03:52,548 line:15% 
+and here, I'll make use of the "${}"
+
+68
+00:03:52,548 --> 00:03:54,798 line:15% 
+and I'll say, "deleteLink".
+
+69
+00:03:55,758 --> 00:04:00,692 line:15% 
+And I have my text, "Delete" and then "&lt;/a&gt;".
+
+70
+00:04:00,692 --> 00:04:02,534 line:15% 
+So that's the actual link.
+
+71
+00:04:02,534 --> 00:04:04,691 line:15% 
+Again, very similar to the "Update" link
+
+72
+00:04:04,691 --> 00:04:07,691 line:15% 
+but now we're using a "Delete" link.
+
+73
+00:04:08,655 --> 00:04:10,166 line:15% 
+All right, so let's save that.
+
+74
+00:04:10,166 --> 00:04:12,498 line:15% 
+Now let's test this out here and see how it works.
+
+75
+00:04:12,498 --> 00:04:14,834
+So I can simply go back to my browser
+
+76
+00:04:14,834 --> 00:04:18,167
+and I can simply just refresh this page.
+
+77
+00:04:23,560 --> 00:04:24,903
+All right, so I hit the "Refresh".
+
+78
+00:04:24,903 --> 00:04:27,856
+And whoo, yeah. Looking good here.
+
+79
+00:04:27,856 --> 00:04:31,013
+So here's our "Action", and we have our "Delete" link.
+
+80
+00:04:31,013 --> 00:04:33,176
+And if you hover over each one of those links there,
+
+81
+00:04:33,176 --> 00:04:35,349
+it has the embedded student ID.
+
+82
+00:04:35,349 --> 00:04:37,247
+But here, let me go ahead and just copy this link
+
+83
+00:04:37,247 --> 00:04:40,478
+and put it into a text editor, just so you can see it.
+
+84
+00:04:40,478 --> 00:04:42,903
+So we're calling our servlet,
+
+85
+00:04:42,903 --> 00:04:47,002
+and we're passing over "command=DELETE&amp;studentId=5"
+
+86
+00:04:47,002 --> 00:04:49,217
+or depending on whatever student ID
+
+87
+00:04:49,217 --> 00:04:51,069
+that we're using at that time.
+
+88
+00:04:51,069 --> 00:04:53,835
+The actual value for "studentId" will vary,
+
+89
+00:04:53,835 --> 00:04:57,082
+depending on where we're at in the list.
+
+90
+00:04:57,082 --> 00:04:58,175
+So this looks good so far.
+
+91
+00:04:58,175 --> 00:05:02,258
+So we're in pretty good shape, pretty good shape.
+
+92
+00:05:03,219 --> 00:05:05,454
+Now, one thing though, is that when I hit "Delete",
+
+93
+00:05:05,454 --> 00:05:07,119
+it doesn't do anything right now.
+
+94
+00:05:07,119 --> 00:05:11,069
+But I'd like to add a feature to prompt the user
+
+95
+00:05:11,069 --> 00:05:14,273 line:15% 
+before we actually do some deleting work.
+
+96
+00:05:14,273 --> 00:05:16,215 line:15% 
+So I'll prompt them up front,
+
+97
+00:05:16,215 --> 00:05:17,882 line:15% 
+"Hey, are you sure?"
+
+98
+00:05:19,504 --> 00:05:22,734 line:15% 
+before you blow up everything.
+
+99
+00:05:22,734 --> 00:05:24,557 line:15% 
+So we want to prompt the user.
+
+100
+00:05:24,557 --> 00:05:27,196 line:15% 
+And we're gonna make use of some JavaScript to do that.
+
+101
+00:05:27,196 --> 00:05:28,934 line:15% 
+Ooh, JavaScript.
+
+102
+00:05:28,934 --> 00:05:31,491 line:15% 
+Now, full disclosure: I'm not a JavaScript expert.
+
+103
+00:05:31,491 --> 00:05:34,175 line:15% 
+I know just enough JavaScript to get me by.
+
+104
+00:05:34,175 --> 00:05:37,658 line:15% 
+I like to copy a lot of JavaScript off the web.
+
+105
+00:05:37,658 --> 00:05:40,425
+But here, we're just gonna use JavaScript
+
+106
+00:05:40,425 --> 00:05:44,592
+to just prompt the user if they want to proceed or not.
+
+107
+00:05:48,383 --> 00:05:51,165
+So here I'll just make use of "confirm".
+
+108
+00:05:51,165 --> 00:05:53,433
+Basically I'll throw up a little dialog box and I'll say,
+
+109
+00:05:53,433 --> 00:05:55,963
+"Are you sure you want to delete this student?"
+
+110
+00:05:55,963 --> 00:05:59,348 line:15% 
+Now, what we have here in blue inside of the quotes here,
+
+111
+00:05:59,348 --> 00:06:03,515 line:15% 
+inside of the double quotes, this is all JavaScript code.
+
+112
+00:06:07,107 --> 00:06:10,076 line:15% 
+We'll prompt the user, and if they hit "cancel",
+
+113
+00:06:10,076 --> 00:06:11,716 line:15% 
+then we simply do "return false".
+
+114
+00:06:11,716 --> 00:06:13,742 line:15% 
+If they hit "OK", then we'll actually process
+
+115
+00:06:13,742 --> 00:06:16,325
+and go to the actual href link.
+
+116
+00:06:20,119 --> 00:06:22,808
+So that's the idea of making use of JavaScript
+
+117
+00:06:22,808 --> 00:06:24,975
+in this "onclick" handler.
+
+118
+00:06:28,594 --> 00:06:30,242
+So this is kind of exciting, we're actually making use
+
+119
+00:06:30,242 --> 00:06:33,284
+of JavaScript integrated with some jsp technology.
+
+120
+00:06:33,284 --> 00:06:36,367
+This is actually really, really cool.
+
+121
+00:06:38,182 --> 00:06:39,118
+All right, so there we go.
+
+122
+00:06:39,118 --> 00:06:41,192
+So that's in place, save that.
+
+123
+00:06:41,192 --> 00:06:43,451
+Let's go back over to our browser.
+
+124
+00:06:43,451 --> 00:06:44,779
+And actually, what I'm gonna do here is,
+
+125
+00:06:44,779 --> 00:06:48,774
+I'm actually gonna copy the URL, and I'll move it
+
+126
+00:06:48,774 --> 00:06:51,524
+into a real browser like Firefox.
+
+127
+00:06:55,914 --> 00:06:57,889
+And then I'll click "Delete", and it says,
+
+128
+00:06:57,889 --> 00:07:00,204
+"Are you sure you want to delete this student?"
+
+129
+00:07:00,204 --> 00:07:02,741
+And you can hit "OK" or "Cancel".
+
+130
+00:07:02,741 --> 00:07:04,695
+Again, doesn't really do anything on the back end yet,
+
+131
+00:07:04,695 --> 00:07:06,440
+'cause we haven't written a servlet code,
+
+132
+00:07:06,440 --> 00:07:09,107
+but we'll get there in a second.
+
+133
+00:07:13,280 --> 00:07:15,310
+All right, so that's kind of the basics here for step one.
+
+134
+00:07:15,310 --> 00:07:16,906
+So we went through the process
+
+135
+00:07:16,906 --> 00:07:19,931
+of actually adding a "Delete" link to our jsp.
+
+136
+00:07:19,931 --> 00:07:22,346
+In the following videos, we'll get into the servlet
+
+137
+00:07:22,346 --> 00:07:25,661
+and database code for actually performing the JDBC work
+
+138
+00:07:25,661 --> 00:07:30,088
+and actually deleting the user from the database.
+
+139
+00:07:30,088 --> 00:07:33,838
+We'll cover that next, so I'll see you there.
+

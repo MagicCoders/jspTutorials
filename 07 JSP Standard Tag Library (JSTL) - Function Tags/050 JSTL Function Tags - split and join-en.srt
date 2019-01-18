@@ -1,0 +1,632 @@
+1
+00:00:01,041 --> 00:00:01,954
+<v Chad>Hey.</v>
+
+2
+00:00:01,954 --> 00:00:03,430
+In this video we're gonna learn about
+
+3
+00:00:03,430 --> 00:00:04,721
+the JSTL function tags
+
+4
+00:00:04,721 --> 00:00:06,888
+for splitting and joining.
+
+5
+00:00:07,831 --> 00:00:09,198
+So, the split function,
+
+6
+00:00:09,198 --> 00:00:10,657
+it basically splits a string
+
+7
+00:00:10,657 --> 00:00:12,692
+into an array of substrings
+
+8
+00:00:12,692 --> 00:00:14,942
+based on a given delimiter.
+
+9
+00:00:17,193 --> 00:00:19,755
+And here's the signature for this method,
+
+10
+00:00:19,755 --> 00:00:20,673
+so you call split,
+
+11
+00:00:20,673 --> 00:00:22,192
+you pass in the data string,
+
+12
+00:00:22,192 --> 00:00:23,690
+you pass in the delimiter,
+
+13
+00:00:23,690 --> 00:00:26,378
+and it'll return you an array of strings
+
+14
+00:00:26,378 --> 00:00:29,225
+that are all based on that splitting of the delimiter.
+
+15
+00:00:29,225 --> 00:00:31,401
+So, lets look at a little code example here.
+
+16
+00:00:31,401 --> 00:00:34,308
+At the beginning I set up a variable called data
+
+17
+00:00:34,308 --> 00:00:37,307
+and I give a string value.
+
+18
+00:00:37,307 --> 00:00:38,918
+Here I have four cities,
+
+19
+00:00:38,918 --> 00:00:41,589
+Singapore, Tokyo, Mumbai, and London,
+
+20
+00:00:41,589 --> 00:00:43,848
+and they're all CSV
+
+21
+00:00:43,848 --> 00:00:45,593
+separated by a comma.
+
+22
+00:00:45,593 --> 00:00:47,232
+So, on the next line I actually make use
+
+23
+00:00:47,232 --> 00:00:48,593
+of that function split.
+
+24
+00:00:48,593 --> 00:00:50,928
+So, here I say C colon set var,
+
+25
+00:00:50,928 --> 00:00:52,166
+citiesArray,
+
+26
+00:00:52,166 --> 00:00:53,906
+value equals
+
+27
+00:00:53,906 --> 00:00:55,739
+and then inside of the quotes I make use
+
+28
+00:00:55,739 --> 00:00:57,032
+of the function split.
+
+29
+00:00:57,032 --> 00:00:58,524
+So, I'll say function split,
+
+30
+00:00:58,524 --> 00:00:59,578
+I give data,
+
+31
+00:00:59,578 --> 00:01:01,836
+that's the string from the previous line,
+
+32
+00:01:01,836 --> 00:01:04,819
+and then I have it split on a comma,
+
+33
+00:01:04,819 --> 00:01:07,615
+so I put the comma inside single quotes there.
+
+34
+00:01:07,615 --> 00:01:10,387
+And that'll basically split that string
+
+35
+00:01:10,387 --> 00:01:13,092
+from a single string to multiple strings
+
+36
+00:01:13,092 --> 00:01:16,358
+and a return at value as an array of strings.
+
+37
+00:01:16,358 --> 00:01:17,824
+Okay, stay with me here,
+
+38
+00:01:17,824 --> 00:01:20,060
+and it'll assign it to cities array.
+
+39
+00:01:20,060 --> 00:01:21,611
+So, that's how that part works out.
+
+40
+00:01:21,611 --> 00:01:22,847
+It takes one big string
+
+41
+00:01:22,847 --> 00:01:26,347
+and splits it up into an array of strings.
+
+42
+00:01:29,362 --> 00:01:31,480
+Now, lets take a look at the join function.
+
+43
+00:01:31,480 --> 00:01:33,487
+This join function goes the other way.
+
+44
+00:01:33,487 --> 00:01:36,092
+It basically concatenates a string array
+
+45
+00:01:36,092 --> 00:01:39,482
+into a single string based on a delimiter.
+
+46
+00:01:39,482 --> 00:01:41,315
+So, here's the signature here.
+
+47
+00:01:41,315 --> 00:01:43,878
+Call join, you pass in an array of strings,
+
+48
+00:01:43,878 --> 00:01:45,482
+comma a delimiter,
+
+49
+00:01:45,482 --> 00:01:47,446
+then it returns it as one big string
+
+50
+00:01:47,446 --> 00:01:49,613
+based on that information.
+
+51
+00:01:51,798 --> 00:01:53,580
+All right, so lets take a look at a code example.
+
+52
+00:01:53,580 --> 00:01:55,263
+So, previously we had an array of strings
+
+53
+00:01:55,263 --> 00:01:56,377
+called cities array,
+
+54
+00:01:56,377 --> 00:01:58,220
+and I simply wanna join it together.
+
+55
+00:01:58,220 --> 00:02:01,034
+So, here I'll make use of function colon join,
+
+56
+00:02:01,034 --> 00:02:03,259
+cities array comma star,
+
+57
+00:02:03,259 --> 00:02:04,516
+and that'll give me this variable.
+
+58
+00:02:04,516 --> 00:02:06,372
+And so you can see the print out here at the bottom,
+
+59
+00:02:06,372 --> 00:02:08,146
+it'll basically take that array,
+
+60
+00:02:08,146 --> 00:02:10,985
+join it together using that asteric
+
+61
+00:02:10,985 --> 00:02:12,769
+for the join character
+
+62
+00:02:12,769 --> 00:02:14,231
+and that's how that'll work out.
+
+63
+00:02:14,231 --> 00:02:15,545
+And we'll see a good example of this
+
+64
+00:02:15,545 --> 00:02:17,712
+once we move into Eclipse.
+
+65
+00:02:20,472 --> 00:02:21,922
+All right, so, we're in Eclipse now,
+
+66
+00:02:21,922 --> 00:02:23,948
+moving into that tag demo project.
+
+67
+00:02:23,948 --> 00:02:25,641
+Gonna move down to web content
+
+68
+00:02:25,641 --> 00:02:28,724
+and I'm gonna create a new file here.
+
+69
+00:02:36,716 --> 00:02:38,508
+And the file name that I'll give here is called
+
+70
+00:02:38,508 --> 00:02:40,175
+split-join-test.jsp.
+
+71
+00:02:43,526 --> 00:02:47,661
+And I'll go ahead and hit the finish button.
+
+72
+00:02:47,661 --> 00:02:49,623
+So, let me go ahead and move up here
+
+73
+00:02:49,623 --> 00:02:51,873
+and expand my window a bit.
+
+74
+00:02:56,180 --> 00:02:58,166
+Now lets go ahead and drop in our taglib references
+
+75
+00:02:58,166 --> 00:03:00,333
+up top like we had before.
+
+76
+00:03:04,878 --> 00:03:09,648
+I'll go through and just do my HTML housekeeping.
+
+77
+00:03:09,648 --> 00:03:11,815
+So, I'll go ahead and set up a variable for data
+
+78
+00:03:11,815 --> 00:03:13,161
+and I'll give it the value of Singapore,
+
+79
+00:03:13,161 --> 00:03:15,198
+Tokyo, Mumbai, and London.
+
+80
+00:03:15,198 --> 00:03:18,800
+All great cities that I've traveled to in the past.
+
+81
+00:03:18,800 --> 00:03:22,655
+And now what I wanna do is basically split this data.
+
+82
+00:03:22,655 --> 00:03:24,430
+So, I'll set up the cities array
+
+83
+00:03:24,430 --> 00:03:28,065
+and value equals function split data
+
+84
+00:03:28,065 --> 00:03:29,732
+comma the delimiter.
+
+85
+00:03:31,564 --> 00:03:35,105
+And the actual delimiter we'll use here is the comma symbol.
+
+86
+00:03:35,105 --> 00:03:36,472
+And I just close off that tag.
+
+87
+00:03:36,472 --> 00:03:39,330
+So, basically here I'm just doin' a split
+
+88
+00:03:39,330 --> 00:03:43,032
+on that data that we set up in line eight.
+
+89
+00:03:43,032 --> 00:03:45,882
+So, that CSV or that comma separated list here,
+
+90
+00:03:45,882 --> 00:03:46,857
+we're gonna split it
+
+91
+00:03:46,857 --> 00:03:49,489
+and then we'll get a cities array that we can use later.
+
+92
+00:03:49,489 --> 00:03:51,920
+And what I wanna do here is clear out some white space,
+
+93
+00:03:51,920 --> 00:03:54,172
+and I actually wanna go through and loop around
+
+94
+00:03:54,172 --> 00:03:56,807
+and print out every item in that cities array.
+
+95
+00:03:56,807 --> 00:03:58,978
+Just so we can verify that it is
+
+96
+00:03:58,978 --> 00:04:00,564
+set up in a separate array,
+
+97
+00:04:00,564 --> 00:04:02,647
+in its separate elements.
+
+98
+00:04:05,651 --> 00:04:07,993
+So, what I'll do here is I'll set up this for each loop,
+
+99
+00:04:07,993 --> 00:04:12,160
+the var equals tempCity and the items is citiesArray.
+
+100
+00:04:17,129 --> 00:04:19,051
+And I have a small typo within line 14,
+
+101
+00:04:19,051 --> 00:04:20,357
+let me take off that extra slash,
+
+102
+00:04:20,357 --> 00:04:21,190
+there we go,
+
+103
+00:04:21,190 --> 00:04:24,445
+now I can do my slash forEach.
+
+104
+00:04:24,445 --> 00:04:25,278
+Cool.
+
+105
+00:04:27,470 --> 00:04:31,105
+And I'm gonna loop through this citiesArray
+
+106
+00:04:31,105 --> 00:04:32,188
+from earlier,
+
+107
+00:04:35,228 --> 00:04:37,404
+and I'll simply make use of this tempCity here.
+
+108
+00:04:37,404 --> 00:04:39,723
+So, I'll say tempCity
+
+109
+00:04:39,723 --> 00:04:40,836
+dollar sign curly brace
+
+110
+00:04:40,836 --> 00:04:44,075
+and I'll put a br for line break.
+
+111
+00:04:44,075 --> 00:04:44,973
+That pretty much covers it.
+
+112
+00:04:44,973 --> 00:04:47,061
+So, that's our cities array up top,
+
+113
+00:04:47,061 --> 00:04:48,826
+and then we do the forEach
+
+114
+00:04:48,826 --> 00:04:50,137
+to simply loop to that array
+
+115
+00:04:50,137 --> 00:04:51,256
+and print everything out.
+
+116
+00:04:51,256 --> 00:04:53,657
+So, this looks good so far.
+
+117
+00:04:53,657 --> 00:04:56,211
+Lets go ahead and save this file and run it.
+
+118
+00:04:56,211 --> 00:04:58,124
+Right click, run as,
+
+119
+00:04:58,124 --> 00:04:59,291
+run on server.
+
+120
+00:05:02,014 --> 00:05:03,948
+Okay, great, so here's our result split demo.
+
+121
+00:05:03,948 --> 00:05:06,902
+Remember it was this big long string that we started with,
+
+122
+00:05:06,902 --> 00:05:08,777
+then we split it based on the comma
+
+123
+00:05:08,777 --> 00:05:11,405
+and then we can print out each element of that array.
+
+124
+00:05:11,405 --> 00:05:15,572
+So, a good example of using the JSTL split function.
+
+125
+00:05:21,937 --> 00:05:23,690
+All right, so lets go ahead and
+
+126
+00:05:23,690 --> 00:05:26,460
+get some white space here and some room to work with.
+
+127
+00:05:26,460 --> 00:05:29,043
+And I'll work on the join demo.
+
+128
+00:05:33,334 --> 00:05:34,625
+So, basically what I'm gonna do here
+
+129
+00:05:34,625 --> 00:05:35,534
+is I'm gonna join,
+
+130
+00:05:35,534 --> 00:05:37,086
+so I'm gonna take that cities array
+
+131
+00:05:37,086 --> 00:05:40,658
+and then I'm gonna join it using a star
+
+132
+00:05:40,658 --> 00:05:42,652
+to join it together.
+
+133
+00:05:42,652 --> 00:05:44,726
+So, then one big array of strings
+
+134
+00:05:44,726 --> 00:05:46,884
+and I'll just kind of concatenate them all together
+
+135
+00:05:46,884 --> 00:05:50,045
+using the star as the delimiter.
+
+136
+00:05:50,045 --> 00:05:54,212
+And then I'll just print out the results of joining that.
+
+137
+00:05:56,778 --> 00:05:57,705
+And that's basically it.
+
+138
+00:05:57,705 --> 00:05:59,909
+There's nothin' else we really have to do here
+
+139
+00:05:59,909 --> 00:06:02,056
+for this example.
+
+140
+00:06:02,056 --> 00:06:04,894
+All right, so let's go ahead and save this file.
+
+141
+00:06:04,894 --> 00:06:07,638
+Actually, I have one typo, I just found it.
+
+142
+00:06:07,638 --> 00:06:09,713
+I need an extra paren here.
+
+143
+00:06:09,713 --> 00:06:12,451
+Okay, great, so the paren, that'll set off,
+
+144
+00:06:12,451 --> 00:06:14,323
+okay, good, I'm okay now.
+
+145
+00:06:14,323 --> 00:06:17,240
+That was a good little catch there.
+
+146
+00:06:20,063 --> 00:06:21,301
+So, save this file,
+
+147
+00:06:21,301 --> 00:06:22,402
+do a refresh,
+
+148
+00:06:22,402 --> 00:06:25,688
+and then here's the results of joining.
+
+149
+00:06:25,688 --> 00:06:27,940
+So, it took that array of strings
+
+150
+00:06:27,940 --> 00:06:30,075
+and then it made use of that asteric symbol
+
+151
+00:06:30,075 --> 00:06:32,524
+to join or concatenate everything together
+
+152
+00:06:32,524 --> 00:06:34,110
+as a single string.
+
+153
+00:06:34,110 --> 00:06:35,255
+So, this was pretty good.
+
+154
+00:06:35,255 --> 00:06:37,541
+We went through and had a good time
+
+155
+00:06:37,541 --> 00:06:38,909
+to play around with some of the functions
+
+156
+00:06:38,909 --> 00:06:40,476
+here in the JSTL for splitting,
+
+157
+00:06:40,476 --> 00:06:43,279
+and also the JSTL functions for joining.
+
+158
+00:06:43,279 --> 00:06:44,946
+So, good job so far.
+

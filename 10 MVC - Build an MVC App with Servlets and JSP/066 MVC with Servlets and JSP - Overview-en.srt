@@ -1,0 +1,473 @@
+1
+00:00:01,286 --> 00:00:02,622
+<v Instructor>Hey! In this video,</v>
+
+2
+00:00:02,622 --> 00:00:06,289
+we're gonna cover MCV with Servlets and JSP.
+
+3
+00:00:09,863 --> 00:00:11,390
+Now, when we had our initial discussions
+
+4
+00:00:11,390 --> 00:00:13,780
+on Servlets and JSPs you may have wondered,
+
+5
+00:00:13,780 --> 00:00:16,260
+well which one to use and my answer was,
+
+6
+00:00:16,260 --> 00:00:18,680
+hey use them both, integrate them together.
+
+7
+00:00:18,680 --> 00:00:20,023
+So here we have the Servlet
+
+8
+00:00:20,023 --> 00:00:21,871
+that'll do the business logic work
+
+9
+00:00:21,871 --> 00:00:24,437
+and the JSP will actually handle the view.
+
+10
+00:00:24,437 --> 00:00:27,513
+And, as I mentioned earlier, this is a very popular pattern.
+
+11
+00:00:27,513 --> 00:00:30,155
+It's called the Model-View-Controller Design Pattern
+
+12
+00:00:30,155 --> 00:00:31,484
+and it's actually used by a lot
+
+13
+00:00:31,484 --> 00:00:34,067
+of the popular Java frameworks.
+
+14
+00:00:36,962 --> 00:00:39,879
+So here's the big picture of the Model-View-Controller.
+
+15
+00:00:39,879 --> 00:00:42,007
+The web browser will send them the request,
+
+16
+00:00:42,007 --> 00:00:45,552
+the request initially comes into the controller servlet.
+
+17
+00:00:45,552 --> 00:00:47,204
+The purpose of the controller servlet
+
+18
+00:00:47,204 --> 00:00:49,457
+is to hold the business logic.
+
+19
+00:00:49,457 --> 00:00:51,907
+Now, it may delegate a call out
+
+20
+00:00:51,907 --> 00:00:54,586
+to the model to get additional data,
+
+21
+00:00:54,586 --> 00:00:56,586
+or additional information.
+
+22
+00:00:56,586 --> 00:00:58,514
+Then, once it has the data,
+
+23
+00:00:58,514 --> 00:01:03,368
+then it can send information over to the view page
+
+24
+00:01:03,368 --> 00:01:06,361
+and the view page is actually the JSP.
+
+25
+00:01:06,361 --> 00:01:08,318
+Once the JSP has the information,
+
+26
+00:01:08,318 --> 00:01:11,654
+then the JSP can render an HTML view
+
+27
+00:01:11,654 --> 00:01:15,398
+and the JSP will send that view back to the web browser.
+
+28
+00:01:15,398 --> 00:01:17,313
+So that's kinda the big picture here
+
+29
+00:01:17,313 --> 00:01:19,896
+with the Model-View-Controller.
+
+30
+00:01:22,376 --> 00:01:24,068
+So what are the benefits of MVC.
+
+31
+00:01:24,068 --> 00:01:26,154
+Well, first off it's a very good line item
+
+32
+00:01:26,154 --> 00:01:28,604
+to put on a resume because everyone wants this.
+
+33
+00:01:28,604 --> 00:01:31,262
+(laughing)
+Sorry, just joking.
+
+34
+00:01:31,262 --> 00:01:32,245
+The main benefits here is,
+
+35
+00:01:32,245 --> 00:01:35,156
+one to minimize HTML code in the servlet.
+
+36
+00:01:35,156 --> 00:01:37,525
+So in our servlet, no more out dot print lines
+
+37
+00:01:37,525 --> 00:01:40,270
+in the servlet code cause that just didn't feel right,
+
+38
+00:01:40,270 --> 00:01:41,593
+that looked ugly.
+
+39
+00:01:41,593 --> 00:01:44,880
+Also, we want to minimize the Java business logic
+
+40
+00:01:44,880 --> 00:01:46,139
+in the JSPs.
+
+41
+00:01:46,139 --> 00:01:50,131
+So, no more large scriplet codes in the JSP.
+
+42
+00:01:50,131 --> 00:01:52,255
+The JSP will only handle the view.
+
+43
+00:01:52,255 --> 00:01:54,240
+So really it's a good, clean separation
+
+44
+00:01:54,240 --> 00:01:57,323
+of roles here in our web application.
+
+45
+00:01:58,357 --> 00:01:59,849
+Alright, so the big question is,
+
+46
+00:01:59,849 --> 00:02:02,254
+well how can the servlet call the JSP,
+
+47
+00:02:02,254 --> 00:02:05,150
+or how the servlet send data to the JSP.
+
+48
+00:02:05,150 --> 00:02:06,972
+Well, the servlet's gonna make use
+
+49
+00:02:06,972 --> 00:02:10,375
+of something called a request dispatcher.
+
+50
+00:02:10,375 --> 00:02:13,844
+So here's the actual code for using a request dispatcher.
+
+51
+00:02:13,844 --> 00:02:16,204
+So the first step, in step one we get
+
+52
+00:02:16,204 --> 00:02:17,869
+the request dispatcher.
+
+53
+00:02:17,869 --> 00:02:22,005
+So we make use of request.getrequestdispatcher
+
+54
+00:02:22,005 --> 00:02:24,688
+and we give the reference of the actual page
+
+55
+00:02:24,688 --> 00:02:25,817
+we want to reference.
+
+56
+00:02:25,817 --> 00:02:27,986
+So here, view students.jsp
+
+57
+00:02:27,986 --> 00:02:30,535
+that's the JSP page we want to call.
+
+58
+00:02:30,535 --> 00:02:32,303
+Once we have this dispatcher set up,
+
+59
+00:02:32,303 --> 00:02:35,517
+then we need to forward information to the dispatcher.
+
+60
+00:02:35,517 --> 00:02:37,704
+So here I say dispatcher.forward
+
+61
+00:02:37,704 --> 00:02:40,952
+and then I make use of the request and the response object.
+
+62
+00:02:40,952 --> 00:02:42,892
+So it'll send it over to the JSP
+
+63
+00:02:42,892 --> 00:02:45,347
+and the JSP can read information from that request
+
+64
+00:02:45,347 --> 00:02:47,597
+and also use that response.
+
+65
+00:02:48,829 --> 00:02:50,327
+Now, the other question is like,
+
+66
+00:02:50,327 --> 00:02:52,638
+well how can I send data to the JSP.
+
+67
+00:02:52,638 --> 00:02:55,305
+Like, I need to get additional data from the database
+
+68
+00:02:55,305 --> 00:02:56,973
+or from a back end system.
+
+69
+00:02:56,973 --> 00:03:01,209
+Well we can add data to the request object using attributes.
+
+70
+00:03:01,209 --> 00:03:05,129
+So here on the slide in step zero I add data.
+
+71
+00:03:05,129 --> 00:03:07,990
+So first off I could set up just an array
+
+72
+00:03:07,990 --> 00:03:10,248
+of strings here for students
+
+73
+00:03:10,248 --> 00:03:13,450
+and then I say request said attribute.
+
+74
+00:03:13,450 --> 00:03:14,667
+I give the attribute name
+
+75
+00:03:14,667 --> 00:03:19,077
+of student_list comma the actual value students,
+
+76
+00:03:19,077 --> 00:03:20,272
+so that's an object.
+
+77
+00:03:20,272 --> 00:03:23,799
+So you can actually add any object here that you wanted.
+
+78
+00:03:23,799 --> 00:03:25,976
+Here I'm simply adding an array of strings,
+
+79
+00:03:25,976 --> 00:03:27,216
+but you could add an array list,
+
+80
+00:03:27,216 --> 00:03:28,519
+you can add a custom object,
+
+81
+00:03:28,519 --> 00:03:31,435
+you can add any Java object that want here
+
+82
+00:03:31,435 --> 00:03:33,175
+to this request attribute.
+
+83
+00:03:33,175 --> 00:03:34,781
+And then the following steps are the same.
+
+84
+00:03:34,781 --> 00:03:36,949
+So step one, get the request dispatcher,
+
+85
+00:03:36,949 --> 00:03:38,706
+step two forwarding to the JSP.
+
+86
+00:03:38,706 --> 00:03:41,613
+All that's the same that we saw in the previous slide.
+
+87
+00:03:41,613 --> 00:03:44,342
+And you can add as many attributes here as you'd like,
+
+88
+00:03:44,342 --> 00:03:47,259
+as long as they have a unique name.
+
+89
+00:03:48,293 --> 00:03:51,859
+Alright, so the servlet has added data to the request object
+
+90
+00:03:51,859 --> 00:03:55,854
+and they did the request dispatcher to forward to the JSP,
+
+91
+00:03:55,854 --> 00:03:58,854
+now the JSP can actually view this data
+
+92
+00:03:58,854 --> 00:04:01,343
+and here we're gonna make use of the JSTL,
+
+93
+00:04:01,343 --> 00:04:03,704
+or the JSP standard tag library.
+
+94
+00:04:03,704 --> 00:04:05,767
+So at the top we give our taglib
+
+95
+00:04:05,767 --> 00:04:06,785
+and then in the center here
+
+96
+00:04:06,785 --> 00:04:10,436
+we make use of one of those JSTL core tags for each.
+
+97
+00:04:10,436 --> 00:04:14,855
+And we're basically gonna loop over the request attribute.
+
+98
+00:04:14,855 --> 00:04:17,771
+So here I have for each var equals temp Student,
+
+99
+00:04:17,771 --> 00:04:20,271
+items equals ${student_list]}.
+
+100
+00:04:22,091 --> 00:04:25,699
+This student_list, that's the actual attribute name
+
+101
+00:04:25,699 --> 00:04:28,156
+that was set by the servlet.
+
+102
+00:04:28,156 --> 00:04:31,357
+Alright, so the exact same name with the exact same case.
+
+103
+00:04:31,357 --> 00:04:33,761
+That's the data that was set by the servlet
+
+104
+00:04:33,761 --> 00:04:34,940
+and we can reference that
+
+105
+00:04:34,940 --> 00:04:36,969
+and we can simply print out temp student
+
+106
+00:04:36,969 --> 00:04:41,136
+and that will give us the output here for this system.
+
+107
+00:04:46,487 --> 00:04:49,463
+Great, so this is a very basic example here
+
+108
+00:04:49,463 --> 00:04:52,362
+of setting up and MVC application.
+
+109
+00:04:52,362 --> 00:04:54,350
+So we wrote all the code from scratch
+
+110
+00:04:54,350 --> 00:04:56,702
+so we looked at the servlet controller
+
+111
+00:04:56,702 --> 00:04:59,266
+and then we also looked at the JSP,
+
+112
+00:04:59,266 --> 00:05:00,728
+and what we'll do in the next video
+
+113
+00:05:00,728 --> 00:05:02,670
+is that we'll move into Eclipse
+
+114
+00:05:02,670 --> 00:05:04,827
+and we'll actually get some hands on,
+
+115
+00:05:04,827 --> 00:05:06,427
+we'll write all the code from scratch
+
+116
+00:05:06,427 --> 00:05:09,380
+so you can see how an MVC system works
+
+117
+00:05:09,380 --> 00:05:11,213
+with servlets and JSP.
+
+118
+00:05:12,638 --> 00:05:16,638
+Alright, I'll see you in the next video. Woohoo!
+

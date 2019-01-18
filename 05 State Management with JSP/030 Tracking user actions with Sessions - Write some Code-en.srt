@@ -1,0 +1,968 @@
+1
+00:00:01,266 --> 00:00:02,250
+<v Instructor>Hey, in this video</v>
+
+2
+00:00:02,250 --> 00:00:05,058
+I'm gonna show you how to do session tracking with JSP
+
+3
+00:00:05,058 --> 00:00:08,592
+and in particular we'll cover the coding portion of it.
+
+4
+00:00:08,592 --> 00:00:10,466
+Now, just as a quick refresher
+
+5
+00:00:10,466 --> 00:00:12,714
+let's look at the app that we're gonna code,
+
+6
+00:00:12,714 --> 00:00:14,579
+so again, remember, the demo,
+
+7
+00:00:14,579 --> 00:00:16,202
+you can add a new item
+
+8
+00:00:16,202 --> 00:00:20,035
+and we'll display the list here at the bottom.
+
+9
+00:00:21,000 --> 00:00:23,716
+So, I can type in a new item like buy groceries,
+
+10
+00:00:23,716 --> 00:00:25,122
+click on the Submit button
+
+11
+00:00:25,122 --> 00:00:27,797
+and it'll show up there at the bottom in my to-do list
+
+12
+00:00:27,797 --> 00:00:29,424
+and I can add one more item here,
+
+13
+00:00:29,424 --> 00:00:31,192
+go to gym and again.
+
+14
+00:00:31,192 --> 00:00:33,890
+Now, remember, the to-do list is actually saved
+
+15
+00:00:33,890 --> 00:00:35,298
+in our session object,
+
+16
+00:00:35,298 --> 00:00:36,891
+so it's a unique object
+
+17
+00:00:36,891 --> 00:00:40,818
+for each browser or user of our application
+
+18
+00:00:40,818 --> 00:00:42,224
+and I'll actually show you how to write
+
+19
+00:00:42,224 --> 00:00:46,391
+all of the coding for this from scratch in this video.
+
+20
+00:00:52,485 --> 00:00:54,214
+You know how I love to-do lists,
+
+21
+00:00:54,214 --> 00:00:55,482
+so here, the first thing we need to do
+
+22
+00:00:55,482 --> 00:00:57,712
+is create the HTML form,
+
+23
+00:00:57,712 --> 00:00:58,924
+then the second thing we need to do
+
+24
+00:00:58,924 --> 00:01:01,637
+is add the new item to the to-do list
+
+25
+00:01:01,637 --> 00:01:04,482
+and then finally, we need to display all to-do items
+
+26
+00:01:04,482 --> 00:01:06,453
+from the session object.
+
+27
+00:01:06,453 --> 00:01:08,085
+All right, so a lot of good stuff here
+
+28
+00:01:08,085 --> 00:01:09,158
+and we'll actually write all the code
+
+29
+00:01:09,158 --> 00:01:10,991
+for this from scratch.
+
+30
+00:01:15,699 --> 00:01:17,585 line:15% 
+All right, so just moving into Eclipse,
+
+31
+00:01:17,585 --> 00:01:20,079 line:15% 
+the first thing we need to do is create a new file,
+
+32
+00:01:20,079 --> 00:01:21,452
+so in our WebContent folder
+
+33
+00:01:21,452 --> 00:01:22,535
+we'll just do a right click,
+
+34
+00:01:22,535 --> 00:01:24,202
+we'll say New, File.
+
+35
+00:01:27,439 --> 00:01:28,969
+And I'll give the name of this file here,
+
+36
+00:01:28,969 --> 00:01:31,636
+I'll call it to do list demo.jsp
+
+37
+00:01:35,101 --> 00:01:36,378
+and once I'm happy with the name
+
+38
+00:01:36,378 --> 00:01:39,664
+I'll click on the Finish button.
+
+39
+00:01:39,664 --> 00:01:41,504
+All right, so we have our empty page here.
+
+40
+00:01:41,504 --> 00:01:45,337
+We'll start off with our normal HTML body tags
+
+41
+00:01:53,416 --> 00:01:55,268
+and now what I wanna do is just write out some comments
+
+42
+00:01:55,268 --> 00:01:58,091
+as far as our major steps in our to-do list,
+
+43
+00:01:58,091 --> 00:02:02,006
+so step one we need to create the HTML form
+
+44
+00:02:02,006 --> 00:02:03,526
+and then in step two we need to add
+
+45
+00:02:03,526 --> 00:02:06,231
+the new item to the to-do list
+
+46
+00:02:06,231 --> 00:02:07,726
+and then for step three we need to display
+
+47
+00:02:07,726 --> 00:02:10,268
+all to-do items from the session,
+
+48
+00:02:10,268 --> 00:02:12,238
+so this is our basic game plan here
+
+49
+00:02:12,238 --> 00:02:13,413
+for building out the code
+
+50
+00:02:13,413 --> 00:02:16,074
+and again, we'll write all the code for this from scratch
+
+51
+00:02:16,074 --> 00:02:17,241
+in this video.
+
+52
+00:02:20,713 --> 00:02:21,932
+All right, so let's start with step one,
+
+53
+00:02:21,932 --> 00:02:23,205
+creating the HTML form,
+
+54
+00:02:23,205 --> 00:02:26,358
+so the first thing we need to do is set up the form.
+
+55
+00:02:26,358 --> 00:02:29,369
+We'll set the action equals todo-demo.jsp,
+
+56
+00:02:29,369 --> 00:02:32,036
+so basically this page will submit data
+
+57
+00:02:32,036 --> 00:02:34,131
+right back to itself
+
+58
+00:02:34,131 --> 00:02:36,858
+because our file is called todo-demo.jsp,
+
+59
+00:02:36,858 --> 00:02:39,066
+so we're going to submit data right back to ourself
+
+60
+00:02:39,066 --> 00:02:41,874
+and I'll show you how to handle reading a form data
+
+61
+00:02:41,874 --> 00:02:44,640
+but what I'll do here is I'll set up this input text
+
+62
+00:02:44,640 --> 00:02:45,759
+for the items.
+
+63
+00:02:45,759 --> 00:02:48,948
+That's where the user will enter their to-do item
+
+64
+00:02:48,948 --> 00:02:53,115
+and I'll also set up another input type here for submit.
+
+65
+00:02:54,997 --> 00:02:58,414
+So, this is for the actual submit button.
+
+66
+00:03:00,663 --> 00:03:02,907
+And that's it, that's our basic HTML form
+
+67
+00:03:02,907 --> 00:03:06,193
+for reading in a to-do list item
+
+68
+00:03:06,193 --> 00:03:08,443
+along with a submit button.
+
+69
+00:03:11,816 --> 00:03:13,827
+And then just as a basic test harness here
+
+70
+00:03:13,827 --> 00:03:16,100
+I simply want to display that form data
+
+71
+00:03:16,100 --> 00:03:18,866
+just to verify that I can actually read the data
+
+72
+00:03:18,866 --> 00:03:19,973
+that they passed in,
+
+73
+00:03:19,973 --> 00:03:22,806
+so here I'll just say item entered
+
+74
+00:03:23,819 --> 00:03:27,199
+and then I'll say request.getParameter theItem,
+
+75
+00:03:27,199 --> 00:03:28,911
+so that will actually read the form data
+
+76
+00:03:28,911 --> 00:03:31,153
+and that's the same name as the field up here
+
+77
+00:03:31,153 --> 00:03:33,593
+on line seven as far as the name,
+
+78
+00:03:33,593 --> 00:03:36,132 line:15% 
+so we're basically reading that form field
+
+79
+00:03:36,132 --> 00:03:38,007 line:15% 
+and printing the information out.
+
+80
+00:03:38,007 --> 00:03:39,558 line:15% 
+Now, the first time we show this page
+
+81
+00:03:39,558 --> 00:03:41,150 line:15% 
+that value will be null
+
+82
+00:03:41,150 --> 00:03:42,673 line:15% 
+but we'll fill it in with some real information
+
+83
+00:03:42,673 --> 00:03:44,600 line:15% 
+as we submit data.
+
+84
+00:03:44,600 --> 00:03:45,505
+All right, so let's run it,
+
+85
+00:03:45,505 --> 00:03:46,626
+let's just right click on that file,
+
+86
+00:03:46,626 --> 00:03:49,043
+say Run As and Run on Server.
+
+87
+00:03:54,633 --> 00:03:57,168
+All right, so again, here's our form here.
+
+88
+00:03:57,168 --> 00:03:58,882
+Notice the item entered is null
+
+89
+00:03:58,882 --> 00:03:59,986
+but once I submit data,
+
+90
+00:03:59,986 --> 00:04:02,437
+then we see that new form field show up,
+
+91
+00:04:02,437 --> 00:04:04,213
+so I'll go to the store,
+
+92
+00:04:04,213 --> 00:04:06,773
+do the laundry and so on,
+
+93
+00:04:06,773 --> 00:04:09,243
+so we know that our form's working properly
+
+94
+00:04:09,243 --> 00:04:12,052
+and we know that our JSP can display that form data,
+
+95
+00:04:12,052 --> 00:04:14,802
+so this looks really good so far.
+
+96
+00:04:15,734 --> 00:04:17,716
+All right, so let's move down to step number two
+
+97
+00:04:17,716 --> 00:04:19,988
+and here we need to actually add the new item
+
+98
+00:04:19,988 --> 00:04:21,488
+to the to-do list.
+
+99
+00:04:23,511 --> 00:04:24,815
+So, one thing we're gonna make use of
+
+100
+00:04:24,815 --> 00:04:27,259
+is we're gonna make use of collections,
+
+101
+00:04:27,259 --> 00:04:30,688
+I want to make use of an array list.
+
+102
+00:04:30,688 --> 00:04:33,767
+We'll say get the to-do items from the session.
+
+103
+00:04:33,767 --> 00:04:35,131
+If the item doesn't exist,
+
+104
+00:04:35,131 --> 00:04:38,645
+then we're actually gonna create a new one
+
+105
+00:04:38,645 --> 00:04:40,353
+and we'll also see if there's any form data
+
+106
+00:04:40,353 --> 00:04:42,270
+that needs to be added.
+
+107
+00:04:44,029 --> 00:04:45,677
+So, that's our basic game plan here
+
+108
+00:04:45,677 --> 00:04:47,344
+for step number two.
+
+109
+00:04:51,834 --> 00:04:53,138
+All right, so one thing we're gonna need to use
+
+110
+00:04:53,138 --> 00:04:56,789
+is a lot of classes from the java.util package,
+
+111
+00:04:56,789 --> 00:04:58,318
+so let me just move to the top of this file
+
+112
+00:04:58,318 --> 00:05:02,037
+and just do an import on the package java.util,
+
+113
+00:05:02,037 --> 00:05:04,187
+so again, we do the angle bracket percent
+
+114
+00:05:04,187 --> 00:05:05,757
+with an at symbol
+
+115
+00:05:05,757 --> 00:05:09,174
+and we say page import equals java.util.*
+
+116
+00:05:10,440 --> 00:05:12,526
+so this will give me everything in the java.util package
+
+117
+00:05:12,526 --> 00:05:15,383
+like list, array list, so on and so forth
+
+118
+00:05:15,383 --> 00:05:18,009
+and we use that a lot in this JSP page,
+
+119
+00:05:18,009 --> 00:05:19,957
+so the import here will help us out
+
+120
+00:05:19,957 --> 00:05:22,790
+and save us on some of the typing.
+
+121
+00:05:27,270 --> 00:05:28,286
+The first thing I need to do here
+
+122
+00:05:28,286 --> 00:05:30,808
+is get the items from the sessions,
+
+123
+00:05:30,808 --> 00:05:33,248
+so I'll say List&lt;String&gt; items
+
+124
+00:05:33,248 --> 00:05:35,350
+equals LIst&lt;String&gt; for down casting it,
+
+125
+00:05:35,350 --> 00:05:38,988
+so we're gonna have a list of type string
+
+126
+00:05:38,988 --> 00:05:41,801
+and we say session.getAttribute
+
+127
+00:05:41,801 --> 00:05:42,894
+and we give the name
+
+128
+00:05:42,894 --> 00:05:45,031
+and here again, we can give any name
+
+129
+00:05:45,031 --> 00:05:46,194
+as long as we're consistent,
+
+130
+00:05:46,194 --> 00:05:49,527
+so for the name I'll call it myToDoList.
+
+131
+00:05:52,132 --> 00:05:54,058
+So, this will use that built-in session object
+
+132
+00:05:54,058 --> 00:05:57,110
+say getAttribute for a given name myToDoList
+
+133
+00:05:57,110 --> 00:05:59,674
+and down cast it accordingly.
+
+134
+00:05:59,674 --> 00:06:00,777
+Now, first I need to make sure
+
+135
+00:06:00,777 --> 00:06:02,207
+that it exists or not,
+
+136
+00:06:02,207 --> 00:06:04,674
+so if it doesn't exist, then I need to create a new one,
+
+137
+00:06:04,674 --> 00:06:06,521
+so if items equals null,
+
+138
+00:06:06,521 --> 00:06:08,517
+then that means I need to create a new list,
+
+139
+00:06:08,517 --> 00:06:12,531
+so here I say items equals new ArrayList&lt;String&gt;
+
+140
+00:06:12,531 --> 00:06:14,321
+so this will basically give me an array list
+
+141
+00:06:14,321 --> 00:06:17,231
+that can hold string items
+
+142
+00:06:17,231 --> 00:06:19,320
+and now I'm gonna actually add this list
+
+143
+00:06:19,320 --> 00:06:22,843
+to the session, so I'll say session.setAttribute
+
+144
+00:06:22,843 --> 00:06:24,033
+and then I give the name
+
+145
+00:06:24,033 --> 00:06:26,020
+and again, I'm going to use the same name
+
+146
+00:06:26,020 --> 00:06:28,751
+that I used for retrieving it, myToDoList
+
+147
+00:06:28,751 --> 00:06:32,751 line:15% 
+and I simply say setAttribute myToDoList, items.
+
+148
+00:06:35,717 --> 00:06:37,374 line:15% 
+And so, this handles making sure
+
+149
+00:06:37,374 --> 00:06:40,073 line:15% 
+that we have an item in the session,
+
+150
+00:06:40,073 --> 00:06:42,475 line:15% 
+if not, we create a new one
+
+151
+00:06:42,475 --> 00:06:45,892 line:15% 
+and then we set that list on the session.
+
+152
+00:06:50,683 --> 00:06:51,516
+Now, the next thing we need to do
+
+153
+00:06:51,516 --> 00:06:53,342
+is see if there's form data to add,
+
+154
+00:06:53,342 --> 00:06:57,660
+so I just use that method request.getParameter
+
+155
+00:06:57,660 --> 00:07:00,993
+and I use the parameter name of theItem,
+
+156
+00:07:03,053 --> 00:07:05,808
+so that's the actual form field that we had earlier
+
+157
+00:07:05,808 --> 00:07:07,152
+in this exercise.
+
+158
+00:07:07,152 --> 00:07:10,940
+Then I simply say if theItem is not equal to null
+
+159
+00:07:10,940 --> 00:07:12,353
+and that means that we have some data
+
+160
+00:07:12,353 --> 00:07:14,359
+and we can actually add that data,
+
+161
+00:07:14,359 --> 00:07:16,410
+so I'm gonna add this data to the list
+
+162
+00:07:16,410 --> 00:07:19,663
+of items, so here we say items.add
+
+163
+00:07:19,663 --> 00:07:21,621
+and we pass in theItem
+
+164
+00:07:21,621 --> 00:07:23,955
+and again, remember, items is the arrayList
+
+165
+00:07:23,955 --> 00:07:26,357
+and theItem is the actual form data
+
+166
+00:07:26,357 --> 00:07:28,460
+that we read in, so we're basically just adding
+
+167
+00:07:28,460 --> 00:07:30,728
+something to that existing list
+
+168
+00:07:30,728 --> 00:07:33,271
+and it'll simply build over time.
+
+169
+00:07:33,271 --> 00:07:36,072
+And remember, the arrayList is more like a global array.
+
+170
+00:07:36,072 --> 00:07:39,405
+You can simply add multiple items to it.
+
+171
+00:07:42,996 --> 00:07:44,136
+All right, so we're almost there.
+
+172
+00:07:44,136 --> 00:07:46,084
+The final step here, step three,
+
+173
+00:07:46,084 --> 00:07:48,330
+display all to-do items from the session.
+
+174
+00:07:48,330 --> 00:07:51,382
+So first off, let me just give you some basic HTML markup,
+
+175
+00:07:51,382 --> 00:07:54,852
+just like a little header here, To Do List Items,
+
+176
+00:07:54,852 --> 00:07:57,059
+all that good stuff, put a break there
+
+177
+00:07:57,059 --> 00:08:01,157 line:15% 
+and now what I need to do is build a bullet list of items,
+
+178
+00:08:01,157 --> 00:08:02,694 line:15% 
+so here I make use of ol,
+
+179
+00:08:02,694 --> 00:08:05,111 line:15% 
+it's HTML tag for orderedList
+
+180
+00:08:06,613 --> 00:08:09,974 line:15% 
+and this will basically give us a numbered list basically
+
+181
+00:08:09,974 --> 00:08:11,663 line:15% 
+and now I'll add a scriptlet
+
+182
+00:08:11,663 --> 00:08:14,020 line:15% 
+and I'm gonna loop through that arrayList
+
+183
+00:08:14,020 --> 00:08:16,779 line:15% 
+and then for each item simply print it out.
+
+184
+00:08:16,779 --> 00:08:19,395 line:15% 
+So, here I say string temp : items,
+
+185
+00:08:19,395 --> 00:08:20,621 line:15% 
+that's our list
+
+186
+00:08:20,621 --> 00:08:22,408 line:15% 
+and then I do an out.printLine
+
+187
+00:08:22,408 --> 00:08:24,077 line:15% 
+which is another built-in object
+
+188
+00:08:24,077 --> 00:08:27,953 line:15% 
+that we can use for printing directly to that JSP page.
+
+189
+00:08:27,953 --> 00:08:31,657 line:15% 
+So, here I'll say out.printLine, li temp
+
+190
+00:08:31,657 --> 00:08:33,289 line:15% 
+plus slash li,
+
+191
+00:08:33,289 --> 00:08:35,534 line:15% 
+so li is for listItem,
+
+192
+00:08:35,534 --> 00:08:37,085 line:15% 
+so this will basically help us build
+
+193
+00:08:37,085 --> 00:08:39,970 line:15% 
+a numbered list or an ordered list
+
+194
+00:08:39,970 --> 00:08:42,220 line:15% 
+of items for the HTML page.
+
+195
+00:08:43,429 --> 00:08:45,592 line:15% 
+We'll do this dynamically on the fly
+
+196
+00:08:45,592 --> 00:08:48,759 line:15% 
+based on whatever's in the to-do list.
+
+197
+00:08:55,174 --> 00:08:56,596
+All right, so this looks really good so far,
+
+198
+00:08:56,596 --> 00:08:59,429
+so I think we're pretty much done.
+
+199
+00:09:01,171 --> 00:09:03,565
+Oh yeah, just some clean up here on lines 14 and 15,
+
+200
+00:09:03,565 --> 00:09:05,667
+remove that code, we don't need this anymore,
+
+201
+00:09:05,667 --> 00:09:07,289
+that was more of just a test,
+
+202
+00:09:07,289 --> 00:09:10,859
+so I just rip that out, I'll delete that code
+
+203
+00:09:10,859 --> 00:09:12,192
+and save my file
+
+204
+00:09:13,081 --> 00:09:14,693
+and now we can move back to the browser.
+
+205
+00:09:14,693 --> 00:09:16,983
+The only thing I need to do is just remove those parameters
+
+206
+00:09:16,983 --> 00:09:18,221
+from the end of this URL,
+
+207
+00:09:18,221 --> 00:09:20,330
+so everything after the question mark
+
+208
+00:09:20,330 --> 00:09:23,436
+I can simply highlight and hit the delete key on
+
+209
+00:09:23,436 --> 00:09:24,440
+and I'll just hit enter,
+
+210
+00:09:24,440 --> 00:09:25,890
+it'll refresh the page.
+
+211
+00:09:25,890 --> 00:09:26,844
+All right, so at this point,
+
+212
+00:09:26,844 --> 00:09:29,537
+add new item, my to-do list items is null
+
+213
+00:09:29,537 --> 00:09:30,860
+or empty actually,
+
+214
+00:09:30,860 --> 00:09:32,943
+I'll add a new item here,
+
+215
+00:09:34,428 --> 00:09:36,300
+mow the yard, hit Submit,
+
+216
+00:09:36,300 --> 00:09:39,446
+so it's adding it to our to-do list,
+
+217
+00:09:39,446 --> 00:09:41,446
+wash the dishes, Submit,
+
+218
+00:09:43,400 --> 00:09:46,813
+and record more Java videos, come on, buddy,
+
+219
+00:09:46,813 --> 00:09:48,314
+get on the stick.
+
+220
+00:09:48,314 --> 00:09:50,755
+So, I need to record more videos.
+
+221
+00:09:50,755 --> 00:09:52,711
+I also need to write a lot of code,
+
+222
+00:09:52,711 --> 00:09:53,912
+so let me just add this in here,
+
+223
+00:09:53,912 --> 00:09:56,981
+so I crank out some more code.
+
+224
+00:09:56,981 --> 00:09:59,885
+That's what this is all about.
+
+225
+00:09:59,885 --> 00:10:00,736
+And so, that's it, so notice here
+
+226
+00:10:00,736 --> 00:10:02,011
+how we're building a list,
+
+227
+00:10:02,011 --> 00:10:03,527
+it's keeping track of everything
+
+228
+00:10:03,527 --> 00:10:06,167
+and it works out pretty good
+
+229
+00:10:06,167 --> 00:10:07,832
+and hopefully at the end of tonight
+
+230
+00:10:07,832 --> 00:10:09,474
+I can actually get some sleep.
+
+231
+00:10:09,474 --> 00:10:10,312
+We'll see.
+
+232
+00:10:10,312 --> 00:10:12,712
+But again, we're making use of session tracking,
+
+233
+00:10:12,712 --> 00:10:15,156
+we're keeping track of all of our to-do items
+
+234
+00:10:15,156 --> 00:10:17,374
+in the session, so these items are unique
+
+235
+00:10:17,374 --> 00:10:20,006
+for this given browser user.
+
+236
+00:10:20,006 --> 00:10:21,388
+If I opened up a different browser,
+
+237
+00:10:21,388 --> 00:10:22,522
+I'd see a totally different list,
+
+238
+00:10:22,522 --> 00:10:23,993
+that will be empty
+
+239
+00:10:23,993 --> 00:10:25,627
+and we can basically keep track
+
+240
+00:10:25,627 --> 00:10:28,189
+of all the unique actions for a given user,
+
+241
+00:10:28,189 --> 00:10:31,357
+so that's kind of session tracking in a nutshell.
+
+242
+00:10:31,357 --> 00:10:32,190
+Good job.
+

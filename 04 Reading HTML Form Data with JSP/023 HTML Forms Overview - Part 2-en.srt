@@ -1,0 +1,364 @@
+1
+00:00:01,514 --> 00:00:03,290
+<v Voiceover>Alright so let's go ahead</v>
+
+2
+00:00:03,290 --> 00:00:04,123
+and move into Eclipse.
+
+3
+00:00:04,123 --> 00:00:05,615
+What I'd like to do is to continue
+
+4
+00:00:05,615 --> 00:00:09,198
+to use the same project as before, jspdemo.
+
+5
+00:00:12,112 --> 00:00:13,333
+And what I wanna do is move down to the
+
+6
+00:00:13,333 --> 00:00:16,247
+WebContent directory and create a new file.
+
+7
+00:00:16,247 --> 00:00:17,456
+So we're actually gonna create a new file
+
+8
+00:00:17,456 --> 00:00:19,572
+for the html form.
+
+9
+00:00:19,572 --> 00:00:20,823
+So I'll just do a right click,
+
+10
+00:00:20,823 --> 00:00:22,406
+I'll say new, file.
+
+11
+00:00:25,039 --> 00:00:29,206
+The name of this file, I'll call it student-form.html.
+
+12
+00:00:31,103 --> 00:00:32,432
+And once we're happy with the name we can
+
+13
+00:00:32,432 --> 00:00:35,515
+go ahead and click the Finish button.
+
+14
+00:00:39,198 --> 00:00:43,176
+Alright, so let's go ahead and expand the window here.
+
+15
+00:00:43,176 --> 00:00:46,468
+Now I'll set up my basic html tags.
+
+16
+00:00:46,468 --> 00:00:50,635
+And then I'll set up a header for the title of this form.
+
+17
+00:00:51,769 --> 00:00:52,602
+And then we'll just go in and set up
+
+18
+00:00:52,602 --> 00:00:55,185
+some body tags here real quick.
+
+19
+00:00:59,935 --> 00:01:01,142
+And then we can start building our form.
+
+20
+00:01:01,142 --> 00:01:04,010
+So here I'll say form action equals
+
+21
+00:01:04,010 --> 00:01:05,827
+student-response.jsp
+
+22
+00:01:05,827 --> 00:01:08,096
+so that's the jsp file we're gonna send the data to.
+
+23
+00:01:08,096 --> 00:01:10,001
+We haven't created the file yet, we'll create it next.
+
+24
+00:01:10,001 --> 00:01:14,168
+But that's the actual file that we'll send the data to.
+
+25
+00:01:15,755 --> 00:01:16,690
+Now I need to simply go through
+
+26
+00:01:16,690 --> 00:01:18,725
+and create some form fields.
+
+27
+00:01:18,725 --> 00:01:22,475
+So I'll set up the form field for first name.
+
+28
+00:01:24,356 --> 00:01:26,242
+So the input type is text
+
+29
+00:01:26,242 --> 00:01:29,836
+and the name is equal to first name.
+
+30
+00:01:29,836 --> 00:01:31,583
+And again that's the exact same name
+
+31
+00:01:31,583 --> 00:01:33,408
+we're gonna use on the server side in our jsp
+
+32
+00:01:33,408 --> 00:01:35,658
+when we read the form data.
+
+33
+00:01:37,172 --> 00:01:40,796
+Just set up some line breaks here.
+
+34
+00:01:40,796 --> 00:01:43,874
+And now I'll do a similar thing here for last name.
+
+35
+00:01:43,874 --> 00:01:45,935
+So input type equals text.
+
+36
+00:01:45,935 --> 00:01:47,768
+Name equals last name.
+
+37
+00:01:51,908 --> 00:01:56,075
+I'll just do a quick copy paste here on the line breaks.
+
+38
+00:01:58,473 --> 00:01:59,975
+And then finally to wrap it all up
+
+39
+00:01:59,975 --> 00:02:01,291
+I'll set up my submit button.
+
+40
+00:02:01,291 --> 00:02:04,901
+So I'll say input type equals submit
+
+41
+00:02:04,901 --> 00:02:06,920
+and then value equals submit.
+
+42
+00:02:06,920 --> 00:02:08,612
+So the value of submit, that's the actual
+
+43
+00:02:08,612 --> 00:02:12,195
+label that you'll see on the submit button.
+
+44
+00:02:14,066 --> 00:02:16,278
+Now I notice I have a typo on line 17.
+
+45
+00:02:16,278 --> 00:02:20,355
+I spelled the input type submt, I misspelled that one.
+
+46
+00:02:20,355 --> 00:02:21,864
+So let me fix that with an i.
+
+47
+00:02:21,864 --> 00:02:22,697
+Okay, good.
+
+48
+00:02:22,697 --> 00:02:24,447
+Now we're good to go.
+
+49
+00:02:25,660 --> 00:02:27,540
+Okay so this is the html form.
+
+50
+00:02:27,540 --> 00:02:31,290
+First name, last name, and the submit button.
+
+51
+00:02:36,064 --> 00:02:38,001
+Okay so now lets go ahead and create the jsp page
+
+52
+00:02:38,001 --> 00:02:39,360
+that'll process this.
+
+53
+00:02:39,360 --> 00:02:40,947
+So our student response jsp.
+
+54
+00:02:40,947 --> 00:02:41,864
+So new file
+
+55
+00:02:45,456 --> 00:02:48,120
+and I'll call it student-response.jsp.
+
+56
+00:02:48,120 --> 00:02:52,616
+That's the same name that I refer to in the html form.
+
+57
+00:02:52,616 --> 00:02:54,512
+The student-response.jsp.
+
+58
+00:02:54,512 --> 00:02:55,492
+And once you're happy with this name
+
+59
+00:02:55,492 --> 00:02:57,508
+you can go and click the Finish button.
+
+60
+00:02:57,508 --> 00:02:58,508
+Okay, great.
+
+61
+00:02:59,624 --> 00:03:02,336
+So let's go ahead and set up our basic tags again.
+
+62
+00:03:02,336 --> 00:03:05,336
+And set up our student confirmation.
+
+63
+00:03:07,313 --> 00:03:09,475
+And then take care of the body.
+
+64
+00:03:09,475 --> 00:03:10,498
+Alright so now this is where we need
+
+65
+00:03:10,498 --> 00:03:13,687
+to start reading some of the form data.
+
+66
+00:03:13,687 --> 00:03:16,221
+So first off I'll say "The student is confirmed"
+
+67
+00:03:16,221 --> 00:03:17,336
+and then I wanna display their
+
+68
+00:03:17,336 --> 00:03:18,408
+first name an their last name.
+
+69
+00:03:18,408 --> 00:03:20,363
+So I'll make use of that shortcut notation.
+
+70
+00:03:20,363 --> 00:03:23,946
+The dollar sign curly brace param.firstName
+
+71
+00:03:24,907 --> 00:03:28,127
+so its the same name from the html form
+
+72
+00:03:28,127 --> 00:03:30,620
+and then param.lastName.
+
+73
+00:03:30,620 --> 00:03:33,086
+So basically here we'll have first name,
+
+74
+00:03:33,086 --> 00:03:37,253
+space, last name for that student once they're registered.
+
+75
+00:03:39,003 --> 00:03:41,079
+Alright so let's go ahead and run the program.
+
+76
+00:03:41,079 --> 00:03:44,102
+So I'll move over to student-form.html.
+
+77
+00:03:44,102 --> 00:03:47,557
+I'll do a right click and I'll say Run As
+
+78
+00:03:47,557 --> 00:03:50,057
+and I'll choose Run on Server.
+
+79
+00:03:53,067 --> 00:03:55,180
+Okay great, so here's our form.
+
+80
+00:03:55,180 --> 00:03:56,982
+We can go ahead and enter some information here.
+
+81
+00:03:56,982 --> 00:03:59,320
+So for the first name I'll say John,
+
+82
+00:03:59,320 --> 00:04:01,378
+last name of Doe.
+
+83
+00:04:01,378 --> 00:04:06,068
+And once I'm happy with that I'll hit the Submit button.
+
+84
+00:04:06,068 --> 00:04:08,380
+Okay great, so here is our confirmation page.
+
+85
+00:04:08,380 --> 00:04:10,458
+The student is confirmed, John Doe.
+
+86
+00:04:10,458 --> 00:04:12,891
+So that's the result of us reading the form data
+
+87
+00:04:12,891 --> 00:04:16,202
+that the user entered on their html form.
+
+88
+00:04:16,202 --> 00:04:18,574
+So this all looks really good.
+
+89
+00:04:18,574 --> 00:04:19,407
+So good job.
+
+90
+00:04:19,407 --> 00:04:21,401
+So we were successful in reading html
+
+91
+00:04:21,401 --> 00:04:23,734
+form data with the jsp page.
+

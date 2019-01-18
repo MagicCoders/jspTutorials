@@ -1,0 +1,140 @@
+1
+00:00:00,730 --> 00:00:04,265
+<v Chad Darby>Hi. This is Chad Darby with luv2code.com</v>
+
+2
+00:00:04,265 --> 00:00:08,489
+and welcome to my course on Java Server pages.
+
+3
+00:00:08,489 --> 00:00:10,005
+The main objective of this course is,
+
+4
+00:00:10,005 --> 00:00:12,088
+I want to show you how to build a JSP
+
+5
+00:00:12,088 --> 00:00:14,838
+web application all from scratch.
+
+6
+00:00:16,723 --> 00:00:18,772
+So here's the course road map.
+
+7
+00:00:18,772 --> 00:00:20,833
+The first thing we're going to do is learn how to get
+
+8
+00:00:20,833 --> 00:00:24,220
+started with JSP by setting up our Development Environment.
+
+9
+00:00:24,220 --> 00:00:27,728
+Then we'll explore some JSP scripting elements.
+
+10
+00:00:27,728 --> 00:00:32,652
+Next, we'll learn how to read HTML form data with JSP.
+
+11
+00:00:32,652 --> 00:00:33,836
+And then, I'll show you how to
+
+12
+00:00:33,836 --> 00:00:37,646
+manage application state with Cookies and Sessions,
+
+13
+00:00:37,646 --> 00:00:39,271
+and then we have a lot of more things that we'll
+
+14
+00:00:39,271 --> 00:00:41,766
+add to the course, so a lot of good things
+
+15
+00:00:41,766 --> 00:00:44,516
+coming up in this course for you.
+
+16
+00:00:46,416 --> 00:00:48,306
+Now, one thing about the course is that,
+
+17
+00:00:48,306 --> 00:00:51,345
+all of the source code is available for download.
+
+18
+00:00:51,345 --> 00:00:53,653
+So, you can download the source code at the beginning
+
+19
+00:00:53,653 --> 00:00:54,923
+and then you can follow along with
+
+20
+00:00:54,923 --> 00:00:57,273
+the videos and review the source code,
+
+21
+00:00:57,273 --> 00:00:59,445
+or you can write it in all by yourself, if you'd like.
+
+22
+00:00:59,445 --> 00:01:00,827
+It's totally up to you.
+
+23
+00:01:00,827 --> 00:01:02,494
+You have the option.
+
+24
+00:01:03,818 --> 00:01:06,833
+I'll present a lot of good information in the course,
+
+25
+00:01:06,833 --> 00:01:10,694
+however, you still may have a question or need help.
+
+26
+00:01:10,694 --> 00:01:13,689
+No problem, simply post the question in the Udemy
+
+27
+00:01:13,689 --> 00:01:16,873
+classroom discussion and I'll come through and answer it.
+
+28
+00:01:16,873 --> 00:01:18,857
+I'm a very responsive instructor,
+
+29
+00:01:18,857 --> 00:01:22,577
+so I normally respond within the next 24 hours.
+
+30
+00:01:22,577 --> 00:01:25,945
+Feel free to post your questions to the Udemy discussion.
+
+31
+00:01:25,945 --> 00:01:27,618
+Okay, great a lot of good information
+
+32
+00:01:27,618 --> 00:01:29,651
+coming up here for this course.
+
+33
+00:01:29,651 --> 00:01:33,294
+I'm excited and I hope you are too.
+
+34
+00:01:33,294 --> 00:01:35,239
+We'll have a lot of fun in this course,
+
+35
+00:01:35,239 --> 00:01:38,489
+so stay tuned for the following videos.
+

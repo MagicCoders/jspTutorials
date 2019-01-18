@@ -1,0 +1,392 @@
+1
+00:00:01,472 --> 00:00:02,534
+<v Narrator>In this video,</v>
+
+2
+00:00:02,534 --> 00:00:05,296
+I'm gonna show you how to install Eclipse on the Mac.
+
+3
+00:00:05,296 --> 00:00:06,888
+In particular, we're going to install
+
+4
+00:00:06,888 --> 00:00:08,920
+the Java EE version of Eclipse.
+
+5
+00:00:08,920 --> 00:00:12,003
+Okay, let's go ahead and get started.
+
+6
+00:00:13,708 --> 00:00:15,047 line:15% 
+Alright, so the first thing we need to do
+
+7
+00:00:15,047 --> 00:00:16,629 line:15% 
+is download Eclipse.
+
+8
+00:00:16,629 --> 00:00:20,006 line:15% 
+So in our browser, we'll just visit eclipse.org.
+
+9
+00:00:20,006 --> 00:00:21,987 line:15% 
+This'll bring us to the Eclipse website
+
+10
+00:00:21,987 --> 00:00:24,483
+and over on the far right is a Download button.
+
+11
+00:00:24,483 --> 00:00:26,165
+Let's go ahead and click on that button,
+
+12
+00:00:26,165 --> 00:00:29,582
+and this'll take us to the download page.
+
+13
+00:00:31,876 --> 00:00:33,585
+Alright, so now we're at the download page,
+
+14
+00:00:33,585 --> 00:00:35,268
+let's scroll down a bit
+
+15
+00:00:35,268 --> 00:00:38,032
+and we wanna make use of the Eclipse IDE
+
+16
+00:00:38,032 --> 00:00:39,930
+for Java EE Developers,
+
+17
+00:00:39,930 --> 00:00:43,430
+so it's really important, Java EE version.
+
+18
+00:00:47,578 --> 00:00:50,335
+So let's go ahead and click on the download link here,
+
+19
+00:00:50,335 --> 00:00:53,215
+I'm using a Mac right now so I'll download that version.
+
+20
+00:00:53,215 --> 00:00:55,890
+This'll take us to the download page,
+
+21
+00:00:55,890 --> 00:00:57,601
+I'll go ahead and click the option here
+
+22
+00:00:57,601 --> 00:00:59,601
+for the download mirror.
+
+23
+00:01:01,309 --> 00:01:04,790
+The browser will prompt me to download the file,
+
+24
+00:01:04,790 --> 00:01:06,566
+I'll go ahead and click Okay.
+
+25
+00:01:06,566 --> 00:01:09,078
+And then we'll start downloading it to our system.
+
+26
+00:01:09,078 --> 00:01:10,432
+Now this will take a while,
+
+27
+00:01:10,432 --> 00:01:12,782
+so what I'll do is I'll kind of step away
+
+28
+00:01:12,782 --> 00:01:16,865
+and I'll come back once the download is complete.
+
+29
+00:01:19,732 --> 00:01:21,752 line:15% 
+Alright, so we've downloaded the file.
+
+30
+00:01:21,752 --> 00:01:24,125 line:15% 
+Now what we need to do is unzip Eclipse.
+
+31
+00:01:24,125 --> 00:01:25,134 line:15% 
+So the first thing I'll do
+
+32
+00:01:25,134 --> 00:01:26,813 line:15% 
+is I'll move into the Downloads directory,
+
+33
+00:01:26,813 --> 00:01:28,525 line:15% 
+and there's the file that we just downloaded,
+
+34
+00:01:28,525 --> 00:01:30,308 line:15% 
+the Eclipse Jave EE,
+
+35
+00:01:30,308 --> 00:01:34,475 line:15% 
+and I'll go ahead and double click this file to unzip it.
+
+36
+00:01:36,884 --> 00:01:38,748
+Alright, so now what I'd like to do,
+
+37
+00:01:38,748 --> 00:01:40,554
+now that this file is unzipped,
+
+38
+00:01:40,554 --> 00:01:42,069
+what I'd like to do is move it
+
+39
+00:01:42,069 --> 00:01:43,764
+to my jsf-for-beginners folder
+
+40
+00:01:43,764 --> 00:01:47,067
+that I created in a previous video.
+
+41
+00:01:47,067 --> 00:01:49,970
+So let me go ahead and open up a new Finder window here,
+
+42
+00:01:49,970 --> 00:01:53,553
+just resize the windows give me one second.
+
+43
+00:01:55,314 --> 00:01:58,039
+So at the bottom I have my jsf-for-beginners,
+
+44
+00:01:58,039 --> 00:02:01,063
+that's the one we created in our previous Mac video,
+
+45
+00:02:01,063 --> 00:02:02,416
+I'll go ahead and double click in there
+
+46
+00:02:02,416 --> 00:02:03,701
+and that's where we installed our Tomcat
+
+47
+00:02:03,701 --> 00:02:05,281
+from the previous video.
+
+48
+00:02:05,281 --> 00:02:06,851
+I'll take this Eclipse folder that I just unzipped
+
+49
+00:02:06,851 --> 00:02:11,274
+and I'll move it down to that jsf-for-beginners folder.
+
+50
+00:02:11,274 --> 00:02:13,242
+Again, this jsf-for-beginners folder
+
+51
+00:02:13,242 --> 00:02:15,986
+is just a little scratch sample folder
+
+52
+00:02:15,986 --> 00:02:18,234
+that we're going to use for our jsf class,
+
+53
+00:02:18,234 --> 00:02:20,602
+just to keep everything in one location.
+
+54
+00:02:20,602 --> 00:02:22,994
+But good, we just simply moved that from Downloads
+
+55
+00:02:22,994 --> 00:02:26,327
+over to our jsf-for-beginners. Good job.
+
+56
+00:02:28,867 --> 00:02:30,152
+Alright, so now that we have the file
+
+57
+00:02:30,152 --> 00:02:32,971
+in our jsf-for-beginners directory,
+
+58
+00:02:32,971 --> 00:02:34,753
+let's go ahead and run Eclipse.
+
+59
+00:02:34,753 --> 00:02:36,473
+So I'll simply select the Eclipse icon
+
+60
+00:02:36,473 --> 00:02:37,751
+in this Eclipse folder,
+
+61
+00:02:37,751 --> 00:02:38,970
+and I'll just double-click it
+
+62
+00:02:38,970 --> 00:02:41,872
+and this will start up Eclipse for me.
+
+63
+00:02:41,872 --> 00:02:44,767
+So I'll go ahead and hit Open to start it to run.
+
+64
+00:02:44,767 --> 00:02:46,712
+And then they're gonna prompt me for a workspace.
+
+65
+00:02:46,712 --> 00:02:48,127
+So our workspace is simply a folder
+
+66
+00:02:48,127 --> 00:02:49,614
+where we put our sample code,
+
+67
+00:02:49,614 --> 00:02:51,359
+normally I would keep the defaults,
+
+68
+00:02:51,359 --> 00:02:52,992
+but in this example I'm going to change it.
+
+69
+00:02:52,992 --> 00:02:55,409
+So I'm gonna click on Browse,
+
+70
+00:02:58,611 --> 00:03:02,755
+and I'll move over to this jsf-for-beginners directory,
+
+71
+00:03:02,755 --> 00:03:03,858
+and then in the bottom left
+
+72
+00:03:03,858 --> 00:03:06,849
+I'm gonna click on a button there for a New Folder,
+
+73
+00:03:06,849 --> 00:03:09,839
+and for New Folder I'll just type in the name of workspace.
+
+74
+00:03:09,839 --> 00:03:11,747
+So I'll create a new workspace folder here
+
+75
+00:03:11,747 --> 00:03:14,274
+in jsf-for-beginners.
+
+76
+00:03:14,274 --> 00:03:16,467
+Hit Okay, and so this is what the layout
+
+77
+00:03:16,467 --> 00:03:18,407
+should look like once we have that set up.
+
+78
+00:03:18,407 --> 00:03:20,474
+So again, you can put your workspace anywhere you like,
+
+79
+00:03:20,474 --> 00:03:23,305
+but I'm just putting it here in this one directory
+
+80
+00:03:23,305 --> 00:03:25,153
+just so it keeps track of everything else
+
+81
+00:03:25,153 --> 00:03:27,618
+for this jsf-for-beginners class.
+
+82
+00:03:27,618 --> 00:03:29,321
+Alright, so once I'm happy with that I'll go ahead
+
+83
+00:03:29,321 --> 00:03:31,689
+and hit on Okay, and Eclipse will start running,
+
+84
+00:03:31,689 --> 00:03:33,657
+and then I'll make it to the Welcome screen.
+
+85
+00:03:33,657 --> 00:03:34,908
+I always like to verify
+
+86
+00:03:34,908 --> 00:03:37,139
+that I'm using the Java EE version of Eclipse,
+
+87
+00:03:37,139 --> 00:03:39,532
+because it has built-in support for jsf
+
+88
+00:03:39,532 --> 00:03:41,533
+and I'll go ahead and close this welcome.
+
+89
+00:03:41,533 --> 00:03:44,103
+Over on the left hand side I have my Project Explorer,
+
+90
+00:03:44,103 --> 00:03:47,511
+right now it's empty, nothing's there.
+
+91
+00:03:47,511 --> 00:03:48,344
+So that's it.
+
+92
+00:03:48,344 --> 00:03:50,118
+So at this point we have Eclipse installed
+
+93
+00:03:50,118 --> 00:03:52,767
+and we're able to run it and everything looks really good.
+
+94
+00:03:52,767 --> 00:03:54,100
+Good job so far.
+
+95
+00:03:55,037 --> 00:03:57,132
+Alright so this wraps up the video.
+
+96
+00:03:57,132 --> 00:03:59,499
+In this video I showed you how to install Eclipse
+
+97
+00:03:59,499 --> 00:04:02,217
+on the Mac, I also showed you how to download the file,
+
+98
+00:04:02,217 --> 00:04:04,967
+unzip it and then launch Eclipse.
+

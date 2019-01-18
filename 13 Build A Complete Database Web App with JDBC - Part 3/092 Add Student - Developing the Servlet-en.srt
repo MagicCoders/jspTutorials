@@ -1,0 +1,788 @@
+1
+00:00:01,346 --> 00:00:02,745
+<v Chad>Alrighty, we can check the box there</v>
+
+2
+00:00:02,745 --> 00:00:04,006
+for step number two.
+
+3
+00:00:04,006 --> 00:00:06,751
+So moving onto step three, we're actually gonna update our
+
+4
+00:00:06,751 --> 00:00:08,771
+StudentControllerServlet.
+
+5
+00:00:08,771 --> 00:00:11,669
+And basically we're gonna handle the requests coming in
+
+6
+00:00:11,669 --> 00:00:14,002
+and also read the form data.
+
+7
+00:00:16,827 --> 00:00:19,115 line:15% 
+So, moving into Eclipse,
+
+8
+00:00:19,115 --> 00:00:21,059 line:15% 
+what we wanna do is open up our code
+
+9
+00:00:21,059 --> 00:00:23,476 line:15% 
+for StudentControllerServlet.
+
+10
+00:00:29,874 --> 00:00:32,083 line:15% 
+And so when the form data is submitted,
+
+11
+00:00:32,083 --> 00:00:33,705
+they're actually gonna pass the data,
+
+12
+00:00:33,705 --> 00:00:36,699
+or they're actually gonna call the method on doGet,
+
+13
+00:00:36,699 --> 00:00:38,730
+because that form's gonna send data over
+
+14
+00:00:38,730 --> 00:00:40,206
+using a get request.
+
+15
+00:00:40,206 --> 00:00:42,730
+So it's gonna come into this doGet method.
+
+16
+00:00:42,730 --> 00:00:46,210
+Currently right now, all we do is simply list the students,
+
+17
+00:00:46,210 --> 00:00:49,658
+but what we need to do is actually read the command
+
+18
+00:00:49,658 --> 00:00:51,758
+and route the code accordingly,
+
+19
+00:00:51,758 --> 00:00:53,388
+depending on if they're gonna add a student
+
+20
+00:00:53,388 --> 00:00:55,564
+or list a student.
+
+21
+00:00:55,564 --> 00:00:58,213
+So I'll just put a little comment here for
+
+22
+00:00:58,213 --> 00:01:00,680
+read the command parameter.
+
+23
+00:01:00,680 --> 00:01:02,263
+And then once we read that command,
+
+24
+00:01:02,263 --> 00:01:06,430
+then we need to route it to the appropriate piece of code.
+
+25
+00:01:07,494 --> 00:01:09,829
+So as you see, I like to put comments here
+
+26
+00:01:09,829 --> 00:01:11,829
+to keep myself on track.
+
+27
+00:01:13,998 --> 00:01:17,212
+So I can simply read the parameter by saying
+
+28
+00:01:17,212 --> 00:01:21,045
+String theCommand = request.getParameter,
+
+29
+00:01:22,933 --> 00:01:25,350
+and the parameter is command.
+
+30
+00:01:30,503 --> 00:01:32,023
+And then basically what I wanna do
+
+31
+00:01:32,023 --> 00:01:33,700
+if the command is missing,
+
+32
+00:01:33,700 --> 00:01:36,804
+like if it's null or just wasn't passed over,
+
+33
+00:01:36,804 --> 00:01:39,970
+then I'll simply default to listing the students.
+
+34
+00:01:39,970 --> 00:01:42,619
+So then I'll say theCommand = "List",
+
+35
+00:01:42,619 --> 00:01:45,863
+just kinda assign it by default.
+
+36
+00:01:45,863 --> 00:01:49,202
+So this way my code is somewhat flexible,
+
+37
+00:01:49,202 --> 00:01:51,192
+in that if they don't give us a command
+
+38
+00:01:51,192 --> 00:01:54,109
+then we'll at least be able to list
+
+39
+00:01:55,800 --> 00:01:58,039
+without hitting a null point or exception.
+
+40
+00:01:58,039 --> 00:02:01,361
+Then what I wanna do is basically do a switch on the command
+
+41
+00:02:01,361 --> 00:02:02,615
+and based on that value,
+
+42
+00:02:02,615 --> 00:02:06,282
+I wanna route it to that appropriate method.
+
+43
+00:02:19,010 --> 00:02:20,499
+So the command,
+
+44
+00:02:20,499 --> 00:02:24,277
+so case of list, meaning that if the command equals list,
+
+45
+00:02:24,277 --> 00:02:27,129
+then I'll call that method listStudents
+
+46
+00:02:27,129 --> 00:02:28,555
+passing in the request response.
+
+47
+00:02:28,555 --> 00:02:31,690
+And it's the same method that we had earlier
+
+48
+00:02:31,690 --> 00:02:33,523
+in our Servlet so far.
+
+49
+00:02:39,653 --> 00:02:43,975
+So that's the first case that I'll test for.
+
+50
+00:02:43,975 --> 00:02:47,502
+Then I'll also check for the case of add.
+
+51
+00:02:47,502 --> 00:02:49,383
+So again, if the command comes over
+
+52
+00:02:49,383 --> 00:02:51,358
+where the command equals add,
+
+53
+00:02:51,358 --> 00:02:54,492
+then here I wanna call a method called addStudent
+
+54
+00:02:54,492 --> 00:02:58,325
+and I'll pass in that request response object.
+
+55
+00:03:00,731 --> 00:03:02,439
+And then also I'll just have a,
+
+56
+00:03:02,439 --> 00:03:06,151
+I'll set up a catchall, a default case,
+
+57
+00:03:06,151 --> 00:03:09,771
+or like an else, meaning that if none of those things match,
+
+58
+00:03:09,771 --> 00:03:12,592
+or match up then we'll just default
+
+59
+00:03:12,592 --> 00:03:14,991
+and then our default operation will be listStudents.
+
+60
+00:03:14,991 --> 00:03:18,423
+So if they send over a bad command that we don't understand,
+
+61
+00:03:18,423 --> 00:03:21,715
+we'll simply just send them back the list of students.
+
+62
+00:03:21,715 --> 00:03:23,690
+And we're keeping it simple for right now.
+
+63
+00:03:23,690 --> 00:03:25,492
+We could get real nasty with them
+
+64
+00:03:25,492 --> 00:03:26,871
+and give them a bad error message
+
+65
+00:03:26,871 --> 00:03:30,288
+but for now we'll just list the students.
+
+66
+00:03:32,310 --> 00:03:35,852
+So that's basically it for our routing logic here,
+
+67
+00:03:35,852 --> 00:03:38,019
+when the command comes in.
+
+68
+00:03:40,006 --> 00:03:43,862
+So this looks good, but there's one problem,
+
+69
+00:03:43,862 --> 00:03:45,962
+and there's a problem on line 59
+
+70
+00:03:45,962 --> 00:03:50,554
+and Eclipse is not gonna let us get away with it. (chuckles)
+
+71
+00:03:50,554 --> 00:03:52,970
+And it says hey this method addStudent,
+
+72
+00:03:52,970 --> 00:03:54,846
+we don't know about it,
+
+73
+00:03:54,846 --> 00:03:56,445
+and just like we did in the previous videos,
+
+74
+00:03:56,445 --> 00:03:58,043
+we'll say okay, Eclipse,
+
+75
+00:03:58,043 --> 00:03:58,876
+well then why don't you go ahead
+
+76
+00:03:58,876 --> 00:04:01,376
+and create that method for me?
+
+77
+00:04:02,451 --> 00:04:05,225
+And so I'll select the link and viola!
+
+78
+00:04:05,225 --> 00:04:08,610
+Eclipse will create this nice little method for me,
+
+79
+00:04:08,610 --> 00:04:09,990
+called addStudent
+
+80
+00:04:09,990 --> 00:04:12,623
+and I can go ahead and write some of my code in there.
+
+81
+00:04:12,623 --> 00:04:13,501
+So, cool.
+
+82
+00:04:13,501 --> 00:04:17,090
+I just love it when Eclipse writes code for me.
+
+83
+00:04:17,090 --> 00:04:21,165
+I just wish it could write all the code. (chuckles)
+
+84
+00:04:21,165 --> 00:04:23,234
+But no worries, that's why we're here, right?
+
+85
+00:04:23,234 --> 00:04:25,428
+That's why we get paid all the big bucks,
+
+86
+00:04:25,428 --> 00:04:26,776
+cause we are the experts.
+
+87
+00:04:26,776 --> 00:04:28,193
+We are the gurus.
+
+88
+00:04:29,221 --> 00:04:30,946
+So again, I'm gonna stretch out here
+
+89
+00:04:30,946 --> 00:04:32,795
+and get some white space
+
+90
+00:04:32,795 --> 00:04:36,588
+and actually what I'll do before I start writing code,
+
+91
+00:04:36,588 --> 00:04:38,406
+is I'm gonna write some more comments
+
+92
+00:04:38,406 --> 00:04:40,961
+just to kinda tell myself what to do
+
+93
+00:04:40,961 --> 00:04:43,628
+when it's time to add a student.
+
+94
+00:04:46,980 --> 00:04:50,585
+So I'm gonna read the student info from the form data,
+
+95
+00:04:50,585 --> 00:04:52,231
+and based on that data I'm gonna create
+
+96
+00:04:52,231 --> 00:04:53,981
+a new student object,
+
+97
+00:04:54,958 --> 00:04:59,096
+and then I'll add that student to the database,
+
+98
+00:04:59,096 --> 00:05:01,792
+and then finally once it's added to the database,
+
+99
+00:05:01,792 --> 00:05:03,939
+we wanna send them back to the main page,
+
+100
+00:05:03,939 --> 00:05:07,936
+meaning we wanna get a list of all the students again
+
+101
+00:05:07,936 --> 00:05:10,835
+so we can see our new person that we just added.
+
+102
+00:05:10,835 --> 00:05:15,002
+So that's the game plan for this add student method.
+
+103
+00:05:18,625 --> 00:05:20,616
+Alright so let's go ahead and dig in
+
+104
+00:05:20,616 --> 00:05:22,920
+with this read student info.
+
+105
+00:05:22,920 --> 00:05:24,942
+Again, this is reading form data, right?
+
+106
+00:05:24,942 --> 00:05:27,606
+So we're simply doing request.getParameter
+
+107
+00:05:27,606 --> 00:05:29,111
+and we're given the form field.
+
+108
+00:05:29,111 --> 00:05:30,929
+So here starting out with first name,
+
+109
+00:05:30,929 --> 00:05:32,779
+it's called firstName.
+
+110
+00:05:32,779 --> 00:05:34,722
+And then I simply copy this line
+
+111
+00:05:34,722 --> 00:05:37,026
+and just paste it for the other fields,
+
+112
+00:05:37,026 --> 00:05:39,628
+cause it's just a copy paste exercise now.
+
+113
+00:05:39,628 --> 00:05:43,795
+Last name, and then a similar thing here for email.
+
+114
+00:05:47,371 --> 00:05:48,452
+And so basically that's it.
+
+115
+00:05:48,452 --> 00:05:50,537
+That's the code here for reading student info
+
+116
+00:05:50,537 --> 00:05:52,120
+from the form data.
+
+117
+00:05:53,405 --> 00:05:55,521
+Alright, now moving on down here,
+
+118
+00:05:55,521 --> 00:06:00,129
+we can use this information to create a new student object.
+
+119
+00:06:00,129 --> 00:06:03,437
+So I'll say Student theStudent = new Student,
+
+120
+00:06:03,437 --> 00:06:04,910
+and I can pass in those values,
+
+121
+00:06:04,910 --> 00:06:07,493
+firstName, lastName, and email.
+
+122
+00:06:11,681 --> 00:06:13,327
+So at this point, I have a student object
+
+123
+00:06:13,327 --> 00:06:14,994
+that's been created.
+
+124
+00:06:17,762 --> 00:06:20,866
+Then I wanna actually add the student to the database.
+
+125
+00:06:20,866 --> 00:06:23,866
+So I'll make use of my studentDbUtil
+
+126
+00:06:26,273 --> 00:06:30,440
+and I'll say addStudent and I'll pass in theStudent object.
+
+127
+00:06:38,279 --> 00:06:40,568
+Now again, we have a problem here.
+
+128
+00:06:40,568 --> 00:06:42,496
+Eclipse doesn't know about the method.
+
+129
+00:06:42,496 --> 00:06:43,667
+I'm gonna tell Eclipse,
+
+130
+00:06:43,667 --> 00:06:47,834
+hey buddy, go ahead and create this method for me.
+
+131
+00:06:50,828 --> 00:06:51,753
+Okay, great.
+
+132
+00:06:51,753 --> 00:06:53,994
+So Eclipse actually created this method for us.
+
+133
+00:06:53,994 --> 00:06:57,803
+So we're actually in this class StudentDbUtil,
+
+134
+00:06:57,803 --> 00:07:00,546
+and if we scroll back down to our method,
+
+135
+00:07:00,546 --> 00:07:04,511
+they actually created this method here addStudent.
+
+136
+00:07:04,511 --> 00:07:06,172
+So this is kinda really cool.
+
+137
+00:07:06,172 --> 00:07:09,323
+Now, we're not really doing the JDBC stuff right now,
+
+138
+00:07:09,323 --> 00:07:12,207
+so I'm just gonna put a little heads up that,
+
+139
+00:07:12,207 --> 00:07:13,837
+do nothing for now.
+
+140
+00:07:13,837 --> 00:07:16,549
+We'll actually add this code in a following video
+
+141
+00:07:16,549 --> 00:07:17,771
+but I'll just kinda put the placeholder
+
+142
+00:07:17,771 --> 00:07:20,153
+in there for right now.
+
+143
+00:07:20,153 --> 00:07:21,157
+So anyway, so that,
+
+144
+00:07:21,157 --> 00:07:23,495
+at least that clears the air here for line 84.
+
+145
+00:07:23,495 --> 00:07:26,160
+So we do have a method here called addStudent
+
+146
+00:07:26,160 --> 00:07:27,633
+even if it does nothing,
+
+147
+00:07:27,633 --> 00:07:29,404
+that method does exist now.
+
+148
+00:07:29,404 --> 00:07:33,495
+And then finally I wanna send them back to the main page.
+
+149
+00:07:33,495 --> 00:07:36,269
+Just so they can list all the students and so hey,
+
+150
+00:07:36,269 --> 00:07:38,479
+I just reuse that method that I already have,
+
+151
+00:07:38,479 --> 00:07:42,146
+listStudents and pass in a request response.
+
+152
+00:07:43,949 --> 00:07:45,768
+So this actually kinda worked out pretty good,
+
+153
+00:07:45,768 --> 00:07:49,685
+I can just reuse some code that I already have.
+
+154
+00:07:52,209 --> 00:07:54,764
+Except for there's one small little problem here.
+
+155
+00:07:54,764 --> 00:07:56,238
+So let's see what the problem is.
+
+156
+00:07:56,238 --> 00:07:58,949
+I can just hover over and it will say
+
+157
+00:07:58,949 --> 00:08:01,269
+there is an unhandled exception.
+
+158
+00:08:01,269 --> 00:08:02,570
+So okay, good.
+
+159
+00:08:02,570 --> 00:08:05,799
+So in this case I wanna add a throws declaration.
+
+160
+00:08:05,799 --> 00:08:07,993
+I wanna choose the first option here,
+
+161
+00:08:07,993 --> 00:08:10,360
+add throws declaration.
+
+162
+00:08:10,360 --> 00:08:12,993
+So what it's gonna here on that method
+
+163
+00:08:12,993 --> 00:08:17,554
+that we're working in right now, addStudent in the Servlet,
+
+164
+00:08:17,554 --> 00:08:21,559
+at the far right they're gonna add throws Exception,
+
+165
+00:08:21,559 --> 00:08:23,845
+because it's possible that method we call there
+
+166
+00:08:23,845 --> 00:08:25,905
+could throw an exception and we need to either handle it
+
+167
+00:08:25,905 --> 00:08:27,958
+or list ourselves as throwing it.
+
+168
+00:08:27,958 --> 00:08:29,698
+And I'll just take the shortcut for now.
+
+169
+00:08:29,698 --> 00:08:31,375
+So there we go, so throws.
+
+170
+00:08:31,375 --> 00:08:32,221
+So we're good to go.
+
+171
+00:08:32,221 --> 00:08:33,961
+It takes care of all the issues here
+
+172
+00:08:33,961 --> 00:08:38,099
+and this is basically the code here for adding a student.
+
+173
+00:08:38,099 --> 00:08:42,409
+And this is the code that's in our Servlet for right now.
+
+174
+00:08:42,409 --> 00:08:46,673
+Alrighty, so we can go ahead and save that.
+
+175
+00:08:46,673 --> 00:08:49,870
+And I think we can even try and run this thing.
+
+176
+00:08:49,870 --> 00:08:51,120
+Let's try that.
+
+177
+00:08:52,409 --> 00:08:54,478
+So back up here to my application,
+
+178
+00:08:54,478 --> 00:08:55,478
+just run it.
+
+179
+00:09:00,701 --> 00:09:02,895
+And so now we have our nice little button here,
+
+180
+00:09:02,895 --> 00:09:04,525
+Add Student shows our form.
+
+181
+00:09:04,525 --> 00:09:05,795
+So we already built the form
+
+182
+00:09:05,795 --> 00:09:08,208
+so we can go ahead and fill it out with some information,
+
+183
+00:09:08,208 --> 00:09:10,199
+our Andrew Whittaker.
+
+184
+00:09:10,199 --> 00:09:12,449
+And it's andy@luv2code.com.
+
+185
+00:09:15,105 --> 00:09:17,268
+And once we're happy with that info we hit save
+
+186
+00:09:17,268 --> 00:09:18,101
+but oh no!
+
+187
+00:09:19,760 --> 00:09:21,798
+Andy's not in the list, why?
+
+188
+00:09:21,798 --> 00:09:23,318
+Well because our database code
+
+189
+00:09:23,318 --> 00:09:25,559
+doesn't really do anything yet.
+
+190
+00:09:25,559 --> 00:09:26,907
+Aagh!
+
+191
+00:09:26,907 --> 00:09:29,744
+No problem, we kinda knew that already.
+
+192
+00:09:29,744 --> 00:09:31,547
+So this is good for right now,
+
+193
+00:09:31,547 --> 00:09:34,211
+at least we have the Servlet code in place.
+
+194
+00:09:34,211 --> 00:09:36,076
+In the next video,
+
+195
+00:09:36,076 --> 00:09:38,380
+we're actually gonna put the database code in place
+
+196
+00:09:38,380 --> 00:09:40,888
+to actually do the database insert.
+
+197
+00:09:40,888 --> 00:09:43,888
+So, I'll see you in the next video.
+

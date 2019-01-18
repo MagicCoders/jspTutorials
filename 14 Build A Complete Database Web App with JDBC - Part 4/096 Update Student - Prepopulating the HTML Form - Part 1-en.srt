@@ -1,0 +1,1004 @@
+1
+00:00:00,914 --> 00:00:02,892
+<v Instructor>Alright, so we've finished our first</v>
+
+2
+00:00:02,892 --> 00:00:06,405
+step of updating that list of students JSP.
+
+3
+00:00:06,405 --> 00:00:10,114
+Now our next step is creating the update student form.
+
+4
+00:00:10,114 --> 00:00:13,027
+And what we wanna do with this form is actually prepopulate
+
+5
+00:00:13,027 --> 00:00:15,207
+the form, when we show it.
+
+6
+00:00:15,207 --> 00:00:17,903
+So when the user selects a student, we're gonna prepopulate
+
+7
+00:00:17,903 --> 00:00:21,320
+the form with that student's information.
+
+8
+00:00:26,746 --> 00:00:29,841
+Now there's some behind the scenes work that we need to do.
+
+9
+00:00:29,841 --> 00:00:31,240
+And the first thing is updating our
+
+10
+00:00:31,240 --> 00:00:33,136
+StudentControllerServlet.
+
+11
+00:00:33,136 --> 00:00:36,189
+This Servlet's gonna need to read that new LOAD command,
+
+12
+00:00:36,189 --> 00:00:38,671
+and route it accordingly.
+
+13
+00:00:38,671 --> 00:00:41,725
+And then once we have that LOAD command read, we need to
+
+14
+00:00:41,725 --> 00:00:43,935
+read the student id from that form.
+
+15
+00:00:43,935 --> 00:00:47,896
+And then, take that information and read the student
+
+16
+00:00:47,896 --> 00:00:51,733
+from the database or get the student from the database.
+
+17
+00:00:51,733 --> 00:00:54,774
+Once we have the student, then we wanna show the form
+
+18
+00:00:54,774 --> 00:00:58,941
+and prepopulate the form with that student's data.
+
+19
+00:01:02,061 --> 00:01:04,236
+Alright, so let's go ahead and open the code here for our
+
+20
+00:01:04,236 --> 00:01:06,319
+StudentControllerServlet.
+
+21
+00:01:13,720 --> 00:01:15,628 line:15% 
+Alright, so here's our Servlet, let's go ahead and move
+
+22
+00:01:15,628 --> 00:01:17,795 line:15% 
+down to the do get method.
+
+23
+00:01:23,094 --> 00:01:24,554 line:15% 
+Alright, so this is the do get method
+
+24
+00:01:24,554 --> 00:01:27,510 line:15% 
+where we read in the actual command.
+
+25
+00:01:27,510 --> 00:01:29,361 line:15% 
+And what we wanna do now is add support
+
+26
+00:01:29,361 --> 00:01:31,255 line:15% 
+for the LOAD command.
+
+27
+00:01:31,255 --> 00:01:32,977 line:15% 
+So we need to add a new case here,
+
+28
+00:01:32,977 --> 00:01:36,727
+in our switch statement for the case of LOAD.
+
+29
+00:01:40,317 --> 00:01:42,550
+So I'll just say case LOAD,
+
+30
+00:01:42,550 --> 00:01:46,084
+and then I'll call a method load student.
+
+31
+00:01:46,084 --> 00:01:49,501
+And I'll pass in a request and a response.
+
+32
+00:01:49,501 --> 00:01:52,001
+And then I'll just do a break.
+
+33
+00:01:53,319 --> 00:01:56,370
+So this is great, well, it's almost great.
+
+34
+00:01:56,370 --> 00:01:59,183
+Again, Eclipse is giving us an error message and let's
+
+35
+00:01:59,183 --> 00:02:03,350
+kinda hover over that error message and see what it's about.
+
+36
+00:02:05,972 --> 00:02:09,726
+And it's Eclipse saying, "Hey, buddy, you don't have this
+
+37
+00:02:09,726 --> 00:02:10,905
+method defined."
+
+38
+00:02:10,905 --> 00:02:13,645
+So then again, like we've already done before, we'll tell
+
+39
+00:02:13,645 --> 00:02:17,202
+Eclipse to go ahead and create that method for us.
+
+40
+00:02:17,202 --> 00:02:19,651
+So, I'll simply select that second option,
+
+41
+00:02:19,651 --> 00:02:21,417
+and then I'll just scroll down here.
+
+42
+00:02:21,417 --> 00:02:24,413
+And here's a new method that Eclipse created for me.
+
+43
+00:02:24,413 --> 00:02:27,492
+And again, we love it when Eclipse does work for us.
+
+44
+00:02:27,492 --> 00:02:30,221
+So, what I wanna do here, is I wanna remove that
+
+45
+00:02:30,221 --> 00:02:34,388
+Auto-generated code, and I wanna start adding my own code.
+
+46
+00:02:40,976 --> 00:02:43,036
+So, the first thing I know is that I need to add a throws
+
+47
+00:02:43,036 --> 00:02:44,385
+clause here for this method.
+
+48
+00:02:44,385 --> 00:02:47,052
+So I'll say, "throws Exception".
+
+49
+00:02:48,952 --> 00:02:50,857
+So, then I'll go ahead and write some comments as far as
+
+50
+00:02:50,857 --> 00:02:52,813
+what I need to do in this method.
+
+51
+00:02:52,813 --> 00:02:54,069
+So the first thing is getting
+
+52
+00:02:54,069 --> 00:02:56,767
+the student id from the form data.
+
+53
+00:02:56,767 --> 00:03:01,562
+The next thing is getting the student from the database.
+
+54
+00:03:01,562 --> 00:03:03,509
+Then we go ahead and place that student
+
+55
+00:03:03,509 --> 00:03:05,426
+in a request attribute.
+
+56
+00:03:12,823 --> 00:03:16,231
+And then finally, we send this to our JSP page.
+
+57
+00:03:16,231 --> 00:03:19,148
+That's our update-student-form.jsp.
+
+58
+00:03:23,758 --> 00:03:25,518
+So those are the steps required for us
+
+59
+00:03:25,518 --> 00:03:27,282
+to actually load the student.
+
+60
+00:03:27,282 --> 00:03:29,609
+And again, we're doing all this preliminary work,
+
+61
+00:03:29,609 --> 00:03:32,609
+just so we can prepopulate the form.
+
+62
+00:03:41,551 --> 00:03:44,754
+Alright, so I can read the student id, by simply saying
+
+63
+00:03:44,754 --> 00:03:48,723
+the student id equals request dot get Parameter, student id.
+
+64
+00:03:48,723 --> 00:03:52,306
+And that's passed over by that update link.
+
+65
+00:03:53,820 --> 00:03:56,111
+Then I can talk to my database util, and get the student.
+
+66
+00:03:56,111 --> 00:03:58,702
+So I say, the student equals
+
+67
+00:03:58,702 --> 00:04:01,369
+student db util dot get student.
+
+68
+00:04:02,562 --> 00:04:05,395
+And I'll get the student based on their id.
+
+69
+00:04:05,395 --> 00:04:06,973
+So I'll tell them, "Hey, give me the student for this
+
+70
+00:04:06,973 --> 00:04:08,473
+given student id."
+
+71
+00:04:17,041 --> 00:04:19,331
+Next, what I wanna do, is take that student object
+
+72
+00:04:19,331 --> 00:04:21,389
+and then place it in a request attribute.
+
+73
+00:04:21,389 --> 00:04:24,611
+Cause our JSP page can use that to prepopulate the form.
+
+74
+00:04:24,611 --> 00:04:25,444
+So in here I'll just give
+
+75
+00:04:25,444 --> 00:04:27,714
+the attribute name of, "THE_STUDENT".
+
+76
+00:04:27,714 --> 00:04:30,217
+And then the actual value a reference here,
+
+77
+00:04:30,217 --> 00:04:33,884
+it'll be the object on line 84, the student.
+
+78
+00:04:34,766 --> 00:04:37,933
+And, hmm, seems to have an error here.
+
+79
+00:04:38,869 --> 00:04:41,673
+Okay, yeah there's a typo, on line 84.
+
+80
+00:04:41,673 --> 00:04:43,156
+I didn't spell student properly,
+
+81
+00:04:43,156 --> 00:04:45,045
+so I just did a copy, paste to fix that.
+
+82
+00:04:45,045 --> 00:04:46,675
+So now we're good with that one.
+
+83
+00:04:46,675 --> 00:04:47,548
+Okay, good.
+
+84
+00:04:47,548 --> 00:04:50,039
+Next what we need to do is go ahead and set up a request
+
+85
+00:04:50,039 --> 00:04:53,755
+dispatcher to send it to that update student JSP form.
+
+86
+00:04:53,755 --> 00:04:56,661
+So, again this is kind of standard MVC code
+
+87
+00:04:56,661 --> 00:04:58,828
+that we've written before.
+
+88
+00:05:04,055 --> 00:05:05,930
+So I'll get request dispatcher,
+
+89
+00:05:05,930 --> 00:05:08,513
+on update student form dot JSP.
+
+90
+00:05:14,706 --> 00:05:16,364
+And then finally we'll do a forward.
+
+91
+00:05:16,364 --> 00:05:18,491
+So, dispatch dot forward, and then I pass in
+
+92
+00:05:18,491 --> 00:05:20,991
+that request, response object.
+
+93
+00:05:25,314 --> 00:05:27,526
+Alright, so looking pretty good here,
+
+94
+00:05:27,526 --> 00:05:30,190
+there's one error message here.
+
+95
+00:05:30,190 --> 00:05:34,190
+And I'll kind of float over to see what it says.
+
+96
+00:05:36,081 --> 00:05:38,883
+But basically it's Eclipse saying that, "Hey we don't have
+
+97
+00:05:38,883 --> 00:05:42,073
+that method defined in student db util".
+
+98
+00:05:42,073 --> 00:05:44,937 line:15% 
+Okay, great so that means we need to add the method,
+
+99
+00:05:44,937 --> 00:05:46,219 line:15% 
+to get the student from the database.
+
+100
+00:05:46,219 --> 00:05:47,369 line:15% 
+So I'll go ahead and tell Eclipse
+
+101
+00:05:47,369 --> 00:05:49,786 line:15% 
+to create that method for me.
+
+102
+00:05:53,056 --> 00:05:55,601 line:15% 
+So I'll select the second option there.
+
+103
+00:05:55,601 --> 00:05:57,991 line:15% 
+And now I'm in the student db util class.
+
+104
+00:05:57,991 --> 00:06:00,944 line:15% 
+And right now it created a basic method, and I need
+
+105
+00:06:00,944 --> 00:06:04,520 line:15% 
+to go ahead and flush it out with my own code.
+
+106
+00:06:04,520 --> 00:06:07,277 line:15% 
+So for right now, just kind of stub it out with student,
+
+107
+00:06:07,277 --> 00:06:08,757 line:15% 
+the student equals null.
+
+108
+00:06:08,757 --> 00:06:12,007 line:15% 
+And I'll simply say return the student.
+
+109
+00:06:23,657 --> 00:06:25,473 line:15% 
+And now what I wanna do here is just
+
+110
+00:06:25,473 --> 00:06:26,602 line:15% 
+put in some comments here.
+
+111
+00:06:26,602 --> 00:06:28,563 line:15% 
+Well actually I'll go ahead and create some of my
+
+112
+00:06:28,563 --> 00:06:30,813 line:15% 
+initial JDBC objects first.
+
+113
+00:06:32,035 --> 00:06:35,285 line:15% 
+So this is for the connection, my Conn.
+
+114
+00:06:38,164 --> 00:06:42,331
+I'll set up my statement, which is a prepared statement.
+
+115
+00:06:44,610 --> 00:06:48,340
+And I'll also set up a results set.
+
+116
+00:06:48,340 --> 00:06:52,007
+And I'll set all these values equal to null.
+
+117
+00:06:53,003 --> 00:06:56,058
+And then I'll sneak in another variable here,
+
+118
+00:06:56,058 --> 00:06:58,317
+for the student id, which we'll use a little later.
+
+119
+00:06:58,317 --> 00:06:59,567
+As far as ints.
+
+120
+00:07:04,052 --> 00:07:05,351
+Alright so let me go ahead and set up
+
+121
+00:07:05,351 --> 00:07:08,018
+a little try finally block here.
+
+122
+00:07:09,497 --> 00:07:13,497
+Alright, so I have that kind of stubbed out now.
+
+123
+00:07:14,907 --> 00:07:16,985
+And again following my standard procedure here,
+
+124
+00:07:16,985 --> 00:07:19,616
+I always write some comments just to keep myself on track,
+
+125
+00:07:19,616 --> 00:07:23,931
+when I get ready to start writing some code.
+
+126
+00:07:23,931 --> 00:07:26,063
+So we convert the student id to an int.
+
+127
+00:07:26,063 --> 00:07:29,071
+We get the connection to a database.
+
+128
+00:07:29,071 --> 00:07:33,238
+Next we'll create a SQL to get the selected student.
+
+129
+00:07:35,644 --> 00:07:39,019
+And then I'll go ahead and create my prepared statement.
+
+130
+00:07:39,019 --> 00:07:40,519
+Based on that SQL.
+
+131
+00:07:45,128 --> 00:07:47,715
+And then I'll go through and set the parameters here.
+
+132
+00:07:47,715 --> 00:07:50,047
+So it knows which student id to get.
+
+133
+00:07:50,047 --> 00:07:52,654
+And then finally I'll actually execute that query
+
+134
+00:07:52,654 --> 00:07:55,237
+and then I'll get a result set.
+
+135
+00:07:57,097 --> 00:08:00,181
+So then once I have the result set, then I need to process
+
+136
+00:08:00,181 --> 00:08:03,765
+that result set and retrieve the data from that actual
+
+137
+00:08:03,765 --> 00:08:05,015
+result set row.
+
+138
+00:08:06,452 --> 00:08:08,809
+And then in my finally block I do my normal
+
+139
+00:08:08,809 --> 00:08:11,253
+clean up of those JDBC objects.
+
+140
+00:08:11,253 --> 00:08:13,551
+We just basically close off the connection statement
+
+141
+00:08:13,551 --> 00:08:14,801
+and result set.
+
+142
+00:08:16,750 --> 00:08:18,592
+But anyway just kinda steppin' back for a bit.
+
+143
+00:08:18,592 --> 00:08:20,522
+These are all the major steps here that I need to
+
+144
+00:08:20,522 --> 00:08:22,160
+accomplish in this method, to actually
+
+145
+00:08:22,160 --> 00:08:24,827
+get a student from the database.
+
+146
+00:08:29,511 --> 00:08:33,870
+Alright well, let's get ready to write some code.
+
+147
+00:08:33,870 --> 00:08:36,525
+So the first thing is convertin' that student id to an int.
+
+148
+00:08:36,525 --> 00:08:37,911
+So we can make use of the integer
+
+149
+00:08:37,911 --> 00:08:40,661
+dot parse int to accomplish that.
+
+150
+00:08:42,767 --> 00:08:45,181
+So I just use the student id which is the string variable,
+
+151
+00:08:45,181 --> 00:08:47,773
+that's sent in as a method parameter.
+
+152
+00:08:47,773 --> 00:08:51,023
+And we convert it to an int student id.
+
+153
+00:08:52,049 --> 00:08:54,066
+Then I go ahead and get a connection to the database.
+
+154
+00:08:54,066 --> 00:08:56,649
+Data source dot get connection.
+
+155
+00:08:57,927 --> 00:09:00,239
+Next, I create the SQL to get the selected student.
+
+156
+00:09:00,239 --> 00:09:02,051
+So basically I wanna say, "Hey give me the student
+
+157
+00:09:02,051 --> 00:09:05,420
+that matches this given student id."
+
+158
+00:09:05,420 --> 00:09:07,765
+So, that's accomplished with select star from student,
+
+159
+00:09:07,765 --> 00:09:10,598
+where id equals the question mark.
+
+160
+00:09:11,937 --> 00:09:14,937
+And we'll fill that in, in a second.
+
+161
+00:09:17,531 --> 00:09:18,655
+Now we just go through and actually
+
+162
+00:09:18,655 --> 00:09:20,766
+create our prepared statement.
+
+163
+00:09:20,766 --> 00:09:24,933
+So my conn dot prepare statement based on that SQL string.
+
+164
+00:09:25,850 --> 00:09:27,630
+And next I go through and set the parameters.
+
+165
+00:09:27,630 --> 00:09:29,762
+So there's only one parameter, I'm simply setting the
+
+166
+00:09:29,762 --> 00:09:33,929
+first parameter there, that matches the student id.
+
+167
+00:09:39,091 --> 00:09:41,201
+And I have a couple of error messages here.
+
+168
+00:09:41,201 --> 00:09:42,749
+Oh, okay, great.
+
+169
+00:09:42,749 --> 00:09:45,043
+Unhandled exception, okay great.
+
+170
+00:09:45,043 --> 00:09:47,789
+So let me just scroll back up to the top of this method
+
+171
+00:09:47,789 --> 00:09:51,070
+here, and simply list that as throws exception.
+
+172
+00:09:51,070 --> 00:09:55,116
+So right here on line 114, I'll say throws exception.
+
+173
+00:09:55,116 --> 00:09:56,859
+And that'll resolve all the errors that were just
+
+174
+00:09:56,859 --> 00:09:59,089
+popping up there in that method.
+
+175
+00:09:59,089 --> 00:10:02,089
+So the key here is throws exception.
+
+176
+00:10:05,031 --> 00:10:06,821
+Alright so we can kinda get back to coding now.
+
+177
+00:10:06,821 --> 00:10:08,420
+(laughs)
+
+178
+00:10:08,420 --> 00:10:10,856
+Alright, so now we wanna go ahead and execute that statement
+
+179
+00:10:10,856 --> 00:10:13,178
+and it's gonna give us back a result set.
+
+180
+00:10:13,178 --> 00:10:15,963
+So here I'll say my rs equals
+
+181
+00:10:15,963 --> 00:10:19,145
+my statement dot execute query.
+
+182
+00:10:19,145 --> 00:10:20,592
+That's gonna return that result set.
+
+183
+00:10:20,592 --> 00:10:22,198
+Alright so now I have this result set.
+
+184
+00:10:22,198 --> 00:10:24,653
+Now I have to process it or retrieve the data from
+
+185
+00:10:24,653 --> 00:10:27,048
+that result set row.
+
+186
+00:10:27,048 --> 00:10:29,378
+And effectively what I'm gonna do here is retrieve the
+
+187
+00:10:29,378 --> 00:10:31,461
+data for a given student.
+
+188
+00:10:33,326 --> 00:10:35,561
+So here I'll just set up a little if conditional.
+
+189
+00:10:35,561 --> 00:10:37,283
+Say if my rs dot next.
+
+190
+00:10:37,283 --> 00:10:41,450
+So it basically says, "Hey, do we have any rows to process?"
+
+191
+00:10:43,471 --> 00:10:46,498
+And if so, then let's go ahead and grab some of that data.
+
+192
+00:10:46,498 --> 00:10:50,266
+So I need to get the actual student's first name, last name
+
+193
+00:10:50,266 --> 00:10:51,766
+and email address.
+
+194
+00:10:55,658 --> 00:10:58,186
+So I just use the standard technique that we've seen before.
+
+195
+00:10:58,186 --> 00:11:00,933
+My rs dot get string first underscore name.
+
+196
+00:11:00,933 --> 00:11:03,221
+And again, first underscore name is the actual column
+
+197
+00:11:03,221 --> 00:11:04,955
+name from the database.
+
+198
+00:11:04,955 --> 00:11:06,128
+And then I'll just copy, paste this
+
+199
+00:11:06,128 --> 00:11:07,615
+for the other fields here.
+
+200
+00:11:07,615 --> 00:11:09,516
+For last name and email.
+
+201
+00:11:09,516 --> 00:11:11,683
+So here we have last name.
+
+202
+00:11:13,880 --> 00:11:15,593
+Last underscore name.
+
+203
+00:11:15,593 --> 00:11:16,510
+Then email.
+
+204
+00:11:17,602 --> 00:11:20,602
+And then my rs dot get string email.
+
+205
+00:11:22,951 --> 00:11:24,268
+And we already have the student id.
+
+206
+00:11:24,268 --> 00:11:26,675
+So we don't have to query that anymore.
+
+207
+00:11:26,675 --> 00:11:29,129
+Great, so now using this information, I can actually
+
+208
+00:11:29,129 --> 00:11:31,462
+create a new student object.
+
+209
+00:11:35,023 --> 00:11:36,717
+And when I construct the student, I'll actually use
+
+210
+00:11:36,717 --> 00:11:40,129
+the student id in the constructor.
+
+211
+00:11:40,129 --> 00:11:44,066
+So here I say the student equals a new student and then
+
+212
+00:11:44,066 --> 00:11:48,233
+I'll pass in student id, comma, first name, last name
+
+213
+00:11:49,402 --> 00:11:50,902
+and email address.
+
+214
+00:11:54,091 --> 00:11:55,723
+Alright and so the key here is that we are passing
+
+215
+00:11:55,723 --> 00:11:58,314
+in student id, because we need that later on when
+
+216
+00:11:58,314 --> 00:12:00,064
+we actually do an update.
+
+217
+00:12:00,064 --> 00:12:01,922
+We'll actually have to know which student,
+
+218
+00:12:01,922 --> 00:12:03,589
+that we're updating.
+
+219
+00:12:10,041 --> 00:12:12,297
+So for else that means we didn't find a student.
+
+220
+00:12:12,297 --> 00:12:14,300
+So here I'll throw an exception.
+
+221
+00:12:14,300 --> 00:12:16,726
+And I'll say new exception, cannot find student id,
+
+222
+00:12:16,726 --> 00:12:19,995
+and I list out that actual student id.
+
+223
+00:12:19,995 --> 00:12:24,162
+Alright so that takes care of this part of the coding here.
+
+224
+00:12:26,061 --> 00:12:28,654
+So basically we retrieved the data.
+
+225
+00:12:28,654 --> 00:12:31,560
+If there is data we grab the first name, last name, email.
+
+226
+00:12:31,560 --> 00:12:33,963
+We construct an object, else we throw an exception
+
+227
+00:12:33,963 --> 00:12:35,963
+if we couldn't find 'em.
+
+228
+00:12:39,142 --> 00:12:40,243
+Alright and then the final one.
+
+229
+00:12:40,243 --> 00:12:43,189
+This is really easy, we simply close those JDBC objects.
+
+230
+00:12:43,189 --> 00:12:47,356
+I close on my conn, comma my statement, comma my rs.
+
+231
+00:12:48,273 --> 00:12:49,440
+And that's it.
+
+232
+00:12:54,806 --> 00:12:58,011
+So this is in our student db util, the method get student.
+
+233
+00:12:58,011 --> 00:12:59,876
+Did all the low level JDBC work to actually
+
+234
+00:12:59,876 --> 00:13:02,793
+grab the student from the database.
+
+235
+00:13:04,641 --> 00:13:07,121
+Alright so now I can move back over to my Servlet now,
+
+236
+00:13:07,121 --> 00:13:09,617
+and so pretty much all the low level work on
+
+237
+00:13:09,617 --> 00:13:12,444
+lines 83 and 84, we just accomplished that.
+
+238
+00:13:12,444 --> 00:13:16,611
+We did the JDBC work inside of that database util.
+
+239
+00:13:21,067 --> 00:13:22,381
+Alright so these are all the major steps
+
+240
+00:13:22,381 --> 00:13:23,749
+here for loading a student.
+
+241
+00:13:23,749 --> 00:13:25,275
+We read the student id from the form,
+
+242
+00:13:25,275 --> 00:13:27,017
+we get 'em from the database.
+
+243
+00:13:27,017 --> 00:13:29,848
+We place that student in a request attribute and then
+
+244
+00:13:29,848 --> 00:13:33,579
+we forward it over to that update student form dot JSP.
+
+245
+00:13:33,579 --> 00:13:35,646
+Now we haven't created the form yet.
+
+246
+00:13:35,646 --> 00:13:37,845
+We'll actually do that in the next video.
+
+247
+00:13:37,845 --> 00:13:40,245
+But at least wanted to get the preliminary work taken
+
+248
+00:13:40,245 --> 00:13:42,498
+care of before we make it there.
+
+249
+00:13:42,498 --> 00:13:44,790
+So we're in really good shape right now.
+
+250
+00:13:44,790 --> 00:13:47,575
+So I'll see you in the next video.
+
+251
+00:13:47,575 --> 00:13:48,408
+Woo hoo.
+

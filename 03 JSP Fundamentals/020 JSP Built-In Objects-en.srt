@@ -1,0 +1,524 @@
+1
+00:00:01,418 --> 00:00:02,337
+<v Instructor>Hey.</v>
+
+2
+00:00:02,337 --> 00:00:04,191
+In this video, I'm gonna show you how to make
+
+3
+00:00:04,191 --> 00:00:07,108
+use of JSP Built-In Server Objects.
+
+4
+00:00:09,904 --> 00:00:11,554
+So, with built-in server objects,
+
+5
+00:00:11,554 --> 00:00:13,321
+these are given to you for free.
+
+6
+00:00:13,321 --> 00:00:15,179
+So, there's no need to create them,
+
+7
+00:00:15,179 --> 00:00:18,540
+you can simply use them directly in your JSP page.
+
+8
+00:00:18,540 --> 00:00:19,991
+And you've actually played around with some of this
+
+9
+00:00:19,991 --> 00:00:24,765
+earlier and I'll show you this in the next slide.
+
+10
+00:00:24,765 --> 00:00:27,214
+So, here's a list of the commonly used
+
+11
+00:00:27,214 --> 00:00:29,355
+JSP Server Objects.
+
+12
+00:00:29,355 --> 00:00:31,747
+So, starting here, at the top with request.
+
+13
+00:00:31,747 --> 00:00:35,016
+It contains information about the HTTP request headers
+
+14
+00:00:35,016 --> 00:00:37,230
+and also form data.
+
+15
+00:00:37,230 --> 00:00:38,762
+We're gonna use this a lot in some of the following
+
+16
+00:00:38,762 --> 00:00:41,145
+videos for reading form data.
+
+17
+00:00:41,145 --> 00:00:43,116
+There's also the response object for sending back
+
+18
+00:00:43,116 --> 00:00:45,326
+HTTP specific information
+
+19
+00:00:45,326 --> 00:00:47,540
+and we'll use this also in the following video
+
+20
+00:00:47,540 --> 00:00:49,685
+on making use of cookies.
+
+21
+00:00:49,685 --> 00:00:52,141
+Now, this one server object you used already,
+
+22
+00:00:52,141 --> 00:00:54,993
+the out object, and we used that for our out.print line
+
+23
+00:00:54,993 --> 00:00:56,635
+in one of the previous videos.
+
+24
+00:00:56,635 --> 00:01:00,113
+So, again a built-in server object, given to you for free.
+
+25
+00:01:00,113 --> 00:01:01,838
+Now, there's two others here.
+
+26
+00:01:01,838 --> 00:01:04,542
+Session. It's a unique session for each user.
+
+27
+00:01:04,542 --> 00:01:06,474
+You can kind of think of the session option as
+
+28
+00:01:06,474 --> 00:01:07,942
+kind of like a shopping cart.
+
+29
+00:01:07,942 --> 00:01:10,296
+You know, each user has their own unique shopping cart.
+
+30
+00:01:10,296 --> 00:01:12,774
+I will use this in the following video.
+
+31
+00:01:12,774 --> 00:01:14,486
+And finally there's the application object.
+
+32
+00:01:14,486 --> 00:01:17,489
+So, this is shared for all users of a given web app.
+
+33
+00:01:17,489 --> 00:01:19,030
+And I'll discuss various use cases
+
+34
+00:01:19,030 --> 00:01:21,272
+on how to use the application object.
+
+35
+00:01:21,272 --> 00:01:22,677
+Now, just a full disclaimer,
+
+36
+00:01:22,677 --> 00:01:24,591
+this is not an exhaustive list.
+
+37
+00:01:24,591 --> 00:01:26,668
+There are other server objects out there,
+
+38
+00:01:26,668 --> 00:01:28,026
+but these are the ones that are
+
+39
+00:01:28,026 --> 00:01:31,026
+most commonly used for JSP web apps.
+
+40
+00:01:32,838 --> 00:01:34,985
+Alright, so here's the idea.
+
+41
+00:01:34,985 --> 00:01:37,800
+You have the browser communicating with JSP.
+
+42
+00:01:37,800 --> 00:01:40,378
+Behind the scenes, the HTTP protocol,
+
+43
+00:01:40,378 --> 00:01:42,884
+they actually send over a request object.
+
+44
+00:01:42,884 --> 00:01:45,000
+This request object contains header information
+
+45
+00:01:45,000 --> 00:01:46,830
+and body information.
+
+46
+00:01:46,830 --> 00:01:49,302
+The JSP can perform some work on that information
+
+47
+00:01:49,302 --> 00:01:51,167
+and then send back a response.
+
+48
+00:01:51,167 --> 00:01:55,643
+So, we have the whole request/response protocol going.
+
+49
+00:01:55,643 --> 00:01:57,008
+In the demo, I'll actually show you
+
+50
+00:01:57,008 --> 00:02:00,175
+how to make use of the request object.
+
+51
+00:02:01,551 --> 00:02:05,217
+Alright, so lets go ahead and move into Eclipse.
+
+52
+00:02:05,217 --> 00:02:06,320
+What I'd like to do is
+
+53
+00:02:06,320 --> 00:02:11,064
+continue to use the existing project, jspdemo.
+
+54
+00:02:11,064 --> 00:02:14,295
+Now, I'd like to move down to the folder here: WebContent,
+
+55
+00:02:14,295 --> 00:02:16,800
+because we're actually gonna create a new file.
+
+56
+00:02:16,800 --> 00:02:20,301
+So, I just say right click, I say New, File.
+
+57
+00:02:20,301 --> 00:02:23,730
+Now, the name I'll give here, I'll call it builtin-test.jsp
+
+58
+00:02:23,730 --> 00:02:25,532
+because we're, of course, testing some of the
+
+59
+00:02:25,532 --> 00:02:27,150
+built=in objects.
+
+60
+00:02:27,150 --> 00:02:28,661
+And once you're happy with the name,
+
+61
+00:02:28,661 --> 00:02:31,697
+we'll go ahead and click: Finish.
+
+62
+00:02:31,697 --> 00:02:32,657
+Okay, great.
+
+63
+00:02:32,657 --> 00:02:34,797
+So, let's expand the window, here, for a second
+
+64
+00:02:34,797 --> 00:02:36,027
+and that way we have a blank file,
+
+65
+00:02:36,027 --> 00:02:37,344
+we can just start writing some code.
+
+66
+00:02:37,344 --> 00:02:39,477
+So, again, I start off with my html
+
+67
+00:02:39,477 --> 00:02:41,560
+and my body information.
+
+68
+00:02:43,386 --> 00:02:46,374
+I'll just set up a header 3,
+
+69
+00:02:46,374 --> 00:02:49,639
+just to give us a little name here for the page.
+
+70
+00:02:49,639 --> 00:02:50,472
+And then what I wanna do is I actually wanna
+
+71
+00:02:50,472 --> 00:02:52,494
+read some information about the request.
+
+72
+00:02:52,494 --> 00:02:54,681
+So, I wanna find out what type of browser
+
+73
+00:02:54,681 --> 00:02:58,014
+the user is using to access my JSP page.
+
+74
+00:03:00,052 --> 00:03:01,604
+So, you can access this information
+
+75
+00:03:01,604 --> 00:03:03,515
+using the request object.
+
+76
+00:03:03,515 --> 00:03:05,610
+So, I can say request.getheader,
+
+77
+00:03:05,610 --> 00:03:08,211
+and then you give the header name of User-Agent.
+
+78
+00:03:08,211 --> 00:03:10,023
+So, this will tell you the actual browser
+
+79
+00:03:10,023 --> 00:03:11,209
+that the client is using.
+
+80
+00:03:11,209 --> 00:03:12,949
+Also, it'll tell you the operating system
+
+81
+00:03:12,949 --> 00:03:14,949
+that they're running on.
+
+82
+00:03:16,403 --> 00:03:20,168
+So, I'm gonna go ahead and add some line breaks, here.
+
+83
+00:03:20,168 --> 00:03:22,506
+And now I also wanna find out what language the
+
+84
+00:03:22,506 --> 00:03:25,423
+client is making use of in their browser.
+
+85
+00:03:25,423 --> 00:03:26,256
+So, if they're using English,
+
+86
+00:03:26,256 --> 00:03:29,065
+Spanish, German, French.
+
+87
+00:03:29,065 --> 00:03:31,648
+So, here I say request.getlocal
+
+88
+00:03:33,117 --> 00:03:34,866
+and this'll give me the actual local that the user
+
+89
+00:03:34,866 --> 00:03:37,116
+has set up on their system.
+
+90
+00:03:41,242 --> 00:03:43,019
+So, we could use this to customize the type
+
+91
+00:03:43,019 --> 00:03:46,637
+of pages we send the user based on their actual local.
+
+92
+00:03:46,637 --> 00:03:49,150
+Like English or German or Spanish.
+
+93
+00:03:49,150 --> 00:03:51,710
+And that's basically it for this very basic demo, here.
+
+94
+00:03:51,710 --> 00:03:53,501
+So, go ahead and save your file,
+
+95
+00:03:53,501 --> 00:03:55,769
+and now let's go ahead and run this program.
+
+96
+00:03:55,769 --> 00:03:59,128
+So, I'll move to the file builtin-test.jsp,
+
+97
+00:03:59,128 --> 00:04:00,427
+I'll do a right click,
+
+98
+00:04:00,427 --> 00:04:04,094
+and I'll say run as, and then run on server.
+
+99
+00:04:06,039 --> 00:04:07,863
+Okay, great. So, the application runs.
+
+100
+00:04:07,863 --> 00:04:10,109
+Note here request user agent.
+
+101
+00:04:10,109 --> 00:04:11,473
+So, they'll tell us the type of browser
+
+102
+00:04:11,473 --> 00:04:12,425
+that's coming through.
+
+103
+00:04:12,425 --> 00:04:13,583
+So, here we're using this internal browser
+
+104
+00:04:13,583 --> 00:04:16,803
+that's built-in as part of this Eclipse tool.
+
+105
+00:04:16,803 --> 00:04:20,679
+But note it also says that we're using a Mac OSX.
+
+106
+00:04:20,679 --> 00:04:22,438
+So, we know the operating system and the browser
+
+107
+00:04:22,438 --> 00:04:24,274
+that user's running on.
+
+108
+00:04:24,274 --> 00:04:26,224
+Let me copy this information
+
+109
+00:04:26,224 --> 00:04:27,366
+and put into a different browser.
+
+110
+00:04:27,366 --> 00:04:31,449
+I'll drop it into Chrome and I'll just paste it.
+
+111
+00:04:33,482 --> 00:04:35,565
+And I'll just hit: Enter.
+
+112
+00:04:36,509 --> 00:04:37,706
+And so now, we get the same information
+
+113
+00:04:37,706 --> 00:04:39,412
+but note here it says Chrome.
+
+114
+00:04:39,412 --> 00:04:41,827
+So, they give us the actual Chrome browser that we're using
+
+115
+00:04:41,827 --> 00:04:43,733
+and the version, Mac OS,
+
+116
+00:04:43,733 --> 00:04:46,187
+and also the request language in English.
+
+117
+00:04:46,187 --> 00:04:48,391
+So, again you could possibly use this to customize
+
+118
+00:04:48,391 --> 00:04:51,184
+the different pages you want to send back to the user
+
+119
+00:04:51,184 --> 00:04:53,568
+based on their browser type, OS type,
+
+120
+00:04:53,568 --> 00:04:55,587
+or their language type.
+
+121
+00:04:55,587 --> 00:04:56,670
+So, good job.
+
+122
+00:04:56,670 --> 00:05:00,753
+An example of using that built-in request object.
+
+123
+00:05:02,674 --> 00:05:04,802
+Okay, great. Let's go ahead and wrap up this video.
+
+124
+00:05:04,802 --> 00:05:06,340
+In this video, I showed you how to use some of the built-in
+
+125
+00:05:06,340 --> 00:05:07,634
+server objects.
+
+126
+00:05:07,634 --> 00:05:09,747
+We may use the request object to find out the user's
+
+127
+00:05:09,747 --> 00:05:11,571
+operating system and browser.
+
+128
+00:05:11,571 --> 00:05:13,874
+In the following videos, we'll do a drill down into
+
+129
+00:05:13,874 --> 00:05:15,170
+some of the other objects,
+
+130
+00:05:15,170 --> 00:05:16,672
+and you can kind of see them
+
+131
+00:05:16,672 --> 00:05:20,839
+working out real world, for the various use cases.
+

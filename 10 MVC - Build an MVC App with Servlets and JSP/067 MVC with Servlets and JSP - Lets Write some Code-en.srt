@@ -1,0 +1,740 @@
+1
+00:00:01,125 --> 00:00:02,206
+<v Instructor>Alright, so let's go ahead</v>
+
+2
+00:00:02,206 --> 00:00:03,128
+and move into Eclipse.
+
+3
+00:00:03,128 --> 00:00:04,176
+And again we're gonna continue
+
+4
+00:00:04,176 --> 00:00:05,944
+to use that same project servletdemo.
+
+5
+00:00:05,944 --> 00:00:09,010
+The first thing we need to do here is we need to
+
+6
+00:00:09,010 --> 00:00:13,177
+add support for for our JSTL libraries to this project.
+
+7
+00:00:17,745 --> 00:00:20,637
+And effectively what we need to here is copy the JAR files
+
+8
+00:00:20,637 --> 00:00:23,149
+into this servletdemo project.
+
+9
+00:00:23,149 --> 00:00:26,005
+So what I'll do is I'll actually open up one of our previous
+
+10
+00:00:26,005 --> 00:00:29,222
+projects called tagdemo and I'll move into that web content
+
+11
+00:00:29,222 --> 00:00:32,622
+WEB-INF/lib directory. There's two JAR files here.
+
+12
+00:00:32,622 --> 00:00:37,395
+These are the two JAR files that I'll need for JSTL.
+
+13
+00:00:37,395 --> 00:00:40,006
+So let me go ahead and select those two JAR files,
+
+14
+00:00:40,006 --> 00:00:42,339
+right click and choose copy.
+
+15
+00:00:49,624 --> 00:00:51,549
+So I'm copying these JAR files from tag demo
+
+16
+00:00:51,549 --> 00:00:55,230
+and I'm gonna move them up to my servletdemo project.
+
+17
+00:00:55,230 --> 00:00:57,260
+So again we're adding JSTL support.
+
+18
+00:00:57,260 --> 00:00:59,997
+So in servletdemo on the WEB-INF/lib,
+
+19
+00:00:59,997 --> 00:01:03,914
+I'll just do a right click and I'll do a paste.
+
+20
+00:01:08,856 --> 00:01:10,807
+And this will basically paste it in those JAR files
+
+21
+00:01:10,807 --> 00:01:13,424
+to this servletdemo. So this looks really good.
+
+22
+00:01:13,424 --> 00:01:15,848
+I should have two JAR files here listed.
+
+23
+00:01:15,848 --> 00:01:19,786
+So this is great. So now this project has JSTL support,
+
+24
+00:01:19,786 --> 00:01:22,369
+and we're good to go with this.
+
+25
+00:01:25,773 --> 00:01:28,421
+Alright, that took care of our housekeeping admin work
+
+26
+00:01:28,421 --> 00:01:31,671
+for servletdemo by adding JSTL support.
+
+27
+00:01:32,680 --> 00:01:35,395
+Now let's go ahead and work on our
+
+28
+00:01:35,395 --> 00:01:36,239
+Mvc example.
+
+29
+00:01:36,239 --> 00:01:39,293
+So the first step we need to do is we need to actually
+
+30
+00:01:39,293 --> 00:01:41,543
+build a controller Servlet.
+
+31
+00:01:43,675 --> 00:01:45,604
+So I'm moving to my Java resources directory.
+
+32
+00:01:45,604 --> 00:01:48,666
+Under source, I move down to my package servletdemo,
+
+33
+00:01:48,666 --> 00:01:50,958
+I'm gonna add a new Servlet here.
+
+34
+00:01:50,958 --> 00:01:55,125
+So I'm gonna right click and I'll say new Servlet.
+
+35
+00:01:59,795 --> 00:02:01,715
+Alright, so this brings up our new Servlet screen.
+
+36
+00:02:01,715 --> 00:02:04,016
+What I wanna do is call this
+
+37
+00:02:04,016 --> 00:02:06,947
+Servlet class name MvcDemoServlet.
+
+38
+00:02:06,947 --> 00:02:11,114
+So that's the name that we're gonna use for this example.
+
+39
+00:02:12,456 --> 00:02:13,289
+Once I'm happy with the name,
+
+40
+00:02:13,289 --> 00:02:15,872
+I'll go ahead and click finish.
+
+41
+00:02:17,597 --> 00:02:19,414
+So again, Eclipse goes off, does a lot of work,
+
+42
+00:02:19,414 --> 00:02:22,431
+creating a nice Servlet for us to start with.
+
+43
+00:02:22,431 --> 00:02:25,320
+So this is very good. I love the way Eclipse helps us
+
+44
+00:02:25,320 --> 00:02:28,237
+jump start our development process.
+
+45
+00:02:29,150 --> 00:02:32,595
+Alright, so here's our Mvc Servlet with the annotation.
+
+46
+00:02:32,595 --> 00:02:34,514
+I'm gonna focus on the doGet method,
+
+47
+00:02:34,514 --> 00:02:39,449
+so let me just clear out some space here at the bottom.
+
+48
+00:02:39,449 --> 00:02:41,802
+And, I'm gonna do all of my work inside of the doGet.
+
+49
+00:02:41,802 --> 00:02:43,758
+Now they have some auto generated code here,
+
+50
+00:02:43,758 --> 00:02:45,329
+I'm gonna actually remove that code,
+
+51
+00:02:45,329 --> 00:02:47,246
+and put in my own code.
+
+52
+00:02:48,691 --> 00:02:50,005
+We're gonna code this from scratch.
+
+53
+00:02:50,005 --> 00:02:52,923
+So again, I always like to set up my comments here.
+
+54
+00:02:52,923 --> 00:02:56,094
+So the set 0 is we're gonna add data.
+
+55
+00:02:56,094 --> 00:03:00,177
+Step one, we're gonna get the request dispatcher.
+
+56
+00:03:04,267 --> 00:03:05,316
+And then, step two, we're gonna
+
+57
+00:03:05,316 --> 00:03:07,634
+forward the request to the JSP.
+
+58
+00:03:07,634 --> 00:03:10,128
+So those are the three main steps
+
+59
+00:03:10,128 --> 00:03:11,925
+that we're gonna accomplish here
+
+60
+00:03:11,925 --> 00:03:15,092
+in this doGet method for our Mvc demo.
+
+61
+00:03:18,726 --> 00:03:20,077
+So first off, adding some data.
+
+62
+00:03:20,077 --> 00:03:23,097
+So I'm just gonna make up some data here.
+
+63
+00:03:23,097 --> 00:03:26,722
+Students, and I give a four student names.
+
+64
+00:03:26,722 --> 00:03:28,608
+We could retrieve this from a database
+
+65
+00:03:28,608 --> 00:03:30,157
+or we could possibly retrieve this
+
+66
+00:03:30,157 --> 00:03:31,471
+from a backend helper object.
+
+67
+00:03:31,471 --> 00:03:33,545
+But just for keeping it simple right now,
+
+68
+00:03:33,545 --> 00:03:36,247
+I'll just define the data right here in this Servlet.
+
+69
+00:03:36,247 --> 00:03:40,414
+We'll get into more advance examples later on in the course.
+
+70
+00:03:44,491 --> 00:03:46,152
+And then I have the students object,
+
+71
+00:03:46,152 --> 00:03:48,883
+so now I set attributes. So I give the attribute name.
+
+72
+00:03:48,883 --> 00:03:51,088
+I'll call it student_,list,
+
+73
+00:03:51,088 --> 00:03:53,028
+and then I give a reference to that object
+
+74
+00:03:53,028 --> 00:03:55,540
+that I just created in the previous line here students.
+
+75
+00:03:55,540 --> 00:03:57,192
+So that's basically it.
+
+76
+00:03:57,192 --> 00:04:00,654
+So we've created some data, and we've added this data
+
+77
+00:04:00,654 --> 00:04:01,629
+to the request object
+
+78
+00:04:01,629 --> 00:04:04,709
+by making use of request set attribute.
+
+79
+00:04:04,709 --> 00:04:09,614
+And again, we can set as many attributes as we'd like here
+
+80
+00:04:09,614 --> 00:04:12,447
+as long as they have unique names.
+
+81
+00:04:14,835 --> 00:04:15,961
+Alright, so the next thing I need to do is set up
+
+82
+00:04:15,961 --> 00:04:18,790
+a request dispatcher. So remember the request dispatcher
+
+83
+00:04:18,790 --> 00:04:23,345
+is what we can use to actually make a call to the JSP page.
+
+84
+00:04:23,345 --> 00:04:25,732
+So I say get request dispatcher
+
+85
+00:04:25,732 --> 00:04:27,572
+and I give the actual name
+
+86
+00:04:27,572 --> 00:04:30,072
+of the JSP, view_students.jsp.
+
+87
+00:04:31,292 --> 00:04:33,852
+And, I'll go here to line 35 and I'll fix some of the
+
+88
+00:04:33,852 --> 00:04:37,769
+imports here for this request dispatcher class.
+
+89
+00:04:40,065 --> 00:04:40,898
+And I'll select that option,
+
+90
+00:04:40,898 --> 00:04:42,404
+that should clear up the imports there.
+
+91
+00:04:42,404 --> 00:04:45,177
+Okay great, so I have the request dispatcher
+
+92
+00:04:45,177 --> 00:04:47,573
+for that view_students.jsp.
+
+93
+00:04:47,573 --> 00:04:49,596
+Now step two is very important,
+
+94
+00:04:49,596 --> 00:04:50,998
+I have to complete this step.
+
+95
+00:04:50,998 --> 00:04:54,029
+I have to explicitly forward the request
+
+96
+00:04:54,029 --> 00:04:54,862
+over to
+
+97
+00:04:56,586 --> 00:04:57,419
+that JSP.
+
+98
+00:04:57,419 --> 00:05:00,169
+So here I say dispatcher.forward,
+
+99
+00:05:01,624 --> 00:05:03,844
+and I'll forward over the request and the response option.
+
+100
+00:05:03,844 --> 00:05:05,275
+So those are the two parameters
+
+101
+00:05:05,275 --> 00:05:06,980
+that came into this method here,
+
+102
+00:05:06,980 --> 00:05:09,220
+that we've added some data to the request,
+
+103
+00:05:09,220 --> 00:05:11,463
+and then we're forwarding that data
+
+104
+00:05:11,463 --> 00:05:14,660
+all across to that actual JSP.
+
+105
+00:05:14,660 --> 00:05:16,712
+And that JSP can read the data at a later time.
+
+106
+00:05:16,712 --> 00:05:18,355
+But that's the main code here for
+
+107
+00:05:18,355 --> 00:05:21,188
+forwarding the request to the JSP.
+
+108
+00:05:22,719 --> 00:05:24,294
+Alright, so just kinda stepping back here just looking
+
+109
+00:05:24,294 --> 00:05:26,216
+at the method that we've created all from scratch.
+
+110
+00:05:26,216 --> 00:05:28,576
+Step zero we added the student data,
+
+111
+00:05:28,576 --> 00:05:30,981
+step one we got the request dispatcher,
+
+112
+00:05:30,981 --> 00:05:34,915
+and then step two we forwarded the request to the JSP.
+
+113
+00:05:34,915 --> 00:05:38,978
+So this is the main work for our Servlet controller,
+
+114
+00:05:38,978 --> 00:05:40,561
+in our Mvc example.
+
+115
+00:05:41,826 --> 00:05:42,659
+Good job.
+
+116
+00:05:47,276 --> 00:05:49,588
+Alright, so the next thing we need to do in our Mvc example
+
+117
+00:05:49,588 --> 00:05:51,573
+is that we need to add the JSP page,
+
+118
+00:05:51,573 --> 00:05:53,029
+that view_students.jsp.
+
+119
+00:05:53,029 --> 00:05:54,815
+We need to actually create that file.
+
+120
+00:05:54,815 --> 00:05:57,710
+So my web content directory, I'll right click.
+
+121
+00:05:57,710 --> 00:05:59,210
+I'll say new file.
+
+122
+00:06:01,098 --> 00:06:02,872
+And I'll have to use the exact same file name
+
+123
+00:06:02,872 --> 00:06:05,944
+that my JSP is gonna forward to.
+
+124
+00:06:05,944 --> 00:06:10,027
+So, there gonna foreword it to view_students.jsp.
+
+125
+00:06:11,863 --> 00:06:12,696
+So you have to make sure those names
+
+126
+00:06:12,696 --> 00:06:15,190
+are the same and correct.
+
+127
+00:06:15,190 --> 00:06:16,170
+And once you're happy with this name,
+
+128
+00:06:16,170 --> 00:06:18,337
+go ahead and click finish.
+
+129
+00:06:20,505 --> 00:06:24,031
+So let me expand this window here.
+
+130
+00:06:24,031 --> 00:06:26,943
+One thing this JSP page is gonna make use of JSTL.
+
+131
+00:06:26,943 --> 00:06:28,327
+So we always have to give our JSTL
+
+132
+00:06:28,327 --> 00:06:29,875
+taglib reference at the top.
+
+133
+00:06:29,875 --> 00:06:32,167
+Then I have a little cheat sheet that I like to copy
+
+134
+00:06:32,167 --> 00:06:34,696
+paste cause I, you know, I don't wanna get it wrong.
+
+135
+00:06:34,696 --> 00:06:36,567
+So I like to do it the correct way every time.
+
+136
+00:06:36,567 --> 00:06:38,384
+So anyway, that's the taglib reference.
+
+137
+00:06:38,384 --> 00:06:41,492
+Let me go ahead and do some html housekeeping here
+
+138
+00:06:41,492 --> 00:06:44,575
+with our html tags and our body tags.
+
+139
+00:06:45,774 --> 00:06:47,709
+Now, what I'd like to do is actually do a loop.
+
+140
+00:06:47,709 --> 00:06:49,172
+And I wanna loop over that
+
+141
+00:06:49,172 --> 00:06:51,653
+student list data that was passed in.
+
+142
+00:06:51,653 --> 00:06:53,903
+So I set up this c:forEach,
+
+143
+00:06:55,484 --> 00:06:58,939
+and I set the variable, I call it temp student.
+
+144
+00:06:58,939 --> 00:07:02,118
+And then items, this is the actual name of that attribute
+
+145
+00:07:02,118 --> 00:07:03,526
+that was set by the Servlets.
+
+146
+00:07:03,526 --> 00:07:04,642
+So here I say
+
+147
+00:07:04,642 --> 00:07:05,475
+${
+
+148
+00:07:06,483 --> 00:07:08,052
+student_list,
+
+149
+00:07:08,052 --> 00:07:10,965
+so again this is the exact same attribute name
+
+150
+00:07:10,965 --> 00:07:12,832
+that was set by the Servlet.
+
+151
+00:07:12,832 --> 00:07:14,939
+And we have to use the exact same name
+
+152
+00:07:14,939 --> 00:07:17,306
+in order for the JSP to find it.
+
+153
+00:07:17,306 --> 00:07:21,473
+So that's like the label or the alias for that data.
+
+154
+00:07:26,735 --> 00:07:28,868
+So we have that set up. Now I can actually display
+
+155
+00:07:28,868 --> 00:07:31,915
+that tempStudent here. So I use ${tempstudent
+
+156
+00:07:31,915 --> 00:07:34,744
+and I just add a little br for a line break,
+
+157
+00:07:34,744 --> 00:07:36,744
+and that's basically it.
+
+158
+00:07:40,425 --> 00:07:43,512
+So this four loop here will basically loop through that
+
+159
+00:07:43,512 --> 00:07:45,735
+student list and it'll display
+
+160
+00:07:45,735 --> 00:07:48,583
+the actual student information,
+
+161
+00:07:48,583 --> 00:07:50,720
+or the temp student as it goes through the list.
+
+162
+00:07:50,720 --> 00:07:52,301
+So this is really good, I'm excited about this.
+
+163
+00:07:52,301 --> 00:07:54,530
+I'm ready to try it out [Laughs].
+
+164
+00:07:54,530 --> 00:07:56,501
+Alright so, in order to test this one here
+
+165
+00:07:56,501 --> 00:07:58,945
+we need to go and run our Mvc Servlet.
+
+166
+00:07:58,945 --> 00:08:01,416
+So I select my Mvc demoservlet,
+
+167
+00:08:01,416 --> 00:08:03,249
+I'll do a right click,
+
+168
+00:08:04,925 --> 00:08:06,437
+and I'll choose run as,
+
+169
+00:08:06,437 --> 00:08:08,354
+and then run on server.
+
+170
+00:08:11,583 --> 00:08:15,181
+And, woohoo, this looks really good.
+
+171
+00:08:15,181 --> 00:08:19,009
+So, this is the result of our Mvc example.
+
+172
+00:08:19,009 --> 00:08:21,579
+Our Mvc Servlet went off and
+
+173
+00:08:21,579 --> 00:08:23,507
+added some data to that request.
+
+174
+00:08:23,507 --> 00:08:27,674
+It sent it to our JSP and our JSP went through and displayed
+
+175
+00:08:28,644 --> 00:08:29,678
+each one of those student names.
+
+176
+00:08:29,678 --> 00:08:32,896
+So their all working together.
+
+177
+00:08:32,896 --> 00:08:35,654
+This is awesome, I like it.
+
+178
+00:08:35,654 --> 00:08:37,739
+So this is a good way to kinda wrap this up.
+
+179
+00:08:37,739 --> 00:08:39,695
+So we built an Mvc system from scratch,
+
+180
+00:08:39,695 --> 00:08:41,643
+very simple one, but we built it from scratch.
+
+181
+00:08:41,643 --> 00:08:43,715
+We created a controller Servlet,
+
+182
+00:08:43,715 --> 00:08:46,495
+and we also created a view JSP,
+
+183
+00:08:46,495 --> 00:08:50,078
+and we integrated Servlets and JSP together
+
+184
+00:08:51,126 --> 00:08:53,395
+for an Mvc system.
+
+185
+00:08:53,395 --> 00:08:54,312
+Great job.
+

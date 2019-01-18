@@ -1,0 +1,316 @@
+1
+00:00:01,529 --> 00:00:02,730
+<v Instructor>Hi, in this video,</v>
+
+2
+00:00:02,730 --> 00:00:04,438
+I'm going to show you how to download
+
+3
+00:00:04,438 --> 00:00:07,521
+the JDBC source code for our project.
+
+4
+00:00:08,818 --> 00:00:10,650
+So, when we work on a project,
+
+5
+00:00:10,650 --> 00:00:12,264
+you actually have two options on how
+
+6
+00:00:12,264 --> 00:00:14,264
+you want to work through the code.
+
+7
+00:00:14,264 --> 00:00:16,534
+The first option is that you can follow along
+
+8
+00:00:16,534 --> 00:00:17,985
+and write the code with me.
+
+9
+00:00:17,985 --> 00:00:20,498
+So I have a set of starter files that you can start with,
+
+10
+00:00:20,498 --> 00:00:22,539
+but then the bulk of the coding you'll actually do
+
+11
+00:00:22,539 --> 00:00:24,985
+from scratch, so a lot of hands-on coding
+
+12
+00:00:24,985 --> 00:00:28,034
+and you can follow along in the videos with me.
+
+13
+00:00:28,034 --> 00:00:30,915
+Or, you have an option two, you can skip
+
+14
+00:00:30,915 --> 00:00:32,704
+writing the code. (laughs)
+
+15
+00:00:32,704 --> 00:00:35,286
+You can kind of just sit back and enjoy the code.
+
+16
+00:00:35,286 --> 00:00:37,772
+And so I have the full solution code available
+
+17
+00:00:37,772 --> 00:00:40,698
+so all of the final code you'll have available.
+
+18
+00:00:40,698 --> 00:00:42,701
+You can access it, review it,
+
+19
+00:00:42,701 --> 00:00:44,604
+and then deploy it to your system.
+
+20
+00:00:44,604 --> 00:00:46,991
+So, either way, you can write the code from scratch
+
+21
+00:00:46,991 --> 00:00:49,601
+with me or you can make use of option two and simply
+
+22
+00:00:49,601 --> 00:00:53,343
+just download all the finished code and deploy it.
+
+23
+00:00:53,343 --> 00:00:56,355
+So now how do you actually download the code?
+
+24
+00:00:56,355 --> 00:01:00,515
+Well, in this video lecture there's a View Resources button
+
+25
+00:01:00,515 --> 00:01:02,760
+in the upper right corner of the screen.
+
+26
+00:01:02,760 --> 00:01:05,277
+So you simply click that button, there's going to be
+
+27
+00:01:05,277 --> 00:01:08,814
+a file out there called jsp-servlet-jdbc-source-code,
+
+28
+00:01:08,814 --> 00:01:12,981
+and you simply download that zip file to your file system.
+
+29
+00:01:15,323 --> 00:01:17,405
+All right, so here's my file system,
+
+30
+00:01:17,405 --> 00:01:20,481
+and let's assume that I've already downloaded the code,
+
+31
+00:01:20,481 --> 00:01:21,627
+the browser will normally put this
+
+32
+00:01:21,627 --> 00:01:24,542
+into the Downloads directory, so here's my zip file
+
+33
+00:01:24,542 --> 00:01:27,897
+that's been downloaded by my browser,
+
+34
+00:01:27,897 --> 00:01:29,592
+and what I normally like to do is just create
+
+35
+00:01:29,592 --> 00:01:32,118
+another little training directory.
+
+36
+00:01:32,118 --> 00:01:34,241
+I like to call it My Java Training
+
+37
+00:01:34,241 --> 00:01:38,076
+and just copy that zip file over there
+
+38
+00:01:38,076 --> 00:01:39,897
+and then I can move it to this directory
+
+39
+00:01:39,897 --> 00:01:43,314
+and now I can simply unzip that zip file.
+
+40
+00:01:44,626 --> 00:01:46,181
+All right, great, so I've unzipped the file here.
+
+41
+00:01:46,181 --> 00:01:48,200
+So now I have this folder called
+
+42
+00:01:48,200 --> 00:01:50,617
+jsp-servlet-jdbc-source-code.
+
+43
+00:01:51,496 --> 00:01:52,807
+Now there's a couple of files in here.
+
+44
+00:01:52,807 --> 00:01:57,186
+The first one is a README.txt, just a basic about me file,
+
+45
+00:01:57,186 --> 00:01:58,823
+SETUP-Instructions as far as how to set up
+
+46
+00:01:58,823 --> 00:02:00,601
+the project and deploy it.
+
+47
+00:02:00,601 --> 00:02:02,327
+There's a collection of SQL scripts
+
+48
+00:02:02,327 --> 00:02:05,918
+for creating a user and creating our database tables.
+
+49
+00:02:05,918 --> 00:02:09,065
+We'll talk about those SQL scripts later.
+
+50
+00:02:09,065 --> 00:02:12,438
+And then here are our starter files, so our starter files
+
+51
+00:02:12,438 --> 00:02:15,239
+are really just a collection of some CSS files
+
+52
+00:02:15,239 --> 00:02:17,748
+like some cascading style sheets.
+
+53
+00:02:17,748 --> 00:02:20,012
+We also have some configuration information
+
+54
+00:02:20,012 --> 00:02:23,336
+for database connection and also our database driver.
+
+55
+00:02:23,336 --> 00:02:26,595
+We'll talk more about these files in some later videos,
+
+56
+00:02:26,595 --> 00:02:28,346
+but these are kind of the starter files
+
+57
+00:02:28,346 --> 00:02:29,409
+if you wanted to kind of start
+
+58
+00:02:29,409 --> 00:02:31,826
+from scratch working with me.
+
+59
+00:02:33,991 --> 00:02:36,361
+And then also again, if you don't want to write the code,
+
+60
+00:02:36,361 --> 00:02:38,094
+you simply want to get the final solution,
+
+61
+00:02:38,094 --> 00:02:40,964
+well then this is in the web-student-tracker-solution
+
+62
+00:02:40,964 --> 00:02:44,160
+directory, so this has all of the Java source code
+
+63
+00:02:44,160 --> 00:02:47,538
+that we'll create, all the completed code is there,
+
+64
+00:02:47,538 --> 00:02:48,937
+and also in the WebContent directory,
+
+65
+00:02:48,937 --> 00:02:52,683
+all of the JSP files and related web assets,
+
+66
+00:02:52,683 --> 00:02:54,733
+so basically everything's here.
+
+67
+00:02:54,733 --> 00:02:57,230
+You can grab this off the shelf as a final solution
+
+68
+00:02:57,230 --> 00:03:00,223
+and then take it and deploy it, so either way.
+
+69
+00:03:00,223 --> 00:03:01,725
+You can start from scratch or you can simply
+
+70
+00:03:01,725 --> 00:03:03,702
+take the solution and move on.
+
+71
+00:03:03,702 --> 00:03:05,953
+So the choice is yours. (laughs)
+
+72
+00:03:05,953 --> 00:03:07,243
+All right, so anyway, just wanted to let you know
+
+73
+00:03:07,243 --> 00:03:09,149
+about the files that are out there,
+
+74
+00:03:09,149 --> 00:03:10,663
+kind of a quick description for them,
+
+75
+00:03:10,663 --> 00:03:12,334
+and in some of the following videos
+
+76
+00:03:12,334 --> 00:03:15,872
+I'll dive deeper into this directory structure
+
+77
+00:03:15,872 --> 00:03:17,232
+and then we'll make use of some of the these files
+
+78
+00:03:17,232 --> 00:03:19,776
+to get our environment set up.
+
+79
+00:03:19,776 --> 00:03:21,443
+All right, good job.
+

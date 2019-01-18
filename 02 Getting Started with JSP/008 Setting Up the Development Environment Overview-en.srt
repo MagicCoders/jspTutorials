@@ -1,0 +1,128 @@
+1
+00:00:01,375 --> 00:00:02,857
+<v Instructor>Hey, in this video,</v>
+
+2
+00:00:02,857 --> 00:00:04,438
+I'm gonna give you an overview
+
+3
+00:00:04,438 --> 00:00:08,021
+of setting up your development environment.
+
+4
+00:00:09,469 --> 00:00:11,527
+We'll cover the following topics.
+
+5
+00:00:11,527 --> 00:00:13,549
+I'll discuss the required software
+
+6
+00:00:13,549 --> 00:00:17,466
+and we'll also go through the high-level steps.
+
+7
+00:00:18,917 --> 00:00:21,438
+One prerequisite is that you must have
+
+8
+00:00:21,438 --> 00:00:23,732
+the Java Development Kit installed.
+
+9
+00:00:23,732 --> 00:00:27,149
+That's the JDK, not the JRE, but the JDK.
+
+10
+00:00:28,548 --> 00:00:30,371
+In regards to the required software,
+
+11
+00:00:30,371 --> 00:00:31,983
+to build these web applications,
+
+12
+00:00:31,983 --> 00:00:33,540
+you need to have the following.
+
+13
+00:00:33,540 --> 00:00:35,083
+You need to have a Java Application Server,
+
+14
+00:00:35,083 --> 00:00:36,000
+and an IDE.
+
+15
+00:00:37,055 --> 00:00:38,888
+Regarding the Java App Server,
+
+16
+00:00:38,888 --> 00:00:40,352
+there's a lot of different options
+
+17
+00:00:40,352 --> 00:00:43,106
+like GlassFish, JBoss, WebLogic, and so on,
+
+18
+00:00:43,106 --> 00:00:44,441
+but we're gonna keep it simple
+
+19
+00:00:44,441 --> 00:00:47,120
+and make use of the Tomcat Server.
+
+20
+00:00:47,120 --> 00:00:49,918
+Next, for the IDE, again, a lot of different options.
+
+21
+00:00:49,918 --> 00:00:53,585
+We'll simply focus on using the Eclipse IDE.
+
+22
+00:00:57,827 --> 00:01:00,260
+What I'll do is I'll actually break these videos up.
+
+23
+00:01:00,260 --> 00:01:01,976
+I'll have a separate video installing
+
+24
+00:01:01,976 --> 00:01:05,183
+the Tomcat Java App Server, and then I'll have
+
+25
+00:01:05,183 --> 00:01:09,100
+a separate video on installing the Eclipse IDE.
+
+26
+00:01:12,084 --> 00:01:13,298
+This wraps up the video.
+
+27
+00:01:13,298 --> 00:01:14,892
+We covered the required software.
+
+28
+00:01:14,892 --> 00:01:16,910
+We also discussed the high-level steps.
+
+29
+00:01:16,910 --> 00:01:18,930
+Let's go ahead in the following videos.
+
+30
+00:01:18,930 --> 00:01:21,056
+We'll actually go through and install our Java App Server,
+
+31
+00:01:21,056 --> 00:01:23,251
+and we'll install the Eclipse IDE.
+
+32
+00:01:23,251 --> 00:01:26,751
+All right, I'll see you in the next video.
+

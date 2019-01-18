@@ -1,0 +1,520 @@
+1
+00:00:01,198 --> 00:00:02,192
+<v Instructor>Hey, welcome back.</v>
+
+2
+00:00:02,192 --> 00:00:04,128
+So, let's go ahead and get our hands dirty
+
+3
+00:00:04,128 --> 00:00:06,451
+with setting up our development environment.
+
+4
+00:00:06,451 --> 00:00:09,710
+In this video I'm gonna show you how to install Tomcat
+
+5
+00:00:09,710 --> 00:00:12,043
+on the Mac operating system.
+
+6
+00:00:15,480 --> 00:00:18,259 line:15% 
+All right, so what we need to do is to open up a web browser
+
+7
+00:00:18,259 --> 00:00:20,303 line:15% 
+and visit the Tomcat website,
+
+8
+00:00:20,303 --> 00:00:23,386 line:15% 
+so I need to go to tomcat.apache.org.
+
+9
+00:00:26,529 --> 00:00:30,063 line:15% 
+So, this will bring me to the main Apache Tomcat website.
+
+10
+00:00:30,063 --> 00:00:32,674
+This is where we can actually download the software,
+
+11
+00:00:32,674 --> 00:00:34,244
+so over on the left-hand side
+
+12
+00:00:34,244 --> 00:00:36,224
+there's a Download section
+
+13
+00:00:36,224 --> 00:00:38,466
+and it has the different versions of Tomcat
+
+14
+00:00:38,466 --> 00:00:40,099
+that we can download.
+
+15
+00:00:40,099 --> 00:00:41,870
+At the time of this video recording
+
+16
+00:00:41,870 --> 00:00:43,970
+the current version is Tomcat 8,
+
+17
+00:00:43,970 --> 00:00:45,696
+however, there may have a new version
+
+18
+00:00:45,696 --> 00:00:48,755
+and you can simply download the appropriate version,
+
+19
+00:00:48,755 --> 00:00:52,108
+so I'll go ahead and select Tomcat 8 for this video
+
+20
+00:00:52,108 --> 00:00:55,506
+and this will show me the Tomcat 8 downloads.
+
+21
+00:00:55,506 --> 00:00:58,269
+I'll just scroll down a bit
+
+22
+00:00:58,269 --> 00:01:00,877
+and I'll move down to the binary distributions,
+
+23
+00:01:00,877 --> 00:01:04,794
+that means this is the binary code or whatever.
+
+24
+00:01:06,031 --> 00:01:07,451
+Since I'm doing this for a Mac
+
+25
+00:01:07,451 --> 00:01:10,492
+I'll go ahead and choose tar.gz,
+
+26
+00:01:10,492 --> 00:01:11,602
+so it's simply a zip file
+
+27
+00:01:11,602 --> 00:01:14,485
+that preserves the file permissions
+
+28
+00:01:14,485 --> 00:01:17,647
+and I'll select the link here.
+
+29
+00:01:17,647 --> 00:01:20,541
+My browser's going to prompt me for the actual file
+
+30
+00:01:20,541 --> 00:01:23,386
+and I'll say save the file and I'll hit OK
+
+31
+00:01:23,386 --> 00:01:26,437
+and so, this will actually download the Tomcat file
+
+32
+00:01:26,437 --> 00:01:28,187
+to my local computer.
+
+33
+00:01:29,162 --> 00:01:32,268
+All right, great, so we've actually downloaded
+
+34
+00:01:32,268 --> 00:01:33,859
+the file to our file system,
+
+35
+00:01:33,859 --> 00:01:35,795
+so let me go over and open up my finder.
+
+36
+00:01:35,795 --> 00:01:38,152 line:15% 
+Let me move into the Downloads directory
+
+37
+00:01:38,152 --> 00:01:39,902 line:15% 
+and this is where I'll find the actual file
+
+38
+00:01:39,902 --> 00:01:41,094 line:15% 
+that was just downloaded,
+
+39
+00:01:41,094 --> 00:01:43,723 line:15% 
+so here apache-tomcat-8.
+
+40
+00:01:43,723 --> 00:01:46,085 line:15% 
+Now what I need to do is actually unzip the file,
+
+41
+00:01:46,085 --> 00:01:48,906 line:15% 
+so I can actually unzip it by double clicking it,
+
+42
+00:01:48,906 --> 00:01:51,970 line:15% 
+so I'll go ahead and do that now
+
+43
+00:01:51,970 --> 00:01:54,657
+and now I have this folder here
+
+44
+00:01:54,657 --> 00:01:56,015
+for apache-tomcat-8,
+
+45
+00:01:56,015 --> 00:01:59,119
+so this is the unzipped version of the file.
+
+46
+00:01:59,119 --> 00:02:00,685
+All right, so what I normally like to do
+
+47
+00:02:00,685 --> 00:02:02,968
+is actually move this into another directory
+
+48
+00:02:02,968 --> 00:02:04,652 line:15% 
+so I can make use of it,
+
+49
+00:02:04,652 --> 00:02:07,759 line:15% 
+so we'll actually make use of a directory
+
+50
+00:02:07,759 --> 00:02:10,056 line:15% 
+for this training class
+
+51
+00:02:10,056 --> 00:02:13,041 line:15% 
+and I'll call it jsf-for-beginners,
+
+52
+00:02:13,041 --> 00:02:15,375 line:15% 
+so let me go and open up a new window here.
+
+53
+00:02:15,375 --> 00:02:17,270 line:15% 
+I'll move down to the bottom
+
+54
+00:02:17,270 --> 00:02:19,187
+and I'll say New Folder
+
+55
+00:02:22,617 --> 00:02:24,880
+and I'll call it jsf-for-beginners,
+
+56
+00:02:24,880 --> 00:02:25,756
+so this is really just like
+
+57
+00:02:25,756 --> 00:02:28,589
+a little empty scratch temp folder
+
+58
+00:02:30,088 --> 00:02:32,092
+that we're gonna use for this training class.
+
+59
+00:02:32,092 --> 00:02:33,972
+I'll put all of our apps in here,
+
+60
+00:02:33,972 --> 00:02:35,613
+all of our servers and so forth,
+
+61
+00:02:35,613 --> 00:02:37,641
+so just one central location.
+
+62
+00:02:37,641 --> 00:02:39,141
+Jsf-for-beginners.
+
+63
+00:02:40,024 --> 00:02:43,484
+So, it's empty now, I'll just double click moving to it
+
+64
+00:02:43,484 --> 00:02:45,739 line:15% 
+and what I'd like to do is that folder
+
+65
+00:02:45,739 --> 00:02:48,764 line:15% 
+that I just expanded up top, tomcat-8,
+
+66
+00:02:48,764 --> 00:02:52,250 line:15% 
+I'll just grab it, drag and drop it into this new folder,
+
+67
+00:02:52,250 --> 00:02:55,252 line:15% 
+jsf-for-beginners, so all I do is just copy
+
+68
+00:02:55,252 --> 00:02:56,580 line:15% 
+that expanded directory
+
+69
+00:02:56,580 --> 00:02:59,855 line:15% 
+to this new folder jsf-for-beginners.
+
+70
+00:02:59,855 --> 00:03:02,522
+Okay, so this looks pretty good.
+
+71
+00:03:05,795 --> 00:03:07,815
+All right, so now that I have a file extracted,
+
+72
+00:03:07,815 --> 00:03:10,755
+I actually want to verify the Tomcat installation
+
+73
+00:03:10,755 --> 00:03:12,511
+by actually running the server,
+
+74
+00:03:12,511 --> 00:03:15,160
+so what I'll do is I'll open up a terminal window here
+
+75
+00:03:15,160 --> 00:03:17,275
+and what I'd like to do is actually move
+
+76
+00:03:17,275 --> 00:03:20,608
+into that Tomcat installation directory.
+
+77
+00:03:22,405 --> 00:03:24,307 line:15% 
+So, I'll just do a CD,
+
+78
+00:03:24,307 --> 00:03:26,060 line:15% 
+I'll move into that jsf-for-beginners
+
+79
+00:03:26,060 --> 00:03:27,415 line:15% 
+that we just created
+
+80
+00:03:27,415 --> 00:03:29,231 line:15% 
+and then the apache-tomcat directory
+
+81
+00:03:29,231 --> 00:03:31,314 line:15% 
+that we just copied over.
+
+82
+00:03:34,478 --> 00:03:36,291 line:15% 
+All right, great, so I'm in the directory,
+
+83
+00:03:36,291 --> 00:03:38,403 line:15% 
+now I'll just do an ls just to see the contents
+
+84
+00:03:38,403 --> 00:03:39,820
+of this directory
+
+85
+00:03:41,875 --> 00:03:42,975
+and we'll see that this directory
+
+86
+00:03:42,975 --> 00:03:47,167
+has a startup.sh, this is in the bin directory,
+
+87
+00:03:47,167 --> 00:03:49,222
+startup.sh, this is what I'll use
+
+88
+00:03:49,222 --> 00:03:51,335
+to actually start the Tomcat server,
+
+89
+00:03:51,335 --> 00:03:52,847
+so on my command line here
+
+90
+00:03:52,847 --> 00:03:56,186
+I'll type in bin/startup.sh
+
+91
+00:03:56,186 --> 00:03:59,088
+and this will actually start the Tomcat server for me,
+
+92
+00:03:59,088 --> 00:04:00,557
+so we can see some logs
+
+93
+00:04:00,557 --> 00:04:02,232
+and then we'll see in the bottom left
+
+94
+00:04:02,232 --> 00:04:04,617
+Tomcat started, so this is really good,
+
+95
+00:04:04,617 --> 00:04:06,208
+so our server's installed
+
+96
+00:04:06,208 --> 00:04:08,294
+and we also started the server,
+
+97
+00:04:08,294 --> 00:04:10,819
+so at this point Tomcat is up and running
+
+98
+00:04:10,819 --> 00:04:13,569
+and it's listening for a request.
+
+99
+00:04:18,166 --> 00:04:20,095
+All right, great, so now that our server's running,
+
+100
+00:04:20,095 --> 00:04:22,404
+we can actually access our server,
+
+101
+00:04:22,404 --> 00:04:27,223
+so in my browser I can simply type local host:8080
+
+102
+00:04:27,223 --> 00:04:29,817
+and this will connect to my Tomcat server.
+
+103
+00:04:29,817 --> 00:04:32,799
+By default Tomcat is listening on port 8080
+
+104
+00:04:32,799 --> 00:04:34,245
+and that's how we connect to it,
+
+105
+00:04:34,245 --> 00:04:37,404
+so here we make it to a page Tomcat
+
+106
+00:04:37,404 --> 00:04:39,330
+with the version number and then they'll even tell you hey,
+
+107
+00:04:39,330 --> 00:04:40,488
+if you're seeing this page,
+
+108
+00:04:40,488 --> 00:04:42,807
+you've successfully installed Tomcat,
+
+109
+00:04:42,807 --> 00:04:44,066
+so we're in really good shape here,
+
+110
+00:04:44,066 --> 00:04:47,108
+so we downloaded the server,
+
+111
+00:04:47,108 --> 00:04:50,777
+we installed it and we also started the server
+
+112
+00:04:50,777 --> 00:04:53,018
+and then we accessed it via our web browser,
+
+113
+00:04:53,018 --> 00:04:55,065
+so we know that things are looking really good for us,
+
+114
+00:04:55,065 --> 00:04:56,648
+so good job so far.
+
+115
+00:05:01,157 --> 00:05:02,464
+And one final thing we wanna do
+
+116
+00:05:02,464 --> 00:05:04,464
+is actually stop the server
+
+117
+00:05:04,464 --> 00:05:05,739
+or shut down the server
+
+118
+00:05:05,739 --> 00:05:08,255
+because later on we're gonna us it via Eclipse,
+
+119
+00:05:08,255 --> 00:05:12,365
+so in our bin directory we can say just bin/shutdown.sh
+
+120
+00:05:12,365 --> 00:05:15,059
+and that will actually stop the Tomcat server
+
+121
+00:05:15,059 --> 00:05:17,786
+but don't worry, once we install Eclipse,
+
+122
+00:05:17,786 --> 00:05:21,953
+then we'll actually Tomcat from the Eclipse server.
+
+123
+00:05:25,796 --> 00:05:27,974
+All right, so we did a lot of good things in this video.
+
+124
+00:05:27,974 --> 00:05:30,233
+So, I showed you how to install the Tomcat server
+
+125
+00:05:30,233 --> 00:05:31,941
+on a Mac operating system.
+
+126
+00:05:31,941 --> 00:05:34,530
+We went through the process to actually start the server
+
+127
+00:05:34,530 --> 00:05:36,976
+and also accessed the server
+
+128
+00:05:36,976 --> 00:05:39,653
+and then finally, how to stop the server,
+
+129
+00:05:39,653 --> 00:05:41,212
+so we're in good books now
+
+130
+00:05:41,212 --> 00:05:44,795
+that we have successfully installed Tomcat.
+

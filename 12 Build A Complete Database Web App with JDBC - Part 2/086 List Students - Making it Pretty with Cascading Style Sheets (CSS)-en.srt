@@ -1,0 +1,376 @@
+1
+00:00:01,367 --> 00:00:02,200
+<v Chad Darby>Okay, great.</v>
+
+2
+00:00:02,200 --> 00:00:04,254
+So we're making some really good progress right now.
+
+3
+00:00:04,254 --> 00:00:06,988
+We have this table, but it's kinda ugly,
+
+4
+00:00:06,988 --> 00:00:09,222
+and what we wanna do is make it pretty.
+
+5
+00:00:09,222 --> 00:00:11,277
+Like I said earlier, make it beautiful.
+
+6
+00:00:11,277 --> 00:00:14,120
+So we're gonna make use of cascading style sheets for this.
+
+7
+00:00:14,120 --> 00:00:16,188
+Now, we actually have a cascading style sheet
+
+8
+00:00:16,188 --> 00:00:18,829
+that's available in our starter files.
+
+9
+00:00:18,829 --> 00:00:20,640
+So I'm gonna move back over to my directory,
+
+10
+00:00:20,640 --> 00:00:23,429
+where I extracted all of my sample code,
+
+11
+00:00:23,429 --> 00:00:24,811
+and then there's a directory here
+
+12
+00:00:24,811 --> 00:00:28,642
+called web student tracker starter files.
+
+13
+00:00:28,642 --> 00:00:31,546
+So let's go ahead and expand that folder
+
+14
+00:00:31,546 --> 00:00:33,964
+and web content, then there's a folder here
+
+15
+00:00:33,964 --> 00:00:37,243
+called CSS, for cascading style sheets.
+
+16
+00:00:37,243 --> 00:00:40,634
+So, we already have a CSS file that's already created.
+
+17
+00:00:40,634 --> 00:00:42,961
+So, let's go ahead and select this file.
+
+18
+00:00:42,961 --> 00:00:45,294
+Right click and choose copy.
+
+19
+00:00:51,884 --> 00:00:53,212
+Alright, so we have this file copied.
+
+20
+00:00:53,212 --> 00:00:55,719
+Let's move back into Eclipse, and in Eclipse
+
+21
+00:00:55,719 --> 00:00:57,467 line:15% 
+what we wanna do is create a new folder
+
+22
+00:00:57,467 --> 00:00:59,267 line:15% 
+for our cascading style sheets.
+
+23
+00:00:59,267 --> 00:01:02,247 line:15% 
+So we do a right click, we say new folder,
+
+24
+00:01:02,247 --> 00:01:03,611 line:15% 
+and this is under web content,
+
+25
+00:01:03,611 --> 00:01:06,249 line:15% 
+a new folder called CSS.
+
+26
+00:01:06,249 --> 00:01:07,999 line:15% 
+So, web content, CSS.
+
+27
+00:01:09,275 --> 00:01:11,108
+So we'll hit finish, and now we have
+
+28
+00:01:11,108 --> 00:01:14,374
+this new CSS folder that's underneath web content.
+
+29
+00:01:14,374 --> 00:01:17,587
+Now, this is the folder that we'll paste our file,
+
+30
+00:01:17,587 --> 00:01:21,623
+so we simply go right click and choose paste.
+
+31
+00:01:21,623 --> 00:01:23,111
+Now, for the CSS file, you could really
+
+32
+00:01:23,111 --> 00:01:24,583
+put it anywhere that you want.
+
+33
+00:01:24,583 --> 00:01:26,306
+I'm just putting it here in the CSS folder
+
+34
+00:01:26,306 --> 00:01:28,063
+just for organization, but you could put it
+
+35
+00:01:28,063 --> 00:01:30,665
+in any directory at any location that you want
+
+36
+00:01:30,665 --> 00:01:32,556
+underneath web content.
+
+37
+00:01:32,556 --> 00:01:34,631
+Alright, so here's our styles CSS.
+
+38
+00:01:34,631 --> 00:01:38,702
+Now, full disclaimer, I'm not a CSS guru.
+
+39
+00:01:38,702 --> 00:01:42,407
+I normally have a friend help me out with CSS,
+
+40
+00:01:42,407 --> 00:01:44,966
+or I normally find examples on the web
+
+41
+00:01:44,966 --> 00:01:47,792
+and kinda copy paste, so I'm not a graphic designer.
+
+42
+00:01:47,792 --> 00:01:49,361
+But, anyway, this is a basic CSS
+
+43
+00:01:49,361 --> 00:01:50,949
+that can kinda help us out.
+
+44
+00:01:50,949 --> 00:01:54,593
+Now, let's use the CSS in our JSP page.
+
+45
+00:01:54,593 --> 00:01:56,703
+This is a common question, like how do we use a CSS
+
+46
+00:01:56,703 --> 00:01:58,040
+in a JSP page?
+
+47
+00:01:58,040 --> 00:02:01,887
+So, again, assuming we have the CSS file already created,
+
+48
+00:02:01,887 --> 00:02:06,186
+then in our JSP page it's just like an HTML page, right?
+
+49
+00:02:06,186 --> 00:02:08,706
+So, to use CSS in HTML, you simply put it
+
+50
+00:02:08,706 --> 00:02:11,680
+the head, same thing here for JSP.
+
+51
+00:02:11,680 --> 00:02:15,013
+So we set the link type, text slash CSS,
+
+52
+00:02:20,914 --> 00:02:23,569
+We give the rel of style sheet,
+
+53
+00:02:23,569 --> 00:02:25,249
+and then we give the href to where
+
+54
+00:02:25,249 --> 00:02:26,768
+the style sheet's located, so right?
+
+55
+00:02:26,768 --> 00:02:28,832
+So we created this directory called CSS
+
+56
+00:02:28,832 --> 00:02:31,850
+and we had a file here called style dot CSS,
+
+57
+00:02:31,850 --> 00:02:34,120
+and that's basically a reference there
+
+58
+00:02:34,120 --> 00:02:35,986
+to the style sheet.
+
+59
+00:02:35,986 --> 00:02:39,453
+So, CSS slash style dot CSS, and that's
+
+60
+00:02:39,453 --> 00:02:41,882
+the directory that we have here
+
+61
+00:02:41,882 --> 00:02:44,613
+as part of our project under web content,
+
+62
+00:02:44,613 --> 00:02:46,196
+CSS, style dot CSS.
+
+63
+00:02:47,420 --> 00:02:49,225
+Now, that style sheet has rules,
+
+64
+00:02:49,225 --> 00:02:53,175
+and I've applied those rules to this actual HTML content,
+
+65
+00:02:53,175 --> 00:02:55,351
+or this JSP page, and then that will give us
+
+66
+00:02:55,351 --> 00:02:57,101
+a pretty output here.
+
+67
+00:02:58,417 --> 00:03:00,762
+So, some of the rules relate to,
+
+68
+00:03:00,762 --> 00:03:04,218
+I'll kinda scroll down here in a second,
+
+69
+00:03:04,218 --> 00:03:05,839
+so we have styles here for wrapper,
+
+70
+00:03:05,839 --> 00:03:07,736
+we have styles for header.
+
+71
+00:03:07,736 --> 00:03:09,011
+We also have styles in that sheet
+
+72
+00:03:09,011 --> 00:03:10,481
+for container and content.
+
+73
+00:03:10,481 --> 00:03:12,592
+You can go back and dig into the style sheet
+
+74
+00:03:12,592 --> 00:03:14,021
+to look at all of those styles.
+
+75
+00:03:14,021 --> 00:03:15,213
+But, anyway, that's that.
+
+76
+00:03:15,213 --> 00:03:16,046
+It's in place.
+
+77
+00:03:16,046 --> 00:03:17,201
+We're ready to go.
+
+78
+00:03:17,201 --> 00:03:20,039
+So, then we can go back to our student tracker,
+
+79
+00:03:20,039 --> 00:03:23,372
+click the refresh button, and boom, wow.
+
+80
+00:03:24,633 --> 00:03:25,631
+This is great.
+
+81
+00:03:25,631 --> 00:03:26,464
+So, isn't this great?
+
+82
+00:03:26,464 --> 00:03:30,004
+So we had a very basic, ugly HTML table,
+
+83
+00:03:30,004 --> 00:03:33,557
+and by simply adding CSS styles, now it's pretty.
+
+84
+00:03:33,557 --> 00:03:34,641
+It's beautiful.
+
+85
+00:03:34,641 --> 00:03:36,114
+It's lovely.
+
+86
+00:03:36,114 --> 00:03:39,122
+Alrighty, so as you can see I'm having a lot of fun here,
+
+87
+00:03:39,122 --> 00:03:40,496
+'cause I'm really excited.
+
+88
+00:03:40,496 --> 00:03:43,510
+We accomplished some really, really good stuff here.
+
+89
+00:03:43,510 --> 00:03:45,461
+So, anyway, that's kind of full-circle.
+
+90
+00:03:45,461 --> 00:03:49,398
+So we have the list of students feature working.
+
+91
+00:03:49,398 --> 00:03:50,764
+In the following videos we'll go and add
+
+92
+00:03:50,764 --> 00:03:51,815
+some more functionality.
+
+93
+00:03:51,815 --> 00:03:54,983
+But for now, take a break, pat yourself on the back,
+
+94
+00:03:54,983 --> 00:03:56,150
+job well done.
+

@@ -1,0 +1,972 @@
+1
+00:00:01,183 --> 00:00:03,291
+<v Instructor>Hey, in this video, we're gonna take a look</v>
+
+2
+00:00:03,291 --> 00:00:07,833
+at some other examples using the forEach tag.
+
+3
+00:00:07,833 --> 00:00:10,850
+What we're gonna do is actually make use of HTML tables
+
+4
+00:00:10,850 --> 00:00:14,000
+with the forEach tag and we're gonna display information
+
+5
+00:00:14,000 --> 00:00:16,167
+for your list of students.
+
+6
+00:00:19,283 --> 00:00:21,300
+Here's the big picture here.
+
+7
+00:00:21,300 --> 00:00:22,775
+We're gonna have a Student object.
+
+8
+00:00:22,775 --> 00:00:23,825
+It's gonna have three fields.
+
+9
+00:00:23,825 --> 00:00:26,491
+It's gonna have a firstName, lastName,
+
+10
+00:00:26,491 --> 00:00:29,233
+and a boolean field if it's a gold customer.
+
+11
+00:00:29,233 --> 00:00:30,517
+And then what we're gonna do in our JSP
+
+12
+00:00:30,517 --> 00:00:34,208
+is we're gonna load up an array list of students
+
+13
+00:00:34,208 --> 00:00:36,033
+and then we'll actually loop through those students
+
+14
+00:00:36,033 --> 00:00:37,517
+using the forEach tag
+
+15
+00:00:37,517 --> 00:00:41,100
+and we'll use that to build up an HTML table.
+
+16
+00:00:41,100 --> 00:00:44,042
+All right, so that's the big idea, that's the big plan.
+
+17
+00:00:44,042 --> 00:00:46,709
+Let's go ahead and start coding.
+
+18
+00:00:50,158 --> 00:00:52,867 line:15% 
+All right, so I'm in Eclipse.
+
+19
+00:00:52,867 --> 00:00:54,859 line:15% 
+For this tagdemo project,
+
+20
+00:00:54,859 --> 00:00:56,475 line:15% 
+what I'm gonna do is actually start off
+
+21
+00:00:56,475 --> 00:00:59,558
+by creating a new Java package first.
+
+22
+00:01:01,775 --> 00:01:04,183
+I'll move down to the Java Resources directory,
+
+23
+00:01:04,183 --> 00:01:05,450
+to the src folder,
+
+24
+00:01:05,450 --> 00:01:08,700
+I'll do a right-click and I'll say New,
+
+25
+00:01:10,500 --> 00:01:11,333
+Package.
+
+26
+00:01:17,975 --> 00:01:22,142 line:15% 
+For the package name, I'll give com.luv2code.jsp.tagdemo.
+
+27
+00:01:24,983 --> 00:01:26,658 line:15% 
+Once I'm happy with that name,
+
+28
+00:01:26,658 --> 00:01:30,241 line:15% 
+I can go ahead and click the Finish button.
+
+29
+00:01:32,742 --> 00:01:34,483
+Okay, great, so we should have this new package
+
+30
+00:01:34,483 --> 00:01:37,083
+created for us right now.
+
+31
+00:01:37,083 --> 00:01:38,516
+What I'm gonna do here is actually create
+
+32
+00:01:38,516 --> 00:01:40,033
+a new class in this package
+
+33
+00:01:40,033 --> 00:01:42,092
+and I'll create this new Student class.
+
+34
+00:01:42,092 --> 00:01:45,675
+I'll do a right-click, I'll say New, Class.
+
+35
+00:01:49,408 --> 00:01:51,725
+The name I'll give for the class is Student
+
+36
+00:01:51,725 --> 00:01:54,867
+and on this screen, I'll keep all the other defaults
+
+37
+00:01:54,867 --> 00:01:57,867
+and I'll just hit the Finish button.
+
+38
+00:02:01,400 --> 00:02:02,275
+All right, so let me go ahead
+
+39
+00:02:02,275 --> 00:02:04,675
+and expand the window here for a second.
+
+40
+00:02:04,675 --> 00:02:06,666
+This is a very basic class.
+
+41
+00:02:06,666 --> 00:02:08,883
+It's gonna hold the firstName, lastName,
+
+42
+00:02:08,883 --> 00:02:12,383
+and goldCustomer for the student.
+
+43
+00:02:12,383 --> 00:02:14,650
+I'll say private String firstName.
+
+44
+00:02:14,650 --> 00:02:16,592
+Do the similar thing here for lastName.
+
+45
+00:02:16,592 --> 00:02:19,508
+I'll set this boolean field for goldCustomer,
+
+46
+00:02:19,508 --> 00:02:21,392
+and gold customer is like a VIP customer
+
+47
+00:02:21,392 --> 00:02:22,725
+or a special customer
+
+48
+00:02:22,725 --> 00:02:26,100
+that we may give special privileges to later on.
+
+49
+00:02:26,100 --> 00:02:27,492
+All right, so those are our fields.
+
+50
+00:02:27,492 --> 00:02:29,359
+Now, what I wanna do is create a constructor,
+
+51
+00:02:29,359 --> 00:02:30,400
+so I'll use an Eclipse tree.
+
+52
+00:02:30,400 --> 00:02:32,667
+I'll right-click, I'll choose Source,
+
+53
+00:02:32,667 --> 00:02:36,250
+I'll say Generate Constructor using Fields.
+
+54
+00:02:41,417 --> 00:02:43,158
+And so, Eclipse will come up with a list
+
+55
+00:02:43,158 --> 00:02:44,225
+of all of the fields that we have.
+
+56
+00:02:44,225 --> 00:02:45,217
+They're already preselected.
+
+57
+00:02:45,217 --> 00:02:48,433
+If not, you can hit the Select All, so they're all there.
+
+58
+00:02:48,433 --> 00:02:50,425
+And then go ahead and hit OK
+
+59
+00:02:50,425 --> 00:02:53,383
+and Eclipse will actually generate a constructor for you,
+
+60
+00:02:53,383 --> 00:02:56,825
+which is really cool. (chuckles)
+
+61
+00:02:56,825 --> 00:02:58,242
+Here's our brand new constructor
+
+62
+00:02:58,242 --> 00:03:00,500
+that Eclipse built for us on the fly
+
+63
+00:03:00,500 --> 00:03:01,658
+and this looks really good.
+
+64
+00:03:01,658 --> 00:03:03,233
+This saves a lot of typing and coding
+
+65
+00:03:03,233 --> 00:03:04,842
+that we have to manually do
+
+66
+00:03:04,842 --> 00:03:07,208
+just by taking advantage of Eclipse.
+
+67
+00:03:07,208 --> 00:03:08,441
+I'll also do a similar thing here
+
+68
+00:03:08,441 --> 00:03:10,208
+for our getter and setter methods,
+
+69
+00:03:10,208 --> 00:03:12,683
+so I'll let Eclipse generate this for me also.
+
+70
+00:03:12,683 --> 00:03:14,883
+So again, I'll just do a right-click.
+
+71
+00:03:14,883 --> 00:03:16,292
+I move to the Source
+
+72
+00:03:16,292 --> 00:03:20,042
+and I'll choose Generate Getters and Setters.
+
+73
+00:03:23,125 --> 00:03:25,142
+Eclipse will bring up the window.
+
+74
+00:03:25,142 --> 00:03:27,633
+We need to move over to the far right,
+
+75
+00:03:27,633 --> 00:03:29,867
+click Select All, make sure everything is checked,
+
+76
+00:03:29,867 --> 00:03:32,783
+as far as firstName, goldCustomer, and lastName.
+
+77
+00:03:32,783 --> 00:03:34,450
+And again, once we're happy with this,
+
+78
+00:03:34,450 --> 00:03:37,783
+we can go ahead and click the OK button.
+
+79
+00:03:43,033 --> 00:03:44,042
+Okay, this looks really good.
+
+80
+00:03:44,042 --> 00:03:46,233
+Eclipse created a lot of code for us here.
+
+81
+00:03:46,233 --> 00:03:49,617
+It created getters and setters for the firstName,
+
+82
+00:03:49,617 --> 00:03:53,067
+getters and setters for lastName, and also, isGoldCustomer.
+
+83
+00:03:53,067 --> 00:03:55,675
+Really, really good information here.
+
+84
+00:03:55,675 --> 00:03:57,525
+Great work by Eclipse. (chuckles)
+
+85
+00:03:57,525 --> 00:03:59,158
+We are very productive.
+
+86
+00:03:59,158 --> 00:04:01,108
+All right, so let's go ahead and save this file
+
+87
+00:04:01,108 --> 00:04:04,191
+and we can move over to our JSP page.
+
+88
+00:04:07,975 --> 00:04:11,092
+In my WebContent folder, I wanna create a new JSP page,
+
+89
+00:04:11,092 --> 00:04:12,942
+so I simply do a right-click,
+
+90
+00:04:12,942 --> 00:04:14,525
+I choose New, File.
+
+91
+00:04:18,867 --> 00:04:20,308
+The name I'll give for this file here,
+
+92
+00:04:20,308 --> 00:04:23,475
+I'll call it foreach-student-test.jsp.
+
+93
+00:04:27,358 --> 00:04:28,191
+And again, from there,
+
+94
+00:04:28,191 --> 00:04:31,858
+we can go ahead and click the Finish button.
+
+95
+00:04:33,683 --> 00:04:34,516
+All right, so let me go ahead
+
+96
+00:04:34,516 --> 00:04:37,925
+and maximize this window again.
+
+97
+00:04:37,925 --> 00:04:39,892
+And again, I'll also make use of my cheat sheet
+
+98
+00:04:39,892 --> 00:04:44,034
+to drop in a taglib for that core Tag Library.
+
+99
+00:04:44,034 --> 00:04:44,867
+All right, so remember,
+
+100
+00:04:44,867 --> 00:04:48,075
+we need to have exactly the same here as listed.
+
+101
+00:04:48,075 --> 00:04:51,308
+Also, I'm gonna need to make use of some packages,
+
+102
+00:04:51,308 --> 00:04:54,891
+so I'll need to do an import on java.util.*
+
+103
+00:04:55,975 --> 00:04:59,042
+and also do an import on our package we just created,
+
+104
+00:04:59,042 --> 00:05:01,125
+com.luv2code.jsp.tagdemo,
+
+105
+00:05:03,517 --> 00:05:05,434
+and that Student class.
+
+106
+00:05:09,307 --> 00:05:10,975
+Okay, great, so that takes care of our imports.
+
+107
+00:05:10,975 --> 00:05:13,917
+We imported two items here,
+
+108
+00:05:13,917 --> 00:05:16,350
+the java.util package and also the Student class
+
+109
+00:05:16,350 --> 00:05:20,517
+that we just created, so this looks pretty good so far.
+
+110
+00:05:21,875 --> 00:05:23,834
+All right, so I'll set up a scriptlet here.
+
+111
+00:05:23,834 --> 00:05:25,667
+And again, what I'm gonna do here
+
+112
+00:05:25,667 --> 00:05:28,167
+is set up our sample data.
+
+113
+00:05:28,167 --> 00:05:30,317
+I'll just create an array list of students.
+
+114
+00:05:30,317 --> 00:05:33,158
+And again, this is normally created by an MVC system
+
+115
+00:05:33,158 --> 00:05:34,925
+but for right now, we're just doing a quick test
+
+116
+00:05:34,925 --> 00:05:37,342
+just to bootstrap our system.
+
+117
+00:05:40,775 --> 00:05:41,900
+The first thing I'll do here
+
+118
+00:05:41,900 --> 00:05:43,683
+is create an array list of students
+
+119
+00:05:43,683 --> 00:05:46,016
+that's just empty right now.
+
+120
+00:05:48,442 --> 00:05:51,117
+In this array list, I'll go ahead and add a new student,
+
+121
+00:05:51,117 --> 00:05:52,208
+so I'll say new Student.
+
+122
+00:05:52,208 --> 00:05:55,258
+I'll use a constructor for John Doe
+
+123
+00:05:55,258 --> 00:05:57,841
+and then goldCustomer is false.
+
+124
+00:05:59,400 --> 00:06:03,217
+And then what I'll do here is I'll just copy-paste this line
+
+125
+00:06:03,217 --> 00:06:04,866
+x number of times
+
+126
+00:06:04,866 --> 00:06:06,675
+and I'll just add some more sample students here.
+
+127
+00:06:06,675 --> 00:06:07,808
+I'm gonna just copy this
+
+128
+00:06:07,808 --> 00:06:11,808
+and then just paste it one, two, three.
+
+129
+00:06:11,808 --> 00:06:12,758
+All right, great, so I'll go through
+
+130
+00:06:12,758 --> 00:06:16,925
+just change the names here real quickly for Maxwell Johnson.
+
+131
+00:06:19,608 --> 00:06:20,975
+And then I'll do a similar thing here
+
+132
+00:06:20,975 --> 00:06:23,075
+for another student, Mary Public.
+
+133
+00:06:23,075 --> 00:06:25,467
+And then I'll actually change her boolean value.
+
+134
+00:06:25,467 --> 00:06:27,408
+Instead of false, I'll set it to true.
+
+135
+00:06:27,408 --> 00:06:29,217
+And remember, that's for our gold customer,
+
+136
+00:06:29,217 --> 00:06:31,800
+our special, VIP customer.
+
+137
+00:06:31,800 --> 00:06:32,867
+This looks good so far.
+
+138
+00:06:32,867 --> 00:06:35,308
+We basically set up some sample data
+
+139
+00:06:35,308 --> 00:06:38,225
+that we can use in our application.
+
+140
+00:06:41,608 --> 00:06:43,067
+Oh, and there's one more thing I forgot.
+
+141
+00:06:43,067 --> 00:06:47,367
+We have to set this value as a attribute on the pageContext.
+
+142
+00:06:47,367 --> 00:06:50,900
+So, pageContext.setAttribute("myStudents",
+
+143
+00:06:50,900 --> 00:06:52,166
+and then I give the actual reference
+
+144
+00:06:52,166 --> 00:06:53,883 line:15% 
+to that array list data.
+
+145
+00:06:53,883 --> 00:06:54,716 line:15% 
+All right, so there we go.
+
+146
+00:06:54,716 --> 00:06:56,675 line:15% 
+We're really set up now, ready to go.
+
+147
+00:06:56,675 --> 00:06:57,508 line:15% 
+Good job.
+
+148
+00:07:03,058 --> 00:07:04,008
+All right, so I'll just go in here
+
+149
+00:07:04,008 --> 00:07:08,358
+and I'll just set up some HTML stuff, body.
+
+150
+00:07:08,358 --> 00:07:09,442
+All right, so for here, I like to go ahead
+
+151
+00:07:09,442 --> 00:07:11,725
+and make use of this forEach tag.
+
+152
+00:07:11,725 --> 00:07:13,850
+Here, I'll say c:forEach.
+
+153
+00:07:13,850 --> 00:07:15,725
+The variable equals tempStudent
+
+154
+00:07:15,725 --> 00:07:18,642
+and the items equals ${myStudents}.
+
+155
+00:07:20,175 --> 00:07:22,358
+And again, remember, it's the same name
+
+156
+00:07:22,358 --> 00:07:26,191
+that we use in the setAttribute up on line 13.
+
+157
+00:07:29,375 --> 00:07:32,433
+And now, I can make use of my JSP Expression Language here
+
+158
+00:07:32,433 --> 00:07:35,425
+to display information for the student's first name,
+
+159
+00:07:35,425 --> 00:07:37,334
+the student's last name,
+
+160
+00:07:37,334 --> 00:07:40,417
+and also, their gold customer status.
+
+161
+00:07:42,425 --> 00:07:44,855
+And remember, with the JSP Expression Language,
+
+162
+00:07:44,855 --> 00:07:46,333
+what actually happens in the background
+
+163
+00:07:46,333 --> 00:07:49,367
+is that they'll call the appropriate getter methods.
+
+164
+00:07:49,367 --> 00:07:52,525 line:15% 
+When we have tempStudent.firstName,
+
+165
+00:07:52,525 --> 00:07:53,358 line:15% 
+behind the scenes,
+
+166
+00:07:53,358 --> 00:07:56,782 line:15% 
+it will actually call tempStudent.getFirstName().
+
+167
+00:07:56,782 --> 00:07:58,200 line:15% 
+A similar thing here for last name,
+
+168
+00:07:58,200 --> 00:08:00,417 line:15% 
+will call tempStudent. the last name.
+
+169
+00:08:00,417 --> 00:08:02,550 line:15% 
+Now, for goldCustomer, it's a little bit different
+
+170
+00:08:02,550 --> 00:08:04,542 line:15% 
+because that's a boolean value.
+
+171
+00:08:04,542 --> 00:08:09,025 line:15% 
+Here, it will actually call tempStudent.isGoldCustomer.
+
+172
+00:08:09,025 --> 00:08:10,717 line:15% 
+But all of that work happens for you
+
+173
+00:08:10,717 --> 00:08:12,783 line:15% 
+automatically behind the scenes,
+
+174
+00:08:12,783 --> 00:08:17,133 line:15% 
+and that's part of the built-in JSP Expression Language.
+
+175
+00:08:17,133 --> 00:08:18,392
+All right, well, this looks good so far.
+
+176
+00:08:18,392 --> 00:08:21,283
+Let's save our file, and let's go ahead and try it out.
+
+177
+00:08:21,283 --> 00:08:24,583
+I'll go to this file here, foreach-student-test.jsp.
+
+178
+00:08:24,583 --> 00:08:27,925
+I'll do a right-click and I'll choose Run on Server.
+
+179
+00:08:27,925 --> 00:08:29,517
+Great, here's our output.
+
+180
+00:08:29,517 --> 00:08:31,650
+We have the student's first name,
+
+181
+00:08:31,650 --> 00:08:33,425
+the student's last name,
+
+182
+00:08:33,425 --> 00:08:35,567
+and then we have a value here, true or false,
+
+183
+00:08:35,567 --> 00:08:37,358
+if they're a gold customer or not.
+
+184
+00:08:37,358 --> 00:08:38,533
+This looks really good.
+
+185
+00:08:38,533 --> 00:08:39,366
+At least at this point,
+
+186
+00:08:39,366 --> 00:08:42,375
+we have the raw data being displayed.
+
+187
+00:08:42,375 --> 00:08:43,992
+What we can do is we can actually dress it up
+
+188
+00:08:43,992 --> 00:08:46,333
+to make use of HTML tables,
+
+189
+00:08:46,333 --> 00:08:49,525
+and I'll do that here in a second.
+
+190
+00:08:49,525 --> 00:08:52,358
+I'll move back into my JSP file here.
+
+191
+00:08:52,358 --> 00:08:54,433
+And now, we're gonna make use of HTML tables,
+
+192
+00:08:54,433 --> 00:08:57,067
+so let me go ahead and set up a basic HTML table tag
+
+193
+00:08:57,067 --> 00:08:59,650
+to get everything started.
+
+194
+00:08:59,650 --> 00:09:00,550
+I'll set up table.
+
+195
+00:09:00,550 --> 00:09:02,633
+I'll set border="1".
+
+196
+00:09:03,858 --> 00:09:04,716
+And I basically wanna include
+
+197
+00:09:04,716 --> 00:09:07,883
+all of this stuff inside of the table.
+
+198
+00:09:08,717 --> 00:09:10,808
+And now, I need to set up the table headers,
+
+199
+00:09:10,808 --> 00:09:12,575
+so we can have headers for the first name,
+
+200
+00:09:12,575 --> 00:09:15,025
+last name, and gold customer.
+
+201
+00:09:15,025 --> 00:09:17,067
+So first off, I set up a table row
+
+202
+00:09:17,067 --> 00:09:19,675
+and then I set up table header entries.
+
+203
+00:09:19,675 --> 00:09:21,784
+So, th is for table header.
+
+204
+00:09:21,784 --> 00:09:24,442
+I'll take care of the table header for first name
+
+205
+00:09:24,442 --> 00:09:25,975
+and then I just repeat the process
+
+206
+00:09:25,975 --> 00:09:30,158
+for last name and also, for gold customer,
+
+207
+00:09:30,158 --> 00:09:30,991
+and that will give me
+
+208
+00:09:30,991 --> 00:09:34,741
+the appropriate table headings at this point.
+
+209
+00:09:36,842 --> 00:09:38,967
+All right, so those are the table headers.
+
+210
+00:09:38,967 --> 00:09:41,217
+Now, let's go ahead and move into the forEach loop
+
+211
+00:09:41,217 --> 00:09:45,917
+and let's take care of the table rows for the data.
+
+212
+00:09:45,917 --> 00:09:48,158
+So, forEach, basically, for each student here,
+
+213
+00:09:48,158 --> 00:09:51,225
+I wanna set up a table row, and it's for tr.
+
+214
+00:09:51,225 --> 00:09:52,350
+And I'll get rid of that break.
+
+215
+00:09:52,350 --> 00:09:54,225
+We don't need that anymore.
+
+216
+00:09:54,225 --> 00:09:56,726
+And so, for each element here,
+
+217
+00:09:56,726 --> 00:09:59,483
+what I'll do is I'll just set up a cell.
+
+218
+00:09:59,483 --> 00:10:02,233
+A cell is td for table data,
+
+219
+00:10:02,233 --> 00:10:04,741
+so, angle bracket, table data.
+
+220
+00:10:04,741 --> 00:10:06,266
+And another thing here for td.
+
+221
+00:10:06,266 --> 00:10:08,358
+I'll do the same thing for firstName,
+
+222
+00:10:08,358 --> 00:10:10,533
+lastName, and also, goldCustomer.
+
+223
+00:10:10,533 --> 00:10:14,700
+I'll just repeat this process x number of times here.
+
+224
+00:10:16,117 --> 00:10:18,475
+Just giving some white space to make it look pretty.
+
+225
+00:10:18,475 --> 00:10:19,875
+And that's pretty much it.
+
+226
+00:10:19,875 --> 00:10:21,808
+This is our for loop
+
+227
+00:10:21,808 --> 00:10:24,200
+and our table rows,
+
+228
+00:10:24,200 --> 00:10:25,800
+and now, we'll make use of table data
+
+229
+00:10:25,800 --> 00:10:27,475
+for each one of those elements there,
+
+230
+00:10:27,475 --> 00:10:30,475
+for firstName, lastName, and goldCustomer.
+
+231
+00:10:30,475 --> 00:10:32,050
+That's the bulk of the work here
+
+232
+00:10:32,050 --> 00:10:36,292
+for doing our HTML table using the forEach tag.
+
+233
+00:10:36,292 --> 00:10:38,783
+Let's go ahead and save this file.
+
+234
+00:10:38,783 --> 00:10:40,937
+And then just go back to my browser
+
+235
+00:10:40,937 --> 00:10:44,358
+and I can simply refresh it because it's a JSP page,
+
+236
+00:10:44,358 --> 00:10:47,608
+so I select the little link here to refresh
+
+237
+00:10:47,608 --> 00:10:50,925
+and voila, there it is. (chuckles)
+
+238
+00:10:50,925 --> 00:10:53,408
+So, we have our HTML table that's generated.
+
+239
+00:10:53,408 --> 00:10:55,892
+We took care of our headers along the top
+
+240
+00:10:55,892 --> 00:10:58,283
+and then for each student in that array list,
+
+241
+00:10:58,283 --> 00:11:00,792
+we simply displayed a table row.
+
+242
+00:11:00,792 --> 00:11:03,342
+This looks really, really good.
+
+243
+00:11:03,342 --> 00:11:04,175
+Great job.
+

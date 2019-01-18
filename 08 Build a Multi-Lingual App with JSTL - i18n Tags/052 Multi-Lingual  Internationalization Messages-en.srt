@@ -1,0 +1,832 @@
+1
+00:00:01,115 --> 00:00:02,625
+<v Instructor>Hey, in this video, we're gonna cover</v>
+
+2
+00:00:02,625 --> 00:00:07,166
+the JSTL Internationalization and formatting tags.
+
+3
+00:00:07,166 --> 00:00:08,191
+The main objective here
+
+4
+00:00:08,191 --> 00:00:11,425
+is that we actually wanna apply internationalization,
+
+5
+00:00:11,425 --> 00:00:15,792
+so we actually wanna build a multi-lingual application.
+
+6
+00:00:15,792 --> 00:00:17,667
+So again, we wanna build an app
+
+7
+00:00:17,667 --> 00:00:19,558
+where we can change to different languages
+
+8
+00:00:19,558 --> 00:00:23,608
+without having to modify the source code.
+
+9
+00:00:23,608 --> 00:00:26,208
+Here's an example of the sample app we're gonna create.
+
+10
+00:00:26,208 --> 00:00:28,233
+We'll show the user the basic information
+
+11
+00:00:28,233 --> 00:00:30,733
+using English based in the US.
+
+12
+00:00:31,658 --> 00:00:33,642
+Then we'll give 'em a link where they can choose,
+
+13
+00:00:33,642 --> 00:00:36,387
+change the language to Spanish.
+
+14
+00:00:36,387 --> 00:00:38,175
+And then finally, we'll give 'em another link
+
+15
+00:00:38,175 --> 00:00:41,350
+where they change it to view the information in German.
+
+16
+00:00:41,350 --> 00:00:43,475
+I'll show you how to build all of these code
+
+17
+00:00:43,475 --> 00:00:46,675
+in this video, and also, the following video.
+
+18
+00:00:46,675 --> 00:00:48,825
+Basically, what we'll do is we'll cover the overview,
+
+19
+00:00:48,825 --> 00:00:52,046
+like the slides and the background on it in this video.
+
+20
+00:00:52,046 --> 00:00:54,300
+The following video, we'll actually get our hands dirty
+
+21
+00:00:54,300 --> 00:00:55,883
+and write the code in Eclipse.
+
+22
+00:00:55,883 --> 00:00:57,458
+But don't worry, you'll see everything
+
+23
+00:00:57,458 --> 00:00:59,625
+on how it's all built out.
+
+24
+00:01:00,733 --> 00:01:02,566
+The big picture here is that we're gonna make use
+
+25
+00:01:02,566 --> 00:01:04,733
+of placeholders in our page.
+
+26
+00:01:04,733 --> 00:01:07,125
+Instead of hard coding the text,
+
+27
+00:01:07,125 --> 00:01:08,325
+we're gonna have placeholders,
+
+28
+00:01:08,325 --> 00:01:11,050
+one for greeting, first_name,
+
+29
+00:01:11,050 --> 00:01:12,958
+last_name, and welcome_message.
+
+30
+00:01:12,958 --> 00:01:14,975
+And depending on the language that we're using
+
+31
+00:01:14,975 --> 00:01:17,108
+or the locale that we're using,
+
+32
+00:01:17,108 --> 00:01:19,692
+we'll simply insert the appropriate data.
+
+33
+00:01:19,692 --> 00:01:21,108
+For example, if we're using Spanish,
+
+34
+00:01:21,108 --> 00:01:23,908
+we'll put in the Spanish greeting from Hola,
+
+35
+00:01:23,908 --> 00:01:26,633
+the Spanish information for first_name, last_name,
+
+36
+00:01:26,633 --> 00:01:29,375
+and the Spanish welcome_message of buenos dias.
+
+37
+00:01:29,375 --> 00:01:32,950
+And again, my rough interpretation there of Spanish,
+
+38
+00:01:32,950 --> 00:01:34,349
+but anyway, you get the idea,
+
+39
+00:01:34,349 --> 00:01:37,508
+and I'll show you how to pull all this together.
+
+40
+00:01:37,508 --> 00:01:38,800
+All right, and again,
+
+41
+00:01:38,800 --> 00:01:42,250
+you know how luv2code Chad Darby works.
+
+42
+00:01:42,250 --> 00:01:44,113
+I love to-do list, so the first thing we'll do
+
+43
+00:01:44,113 --> 00:01:46,367
+is create our resource files.
+
+44
+00:01:46,367 --> 00:01:49,267
+The second thing is creating our JSP page with labels.
+
+45
+00:01:49,267 --> 00:01:51,225
+Step three is to update the JSP page
+
+46
+00:01:51,225 --> 00:01:54,750
+to change the locale based on user selection.
+
+47
+00:01:54,750 --> 00:01:56,158
+All right, so a lot of good things here.
+
+48
+00:01:56,158 --> 00:01:58,325
+Let's go ahead and dig in.
+
+49
+00:01:59,742 --> 00:02:02,558
+All right, so step one is creating the resource files.
+
+50
+00:02:02,558 --> 00:02:03,391
+What we have to do
+
+51
+00:02:03,391 --> 00:02:06,700
+is create translated versions of our labels.
+
+52
+00:02:06,700 --> 00:02:09,575
+So, you'll need to make use of a separate service,
+
+53
+00:02:09,575 --> 00:02:13,092
+like maybe Google Translate or hire a translator.
+
+54
+00:02:13,092 --> 00:02:14,117
+You basically have to give
+
+55
+00:02:14,117 --> 00:02:15,767
+the translated versions of your labels.
+
+56
+00:02:15,767 --> 00:02:18,000
+Now, there's no magic here.
+
+57
+00:02:18,000 --> 00:02:21,475
+Java will not automatically translate your application.
+
+58
+00:02:21,475 --> 00:02:25,642
+You'll have to specify that translated information.
+
+59
+00:02:27,000 --> 00:02:30,333
+All right, now, this information is all based on locales.
+
+60
+00:02:30,333 --> 00:02:31,758
+So, what's a locale?
+
+61
+00:02:31,758 --> 00:02:33,283
+A locale is basically a combination
+
+62
+00:02:33,283 --> 00:02:36,283
+of the language code and the country code.
+
+63
+00:02:36,283 --> 00:02:37,650
+It's more than just the language
+
+64
+00:02:37,650 --> 00:02:40,692
+because there could be differences for a language
+
+65
+00:02:40,692 --> 00:02:42,183
+depending on your country.
+
+66
+00:02:42,183 --> 00:02:44,808
+For example, we have English based in US
+
+67
+00:02:44,808 --> 00:02:47,000
+and also English based in Great Britain.
+
+68
+00:02:47,000 --> 00:02:48,208
+And there are differences between the two
+
+69
+00:02:48,208 --> 00:02:50,441
+as far as the vernacular
+
+70
+00:02:50,441 --> 00:02:52,983
+and also, differences between formatting dates,
+
+71
+00:02:52,983 --> 00:02:54,775
+time, and currency, and so on.
+
+72
+00:02:54,775 --> 00:02:56,767
+So, locale is what we'll be looking at.
+
+73
+00:02:56,767 --> 00:02:58,325
+So again, locale is the combination
+
+74
+00:02:58,325 --> 00:03:01,158
+of language code and country code.
+
+75
+00:03:03,666 --> 00:03:06,150
+All right, step one, creating the resource file.
+
+76
+00:03:06,150 --> 00:03:07,700
+When you create the resource file,
+
+77
+00:03:07,700 --> 00:03:12,042
+the file must follow a specific name naming convention here.
+
+78
+00:03:12,042 --> 00:03:14,258
+You give your project name,
+
+79
+00:03:14,258 --> 00:03:16,150
+underscore, a language code,
+
+80
+00:03:16,150 --> 00:03:19,017
+underscore, a country code, .properties.
+
+81
+00:03:19,017 --> 00:03:20,667
+Here are some examples.
+
+82
+00:03:20,667 --> 00:03:23,892
+I have mylabels_es, for Spanish,
+
+83
+00:03:23,892 --> 00:03:27,425
+_ES, caps, for Spain, .properties.
+
+84
+00:03:27,425 --> 00:03:30,200
+So again, language code, country code.
+
+85
+00:03:30,200 --> 00:03:32,817
+A similar thing here for German, for Germany,
+
+86
+00:03:32,817 --> 00:03:35,067
+and English, Great Britain.
+
+87
+00:03:37,117 --> 00:03:38,592
+All right, so that's the file name.
+
+88
+00:03:38,592 --> 00:03:39,425
+Now, a little bit more here
+
+89
+00:03:39,425 --> 00:03:41,217
+on the country codes and language codes.
+
+90
+00:03:41,217 --> 00:03:43,500
+They're all based on ISO Standards,
+
+91
+00:03:43,500 --> 00:03:47,642
+so the language codes are based on ISO Standard 639-1.
+
+92
+00:03:47,642 --> 00:03:50,325
+It's basically the two-letter language code.
+
+93
+00:03:50,325 --> 00:03:54,325
+The country codes are also based on ISO Standard 3166-2,
+
+94
+00:03:54,325 --> 00:03:56,767
+which again is a two-letter country code.
+
+95
+00:03:56,767 --> 00:03:59,591
+You can follow those links there for details on codes
+
+96
+00:03:59,591 --> 00:04:02,841
+for your specific country and language.
+
+97
+00:04:04,491 --> 00:04:07,150
+All right, now, let's get down to the nitty-gritty.
+
+98
+00:04:07,150 --> 00:04:10,650
+Here's the file for the locale Spanish - Spain.
+
+99
+00:04:10,650 --> 00:04:15,067
+I need to create my file mylabels_es, for Spanish,
+
+100
+00:04:15,067 --> 00:04:17,400
+_ES, for Spain, .properties.
+
+101
+00:04:18,692 --> 00:04:19,525
+And in this file,
+
+102
+00:04:19,525 --> 00:04:22,550
+I need to give the appropriate information.
+
+103
+00:04:22,550 --> 00:04:25,091
+For label.greeting, I'll say Hola.
+
+104
+00:04:25,091 --> 00:04:27,650
+label.firstname, I have information there
+
+105
+00:04:27,650 --> 00:04:29,850
+A similar thing for label.lastname.
+
+106
+00:04:29,850 --> 00:04:33,533
+And finally, label.welcome for buenos dias, so on.
+
+107
+00:04:33,533 --> 00:04:34,522
+So, that's the idea.
+
+108
+00:04:34,522 --> 00:04:37,233
+Now, again, you need to manually create these files
+
+109
+00:04:37,233 --> 00:04:40,342
+by using either Google Translate or hiring a translator
+
+110
+00:04:40,342 --> 00:04:44,200
+to help you out with building up the properties file.
+
+111
+00:04:44,200 --> 00:04:46,758
+But again, you have to provide this data
+
+112
+00:04:46,758 --> 00:04:48,425
+for the Java system.
+
+113
+00:04:50,017 --> 00:04:50,867
+All right, so now we have
+
+114
+00:04:50,867 --> 00:04:53,017
+the label information taken care of,
+
+115
+00:04:53,017 --> 00:04:55,558
+now we need to use these labels in our JSP.
+
+116
+00:04:55,558 --> 00:04:57,175
+This is step two.
+
+117
+00:04:57,175 --> 00:04:59,142
+Basically, what we do is we make use
+
+118
+00:04:59,142 --> 00:05:01,800
+of the JSTL Tag Library format
+
+119
+00:05:01,800 --> 00:05:04,650
+and say fmt:message, and then we give the key,
+
+120
+00:05:04,650 --> 00:05:07,025
+and we simply give our label name.
+
+121
+00:05:07,025 --> 00:05:09,067
+That label name is from the properties file.
+
+122
+00:05:09,067 --> 00:05:10,800
+So, Label.greeting,
+
+123
+00:05:10,800 --> 00:05:13,317
+actually, JSP will insert that Label.greeting there
+
+124
+00:05:13,317 --> 00:05:15,017
+for that given locale.
+
+125
+00:05:15,017 --> 00:05:17,942
+Label.firstname, it will insert the information,
+
+126
+00:05:17,942 --> 00:05:19,833
+Label.lastname, and Label.welcome.
+
+127
+00:05:19,833 --> 00:05:23,808
+So again, based on the locale that the user selected,
+
+128
+00:05:23,808 --> 00:05:28,183
+JSP will actually substitute that value right there.
+
+129
+00:05:28,183 --> 00:05:29,358
+So, you'll get the information
+
+130
+00:05:29,358 --> 00:05:31,692
+for English or Spanish or German
+
+131
+00:05:31,692 --> 00:05:35,317
+or whatever country or locale that you selected
+
+132
+00:05:35,317 --> 00:05:37,067
+for your application.
+
+133
+00:05:39,150 --> 00:05:40,600
+All right, so that's the resource file,
+
+134
+00:05:40,600 --> 00:05:42,125
+so now, the next step, step three,
+
+135
+00:05:42,125 --> 00:05:45,033
+updating the JSP page to change the locale
+
+136
+00:05:45,033 --> 00:05:46,942
+based on the user selection.
+
+137
+00:05:46,942 --> 00:05:48,225
+Basically, what we'll do on our app
+
+138
+00:05:48,225 --> 00:05:51,375
+is that we'll put links at the top of the page
+
+139
+00:05:51,375 --> 00:05:54,258
+where the user can choose their language or locale.
+
+140
+00:05:54,258 --> 00:05:56,300
+And basically, they'll select these links
+
+141
+00:05:56,300 --> 00:06:00,100
+and we'll simply just send it back as a link to ourself
+
+142
+00:06:00,100 --> 00:06:03,575
+and we'll pass the locale as a parameter.
+
+143
+00:06:03,575 --> 00:06:05,908
+And then we can read that param
+
+144
+00:06:05,908 --> 00:06:08,417
+and then load the appropriate resource file
+
+145
+00:06:08,417 --> 00:06:09,742
+or resource bundle.
+
+146
+00:06:09,742 --> 00:06:11,192
+So, that's basically how we'll do it.
+
+147
+00:06:11,192 --> 00:06:12,192
+This is kind of plain vanilla.
+
+148
+00:06:12,192 --> 00:06:15,091
+We could dress it up, flag, images, and so on,
+
+149
+00:06:15,091 --> 00:06:18,792
+but here, just get the point so far.
+
+150
+00:06:18,792 --> 00:06:22,758
+The coding for these links here, we just set up an href,
+
+151
+00:06:22,758 --> 00:06:26,050
+so we have anchor href, we point to our JSP page,
+
+152
+00:06:26,050 --> 00:06:29,158
+and then in red, we say theLocale equals,
+
+153
+00:06:29,158 --> 00:06:32,600
+and then we give that locale, en_US
+
+154
+00:06:32,600 --> 00:06:35,833
+or ES for Spanish, or DE for German,
+
+155
+00:06:35,833 --> 00:06:37,775
+and that's basically it.
+
+156
+00:06:37,775 --> 00:06:38,708
+That sets up a link.
+
+157
+00:06:38,708 --> 00:06:39,541
+Now, on the next slide,
+
+158
+00:06:39,541 --> 00:06:41,284
+I'll show you how to pull it all together
+
+159
+00:06:41,284 --> 00:06:45,451
+but this part just sets up the links at the top of our page.
+
+160
+00:06:48,408 --> 00:06:50,458
+All right, so we have the links coming in.
+
+161
+00:06:50,458 --> 00:06:53,833
+So now, in this page, we're basically gonna read those links
+
+162
+00:06:53,833 --> 00:06:57,434
+and set the values accordingly for the locale.
+
+163
+00:06:57,434 --> 00:07:01,133
+We can access the link values that were set,
+
+164
+00:07:01,133 --> 00:07:05,492
+or selected by the user, by using param.theLocale.
+
+165
+00:07:05,492 --> 00:07:08,333
+On the second line here, we check the value
+
+166
+00:07:08,333 --> 00:07:12,308
+to see if it's not empty, then we'll use param.theLocale,
+
+167
+00:07:12,308 --> 00:07:14,625
+and that came from that href link.
+
+168
+00:07:14,625 --> 00:07:18,067
+Now, in the event that that value is empty or not available,
+
+169
+00:07:18,067 --> 00:07:20,658
+then our else clause here will make use
+
+170
+00:07:20,658 --> 00:07:23,158
+of pageContext.request.locale.
+
+171
+00:07:24,058 --> 00:07:27,658
+So, every HTTP web request that comes in,
+
+172
+00:07:27,658 --> 00:07:30,933
+the web browser will send the default locale
+
+173
+00:07:30,933 --> 00:07:33,267
+based on the user's operating system.
+
+174
+00:07:33,267 --> 00:07:36,233
+So, the bottom line here is that we'll be able to find out
+
+175
+00:07:36,233 --> 00:07:38,817
+what locale the user wants to use
+
+176
+00:07:38,817 --> 00:07:40,458
+and we'll set that as a variable.
+
+177
+00:07:40,458 --> 00:07:43,041
+So, c:set var="theLocale",
+
+178
+00:07:44,017 --> 00:07:45,534
+we'll have a reference to that
+
+179
+00:07:45,534 --> 00:07:48,475
+and we'll keep it in our session for later use.
+
+180
+00:07:48,475 --> 00:07:52,542
+Now, the next set of lines here, fmt:setLocale,
+
+181
+00:07:52,542 --> 00:07:55,317
+we actually set the locale and we give it a value.
+
+182
+00:07:55,317 --> 00:07:57,625
+So normally, folks would hard code it
+
+183
+00:07:57,625 --> 00:08:00,125
+with a given locale like en_US
+
+184
+00:08:02,092 --> 00:08:04,067
+but here, we're using it based on that variable
+
+185
+00:08:04,067 --> 00:08:06,275
+that we set up in the previous line.
+
+186
+00:08:06,275 --> 00:08:09,408
+And then finally, we tell JSP page
+
+187
+00:08:09,408 --> 00:08:11,350
+which resource bundle to use.
+
+188
+00:08:11,350 --> 00:08:13,517
+So here, we say setBundle,
+
+189
+00:08:13,517 --> 00:08:15,308
+we give the basename,
+
+190
+00:08:15,308 --> 00:08:17,500
+so that means the base name of the file,
+
+191
+00:08:17,500 --> 00:08:21,767
+and then JSP will append the appropriate locale
+
+192
+00:08:21,767 --> 00:08:24,250
+and load the appropriate properties files
+
+193
+00:08:24,250 --> 00:08:26,333
+that you can use in this page,
+
+194
+00:08:26,333 --> 00:08:27,825
+and that's all handled here.
+
+195
+00:08:27,825 --> 00:08:29,167
+So, that's a little magic there
+
+196
+00:08:29,167 --> 00:08:31,992
+as far as reading that properties file
+
+197
+00:08:31,992 --> 00:08:35,733
+based on the appropriate locale that the user selected.
+
+198
+00:08:35,733 --> 00:08:38,150
+All right, good stuff so far.
+
+199
+00:08:40,450 --> 00:08:41,942
+All right, so, what I wanted to do here
+
+200
+00:08:41,942 --> 00:08:43,442
+is I want to give you an overview
+
+201
+00:08:43,442 --> 00:08:46,167
+of how that development process work out.
+
+202
+00:08:46,167 --> 00:08:48,442
+What we're gonna do is move into the next video
+
+203
+00:08:48,442 --> 00:08:50,200
+and we'll actually get our hands dirty
+
+204
+00:08:50,200 --> 00:08:52,608
+and I'll show you how to build all of this from scratch
+
+205
+00:08:52,608 --> 00:08:55,300
+in the Eclipse IDE, but I at least wanted to give you
+
+206
+00:08:55,300 --> 00:08:57,483
+some of the theories and the concepts first
+
+207
+00:08:57,483 --> 00:08:58,316
+and we can actually go through
+
+208
+00:08:58,316 --> 00:09:02,483
+and apply it in the next video, so I'll see you there.
+

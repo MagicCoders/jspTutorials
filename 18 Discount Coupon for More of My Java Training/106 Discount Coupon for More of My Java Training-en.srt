@@ -1,0 +1,56 @@
+1
+00:00:01,305 --> 00:00:03,991
+<v Instructor>Hey, I have one more bonus for you.</v>
+
+2
+00:00:03,991 --> 00:00:06,023
+If you wanna get more Java training,
+
+3
+00:00:06,023 --> 00:00:08,470
+I can give you a special discount.
+
+4
+00:00:08,470 --> 00:00:11,513
+So you can actually take any of my java courses
+
+5
+00:00:11,513 --> 00:00:12,596
+for only $15.
+
+6
+00:00:14,614 --> 00:00:18,333
+Now, all you have to do is take a look at the next lecture.
+
+7
+00:00:18,333 --> 00:00:20,176
+It includes a list of my courses,
+
+8
+00:00:20,176 --> 00:00:23,453
+along with direct links to my courses.
+
+9
+00:00:23,453 --> 00:00:27,200
+Also, the links actually include the coupon code
+
+10
+00:00:27,200 --> 00:00:31,161
+that will allow you to take the course for only $15.
+
+11
+00:00:31,161 --> 00:00:33,481
+So hopefully, you can further your Java training
+
+12
+00:00:33,481 --> 00:00:36,172
+and also so it using a special discount.
+
+13
+00:00:36,172 --> 00:00:38,056
+So thanks a bunch, and hopefully I'll see you
+
+14
+00:00:38,056 --> 00:00:40,389
+in some more java training.
+

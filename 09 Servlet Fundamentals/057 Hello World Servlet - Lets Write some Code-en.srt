@@ -1,0 +1,684 @@
+1
+00:00:01,168 --> 00:00:03,584
+<v Chad>All right, let's go ahead an move into Eclipse,</v>
+
+2
+00:00:03,584 --> 00:00:04,640
+and we're gonna get our hands dirty
+
+3
+00:00:04,640 --> 00:00:07,473
+by creating a Hello World servlet.
+
+4
+00:00:08,784 --> 00:00:10,736
+So the first think I wanna do is create a new project,
+
+5
+00:00:10,736 --> 00:00:14,653
+so I'll say File, New, and Dynamic Web Project.
+
+6
+00:00:21,000 --> 00:00:22,287
+And then, for the name of the project,
+
+7
+00:00:22,287 --> 00:00:25,120
+I'll actually call it servletdemo.
+
+8
+00:00:30,448 --> 00:00:32,319
+Then I'll keep all the other defaults here,
+
+9
+00:00:32,319 --> 00:00:36,823
+Apache Tomcat eight, version 3.1, everything else the same,
+
+10
+00:00:36,823 --> 00:00:39,823
+and I'll go ahead and click on Next.
+
+11
+00:00:42,305 --> 00:00:43,922
+Here we'll just go ahead and keep the defaults here
+
+12
+00:00:43,922 --> 00:00:47,137
+for the default output server,
+
+13
+00:00:47,137 --> 00:00:47,970
+I'll hit Next,
+
+14
+00:00:47,970 --> 00:00:50,913
+and then for the Context root and Content directory
+
+15
+00:00:50,913 --> 00:00:52,369
+I'll keep the defaults,
+
+16
+00:00:52,369 --> 00:00:56,657
+and also I'll check the box here for Generate web.xml.
+
+17
+00:00:56,657 --> 00:00:59,305
+So the context root's the actual name of our application
+
+18
+00:00:59,305 --> 00:01:01,888
+once we deploy it, servletdemo.
+
+19
+00:01:03,331 --> 00:01:05,747
+Then I'll go ahead and hit Finish.
+
+20
+00:01:05,747 --> 00:01:06,899
+So now we should have a new project
+
+21
+00:01:06,899 --> 00:01:10,649
+out here over to the left called servletdemo.
+
+22
+00:01:16,883 --> 00:01:18,275
+And we have a WebContent directory,
+
+23
+00:01:18,275 --> 00:01:20,358
+and it's empty right now.
+
+24
+00:01:21,627 --> 00:01:22,891
+All right, so the first thing I wanna do here
+
+25
+00:01:22,891 --> 00:01:24,243
+is create a new servlet,
+
+26
+00:01:24,243 --> 00:01:25,643
+so I just right-click on the project,
+
+27
+00:01:25,643 --> 00:01:28,810
+I say New, and I move down to Servlet.
+
+28
+00:01:34,251 --> 00:01:37,283
+And so for this servlet, I give a Java package name,
+
+29
+00:01:37,283 --> 00:01:41,763
+so I'll just call it com.luv2code.servletdemo,
+
+30
+00:01:41,763 --> 00:01:42,923
+and that's just the name of the package
+
+31
+00:01:42,923 --> 00:01:45,163
+for grouping these classes together,
+
+32
+00:01:45,163 --> 00:01:46,259
+and then the actual class name,
+
+33
+00:01:46,259 --> 00:01:48,842
+I'll call it HelloWorldServlet.
+
+34
+00:01:53,427 --> 00:01:54,451
+And then, once I'm happy with that,
+
+35
+00:01:54,451 --> 00:01:58,461
+I can go ahead and click on the Next button.
+
+36
+00:01:58,461 --> 00:02:00,021
+Here they just have the servlet name.
+
+37
+00:02:00,021 --> 00:02:01,637
+I'll keep it as is.
+
+38
+00:02:01,637 --> 00:02:03,251
+I'll accept all the other defaults,
+
+39
+00:02:03,251 --> 00:02:05,918
+and I move ahead and click Next.
+
+40
+00:02:09,797 --> 00:02:12,661
+Here, they can tell us which methods they want to stub out,
+
+41
+00:02:12,661 --> 00:02:14,365
+or create for us on the fly,
+
+42
+00:02:14,365 --> 00:02:16,213
+so right now we'll go ahead and accept the defaults.
+
+43
+00:02:16,213 --> 00:02:18,693
+They're gonna create a doGet and a doPost method.
+
+44
+00:02:18,693 --> 00:02:20,349
+We'll go ahead and keep all the defaults here,
+
+45
+00:02:20,349 --> 00:02:22,516
+and we'll just hit Finish.
+
+46
+00:02:23,941 --> 00:02:25,397
+Okay great, so this looks similar
+
+47
+00:02:25,397 --> 00:02:28,173
+to the code we had in the PowerPoint slides,
+
+48
+00:02:28,173 --> 00:02:31,253
+but Eclipse generated a lot of this for us.
+
+49
+00:02:31,253 --> 00:02:32,878
+So they created a new package,
+
+50
+00:02:32,878 --> 00:02:35,894
+and they also have the new servlet.java file,
+
+51
+00:02:35,894 --> 00:02:36,749
+so this is really good.
+
+52
+00:02:36,749 --> 00:02:38,309
+This is a good jumpstart for us,
+
+53
+00:02:38,309 --> 00:02:40,642
+for our servlet development.
+
+54
+00:02:42,965 --> 00:02:44,741
+All right, so let's go ahead a dig into this servlet,
+
+55
+00:02:44,741 --> 00:02:46,717
+and just kind of see how it works here.
+
+56
+00:02:46,717 --> 00:02:48,077
+So first, on line 14,
+
+57
+00:02:48,077 --> 00:02:50,182
+we simply have our Hello World servlet,
+
+58
+00:02:50,182 --> 00:02:54,389
+so public class HelloWorldServlet extends HttpServlet,
+
+59
+00:02:54,389 --> 00:02:57,889
+and we always have that declaration there.
+
+60
+00:02:59,157 --> 00:03:01,470
+And then, up on line 13, we have our @WebServlet.
+
+61
+00:03:01,470 --> 00:03:04,925
+So this is simply an annotation that gives the actual path,
+
+62
+00:03:04,925 --> 00:03:09,092
+or the URL for us to actually access this servlet.
+
+63
+00:03:13,829 --> 00:03:15,381
+All right, so let's go ahead and look at some of the code.
+
+64
+00:03:15,381 --> 00:03:17,126
+There's a lot of generated code.
+
+65
+00:03:17,126 --> 00:03:19,981
+What I wanna do here is take a look at the doGet method,
+
+66
+00:03:19,981 --> 00:03:22,573
+so this is the one method that we override,
+
+67
+00:03:22,573 --> 00:03:24,461
+where we're gonna actually provide our response.
+
+68
+00:03:24,461 --> 00:03:27,333
+So when the browser makes a call to our servlet,
+
+69
+00:03:27,333 --> 00:03:31,500
+then it'll actually access or call this doGet method.
+
+70
+00:03:33,957 --> 00:03:36,893
+So this doGet method has a request and a response.
+
+71
+00:03:36,893 --> 00:03:38,949
+The interior there, I'm gonna remove.
+
+72
+00:03:38,949 --> 00:03:40,589
+That was all the auto-generated code,
+
+73
+00:03:40,589 --> 00:03:42,965
+and I wanna actually give my own custom code here,
+
+74
+00:03:42,965 --> 00:03:46,493
+so let's go ahead and write some code.
+
+75
+00:03:46,493 --> 00:03:48,581
+So first off, I always like to put out the comments
+
+76
+00:03:48,581 --> 00:03:51,331
+as far as what I need to do here.
+
+77
+00:03:53,068 --> 00:03:56,149
+So for Step One, I need to actually set the content type.
+
+78
+00:03:56,149 --> 00:03:57,029
+Then, for Step Two,
+
+79
+00:03:57,029 --> 00:04:00,157
+I need to actually get a handle to a printwriter
+
+80
+00:04:00,157 --> 00:04:03,597
+that I'll use for sending back data.
+
+81
+00:04:03,597 --> 00:04:04,581
+And then Step Three
+
+82
+00:04:04,581 --> 00:04:09,077
+is actually generating the HTML code on the fly.
+
+83
+00:04:09,077 --> 00:04:10,453
+So those are the three main steps
+
+84
+00:04:10,453 --> 00:04:14,620
+as far as what we need to do inside of this doGet method.
+
+85
+00:04:16,773 --> 00:04:18,221
+So let me just get some more white space here
+
+86
+00:04:18,221 --> 00:04:22,925
+just so we can kind of have some room to work with.
+
+87
+00:04:22,925 --> 00:04:24,741
+So for setting the content type,
+
+88
+00:04:24,741 --> 00:04:26,205
+we have two parameters coming in.
+
+89
+00:04:26,205 --> 00:04:28,036
+We have the request object coming in,
+
+90
+00:04:28,036 --> 00:04:31,621
+and that has the form data coming in from the browser.
+
+91
+00:04:31,621 --> 00:04:32,757
+And then the response object,
+
+92
+00:04:32,757 --> 00:04:35,509
+that's our handle that goes back to the browser.
+
+93
+00:04:35,509 --> 00:04:38,029
+So what I wanna do here is use that response object,
+
+94
+00:04:38,029 --> 00:04:40,853
+and set the content type.
+
+95
+00:04:40,853 --> 00:04:43,603
+So I say response.setContentType,
+
+96
+00:04:45,573 --> 00:04:49,397
+and then I make use of the content type of text/html,
+
+97
+00:04:49,397 --> 00:04:50,349
+so I'm telling the browser,
+
+98
+00:04:50,349 --> 00:04:53,197
+"Hey, I'm gonna send back text data,
+
+99
+00:04:53,197 --> 00:04:55,413
+"and this data is formatted as html,"
+
+100
+00:04:55,413 --> 00:04:56,996
+so the browser knows how to handle it,
+
+101
+00:04:56,996 --> 00:05:00,373
+and the browser will render it accordingly as HTML data.
+
+102
+00:05:00,373 --> 00:05:02,061
+The next thing I need to do is get the PrintWriter,
+
+103
+00:05:02,061 --> 00:05:05,405
+so I say PrintWriter out = response.getWriter();
+
+104
+00:05:05,405 --> 00:05:06,285
+So remember,
+
+105
+00:05:06,285 --> 00:05:09,381
+that response object came in as a parameter up above,
+
+106
+00:05:09,381 --> 00:05:13,285
+and it has our handle to communicate back to the browser.
+
+107
+00:05:13,285 --> 00:05:15,118
+Now I need to fix something on line 34.
+
+108
+00:05:15,118 --> 00:05:18,405
+We just simply need to do an import,
+
+109
+00:05:18,405 --> 00:05:20,925
+and I simply need to do an import on this PrintWriter
+
+110
+00:05:20,925 --> 00:05:23,389
+from the java.io package,
+
+111
+00:05:23,389 --> 00:05:25,356
+so you go ahead and click that item there,
+
+112
+00:05:25,356 --> 00:05:29,523
+and Eclipse will handle the imports for you automatically.
+
+113
+00:05:31,389 --> 00:05:32,222
+All right, good,
+
+114
+00:05:32,222 --> 00:05:35,412
+so now we can start doing some real work here.
+
+115
+00:05:35,412 --> 00:05:39,005
+So now we can actually start generating our HTML content.
+
+116
+00:05:39,005 --> 00:05:41,093
+So first off, I'll just do some out.printlns,
+
+117
+00:05:41,093 --> 00:05:43,869
+and I'll just do some normal HTML housekeeping, right,
+
+118
+00:05:43,869 --> 00:05:46,197
+our &lt;html&gt; tag, &lt;body&gt;,
+
+119
+00:05:46,197 --> 00:05:48,765
+and then I'll do a similar thing here on ending those tags,
+
+120
+00:05:48,765 --> 00:05:52,932
+so I'll do a &lt;/body&gt;&lt;/html&gt;.
+
+121
+00:05:54,453 --> 00:05:56,565
+So that's all of the normal stuff we'd have to set up,
+
+122
+00:05:56,565 --> 00:05:58,669
+and now at this point, it's totally up to us.
+
+123
+00:05:58,669 --> 00:06:01,133
+We can just start generating HTML.
+
+124
+00:06:01,133 --> 00:06:02,076
+We can keep it as simple,
+
+125
+00:06:02,076 --> 00:06:05,061
+or we can make is as fancy as we'd like here.
+
+126
+00:06:05,061 --> 00:06:07,637
+So here, I'm gonna do an out.println, &lt;h2&gt;,
+
+127
+00:06:07,637 --> 00:06:10,137
+and I'll just say Hello World.
+
+128
+00:06:12,533 --> 00:06:14,981
+And then I'll do another out.println,
+
+129
+00:06:14,981 --> 00:06:19,148
+and I'll just do a println for an &lt;hr&gt;, for horizontal rule.
+
+130
+00:06:22,485 --> 00:06:26,110
+And next I'll say out.println, Time on the server is,
+
+131
+00:06:26,110 --> 00:06:27,773
+and then I simply create a new data object.
+
+132
+00:06:27,773 --> 00:06:30,453
+So I'll say new java.util.Date();
+
+133
+00:06:30,453 --> 00:06:31,957
+This'll do the concatenation.
+
+134
+00:06:31,957 --> 00:06:33,926
+It'll call the two string version on the date,
+
+135
+00:06:33,926 --> 00:06:36,301
+and that result will be included in this HTML page
+
+136
+00:06:36,301 --> 00:06:37,836
+that I'm generating on the fly,
+
+137
+00:06:37,836 --> 00:06:41,169
+that I'm gonna send back to the browser.
+
+138
+00:06:43,269 --> 00:06:45,386
+So those are the three major steps there:
+
+139
+00:06:45,386 --> 00:06:47,693
+setting the content type, getting the printwriter,
+
+140
+00:06:47,693 --> 00:06:50,360
+and generating the HTML content.
+
+141
+00:06:55,421 --> 00:06:57,325
+And again, remember, whenever we're building servlets,
+
+142
+00:06:57,325 --> 00:07:00,541
+there are some special methods here: doGet and doPost.
+
+143
+00:07:00,541 --> 00:07:02,893
+So here we're gonna override this doGet method
+
+144
+00:07:02,893 --> 00:07:04,181
+and provide our functionality,
+
+145
+00:07:04,181 --> 00:07:07,013
+so when they access this servlet from the browser,
+
+146
+00:07:07,013 --> 00:07:09,597
+it's gonna automatically call the doGet method,
+
+147
+00:07:09,597 --> 00:07:14,589
+and that's a special method that's part of the servlet API.
+
+148
+00:07:14,589 --> 00:07:15,422
+All right,
+
+149
+00:07:15,422 --> 00:07:17,614
+so this looks really good so far for our first servlet.
+
+150
+00:07:17,614 --> 00:07:20,114
+Let's go ahead and try it out.
+
+151
+00:07:24,132 --> 00:07:26,988
+So what I can do here is I can go to the servlet class file,
+
+152
+00:07:26,988 --> 00:07:30,317
+I can simply run it on the server, so I do a right-click,
+
+153
+00:07:30,317 --> 00:07:34,400
+I choose Run As, and then I choose Run on Server.
+
+154
+00:07:38,860 --> 00:07:40,412
+And they'll ask me which server to run it on,
+
+155
+00:07:40,412 --> 00:07:43,244
+I'll choose Tomcat 8 that's already installed,
+
+156
+00:07:43,244 --> 00:07:44,893
+I always use this server,
+
+157
+00:07:44,893 --> 00:07:47,893
+and then I'll hit the Finish button.
+
+158
+00:07:51,574 --> 00:07:53,213
+And all right, this looks really good.
+
+159
+00:07:53,213 --> 00:07:55,181
+So here's the output of our servlet.
+
+160
+00:07:55,181 --> 00:07:58,092
+So we have Hello World, time on the server is,
+
+161
+00:07:58,092 --> 00:07:59,750
+and then they just drop in that time.
+
+162
+00:07:59,750 --> 00:08:03,972
+So this is all generated on the fly by our servlet,
+
+163
+00:08:03,972 --> 00:08:06,621
+and we wrote all the code to make this happen.
+
+164
+00:08:06,621 --> 00:08:08,196
+So this is a really good example
+
+165
+00:08:08,196 --> 00:08:10,628
+of just getting started very quickly with servlets,
+
+166
+00:08:10,628 --> 00:08:14,150
+and writing a very basic Hello World servlet.
+
+167
+00:08:14,150 --> 00:08:15,485
+In some of the following videos,
+
+168
+00:08:15,485 --> 00:08:18,605
+we'll get into more advanced things like reading form data,
+
+169
+00:08:18,605 --> 00:08:20,588
+overriding other methods,
+
+170
+00:08:20,588 --> 00:08:24,397
+and also doing some comparisons with servlets and JSPs,
+
+171
+00:08:24,397 --> 00:08:28,564
+but this is a really good start for right now, so good job.
+

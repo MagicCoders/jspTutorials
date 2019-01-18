@@ -1,0 +1,196 @@
+1
+00:00:01,197 --> 00:00:02,601
+<v Narrator>Hey, welcome back.</v>
+
+2
+00:00:02,601 --> 00:00:04,255
+In this video, I'm gonna show you
+
+3
+00:00:04,255 --> 00:00:07,088
+how to connect Eclipse and Tomcat.
+
+4
+00:00:09,126 --> 00:00:10,634
+Now, the main benefit is that
+
+5
+00:00:10,634 --> 00:00:12,850
+we can start Tomcat from Eclipse.
+
+6
+00:00:12,850 --> 00:00:15,670
+Also, it'll make it very easy for us to deploy
+
+7
+00:00:15,670 --> 00:00:19,003
+our web applications directly to Tomcat.
+
+8
+00:00:20,687 --> 00:00:22,937
+Alright, so let's go ahead and move into Eclipse.
+
+9
+00:00:22,937 --> 00:00:25,784
+What I'd like to do is move down to the bottom section,
+
+10
+00:00:25,784 --> 00:00:27,529
+there's a tab called servers.
+
+11
+00:00:27,529 --> 00:00:30,183
+I'd like to click on that tab.
+
+12
+00:00:30,183 --> 00:00:32,298
+Now at this point, we don't have any servers
+
+13
+00:00:32,298 --> 00:00:35,854
+associated with our Eclipse environment at the time.
+
+14
+00:00:35,854 --> 00:00:38,081
+So what we need to do is click on this link,
+
+15
+00:00:38,081 --> 00:00:39,982
+and we're gonna add a new server.
+
+16
+00:00:39,982 --> 00:00:41,523
+And we're gonna add a new server that points
+
+17
+00:00:41,523 --> 00:00:45,106
+to our Tomcat that we installed previously.
+
+18
+00:00:48,274 --> 00:00:50,606
+Alright, so here's the define new server.
+
+19
+00:00:50,606 --> 00:00:51,873
+What I need to do is move up
+
+20
+00:00:51,873 --> 00:00:55,456
+to the Apache Tomcat folder, and expand it.
+
+21
+00:01:10,830 --> 00:01:12,946
+Now, what I'd like to do is go ahead and click
+
+22
+00:01:12,946 --> 00:01:15,863
+the next button here on the screen.
+
+23
+00:01:18,402 --> 00:01:20,697
+And then at this point, I need to browse
+
+24
+00:01:20,697 --> 00:01:24,241
+and tell Eclipse where Tomcat is installed.
+
+25
+00:01:24,241 --> 00:01:26,142
+Alright, so wherever you have Tomcat installed,
+
+26
+00:01:26,142 --> 00:01:28,032
+you need to point to that directory.
+
+27
+00:01:28,032 --> 00:01:30,440
+I'm gonna make use of the default directory
+
+28
+00:01:30,440 --> 00:01:32,230
+where Tomcat is installed.
+
+29
+00:01:32,230 --> 00:01:36,538
+It's under program files, Apache software, Tomcat 8.
+
+30
+00:01:36,538 --> 00:01:39,497
+So this is the actual default directory
+
+31
+00:01:39,497 --> 00:01:41,747
+where Tomcat was installed.
+
+32
+00:01:49,352 --> 00:01:50,646
+Alright great, so once I have that selected,
+
+33
+00:01:50,646 --> 00:01:52,229
+I'll click on okay.
+
+34
+00:01:53,346 --> 00:01:55,281
+And so it should give us the full path there
+
+35
+00:01:55,281 --> 00:01:57,711
+for the Tomcat installation directory.
+
+36
+00:01:57,711 --> 00:01:59,930
+So again, I'm just using the default.
+
+37
+00:01:59,930 --> 00:02:03,798
+Once I'm happy with this, I'll go ahead and click on next.
+
+38
+00:02:03,798 --> 00:02:05,875
+This screen here talks about some other apps,
+
+39
+00:02:05,875 --> 00:02:08,316
+don't worry about it, just go ahead and click on finish.
+
+40
+00:02:08,316 --> 00:02:13,311
+And this will associate Tomcat with the Eclipse environment,
+
+41
+00:02:13,311 --> 00:02:16,844
+so if everything is successful, down in the bottom center,
+
+42
+00:02:16,844 --> 00:02:18,396
+you should see a reference for Tomcat.
+
+43
+00:02:18,396 --> 00:02:21,783
+Now at this point, it's stopped, we haven't started it yet.
+
+44
+00:02:21,783 --> 00:02:24,731
+We'll actually start it in some of the following videos
+
+45
+00:02:24,731 --> 00:02:28,556
+when we start creating our web applications.
+
+46
+00:02:28,556 --> 00:02:30,986
+Okay, great, so if your Eclipse screen looks similar
+
+47
+00:02:30,986 --> 00:02:32,819
+to this, that means you're successful
+
+48
+00:02:32,819 --> 00:02:35,565
+in setting up Tomcat within Eclipse.
+
+49
+00:02:35,565 --> 00:02:36,398
+Good job.
+

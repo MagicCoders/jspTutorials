@@ -1,0 +1,928 @@
+1
+00:00:01,263 --> 00:00:02,640
+<v ->Alright, so we just finished</v>
+
+2
+00:00:02,640 --> 00:00:04,782
+the coding for our student database util.
+
+3
+00:00:04,782 --> 00:00:07,935
+Now let's go ahead and move over to our controller servlet.
+
+4
+00:00:07,935 --> 00:00:09,656
+It's gonna handle the initial request
+
+5
+00:00:09,656 --> 00:00:13,057
+and then talk to that utility and send it to a JSP.
+
+6
+00:00:13,057 --> 00:00:14,681 line:15% 
+Alright, so this is our servlet here.
+
+7
+00:00:14,681 --> 00:00:17,845 line:15% 
+So, let's move into Eclipse and
+
+8
+00:00:17,845 --> 00:00:19,739 line:15% 
+let's move over to our source code package.
+
+9
+00:00:19,739 --> 00:00:22,399 line:15% 
+And we're gonna create a new class.
+
+10
+00:00:22,399 --> 00:00:24,238
+Or we're actually gonna create a new servlet.
+
+11
+00:00:24,238 --> 00:00:25,571
+So, New Servlet.
+
+12
+00:00:29,276 --> 00:00:30,764 line:15% 
+And the name of our servlet,
+
+13
+00:00:30,764 --> 00:00:34,014 line:15% 
+we'll call it StudentControllerServlet.
+
+14
+00:00:37,293 --> 00:00:41,454 line:15% 
+And then we'll go ahead and click on the next button.
+
+15
+00:00:41,454 --> 00:00:43,776
+And we'll keep the defaults here.
+
+16
+00:00:43,776 --> 00:00:46,026
+We'll simply click on Next.
+
+17
+00:00:46,940 --> 00:00:49,033
+And we'll uncheck the item
+
+18
+00:00:49,033 --> 00:00:52,366
+for Constructors and uncheck the doPost.
+
+19
+00:00:53,213 --> 00:00:55,052
+And we'll keep the others here.
+
+20
+00:00:55,052 --> 00:00:56,997
+So make sure your screen matches mine
+
+21
+00:00:56,997 --> 00:01:01,066
+and then go ahead and click on the finish button.
+
+22
+00:01:01,066 --> 00:01:02,025
+Okay, great.
+
+23
+00:01:02,025 --> 00:01:05,464
+So, Eclipse has a very basic servlet here for us.
+
+24
+00:01:05,464 --> 00:01:07,547
+Let's go ahead and you know,
+
+25
+00:01:07,547 --> 00:01:10,297
+add some good functionality here.
+
+26
+00:01:12,917 --> 00:01:16,084
+So, stretch out, get some white space.
+
+27
+00:01:18,824 --> 00:01:20,054
+And the first thing we'll do
+
+28
+00:01:20,054 --> 00:01:23,165
+is we'll set up a reference to a studentDbUtil.
+
+29
+00:01:23,165 --> 00:01:26,098
+We haven't assigned it yet, we'll assign it later.
+
+30
+00:01:26,098 --> 00:01:28,028
+And then, I also wanna make use of that
+
+31
+00:01:28,028 --> 00:01:30,515 line:15% 
+Java EE resource injection so they can
+
+32
+00:01:30,515 --> 00:01:32,866 line:15% 
+inject that data source for me.
+
+33
+00:01:32,866 --> 00:01:37,450 line:15% 
+So I have @Resource(name="jdbc/web_student_tracker").
+
+34
+00:01:37,450 --> 00:01:39,482 line:15% 
+And again, we covered this in the
+
+35
+00:01:39,482 --> 00:01:41,682 line:15% 
+test video a little bit earlier.
+
+36
+00:01:41,682 --> 00:01:44,066 line:15% 
+So, the Tomcat server will actually
+
+37
+00:01:44,066 --> 00:01:46,634 line:15% 
+inject that connection pool object
+
+38
+00:01:46,634 --> 00:01:50,035 line:15% 
+and assign it here to this variable data source.
+
+39
+00:01:50,035 --> 00:01:53,441 line:15% 
+So let me go ahead and fix up some of these imports here
+
+40
+00:01:53,441 --> 00:01:55,941
+for javax.annotation.Resource.
+
+41
+00:01:58,645 --> 00:02:00,185
+And again with data source make sure
+
+42
+00:02:00,185 --> 00:02:01,505
+you get the right one here.
+
+43
+00:02:01,505 --> 00:02:05,668
+So javax.sql.DataSource because there's others out there,
+
+44
+00:02:05,668 --> 00:02:08,847
+make sure you got the right one.
+
+45
+00:02:08,847 --> 00:02:12,014
+Alright so javax.sql.DataSource, boom.
+
+46
+00:02:14,138 --> 00:02:15,664
+Now what we actually wanna do is,
+
+47
+00:02:15,664 --> 00:02:18,763
+we wanna initialize this StudentdbUtil
+
+48
+00:02:18,763 --> 00:02:21,328
+and in the servlet life cycle they have a special
+
+49
+00:02:21,328 --> 00:02:23,780
+method that you can override called init.
+
+50
+00:02:23,780 --> 00:02:25,188
+So this init method will be called
+
+51
+00:02:25,188 --> 00:02:28,388
+by the app server when this servlet is initialized.
+
+52
+00:02:28,388 --> 00:02:30,307
+So here I'll go to source
+
+53
+00:02:30,307 --> 00:02:33,279
+and then I'll say, Override/Implement Methods.
+
+54
+00:02:33,279 --> 00:02:35,801
+So we're gonna override a method that we inherit
+
+55
+00:02:35,801 --> 00:02:40,401
+and we're gonna add our own custom functionality to it.
+
+56
+00:02:40,401 --> 00:02:44,301
+So we extend off of HttpServlet but we actually want
+
+57
+00:02:44,301 --> 00:02:46,471
+to override a method that we inherit
+
+58
+00:02:46,471 --> 00:02:49,671
+from our parent, parent GenericServlet.
+
+59
+00:02:49,671 --> 00:02:52,145
+And there's a method here called init.
+
+60
+00:02:52,145 --> 00:02:54,443
+So there's an init method with no arguments
+
+61
+00:02:54,443 --> 00:02:56,034
+and that's the one that we wanna select.
+
+62
+00:02:56,034 --> 00:03:00,201
+So make sure that you check the box here for this one.
+
+63
+00:03:03,283 --> 00:03:05,431
+And then go ahead and click the OK button.
+
+64
+00:03:05,431 --> 00:03:07,797
+So again this init method is actually
+
+65
+00:03:07,797 --> 00:03:11,186
+called by the Java EE server or by Tomcat
+
+66
+00:03:11,186 --> 00:03:14,041
+when this servlet is first loaded or initialized.
+
+67
+00:03:14,041 --> 00:03:16,789
+So this is a good place for you to put your own custom
+
+68
+00:03:16,789 --> 00:03:20,204
+initialization work, inside of this init method.
+
+69
+00:03:20,204 --> 00:03:24,803
+And this is part of the spec, part of the API.
+
+70
+00:03:24,803 --> 00:03:27,481
+So work that you would normally do on a constructor
+
+71
+00:03:27,481 --> 00:03:29,106
+when you're working with servlets, you would normally
+
+72
+00:03:29,106 --> 00:03:32,118
+put it inside of the init method.
+
+73
+00:03:32,118 --> 00:03:33,489
+So what we want to do here, is we want to create
+
+74
+00:03:33,489 --> 00:03:35,784
+an instance of our student database util
+
+75
+00:03:35,784 --> 00:03:38,617
+and pass in our datasource object.
+
+76
+00:03:42,530 --> 00:03:44,257
+Alright so it's really simple here,
+
+77
+00:03:44,257 --> 00:03:46,213
+we just hook this trycatch block.
+
+78
+00:03:46,213 --> 00:03:50,707
+So here I say, studentDbUtil = new StudentDbUtil
+
+79
+00:03:50,707 --> 00:03:54,104
+and then we pass in dataSource.
+
+80
+00:03:54,104 --> 00:03:55,595
+Okay and so let me scroll back up
+
+81
+00:03:55,595 --> 00:03:56,956
+so we can kinda connect the dots here.
+
+82
+00:03:56,956 --> 00:04:00,664
+So studentDbUtil is a data member that we've defined
+
+83
+00:04:00,664 --> 00:04:02,948
+and we're assigning it here on line 31
+
+84
+00:04:02,948 --> 00:04:05,639
+and then dataSource is that resource injection item,
+
+85
+00:04:05,639 --> 00:04:08,281
+our connection pool and we're passing it in right here.
+
+86
+00:04:08,281 --> 00:04:11,986
+So that'll actually create our studentDbUtil.
+
+87
+00:04:11,986 --> 00:04:13,398
+Then here I'll just say catch exception,
+
+88
+00:04:13,398 --> 00:04:14,743
+if there were any exceptions
+
+89
+00:04:14,743 --> 00:04:17,064
+with creating that database util.
+
+90
+00:04:17,064 --> 00:04:19,173
+Then I'll say, throw new ServletException.
+
+91
+00:04:19,173 --> 00:04:21,805
+So you know maybe for some reason our database
+
+92
+00:04:21,805 --> 00:04:23,735
+wasn't up and running or I don't know,
+
+93
+00:04:23,735 --> 00:04:25,625
+some weird permissions problem.
+
+94
+00:04:25,625 --> 00:04:27,519
+We'll just throw this servlet exception
+
+95
+00:04:27,519 --> 00:04:29,632
+and it'll show it in the browser.
+
+96
+00:04:29,632 --> 00:04:31,485
+Alright and that's it, so that's our init method.
+
+97
+00:04:31,485 --> 00:04:33,985
+So again work that you would normally do on a constructor,
+
+98
+00:04:33,985 --> 00:04:36,069
+when you work with servlets you place that code
+
+99
+00:04:36,069 --> 00:04:38,902
+inside of the init method and something that we inherit
+
+100
+00:04:38,902 --> 00:04:41,681
+from generic servlet and we can override it
+
+101
+00:04:41,681 --> 00:04:44,286
+and add our own custom functionality.
+
+102
+00:04:44,286 --> 00:04:45,786
+Alright, good job.
+
+103
+00:04:50,443 --> 00:04:52,754
+Alright so let's go ahead and move into this doGet method
+
+104
+00:04:52,754 --> 00:04:55,004
+and let's start doing some more coding here.
+
+105
+00:04:55,004 --> 00:04:57,631
+So we did all of our initialization work up top,
+
+106
+00:04:57,631 --> 00:05:00,030
+now let's just dive into doGet and you know
+
+107
+00:05:00,030 --> 00:05:02,099
+handle that request that's coming in.
+
+108
+00:05:02,099 --> 00:05:03,943
+So I'll go ahead and clear out some of the docs,
+
+109
+00:05:03,943 --> 00:05:06,102
+some of the auto-generated stuff.
+
+110
+00:05:06,102 --> 00:05:07,586
+And now this is where we're gonna kinda write
+
+111
+00:05:07,586 --> 00:05:11,753
+some of our code for this doGet method of this servlet.
+
+112
+00:05:15,049 --> 00:05:16,831
+So basically what we wanna do in this doGet method
+
+113
+00:05:16,831 --> 00:05:19,992
+is that we wanna list the students in MVC fashion.
+
+114
+00:05:19,992 --> 00:05:22,966
+So we wanna get the data, set the attribute
+
+115
+00:05:22,966 --> 00:05:24,793
+and then use that request dispatcher
+
+116
+00:05:24,793 --> 00:05:26,343
+and send it over to the JSP.
+
+117
+00:05:26,343 --> 00:05:28,502
+So that's kind of the game plan here
+
+118
+00:05:28,502 --> 00:05:30,405
+and what I'll do is I'll actually just define
+
+119
+00:05:30,405 --> 00:05:33,302
+a little helper method to do this for me.
+
+120
+00:05:33,302 --> 00:05:35,410
+So I'll have this method called listStudents
+
+121
+00:05:35,410 --> 00:05:38,316
+and I'll pass in that request object and a response.
+
+122
+00:05:38,316 --> 00:05:40,526
+And just to kind of, you know, do some clean coding here,
+
+123
+00:05:40,526 --> 00:05:43,393
+some best practices of kinda lining this up.
+
+124
+00:05:43,393 --> 00:05:46,407
+So listStudents but again Eclipse says, hey dude (laughs)
+
+125
+00:05:46,407 --> 00:05:47,905
+you don't have a method.
+
+126
+00:05:47,905 --> 00:05:50,174
+And I'll say, alright Eclipse create it for me.
+
+127
+00:05:50,174 --> 00:05:51,725
+So I'll just choose this option here,
+
+128
+00:05:51,725 --> 00:05:53,950
+create this method, listStudents.
+
+129
+00:05:53,950 --> 00:05:56,245
+Again really nice feature of Eclipse,
+
+130
+00:05:56,245 --> 00:05:59,751
+I like to have Eclipse help me out and write some code.
+
+131
+00:05:59,751 --> 00:06:01,834
+So they basically stub the code out for us
+
+132
+00:06:01,834 --> 00:06:05,334
+and then we need to go in and do our work.
+
+133
+00:06:08,628 --> 00:06:11,077
+Alright so I'll remove that auto-generated comment
+
+134
+00:06:11,077 --> 00:06:13,023
+and I'll put in my own personal comments,
+
+135
+00:06:13,023 --> 00:06:14,989
+just to kinda help me out and keep me
+
+136
+00:06:14,989 --> 00:06:16,832
+on track with what I need to do.
+
+137
+00:06:16,832 --> 00:06:18,342
+So I know the first thing I need to do
+
+138
+00:06:18,342 --> 00:06:20,794
+is get the students from our database util.
+
+139
+00:06:20,794 --> 00:06:24,009
+Then I need to add those students to that request object
+
+140
+00:06:24,009 --> 00:06:27,042
+as an attribute and then finally I need to send it
+
+141
+00:06:27,042 --> 00:06:29,389
+to the JSP page, our view page,
+
+142
+00:06:29,389 --> 00:06:31,577
+using that request dispatcher.
+
+143
+00:06:31,577 --> 00:06:33,479
+So again this is the basic approach
+
+144
+00:06:33,479 --> 00:06:37,646
+that we're gonna take here in this listStudents method.
+
+145
+00:06:40,901 --> 00:06:42,650
+Alright so I kinda stretched out,
+
+146
+00:06:42,650 --> 00:06:45,139
+gave us a lot of white space to play around with here.
+
+147
+00:06:45,139 --> 00:06:47,306
+And I'll say list students
+
+148
+00:06:48,554 --> 00:06:51,304
+= studentDbUtil.getStudents.
+
+149
+00:06:52,877 --> 00:06:54,422
+And that's the method that we created in
+
+150
+00:06:54,422 --> 00:06:55,996
+that previous video right?
+
+151
+00:06:55,996 --> 00:06:57,913
+So we did all the low level JDBC work
+
+152
+00:06:57,913 --> 00:06:59,846
+and now we're simply calling that method
+
+153
+00:06:59,846 --> 00:07:01,480
+and we're getting a list of objects.
+
+154
+00:07:01,480 --> 00:07:03,231
+So really good job there.
+
+155
+00:07:03,231 --> 00:07:04,780
+And then again, go ahead
+
+156
+00:07:04,780 --> 00:07:07,084
+and fix my import statement here for a list.
+
+157
+00:07:07,084 --> 00:07:09,941
+So make sure you choose java.util.List.
+
+158
+00:07:09,941 --> 00:07:11,508
+Make sure you get the right one,
+
+159
+00:07:11,508 --> 00:07:13,576
+because there's a number of different options out there.
+
+160
+00:07:13,576 --> 00:07:15,076
+So java.util.List.
+
+161
+00:07:19,123 --> 00:07:20,992
+And now I wanna add the students to the request,
+
+162
+00:07:20,992 --> 00:07:24,217
+so like we've learned before we say, request.setAttribute.
+
+163
+00:07:24,217 --> 00:07:25,919
+We give an attribute name and then
+
+164
+00:07:25,919 --> 00:07:27,695
+we give the actual object that we're setting.
+
+165
+00:07:27,695 --> 00:07:30,528
+So here I'll call it STUDENT_LIST.
+
+166
+00:07:32,888 --> 00:07:37,055
+That's the actual name I'll use for this attribute.
+
+167
+00:07:38,541 --> 00:07:41,129
+And then the actual object, well that's the list
+
+168
+00:07:41,129 --> 00:07:43,670
+of students from line 49, so I'll say students.
+
+169
+00:07:43,670 --> 00:07:45,768
+So again when you set an attribute, you set the actual
+
+170
+00:07:45,768 --> 00:07:48,293
+attribute name and then the actual value
+
+171
+00:07:48,293 --> 00:07:50,111
+or the object reference.
+
+172
+00:07:50,111 --> 00:07:53,278
+So that takes care of that part of it.
+
+173
+00:08:03,851 --> 00:08:05,628
+And then finally we set up our RequestDispatcher
+
+174
+00:08:05,628 --> 00:08:08,193
+because we want to send data over to that JSP page.
+
+175
+00:08:08,193 --> 00:08:11,684
+So again I say dispatcher = request.getRequestDispatcher,
+
+176
+00:08:11,684 --> 00:08:13,273
+ah that's a mouthful.
+
+177
+00:08:13,273 --> 00:08:17,440
+And I give the name of a JSP page, list-students.jsp.
+
+178
+00:08:18,807 --> 00:08:21,182
+So again this basically sets up a handle for that
+
+179
+00:08:21,182 --> 00:08:24,498
+and then I give dispatcher.forward and then I pass in
+
+180
+00:08:24,498 --> 00:08:28,665
+that request object and also that response object.
+
+181
+00:08:29,806 --> 00:08:31,112
+So we've seen this before in some of
+
+182
+00:08:31,112 --> 00:08:34,279
+our previous videos of doing MVC work.
+
+183
+00:08:38,060 --> 00:08:40,143
+So I have some exceptions here that I need
+
+184
+00:08:40,143 --> 00:08:41,957
+to kind of address and figure out
+
+185
+00:08:41,957 --> 00:08:44,141
+the best way of doing this.
+
+186
+00:08:44,141 --> 00:08:47,773
+And what I'll do here is I'll actually modify
+
+187
+00:08:47,773 --> 00:08:50,234
+this listStudents method to actually
+
+188
+00:08:50,234 --> 00:08:52,386
+throw a give an exception.
+
+189
+00:08:52,386 --> 00:08:55,468
+So instead of handling it here locally in this method,
+
+190
+00:08:55,468 --> 00:08:57,390
+I wanna throw it to the calling program
+
+191
+00:08:57,390 --> 00:09:01,950
+so they can kinda handle it in one central location.
+
+192
+00:09:01,950 --> 00:09:06,117
+So I'll modify the signature here for my listStudents.
+
+193
+00:09:11,636 --> 00:09:14,431
+So I'll move over and I'll grab right there,
+
+194
+00:09:14,431 --> 00:09:18,598
+yeah that angle bracket and I'll say throws Exception.
+
+195
+00:09:19,484 --> 00:09:21,237
+So at this level we don't have to worry
+
+196
+00:09:21,237 --> 00:09:22,927
+about handling the exceptions we're gonna
+
+197
+00:09:22,927 --> 00:09:25,377
+throw it to the calling program.
+
+198
+00:09:25,377 --> 00:09:27,698
+Now if we scroll up a little bit we'll notice
+
+199
+00:09:27,698 --> 00:09:30,645
+that Eclipse will show us a new error, okay?
+
+200
+00:09:30,645 --> 00:09:32,879
+So on line 43 it says, hey you know,
+
+201
+00:09:32,879 --> 00:09:35,790
+there's an error, an unhandled exception
+
+202
+00:09:35,790 --> 00:09:37,821
+because that listStudents throws an exception.
+
+203
+00:09:37,821 --> 00:09:39,902
+Alright fine, no problem I'll just wrap this
+
+204
+00:09:39,902 --> 00:09:42,760
+in a try catch block and we'll handle it in that fashion.
+
+205
+00:09:42,760 --> 00:09:46,510
+So try catch and I'll say catch Exception exc
+
+206
+00:09:49,081 --> 00:09:52,748
+and then I'll say throw new ServletException
+
+207
+00:09:54,097 --> 00:09:56,398
+and I just simply wrap the exception.
+
+208
+00:09:56,398 --> 00:09:57,871
+So it'll get thrown back
+
+209
+00:09:57,871 --> 00:10:01,172
+and the exception will appear in the browser.
+
+210
+00:10:01,172 --> 00:10:03,509
+We could always customize this a bit
+
+211
+00:10:03,509 --> 00:10:06,109
+and add more elegant error tracking
+
+212
+00:10:06,109 --> 00:10:08,039
+but let's kinda go with this for now
+
+213
+00:10:08,039 --> 00:10:12,509
+and we can do some other logging in future videos.
+
+214
+00:10:12,509 --> 00:10:13,907
+But that's the basic idea here.
+
+215
+00:10:13,907 --> 00:10:16,189
+So on our doGet method we call listStudents,
+
+216
+00:10:16,189 --> 00:10:18,987
+it'll do its work and get our data
+
+217
+00:10:18,987 --> 00:10:21,424
+and then forward it over to the JSP.
+
+218
+00:10:21,424 --> 00:10:24,610
+So that's the main idea, the main outline here for this
+
+219
+00:10:24,610 --> 00:10:27,799
+listStudents and here's the listStudents method again.
+
+220
+00:10:27,799 --> 00:10:30,375
+Getting the data from the database util,
+
+221
+00:10:30,375 --> 00:10:32,193
+adding it to the request and then
+
+222
+00:10:32,193 --> 00:10:35,607
+sending it over to the JSP object.
+
+223
+00:10:35,607 --> 00:10:37,628
+So this looks really, really good.
+
+224
+00:10:37,628 --> 00:10:39,545
+Very pretty, I like it.
+
+225
+00:10:42,747 --> 00:10:45,192
+Okay great, so I hope this is all kinda comin together
+
+226
+00:10:45,192 --> 00:10:47,529
+for you, you know, we're kinda doin this step by step.
+
+227
+00:10:47,529 --> 00:10:49,905
+You've seen a lot of these steps in previous videos
+
+228
+00:10:49,905 --> 00:10:52,089
+but now we're really hooking it together
+
+229
+00:10:52,089 --> 00:10:53,689
+with a real database.
+
+230
+00:10:53,689 --> 00:10:55,708
+So in the next video we'll jump forward
+
+231
+00:10:55,708 --> 00:10:57,955
+and then we'll talk about making use of the JSP page.
+
+232
+00:10:57,955 --> 00:11:01,538
+So I'll see yah in the next video, alright.
+

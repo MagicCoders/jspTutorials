@@ -1,0 +1,584 @@
+1
+00:00:01,321 --> 00:00:03,155
+<v Chad>Alright, so we're making some good progress.</v>
+
+2
+00:00:03,155 --> 00:00:05,103
+We've covered the first three steps,
+
+3
+00:00:05,103 --> 00:00:09,062
+the last step here is updating our StudentDBUtil.
+
+4
+00:00:09,062 --> 00:00:11,268
+So, this is where we're actually gonna make use
+
+5
+00:00:11,268 --> 00:00:12,878
+of that addStudent method
+
+6
+00:00:12,878 --> 00:00:16,292
+and we're actually gonna put the real JDBC code in there
+
+7
+00:00:16,292 --> 00:00:19,459
+for doing an insert into the database.
+
+8
+00:00:22,549 --> 00:00:26,716
+So, just a quick recap here in our StudentControllerServlet.
+
+9
+00:00:32,255 --> 00:00:35,555
+In our addStudent method here,
+
+10
+00:00:35,555 --> 00:00:36,722
+we have a call
+
+11
+00:00:38,922 --> 00:00:41,255
+to studentDbUtil.addStudent,
+
+12
+00:00:42,498 --> 00:00:44,715
+so that's in place right now,
+
+13
+00:00:44,715 --> 00:00:48,117
+but what we need to do is actually put some real code inside
+
+14
+00:00:48,117 --> 00:00:49,707
+of that method.
+
+15
+00:00:49,707 --> 00:00:51,043
+So, I can just go to this method here
+
+16
+00:00:51,043 --> 00:00:52,235
+and navigate to it,
+
+17
+00:00:52,235 --> 00:00:54,432
+let me show you this little Eclipse trick here.
+
+18
+00:00:54,432 --> 00:00:56,139
+I can choose the method, right-click,
+
+19
+00:00:56,139 --> 00:00:59,909
+and I can say Open Declaration, or I can hit F3,
+
+20
+00:00:59,909 --> 00:01:01,984 line:15% 
+and it'll actually take me directly to that code,
+
+21
+00:01:01,984 --> 00:01:04,968 line:15% 
+so that's an Eclipse trick for you.
+
+22
+00:01:04,968 --> 00:01:08,169 line:15% 
+So, now I'm in my StudentDBUtil right now
+
+23
+00:01:08,169 --> 00:01:10,921 line:15% 
+and I'm at this method here, addStudent,
+
+24
+00:01:10,921 --> 00:01:11,754 line:15% 
+so DBUtil,
+
+25
+00:01:13,602 --> 00:01:14,902 line:15% 
+addStudent.
+
+26
+00:01:14,902 --> 00:01:19,163 line:15% 
+In this method, this is where we're gonna do our JDBC work,
+
+27
+00:01:19,163 --> 00:01:22,527 line:15% 
+so we're gonna get low-level, get a connection,
+
+28
+00:01:22,527 --> 00:01:24,431 line:15% 
+all of that good stuff.
+
+29
+00:01:24,431 --> 00:01:27,670 line:15% 
+So, let me clear out this method here
+
+30
+00:01:27,670 --> 00:01:30,375 line:15% 
+and again, I always like to start with comments,
+
+31
+00:01:30,375 --> 00:01:32,418 line:15% 
+just to kinda let me know
+
+32
+00:01:32,418 --> 00:01:34,168
+what I need to write.
+
+33
+00:01:35,167 --> 00:01:38,185
+So, I already know upfront I'm gonna need a throws Exception
+
+34
+00:01:38,185 --> 00:01:42,185
+so I'll just go ahead and put that in there now.
+
+35
+00:01:47,137 --> 00:01:49,215
+So, I'll need to create a SQL statement
+
+36
+00:01:49,215 --> 00:01:50,829
+for doing the insert,
+
+37
+00:01:50,829 --> 00:01:53,209
+I'll also need to set up the parameter values
+
+38
+00:01:53,209 --> 00:01:54,376
+for the query.
+
+39
+00:01:55,902 --> 00:01:58,886
+I'm sorry, the parameter values for the SQL
+
+40
+00:01:58,886 --> 00:02:00,909
+based on the student's information.
+
+41
+00:02:00,909 --> 00:02:03,683
+I'll need to execute the SQL insert
+
+42
+00:02:03,683 --> 00:02:08,397
+and then finally, I'll need to clean up my JDBC objects,
+
+43
+00:02:08,397 --> 00:02:10,754
+so that's basically the game plan
+
+44
+00:02:10,754 --> 00:02:12,983
+of things that I need to do in this method
+
+45
+00:02:12,983 --> 00:02:14,733
+for adding a student.
+
+46
+00:02:18,358 --> 00:02:22,525
+So, I'll just set up some basic JDBC objects here for
+
+47
+00:02:23,678 --> 00:02:26,595
+Connection and a PreparedStatement,
+
+48
+00:02:29,863 --> 00:02:34,030
+and I'll also set up my little try catch block here,
+
+49
+00:02:38,573 --> 00:02:40,802
+and also take care of the imports,
+
+50
+00:02:40,802 --> 00:02:43,885
+so import java.sql.PreparedStatement.
+
+51
+00:02:48,256 --> 00:02:49,463
+Alright, so let's start off here
+
+52
+00:02:49,463 --> 00:02:51,982
+with creating the SQL for the insert.
+
+53
+00:02:51,982 --> 00:02:54,475
+So, this is the SQL that we're gonna do for
+
+54
+00:02:54,475 --> 00:02:58,480
+actually doing the insert into the database
+
+55
+00:02:58,480 --> 00:02:59,813
+for the student,
+
+56
+00:03:00,733 --> 00:03:02,265
+but actually, whoa,
+
+57
+00:03:02,265 --> 00:03:04,343
+I actually need to get my connection first.
+
+58
+00:03:04,343 --> 00:03:05,295
+I forgot about that,
+
+59
+00:03:05,295 --> 00:03:07,014
+so that's the first thing we're gonna do here,
+
+60
+00:03:07,014 --> 00:03:08,847
+is get our connection.
+
+61
+00:03:10,781 --> 00:03:14,698
+Now we can go through and write our SQL String.
+
+62
+00:03:18,908 --> 00:03:20,696
+So, I'm gonna make use of SQL,
+
+63
+00:03:20,696 --> 00:03:22,330
+I'll say insert into student.
+
+64
+00:03:22,330 --> 00:03:24,326
+That's our table name.
+
+65
+00:03:24,326 --> 00:03:27,693
+Then I need to give the actual columns
+
+66
+00:03:27,693 --> 00:03:29,943
+and then the actual values,
+
+67
+00:03:32,442 --> 00:03:36,609
+so the columns are first name comma last name, comma email,
+
+68
+00:03:37,631 --> 00:03:41,440
+and make sure you keep an extra space at the end
+
+69
+00:03:41,440 --> 00:03:44,644
+of those lines there, inside the quotes.
+
+70
+00:03:44,644 --> 00:03:47,012
+And then for values, I'll make use
+
+71
+00:03:47,012 --> 00:03:48,963
+of the question mark placeholders
+
+72
+00:03:48,963 --> 00:03:52,411
+because I'm using PreparedStatements.
+
+73
+00:03:52,411 --> 00:03:55,743
+So, PreparedStatements are based off of placeholders
+
+74
+00:03:55,743 --> 00:03:57,694
+and you fill in those placeholders
+
+75
+00:03:57,694 --> 00:04:00,444
+or param values with actual data,
+
+76
+00:04:01,316 --> 00:04:05,797
+so I'll go ahead and set those param values now
+
+77
+00:04:05,797 --> 00:04:08,047
+in this next piece of code.
+
+78
+00:04:09,013 --> 00:04:10,531
+So, first off, I'll just kinda prepare
+
+79
+00:04:10,531 --> 00:04:11,564
+the statement upfront,
+
+80
+00:04:11,564 --> 00:04:14,653
+say myStmt equals myConn.preparedStatement
+
+81
+00:04:14,653 --> 00:04:15,950
+based on that SQL
+
+82
+00:04:15,950 --> 00:04:18,266
+and now I can go through and set the actual param values.
+
+83
+00:04:18,266 --> 00:04:21,319
+So, here I can say setString,
+
+84
+00:04:21,319 --> 00:04:23,235
+I get the parameterIndex of one
+
+85
+00:04:23,235 --> 00:04:26,985
+and I get the value of the student.FirstName.
+
+86
+00:04:28,076 --> 00:04:31,188
+So, the parameter values for PreparedStatements
+
+87
+00:04:31,188 --> 00:04:35,106
+are one-based, meaning that the first one is at one,
+
+88
+00:04:35,106 --> 00:04:38,670
+not zero, so don't wanna confuse you there.
+
+89
+00:04:38,670 --> 00:04:41,221
+Alright, because everything else in Java is zero-based,
+
+90
+00:04:41,221 --> 00:04:44,019
+like arrays, but our param values here,
+
+91
+00:04:44,019 --> 00:04:47,290
+for PreparedStatements, are one-based.
+
+92
+00:04:47,290 --> 00:04:49,902
+So, anyway, one for first name,
+
+93
+00:04:49,902 --> 00:04:52,819
+two for last name, three for email.
+
+94
+00:04:55,603 --> 00:04:56,436
+Alright, so that looks good.
+
+95
+00:04:56,436 --> 00:04:58,490
+So, we have all the param values set,
+
+96
+00:04:58,490 --> 00:05:00,650
+now it's just a matter of executing that SQL statement,
+
+97
+00:05:00,650 --> 00:05:03,367
+so I'll simply say myStmt.execute
+
+98
+00:05:03,367 --> 00:05:04,446
+and it'll do the work.
+
+99
+00:05:04,446 --> 00:05:06,525
+So, it should take a student,
+
+100
+00:05:06,525 --> 00:05:08,649
+perform an insert into that student table,
+
+101
+00:05:08,649 --> 00:05:09,982
+and there we go.
+
+102
+00:05:11,819 --> 00:05:13,549
+So, that's kinda the big game plan there
+
+103
+00:05:13,549 --> 00:05:16,632
+for this method in our StudentDBUtil,
+
+104
+00:05:18,587 --> 00:05:22,012
+so get a connection, create SQL, set the param values,
+
+105
+00:05:22,012 --> 00:05:24,970
+and execute the SQL insert.
+
+106
+00:05:24,970 --> 00:05:27,594
+And then finally, I need to clean up the JDBC objects
+
+107
+00:05:27,594 --> 00:05:29,068
+because I have a connection object
+
+108
+00:05:29,068 --> 00:05:30,542
+and a statement,
+
+109
+00:05:30,542 --> 00:05:34,757
+so I simply use a close on myConn comma myStmt,
+
+110
+00:05:34,757 --> 00:05:36,039
+comma null.
+
+111
+00:05:36,039 --> 00:05:39,232
+This last null here is for a result set.
+
+112
+00:05:39,232 --> 00:05:41,653
+In this case we don't have a result set,
+
+113
+00:05:41,653 --> 00:05:44,764
+so we simply pass in the value of null
+
+114
+00:05:44,764 --> 00:05:45,931
+and that's it.
+
+115
+00:05:48,201 --> 00:05:51,962
+So, we have out addStudent method in place,
+
+116
+00:05:51,962 --> 00:05:53,795
+so we are ready to go.
+
+117
+00:05:54,841 --> 00:05:56,153
+Alrighty, so let's do that.
+
+118
+00:05:56,153 --> 00:06:00,320
+So, I'm gonna go ahead and run the application again.
+
+119
+00:06:04,768 --> 00:06:05,999
+It's gonna give me my list,
+
+120
+00:06:05,999 --> 00:06:08,135
+I'll hit the Add Student button.
+
+121
+00:06:08,135 --> 00:06:12,052
+I'll enter the data again for Andrew Whittaker,
+
+122
+00:06:13,824 --> 00:06:15,657
+and andy@luv2code.com,
+
+123
+00:06:18,386 --> 00:06:19,886
+then I'll hit Save
+
+124
+00:06:22,125 --> 00:06:23,375
+and then, boom!
+
+125
+00:06:24,795 --> 00:06:27,849
+Check it out at the bottom, Andrew Whittaker,
+
+126
+00:06:27,849 --> 00:06:29,648
+so he's actually in the database
+
+127
+00:06:29,648 --> 00:06:31,471
+and this is really, really cool.
+
+128
+00:06:31,471 --> 00:06:35,128
+I'm excited about it, but you may wonder,
+
+129
+00:06:35,128 --> 00:06:36,997
+I don't believe you,
+
+130
+00:06:36,997 --> 00:06:40,830
+so let's go and actually look at the database.
+
+131
+00:06:42,663 --> 00:06:45,124
+So, I'm logging into my database here
+
+132
+00:06:45,124 --> 00:06:48,863
+and I will go to this web_student_tracker,
+
+133
+00:06:48,863 --> 00:06:52,357
+my Tables student and I will query that table,
+
+134
+00:06:52,357 --> 00:06:54,389
+and then, there it is.
+
+135
+00:06:54,389 --> 00:06:55,387
+So, he's there at the bottom,
+
+136
+00:06:55,387 --> 00:06:57,768
+so he's ID number six, Andrew Whittaker.
+
+137
+00:06:57,768 --> 00:07:01,720
+So, the data really is making it into the database
+
+138
+00:07:01,720 --> 00:07:04,077
+and so we have our database interaction,
+
+139
+00:07:04,077 --> 00:07:04,910
+so this is cool.
+
+140
+00:07:04,910 --> 00:07:07,514
+So, we did the full circle here
+
+141
+00:07:07,514 --> 00:07:11,101
+of writing the code all the way from the beginning
+
+142
+00:07:11,101 --> 00:07:14,178
+and then following it all the way to the back end
+
+143
+00:07:14,178 --> 00:07:15,385
+with the Database UTL,
+
+144
+00:07:15,385 --> 00:07:18,717
+so I would say mission accomplished
+
+145
+00:07:18,717 --> 00:07:21,225
+for the addStudent feature.
+
+146
+00:07:21,225 --> 00:07:24,892
+So, I'd say good job, we made it through it.
+

@@ -1,0 +1,348 @@
+1
+00:00:01,190 --> 00:00:02,723
+<v ->Hey, in this video,</v>
+
+2
+00:00:02,723 --> 00:00:06,890
+I'm going to show you how to use HTML forms and check boxes.
+
+3
+00:00:08,702 --> 00:00:10,734
+So, we'll cover the following topics.
+
+4
+00:00:10,734 --> 00:00:13,218
+We'll first start off with a check box demo.
+
+5
+00:00:13,218 --> 00:00:15,349
+And then I'll show you the actual HTML code
+
+6
+00:00:15,349 --> 00:00:17,206
+for creating check boxes.
+
+7
+00:00:17,206 --> 00:00:18,977
+And then we'll pull it all together
+
+8
+00:00:18,977 --> 00:00:21,616
+with a full JSP page example.
+
+9
+00:00:21,616 --> 00:00:23,592
+Alright, so a lot of good things in store here,
+
+10
+00:00:23,592 --> 00:00:26,092
+lets go ahead and get started.
+
+11
+00:00:28,195 --> 00:00:31,376
+Alright, so lets start off with the check box demo here.
+
+12
+00:00:31,376 --> 00:00:34,464
+The user can enter their first name and last name.
+
+13
+00:00:34,464 --> 00:00:36,026
+And now the new thing that's here,
+
+14
+00:00:36,026 --> 00:00:37,228
+is that they can actually choose
+
+15
+00:00:37,228 --> 00:00:39,353
+multiple programming languages.
+
+16
+00:00:39,353 --> 00:00:41,802
+So that's thanks to check boxes.
+
+17
+00:00:41,802 --> 00:00:43,683
+Previously they could only use radio buttons
+
+18
+00:00:43,683 --> 00:00:45,042
+and choose only one language,
+
+19
+00:00:45,042 --> 00:00:46,905
+but now they can choose multiple languages.
+
+20
+00:00:46,905 --> 00:00:48,536
+Which is good, gives them more flexibility.
+
+21
+00:00:48,536 --> 00:00:52,193
+Because we may personally like more than one language.
+
+22
+00:00:52,193 --> 00:00:53,325
+And once you're happy with that,
+
+23
+00:00:53,325 --> 00:00:55,914
+you can go ahead and hit submit.
+
+24
+00:00:55,914 --> 00:00:58,689
+And now, our confirmation page is a little bit different.
+
+25
+00:00:58,689 --> 00:01:00,999
+So now since they can choose multiple languages,
+
+26
+00:01:00,999 --> 00:01:03,675
+then we'll simply display a list of all of the languages
+
+27
+00:01:03,675 --> 00:01:05,724
+that they actually selected.
+
+28
+00:01:05,724 --> 00:01:08,244
+So we'll do some slightly different coding here
+
+29
+00:01:08,244 --> 00:01:10,194
+on our confirmation pages.
+
+30
+00:01:10,194 --> 00:01:13,027
+But that's the big picture anyway.
+
+31
+00:01:14,803 --> 00:01:16,452
+Alright, so lets go ahead and look at the code here
+
+32
+00:01:16,452 --> 00:01:18,635
+for HTML check boxes.
+
+33
+00:01:18,635 --> 00:01:21,113
+So, its very similar to radio buttons.
+
+34
+00:01:21,113 --> 00:01:23,929
+The only difference is the actual input type.
+
+35
+00:01:23,929 --> 00:01:25,403
+So instead of type radio,
+
+36
+00:01:25,403 --> 00:01:27,516
+we say type equals checkbox.
+
+37
+00:01:27,516 --> 00:01:29,745
+And other than that, everything else stays the same.
+
+38
+00:01:29,745 --> 00:01:31,493
+So, input type of checkbox,
+
+39
+00:01:31,493 --> 00:01:32,706
+name favorite language,
+
+40
+00:01:32,706 --> 00:01:34,012
+value of Java,
+
+41
+00:01:34,012 --> 00:01:35,980
+with a label off to the far right.
+
+42
+00:01:35,980 --> 00:01:37,640
+And you can just repeat that process
+
+43
+00:01:37,640 --> 00:01:40,543
+for each one of the languages, C-sharp, PHP, and Ruby.
+
+44
+00:01:40,543 --> 00:01:42,342
+So again, very similar.
+
+45
+00:01:42,342 --> 00:01:46,259
+The only thing new is the type equals checkbox.
+
+46
+00:01:47,300 --> 00:01:50,394
+Alright, so now that the user can check multiple boxes.
+
+47
+00:01:50,394 --> 00:01:52,147
+We need to change our coding up a little bit
+
+48
+00:01:52,147 --> 00:01:53,586
+in our JSP page.
+
+49
+00:01:53,586 --> 00:01:54,939
+So now on our JSP,
+
+50
+00:01:54,939 --> 00:01:57,186
+we won't be able to use the little shortcut syntax
+
+51
+00:01:57,186 --> 00:01:59,513
+of the dollar sign, curly brace, param,
+
+52
+00:01:59,513 --> 00:02:00,779
+because now were going to get
+
+53
+00:02:00,779 --> 00:02:02,259
+a lot of different values back.
+
+54
+00:02:02,259 --> 00:02:03,577
+So what we can do instead
+
+55
+00:02:03,577 --> 00:02:05,179
+is make use of the request objects.
+
+56
+00:02:05,179 --> 00:02:08,685
+I'll say, request dot get parameter values
+
+57
+00:02:08,685 --> 00:02:11,988
+and then I'll give the parameter name, favorite language.
+
+58
+00:02:11,988 --> 00:02:14,548
+So this get parameter values will actually return
+
+59
+00:02:14,548 --> 00:02:16,911
+an array of strings.
+
+60
+00:02:16,911 --> 00:02:18,037
+Right? That makes sense right?
+
+61
+00:02:18,037 --> 00:02:20,295
+Because they can choose multiple programing languages now,
+
+62
+00:02:20,295 --> 00:02:23,529
+so it's going to return an array of strings.
+
+63
+00:02:23,529 --> 00:02:26,222
+And then it will write some JSP scriptlet code,
+
+64
+00:02:26,222 --> 00:02:29,440
+and we'll actually loop through that array and,
+
+65
+00:02:29,440 --> 00:02:32,381
+you know, print out an HTML list of the data.
+
+66
+00:02:32,381 --> 00:02:34,047
+But anyway, things will be a little different
+
+67
+00:02:34,047 --> 00:02:35,904
+when we get into the coding there of the JSP,
+
+68
+00:02:35,904 --> 00:02:39,737
+and we'll make use of this technique for that.
+
+69
+00:02:42,522 --> 00:02:44,211
+Alright, so lets kind of pull it all together.
+
+70
+00:02:44,211 --> 00:02:47,932
+So, for this demo, our project actually,
+
+71
+00:02:47,932 --> 00:02:50,707
+we're going to have a student checkbox form.
+
+72
+00:02:50,707 --> 00:02:51,758
+They can enter their information,
+
+73
+00:02:51,758 --> 00:02:53,409
+choose multiple programming languages,
+
+74
+00:02:53,409 --> 00:02:54,559
+hit submit.
+
+75
+00:02:54,559 --> 00:02:56,974
+Then that will go over to a JSP.
+
+76
+00:02:56,974 --> 00:02:59,638
+We'll give them their confirmation information,
+
+77
+00:02:59,638 --> 00:03:01,978
+and then we'll loop through all languages selected,
+
+78
+00:03:01,978 --> 00:03:05,867
+and then display them as an HTML list.
+
+79
+00:03:05,867 --> 00:03:08,386
+Alright, so you know how I love to-do lists.
+
+80
+00:03:08,386 --> 00:03:09,988
+So, the first thing we have to do is,
+
+81
+00:03:09,988 --> 00:03:11,672
+create the HTML form.
+
+82
+00:03:11,672 --> 00:03:13,030
+And then the second thing we'll do is,
+
+83
+00:03:13,030 --> 00:03:15,445
+create the JSP confirmation page.
+
+84
+00:03:15,445 --> 00:03:17,053
+And what I'll do, I'll actually break this up
+
+85
+00:03:17,053 --> 00:03:18,829
+and show it in a separate video.
+
+86
+00:03:18,829 --> 00:03:20,426
+As far as all the Eclipse coding.
+
+87
+00:03:20,426 --> 00:03:23,343
+So, I'll see you in the next video.
+

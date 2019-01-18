@@ -1,0 +1,596 @@
+1
+00:00:01,183 --> 00:00:03,962
+<v Narrator>Okay, so let's go ahead an move into Eclipse.</v>
+
+2
+00:00:03,962 --> 00:00:05,088
+And what I want to do is continue
+
+3
+00:00:05,088 --> 00:00:07,243
+to use that servlet demo project that we had
+
+4
+00:00:07,243 --> 00:00:09,076
+in the previous video.
+
+5
+00:00:11,435 --> 00:00:13,514
+And the first thing I need to do as far as my step one
+
+6
+00:00:13,514 --> 00:00:15,674
+is creating the html form.
+
+7
+00:00:15,674 --> 00:00:17,896
+So I move to this web content directory.
+
+8
+00:00:17,896 --> 00:00:19,282
+I'll do a right click.
+
+9
+00:00:19,282 --> 00:00:21,365
+I'll choose new and file.
+
+10
+00:00:26,839 --> 00:00:28,534
+So the actual file that I'm gonna create here
+
+11
+00:00:28,534 --> 00:00:30,867
+is called student-form.html.
+
+12
+00:00:36,931 --> 00:00:37,902
+And once you're happy with that name
+
+13
+00:00:37,902 --> 00:00:40,316
+you can go ahead and click on the finish button.
+
+14
+00:00:40,316 --> 00:00:43,141
+This will give us a very empty file here.
+
+15
+00:00:43,141 --> 00:00:46,289
+Or a blank file and we need to add some data here.
+
+16
+00:00:46,289 --> 00:00:49,382
+So I'll first start off with my normal html housekeeping.
+
+17
+00:00:49,382 --> 00:00:52,878
+So, html and then the body tags,
+
+18
+00:00:52,878 --> 00:00:55,628
+and that's the basic stuff there.
+
+19
+00:00:57,412 --> 00:00:58,704
+And now what I need to do is go ahead
+
+20
+00:00:58,704 --> 00:01:00,704
+and create my html form.
+
+21
+00:01:03,577 --> 00:01:04,646
+So with this form we're gonna have
+
+22
+00:01:04,646 --> 00:01:05,976
+action="StudentServlet",
+
+23
+00:01:05,976 --> 00:01:07,780
+so we're calling this studentservlet
+
+24
+00:01:07,780 --> 00:01:09,364
+and we're gonna us the method="GET",
+
+25
+00:01:09,364 --> 00:01:11,979
+that's the http method that's gonna map over to our
+
+26
+00:01:11,979 --> 00:01:14,396
+do get method in our servlet.
+
+27
+00:01:15,328 --> 00:01:16,941
+Alright, so now let's go ahead and set up
+
+28
+00:01:16,941 --> 00:01:18,936
+our html form fields.
+
+29
+00:01:18,936 --> 00:01:21,081
+I'll start off here with the first name,
+
+30
+00:01:21,081 --> 00:01:22,553
+input type="text",
+
+31
+00:01:22,553 --> 00:01:24,386
+name="firstName".
+
+32
+00:01:28,857 --> 00:01:31,106
+And then I'll do a similar thing here for last name.
+
+33
+00:01:31,106 --> 00:01:33,067
+I'll say input type="text",
+
+34
+00:01:33,067 --> 00:01:34,981
+name="LastName.
+
+35
+00:01:34,981 --> 00:01:37,082
+So again, remember, these form field names,
+
+36
+00:01:37,082 --> 00:01:39,342
+these are the actual names that you'll use
+
+37
+00:01:39,342 --> 00:01:42,444
+in the actual servlet code for reading that data.
+
+38
+00:01:42,444 --> 00:01:44,331
+So you have to make sure to use the same names
+
+39
+00:01:44,331 --> 00:01:45,998
+in the servlet code.
+
+40
+00:01:47,730 --> 00:01:49,392
+I'll just copy this line break,
+
+41
+00:01:49,392 --> 00:01:50,520
+put it down here,
+
+42
+00:01:50,520 --> 00:01:53,404
+then finally, I'll just wrap it up with a submit button.
+
+43
+00:01:53,404 --> 00:01:57,237
+Input type="submit", value="Submit".
+
+44
+00:02:01,143 --> 00:02:03,981
+And that's basically it for our html forms.
+
+45
+00:02:03,981 --> 00:02:06,417
+It's gonna send data over to the student servlet,
+
+46
+00:02:06,417 --> 00:02:09,481
+and gonna use the method of get.
+
+47
+00:02:09,481 --> 00:02:13,564
+Alright, this looks really good, good job so far.
+
+48
+00:02:15,242 --> 00:02:16,781
+I'll save this file.
+
+49
+00:02:16,781 --> 00:02:19,095
+Now the next thing we need to do is our step two,
+
+50
+00:02:19,095 --> 00:02:21,054
+is actually creating the servlet.
+
+51
+00:02:21,054 --> 00:02:23,681
+I'll move up to this java resources directory.
+
+52
+00:02:23,681 --> 00:02:25,343
+I'll move down to the package that I created
+
+53
+00:02:25,343 --> 00:02:29,343
+in the previous video, our servlet demo package.
+
+54
+00:02:30,854 --> 00:02:34,771
+I'll simply right click, I'll say new, servlet.
+
+55
+00:02:39,794 --> 00:02:42,492
+The name I'll use for the servlet is StudentServlet.
+
+56
+00:02:42,492 --> 00:02:44,602
+So we'll use the same name that we reference here
+
+57
+00:02:44,602 --> 00:02:46,602
+in the actual html form.
+
+58
+00:02:50,580 --> 00:02:52,003
+And once we're happy with this, we can go ahead
+
+59
+00:02:52,003 --> 00:02:54,336
+and click the finish button.
+
+60
+00:02:59,767 --> 00:03:02,402
+Over on our far left side here, we have this new
+
+61
+00:03:02,402 --> 00:03:05,392
+studentservlet.java that was created by Eclipse,
+
+62
+00:03:05,392 --> 00:03:07,254
+and it generated a lot of good code for us
+
+63
+00:03:07,254 --> 00:03:08,629
+that we can start with.
+
+64
+00:03:08,629 --> 00:03:11,865
+It helps jump start our development process.
+
+65
+00:03:11,865 --> 00:03:15,001
+Up top we have this @WebServlet annotation,
+
+66
+00:03:15,001 --> 00:03:16,408
+so it's /servlet.
+
+67
+00:03:16,408 --> 00:03:17,516
+That's basically the name that we'll use
+
+68
+00:03:17,516 --> 00:03:19,898
+for calling that servlet.
+
+69
+00:03:19,898 --> 00:03:23,030
+We have out servlet class, that extends HttpServlet.
+
+70
+00:03:23,030 --> 00:03:25,780
+We've seen all this stuff before.
+
+71
+00:03:27,608 --> 00:03:29,995
+Let me just clear out some white space here.
+
+72
+00:03:29,995 --> 00:03:31,390
+And this is our doget method.
+
+73
+00:03:31,390 --> 00:03:33,722
+This is the method that's called, when the actual
+
+74
+00:03:33,722 --> 00:03:35,588
+html form submits the data, because they're using
+
+75
+00:03:35,588 --> 00:03:37,421
+the method equals get.
+
+76
+00:03:38,532 --> 00:03:40,535
+Let me clear out that auto-generated code,
+
+77
+00:03:40,535 --> 00:03:42,222
+and let me write my own code.
+
+78
+00:03:42,222 --> 00:03:44,131
+And just like I did before, I always like to write
+
+79
+00:03:44,131 --> 00:03:49,032
+some comments, just to tell myself what I need to do.
+
+80
+00:03:49,032 --> 00:03:51,898
+The first step is I need to set the content type.
+
+81
+00:03:51,898 --> 00:03:56,065
+And then step two I need to actually get the print writer.
+
+82
+00:03:57,662 --> 00:03:59,624
+And then finally step three is where I do my real work.
+
+83
+00:03:59,624 --> 00:04:03,124
+This is where I generate the html content.
+
+84
+00:04:05,685 --> 00:04:07,422
+Alright, good, so this is my game plan as far as
+
+85
+00:04:07,422 --> 00:04:09,589
+what I need to do my work.
+
+86
+00:04:13,785 --> 00:04:15,073
+Alright, let's go ahead and dig in.
+
+87
+00:04:15,073 --> 00:04:16,822
+Let's start with step one.
+
+88
+00:04:16,822 --> 00:04:17,933
+Set the content type.
+
+89
+00:04:17,933 --> 00:04:20,708
+I used a response.setContentType, and I make use
+
+90
+00:04:20,708 --> 00:04:22,412
+of text slash/html.
+
+91
+00:04:22,412 --> 00:04:24,063
+So I'm telling my browser I'm gonna send
+
+92
+00:04:24,063 --> 00:04:26,211
+back text html data.
+
+93
+00:04:26,211 --> 00:04:28,801
+Then the next step is actually getting the writer.
+
+94
+00:04:28,801 --> 00:04:33,610
+Here I have printwriter, out = response.getwriter.
+
+95
+00:04:33,610 --> 00:04:35,220
+And then I simply just do an import here
+
+96
+00:04:35,220 --> 00:04:37,859
+for that package, java.io,
+
+97
+00:04:37,859 --> 00:04:40,909
+because that's where the print writer class is defined.
+
+98
+00:04:40,909 --> 00:04:44,247
+Now, again, step three is where I just do all my real work,
+
+99
+00:04:44,247 --> 00:04:47,737
+or funnel work here, so I'll clear out some space.
+
+100
+00:04:47,737 --> 00:04:50,785
+And now I need to simply just do out.println,
+
+101
+00:04:50,785 --> 00:04:55,534
+to set up my html housekeeping for our html body.
+
+102
+00:04:55,534 --> 00:04:58,306
+And I'll just copy this line, and I'll do a similar thing
+
+103
+00:04:58,306 --> 00:05:01,999
+here for the /body, /html.
+
+104
+00:05:01,999 --> 00:05:05,916
+Again, just very basic html housekeeping there.
+
+105
+00:05:08,160 --> 00:05:11,306
+And now what I want to do is simply send back a response.
+
+106
+00:05:11,306 --> 00:05:13,746
+So I want to say, hey, the student's confirmed,
+
+107
+00:05:13,746 --> 00:05:16,385
+and I want to display their first name and last name.
+
+108
+00:05:16,385 --> 00:05:19,885
+I'll just write this out here in the code.
+
+109
+00:05:20,826 --> 00:05:22,611
+Here I have, the student is confirmed,
+
+110
+00:05:22,611 --> 00:05:26,377
+and now I need to display the student's first name.
+
+111
+00:05:26,377 --> 00:05:28,564
+I can read that from the form data,
+
+112
+00:05:28,564 --> 00:05:32,731
+by saying request.getparameter("firstName").
+
+113
+00:05:33,615 --> 00:05:35,849
+And then I'll just add some white space there
+
+114
+00:05:35,849 --> 00:05:37,303
+just so we have some space between the first name
+
+115
+00:05:37,303 --> 00:05:38,755
+and last name.
+
+116
+00:05:38,755 --> 00:05:41,004
+And I do a similar thing here for last name,
+
+117
+00:05:41,004 --> 00:05:45,993
+request.getparameter("lastName").
+
+118
+00:05:45,993 --> 00:05:47,264
+And that's basically it.
+
+119
+00:05:47,264 --> 00:05:50,303
+So lines 41 through 43, that's kind of the real work
+
+120
+00:05:50,303 --> 00:05:53,415
+of this example, just sending back a response.
+
+121
+00:05:53,415 --> 00:05:56,856
+The student's confirmed, first name, last name.
+
+122
+00:05:56,856 --> 00:05:59,268
+And again, we make use of that request, getparameter
+
+123
+00:05:59,268 --> 00:06:01,101
+to read the form data.
+
+124
+00:06:04,178 --> 00:06:06,793
+Just kind of stepping back a bit, here's our method.
+
+125
+00:06:06,793 --> 00:06:08,978
+The main method here, doget.
+
+126
+00:06:08,978 --> 00:06:11,767
+That html form has a method equals get,
+
+127
+00:06:11,767 --> 00:06:15,728
+and it's gonna call my doget method in my servlet.
+
+128
+00:06:15,728 --> 00:06:19,395
+This all looks really good so far, good job.
+
+129
+00:06:21,291 --> 00:06:22,828
+Now let's go ahead and test this one out.
+
+130
+00:06:22,828 --> 00:06:26,379
+The test that I actually need to view my form,
+
+131
+00:06:26,379 --> 00:06:28,476
+it's on the web content directory, I moved
+
+132
+00:06:28,476 --> 00:06:31,054
+to the studentform.html.
+
+133
+00:06:31,054 --> 00:06:33,976
+And then I simply right click and I choose run as,
+
+134
+00:06:33,976 --> 00:06:35,893
+and then run on server.
+
+135
+00:06:41,503 --> 00:06:43,379
+Alright great, so here's my form.
+
+136
+00:06:43,379 --> 00:06:45,342
+Form fields for first name and last name.
+
+137
+00:06:45,342 --> 00:06:47,791
+I can go and fill that out with some information,
+
+138
+00:06:47,791 --> 00:06:50,918
+John Doe, and once I'm happy with this,
+
+139
+00:06:50,918 --> 00:06:54,501
+I can go ahead and click the submit button.
+
+140
+00:06:55,831 --> 00:06:57,703
+Alright, I hit the submit button,
+
+141
+00:06:57,703 --> 00:07:00,630
+this made a call to my servlet, and my servlet responded.
+
+142
+00:07:00,630 --> 00:07:03,079
+It said the student is confirmed, and it displayed
+
+143
+00:07:03,079 --> 00:07:06,139
+the student's first name and last name.
+
+144
+00:07:06,139 --> 00:07:07,990
+This looks really, really good.
+
+145
+00:07:07,990 --> 00:07:10,137
+I mean, this is exactly what we wanted to do,
+
+146
+00:07:10,137 --> 00:07:11,538
+with our servlet.
+
+147
+00:07:11,538 --> 00:07:14,538
+In this example, our servlet read form data,
+
+148
+00:07:14,538 --> 00:07:17,465
+and it generated an html response.
+
+149
+00:07:17,465 --> 00:07:19,715
+Good job with this example.
+

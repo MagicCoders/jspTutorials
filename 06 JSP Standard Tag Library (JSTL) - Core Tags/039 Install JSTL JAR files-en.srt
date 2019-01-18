@@ -1,0 +1,460 @@
+1
+00:00:01,298 --> 00:00:02,131
+<v Narrator>Hey!</v>
+
+2
+00:00:02,131 --> 00:00:04,183
+In this video, I'm gonna show you how to install the
+
+3
+00:00:04,183 --> 00:00:06,266
+JSP Standard Tag Library.
+
+4
+00:00:09,756 --> 00:00:12,211
+All right, so let's go ahead and move into Eclipse.
+
+5
+00:00:12,211 --> 00:00:13,606
+What we're gonna do here is we're actually
+
+6
+00:00:13,606 --> 00:00:16,144
+gonna create a new project.
+
+7
+00:00:16,144 --> 00:00:18,328
+So, I'll go to the file menu and I'll say
+
+8
+00:00:18,328 --> 00:00:21,745
+new, and I'll choose Dynamic Web Project.
+
+9
+00:00:26,774 --> 00:00:29,566
+And once the window's open here, for the project name,
+
+10
+00:00:29,566 --> 00:00:32,149
+we'll give the name of tagdemo.
+
+11
+00:00:35,098 --> 00:00:38,105
+And then I'll keep all the other defaults on this screen
+
+12
+00:00:38,105 --> 00:00:40,688
+and I'll hit the finish button.
+
+13
+00:00:45,779 --> 00:00:46,698
+All right, great.
+
+14
+00:00:46,698 --> 00:00:48,440
+So now I have this new project, tagdemo,
+
+15
+00:00:48,440 --> 00:00:49,330
+and it's empty right now.
+
+16
+00:00:49,330 --> 00:00:51,437
+Not much here, but I'm actually gonna add
+
+17
+00:00:51,437 --> 00:00:53,020
+some JST libraries.
+
+18
+00:00:54,160 --> 00:00:58,357
+So in the WebContent WEB-INF lib directory, it's empty,
+
+19
+00:00:58,357 --> 00:01:01,190
+I need to add some JAR files here.
+
+20
+00:01:02,780 --> 00:01:03,911
+Alrighty, so let's go ahead and open up
+
+21
+00:01:03,911 --> 00:01:06,948
+a web browser, and let's go visit this URL here:
+
+22
+00:01:06,948 --> 00:01:10,115
+luv2code.com/download-jstl.
+
+23
+00:01:11,873 --> 00:01:14,850
+This will allow you to download the JSTL JAR files
+
+24
+00:01:14,850 --> 00:01:16,267
+to your computer.
+
+25
+00:01:17,887 --> 00:01:19,864
+Your browser may prompt you, but eventually
+
+26
+00:01:19,864 --> 00:01:22,486
+it will download a zip file to your computer.
+
+27
+00:01:22,486 --> 00:01:25,504
+So I can find this file in my downloads directory.
+
+28
+00:01:25,504 --> 00:01:27,462
+On my computer, it will automatically
+
+29
+00:01:27,462 --> 00:01:29,167
+unzip that file.
+
+30
+00:01:29,167 --> 00:01:32,504
+So I'll have a directory here called jstl-libs.
+
+31
+00:01:32,504 --> 00:01:36,026
+Inside of this directory are two JAR files that I need
+
+32
+00:01:36,026 --> 00:01:37,550
+for JSTL.
+
+33
+00:01:37,550 --> 00:01:40,556
+One's the implementation, and the other is the API.
+
+34
+00:01:40,556 --> 00:01:42,376
+And you need both of these jar files.
+
+35
+00:01:42,376 --> 00:01:44,327
+So go ahead and select both of those files
+
+36
+00:01:44,327 --> 00:01:45,494
+and copy them.
+
+37
+00:01:53,249 --> 00:01:55,739
+And then, move over to your Eclipse project,
+
+38
+00:01:55,739 --> 00:01:58,850
+and we're gonna move into that WEB-INF lib directory
+
+39
+00:01:58,850 --> 00:02:01,102
+and we're actually gonna paste both of those files
+
+40
+00:02:01,102 --> 00:02:02,773
+into WEB-INF lib.
+
+41
+00:02:02,773 --> 00:02:04,650
+It's very important that you paste the files
+
+42
+00:02:04,650 --> 00:02:06,528
+into the WEB-INF lib directory.
+
+43
+00:02:06,528 --> 00:02:09,107
+This is a special directory that's a class path
+
+44
+00:02:09,107 --> 00:02:11,190
+for your web application.
+
+45
+00:02:15,464 --> 00:02:16,297
+Alrighty, great.
+
+46
+00:02:16,297 --> 00:02:17,976
+So once you've pasted those files here,
+
+47
+00:02:17,976 --> 00:02:19,886
+you should have two of them for JSTL.
+
+48
+00:02:19,886 --> 00:02:21,835
+Again, the first one is the implementation,
+
+49
+00:02:21,835 --> 00:02:23,694
+the second one is the actual API.
+
+50
+00:02:23,694 --> 00:02:27,777
+And you need both of those files in your project.
+
+51
+00:02:31,820 --> 00:02:33,010
+So, the first thing I need to do is
+
+52
+00:02:33,010 --> 00:02:34,712
+create a new file to test it out.
+
+53
+00:02:34,712 --> 00:02:37,369
+So under web content I'll do a right click,
+
+54
+00:02:37,369 --> 00:02:38,869
+I'll so new, file.
+
+55
+00:02:41,510 --> 00:02:42,670
+And then for the name of the file,
+
+56
+00:02:42,670 --> 00:02:45,689
+I'll just call it test.jsp.
+
+57
+00:02:45,689 --> 00:02:47,419
+It's a real simple test here.
+
+58
+00:02:47,419 --> 00:02:48,846
+Once you're happy with the name,
+
+59
+00:02:48,846 --> 00:02:51,929
+go ahead and click the finish button.
+
+60
+00:02:53,932 --> 00:02:54,765
+Okay, great.
+
+61
+00:02:54,765 --> 00:02:57,096
+So here's my simple file here at test.jsp.
+
+62
+00:02:57,096 --> 00:03:01,263
+Now let's go ahead and do our normal html housekeeping.
+
+63
+00:03:05,181 --> 00:03:09,838
+And, what I need to do here since I'm using a JSP tag;
+
+64
+00:03:09,838 --> 00:03:12,781
+I need to set up a reference to that tag library.
+
+65
+00:03:12,781 --> 00:03:14,993
+And I make use of it by using angle bracket percent
+
+66
+00:03:14,993 --> 00:03:19,352
+with an @ symbol, and this is new, I say, taglib uri,
+
+67
+00:03:19,352 --> 00:03:23,422
+I give the actual uri that's defined for this tag library...
+
+68
+00:03:23,422 --> 00:03:25,970
+So it's simply just a unique name or a unique identifier
+
+69
+00:03:25,970 --> 00:03:27,720
+for this tag library.
+
+70
+00:03:29,823 --> 00:03:32,796
+And you have to enter it exactly as I have here.
+
+71
+00:03:32,796 --> 00:03:35,020
+And then the prefix equals c.
+
+72
+00:03:35,020 --> 00:03:38,131
+So the prefix c is simply short for core.
+
+73
+00:03:38,131 --> 00:03:42,752
+So we're gonna make use of the core tag library here.
+
+74
+00:03:42,752 --> 00:03:44,076
+Okay, so this looks good so far.
+
+75
+00:03:44,076 --> 00:03:47,409
+So we have our tag lib reference set up.
+
+76
+00:03:50,101 --> 00:03:50,934
+All right.
+
+77
+00:03:50,934 --> 00:03:53,751
+So now, with that in place I can go ahead and try it out.
+
+78
+00:03:53,751 --> 00:03:57,918
+So I'll make use of one of the tags; c;set a variable
+
+79
+00:03:59,865 --> 00:04:01,827
+and I'm just gonna set this variable called stuff
+
+80
+00:04:01,827 --> 00:04:03,621
+and I'll give it a value of...
+
+81
+00:04:03,621 --> 00:04:05,588
+And I'll make use of the current time stamp.
+
+82
+00:04:05,588 --> 00:04:08,927
+So I'll just say new java util.date.
+
+83
+00:04:08,927 --> 00:04:10,883
+So basically I'm just creating a date object
+
+84
+00:04:10,883 --> 00:04:12,757
+and I'm assigning it to a variable.
+
+85
+00:04:12,757 --> 00:04:15,921
+And I'm gonna use that later on in my page.
+
+86
+00:04:15,921 --> 00:04:17,013
+All right, so there's a variable I have
+
+87
+00:04:17,013 --> 00:04:20,782
+it's called stuff, that was set using one of the core tags.
+
+88
+00:04:20,782 --> 00:04:23,688
+And now here I'll just say time on the server is...
+
+89
+00:04:23,688 --> 00:04:26,494
+And then I'll just display the value of stuff.
+
+90
+00:04:26,494 --> 00:04:29,465
+So I can make use of my JSP expression language,
+
+91
+00:04:29,465 --> 00:04:31,585
+that's the dollar sign curly brace,
+
+92
+00:04:31,585 --> 00:04:33,431
+and just give a reference to stuff.
+
+93
+00:04:33,431 --> 00:04:36,446
+And that's the same stuff that's defined on line seven.
+
+94
+00:04:36,446 --> 00:04:38,803
+So again, just a real quick example here
+
+95
+00:04:38,803 --> 00:04:40,498
+of making use of one of the core tags.
+
+96
+00:04:40,498 --> 00:04:42,809
+I'll go into more details in the following videos.
+
+97
+00:04:42,809 --> 00:04:45,530
+Just, wanted to just do a quick example here.
+
+98
+00:04:45,530 --> 00:04:47,180
+All right, so let's save the file.
+
+99
+00:04:47,180 --> 00:04:49,247
+Let's go ahead and run it.
+
+100
+00:04:49,247 --> 00:04:51,017
+And it'll prompt me on which server to use,
+
+101
+00:04:51,017 --> 00:04:55,649
+I always use it, hit okay for that, click finish,
+
+102
+00:04:55,649 --> 00:04:57,071
+and now it's up and running.
+
+103
+00:04:57,071 --> 00:04:58,610
+So in our internal browser here,
+
+104
+00:04:58,610 --> 00:05:00,514
+time on the server is...
+
+105
+00:05:00,514 --> 00:05:01,896
+And we crop in the time.
+
+106
+00:05:01,896 --> 00:05:02,981
+So this is really good.
+
+107
+00:05:02,981 --> 00:05:07,161
+So we actually make use of the JSTL core tag library
+
+108
+00:05:07,161 --> 00:05:10,103
+to set a variable, and then we simply displayed it.
+
+109
+00:05:10,103 --> 00:05:12,676
+Now, again, nothing really fancy here.
+
+110
+00:05:12,676 --> 00:05:14,922
+We'll get on to all the fun stuff later.
+
+111
+00:05:14,922 --> 00:05:18,078
+Just wanted to get everything set up.
+
+112
+00:05:18,078 --> 00:05:19,839
+Okay, great, so we have JSTL installed on our
+
+113
+00:05:19,839 --> 00:05:22,202
+local system and we'll make use of it in our
+
+114
+00:05:22,202 --> 00:05:23,703
+following videos.
+
+115
+00:05:23,703 --> 00:05:24,536
+Good job.
+

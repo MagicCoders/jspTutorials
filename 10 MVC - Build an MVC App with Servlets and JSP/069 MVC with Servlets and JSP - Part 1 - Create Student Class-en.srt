@@ -1,0 +1,304 @@
+1
+00:00:01,300 --> 00:00:04,415
+<v ->Alright, so let's go ahead and move into Eclipse.</v>
+
+2
+00:00:04,415 --> 00:00:05,248
+And what we're going to do is continue
+
+3
+00:00:05,248 --> 00:00:09,056
+to use that same project Servlet demo.
+
+4
+00:00:09,056 --> 00:00:11,447
+So, the first thing that we need to do on our step one,
+
+5
+00:00:11,447 --> 00:00:14,497
+is that we need to create this Student Class.
+
+6
+00:00:14,497 --> 00:00:16,664
+(Silence)
+
+7
+00:00:19,337 --> 00:00:22,738
+So what I'll do is move down to my Java Resources Directory
+
+8
+00:00:22,738 --> 00:00:25,818
+and move into this package and, actually, what I want to do
+
+9
+00:00:25,818 --> 00:00:28,628
+is create a new package just for this demo.
+
+10
+00:00:28,628 --> 00:00:33,377
+So, I'll just right-click and I'll say New, Package.
+
+11
+00:00:33,377 --> 00:00:35,747 line:15% 
+And the name that I want to use is very similar
+
+12
+00:00:35,747 --> 00:00:39,516 line:15% 
+to the previous one, but I'll simply want to add on mvctwo.
+
+13
+00:00:39,516 --> 00:00:42,692 line:15% 
+So that's the name of the package.
+
+14
+00:00:42,692 --> 00:00:43,911 line:15% 
+And once we're happy with that,
+
+15
+00:00:43,911 --> 00:00:46,361 line:15% 
+we can go ahead and click Finish.
+
+16
+00:00:46,361 --> 00:00:48,642
+Okay, cool. So now we have this new package.
+
+17
+00:00:48,642 --> 00:00:50,558
+So let's go ahead and add our Student Class
+
+18
+00:00:50,558 --> 00:00:53,501
+in its new package. So this new package, mvctwo.
+
+19
+00:00:53,501 --> 00:00:58,243
+I'll right-click on it and I'll say New, Class.
+
+20
+00:00:58,243 --> 00:01:00,410
+(Silence)
+
+21
+00:01:03,941 --> 00:01:07,651
+And my class name here is, this is for our student class,
+
+22
+00:01:07,651 --> 00:01:09,851
+so I'll just type in the name of Student.
+
+23
+00:01:09,851 --> 00:01:11,918
+And I keep all the other defaults
+
+24
+00:01:11,918 --> 00:01:14,418
+and I go ahead and hit Finish.
+
+25
+00:01:15,652 --> 00:01:18,474
+Okay, great. So we have this very basic class.
+
+26
+00:01:18,474 --> 00:01:20,652
+So we're starting from scratch here.
+
+27
+00:01:20,652 --> 00:01:23,018
+So let's go ahead and define the fields here
+
+28
+00:01:23,018 --> 00:01:24,993
+for our student. We're going to define fields for
+
+29
+00:01:24,993 --> 00:01:28,729
+firstName, lastName, and email address.
+
+30
+00:01:28,729 --> 00:01:30,896
+(Silence)
+
+31
+00:01:33,485 --> 00:01:35,533
+So we should have these three fields here,
+
+32
+00:01:35,533 --> 00:01:38,074
+listed for our student class for right now.
+
+33
+00:01:38,074 --> 00:01:41,104
+Now, what I'd like to do is also create a constructor
+
+34
+00:01:41,104 --> 00:01:45,095
+to help us initialize those fields when we create a student.
+
+35
+00:01:45,095 --> 00:01:46,703
+So let me expand the window.
+
+36
+00:01:46,703 --> 00:01:48,018
+So, here, let's generate a constructor.
+
+37
+00:01:48,018 --> 00:01:49,017
+So I'm going to use an Eclipse
+
+38
+00:01:49,017 --> 00:01:51,411
+trick to generate a constructor.
+
+39
+00:01:51,411 --> 00:01:53,213
+So I simply do a right-click, I choose Source,
+
+40
+00:01:53,213 --> 00:01:56,632
+and I choose Generate Constructor using Fields.
+
+41
+00:01:56,632 --> 00:02:00,215
+Ew, pretty fancy, here. Let's try this out.
+
+42
+00:02:01,055 --> 00:02:03,943
+So, Eclipse will actually generate a constructor for you.
+
+43
+00:02:03,943 --> 00:02:05,997
+It'll generate code for you based
+
+44
+00:02:05,997 --> 00:02:07,002
+on the fields that you select.
+
+45
+00:02:07,002 --> 00:02:08,822
+So I'll make sure they're all selected
+
+46
+00:02:08,822 --> 00:02:12,309
+and then I'll hit OK and then, Boom! Whalah!
+
+47
+00:02:12,309 --> 00:02:14,506
+This is cool. So Eclipse actually created
+
+48
+00:02:14,506 --> 00:02:18,002
+a constructor class for me that I can use later on
+
+49
+00:02:18,002 --> 00:02:20,859
+in my application without having to write any codes.
+
+50
+00:02:20,859 --> 00:02:22,851
+So that's a nice little Eclipse trick.
+
+51
+00:02:22,851 --> 00:02:25,763
+Okay, wait. There's more. I have one more trick for you.
+
+52
+00:02:25,763 --> 00:02:29,293
+We're going to make use of generating getters and setters.
+
+53
+00:02:29,293 --> 00:02:31,281
+So, again, Eclipse can generate getters and
+
+54
+00:02:31,281 --> 00:02:34,219
+setters for you automatically.
+
+55
+00:02:34,219 --> 00:02:36,490
+So what I'll do here, again, I'll right-click,
+
+56
+00:02:36,490 --> 00:02:38,330
+I'll choose Source, and now, this time,
+
+57
+00:02:38,330 --> 00:02:41,013
+I'll choose Generate Getters and Setters.
+
+58
+00:02:41,013 --> 00:02:43,180
+(Silence)
+
+59
+00:02:45,001 --> 00:02:46,603
+And Eclipse will pop up a dialogue
+
+60
+00:02:46,603 --> 00:02:48,370
+with the list of fields here.
+
+61
+00:02:48,370 --> 00:02:50,231
+I'll go ahead and choose Select All
+
+62
+00:02:50,231 --> 00:02:52,172
+to make sure all of these fields are selected for
+
+63
+00:02:52,172 --> 00:02:54,922
+email, firstName, and lastName.
+
+64
+00:02:55,792 --> 00:02:58,212
+And I'll keep all the other defaults here.
+
+65
+00:02:58,212 --> 00:02:59,811
+And once you're happy with that,
+
+66
+00:02:59,811 --> 00:03:01,852
+you can go and click the OK button.
+
+67
+00:03:01,852 --> 00:03:04,042
+And now Eclipse just generated a lot of code here.
+
+68
+00:03:04,042 --> 00:03:08,365
+(laughing) It created Getters and Setters for firstName,
+
+69
+00:03:08,365 --> 00:03:09,973
+email, and lastName. So, again,
+
+70
+00:03:09,973 --> 00:03:13,133
+a lot of coding here that we didn't have to write ourselves.
+
+71
+00:03:13,133 --> 00:03:15,302
+We made use of those Eclipse tricks
+
+72
+00:03:15,302 --> 00:03:17,883
+to generate the code for us.
+
+73
+00:03:17,883 --> 00:03:19,604
+So this pretty much takes care of everything here
+
+74
+00:03:19,604 --> 00:03:21,702
+for our student class and we can go ahead
+
+75
+00:03:21,702 --> 00:03:23,432
+and move on to some other work.
+
+76
+00:03:23,432 --> 00:03:25,015
+So good job so far.
+

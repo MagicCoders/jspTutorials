@@ -1,0 +1,356 @@
+1
+00:00:01,394 --> 00:00:02,833
+<v Chad>Hey, in this video</v>
+
+2
+00:00:02,833 --> 00:00:07,016
+we're gonna learn about servlets in Java.
+
+3
+00:00:07,016 --> 00:00:08,800
+So what exactly is a servlet?
+
+4
+00:00:08,800 --> 00:00:10,937
+Well a servlet is basically a Java class
+
+5
+00:00:10,937 --> 00:00:13,049
+that's processed on the server,
+
+6
+00:00:13,049 --> 00:00:15,752
+so this Java class can generate HTML
+
+7
+00:00:15,752 --> 00:00:17,529
+that's returned to the browser,
+
+8
+00:00:17,529 --> 00:00:20,576
+and you can use servlets to read HTML form data,
+
+9
+00:00:20,576 --> 00:00:22,993
+you can make use of cookies and sessions.
+
+10
+00:00:22,993 --> 00:00:25,001
+At a very high level,
+
+11
+00:00:25,001 --> 00:00:28,465
+servlets are similar in functionality to JSPs,
+
+12
+00:00:28,465 --> 00:00:30,369
+but I'll talk more about that later,
+
+13
+00:00:30,369 --> 00:00:31,344
+so just for now,
+
+14
+00:00:31,344 --> 00:00:34,057
+let's kind of focus on how to build a servlet,
+
+15
+00:00:34,057 --> 00:00:37,602
+and we'll look at some of the coding for it.
+
+16
+00:00:37,602 --> 00:00:38,721
+All right, so with servlets
+
+17
+00:00:38,721 --> 00:00:40,441
+you're gonna process something on the server,
+
+18
+00:00:40,441 --> 00:00:42,793
+so you have your browser, you have your servlet,
+
+19
+00:00:42,793 --> 00:00:44,025
+and what the browser's gonna do is
+
+20
+00:00:44,025 --> 00:00:46,745
+basically send a request over to the server,
+
+21
+00:00:46,745 --> 00:00:49,073
+so your Java servlet will execute,
+
+22
+00:00:49,073 --> 00:00:50,464
+and when that servlet is executing,
+
+23
+00:00:50,464 --> 00:00:53,121
+it can generate some HTML content,
+
+24
+00:00:53,121 --> 00:00:55,513
+and then that HTML content will actually be sent
+
+25
+00:00:55,513 --> 00:00:58,369
+back to the browser as a response.
+
+26
+00:00:58,369 --> 00:01:02,241
+So again, we have HTML content that's built on the fly
+
+27
+00:01:02,241 --> 00:01:03,657
+by our Java servlet,
+
+28
+00:01:03,657 --> 00:01:06,785
+and the Java servlet is actually a Java class
+
+29
+00:01:06,785 --> 00:01:09,785
+that runs when we make a call to it.
+
+30
+00:01:11,080 --> 00:01:12,930
+All right, so now you're probably wondering,
+
+31
+00:01:12,930 --> 00:01:15,113
+"Okay, show me the code,"
+
+32
+00:01:15,113 --> 00:01:16,785
+so we can go ahead and look at the code.
+
+33
+00:01:16,785 --> 00:01:19,145
+So here at the top, we start off with our servlet.
+
+34
+00:01:19,145 --> 00:01:21,881
+The first thing you have here is an @WebServlet.
+
+35
+00:01:21,881 --> 00:01:23,682
+This is a Java annotation,
+
+36
+00:01:23,682 --> 00:01:25,994
+and we basically give a path for the servlet,
+
+37
+00:01:25,994 --> 00:01:29,009
+so @WebServlet("/HelloWordServlet"),
+
+38
+00:01:29,009 --> 00:01:31,440
+that's the path for accessing the servlet.
+
+39
+00:01:31,440 --> 00:01:32,649
+Then we create our servlet,
+
+40
+00:01:32,649 --> 00:01:36,265
+and like I said earlier, a servlet is simply a Java class.
+
+41
+00:01:36,265 --> 00:01:38,585
+So we create public class HelloWorldServlet,
+
+42
+00:01:38,585 --> 00:01:40,252
+extends HttpServlet.
+
+43
+00:01:42,129 --> 00:01:43,609
+So whenever we write a servlet,
+
+44
+00:01:43,609 --> 00:01:45,745
+we can override either the doGet method
+
+45
+00:01:45,745 --> 00:01:47,297
+or the doPost method.
+
+46
+00:01:47,297 --> 00:01:48,729
+So for this hello world example,
+
+47
+00:01:48,729 --> 00:01:50,768
+we'll override the doGet method.
+
+48
+00:01:50,768 --> 00:01:53,105
+So the doGet method, it takes two parameters.
+
+49
+00:01:53,105 --> 00:01:56,784
+They pass in a request object and a response object.
+
+50
+00:01:56,784 --> 00:01:58,928
+So when we make use of our servlet code
+
+51
+00:01:58,928 --> 00:02:02,137
+inside of this doGet method, we have three main steps.
+
+52
+00:02:02,137 --> 00:02:05,233
+So the first step is setting the content type.
+
+53
+00:02:05,233 --> 00:02:06,888
+So here we basically tell the browser,
+
+54
+00:02:06,888 --> 00:02:09,441
+"Hey, I'm gonna send you back some data,
+
+55
+00:02:09,441 --> 00:02:11,681
+"and this is the type of data I'm sending back."
+
+56
+00:02:11,681 --> 00:02:12,929
+So in this example,
+
+57
+00:02:12,929 --> 00:02:17,096
+I'll say response.setContentType("text/html");
+
+58
+00:02:18,184 --> 00:02:20,833
+Then, the next step is getting the printwriter,
+
+59
+00:02:20,833 --> 00:02:23,673
+so this is a special object that we can get a handle on
+
+60
+00:02:23,673 --> 00:02:26,553
+to actually send data back to the browser.
+
+61
+00:02:26,553 --> 00:02:30,720
+So here I say PrintWriter out = response.getWriter();
+
+62
+00:02:31,610 --> 00:02:33,498
+Then, moving ahead to Step Three,
+
+63
+00:02:33,498 --> 00:02:36,322
+we basically just generate our HTML content,
+
+64
+00:02:36,322 --> 00:02:38,554
+and this is very similar to like what JSP is.
+
+65
+00:02:38,554 --> 00:02:40,434
+You simply use out.println,
+
+66
+00:02:40,434 --> 00:02:42,522
+and you just give your HTML content.
+
+67
+00:02:42,522 --> 00:02:45,867
+So here I say out.println, I give the &lt;html&gt;&lt;body&gt;,
+
+68
+00:02:45,867 --> 00:02:48,674
+then I say out.println("&lt;h2&gt;Hello World&lt;/h2&gt;"),
+
+69
+00:02:48,674 --> 00:02:51,619
+and then I do another println with &lt;hr&gt;,
+
+70
+00:02:51,619 --> 00:02:53,210
+and then finally here I say
+
+71
+00:02:53,210 --> 00:02:55,762
+out.println("Time on the server is: ",
+
+72
+00:02:55,762 --> 00:02:58,882
+and I can drop in new java.util.Date(),
+
+73
+00:02:58,882 --> 00:03:01,634
+and then I can do a &lt;/body&gt;&lt;/html&gt;.
+
+74
+00:03:01,634 --> 00:03:03,123
+So basically what this will do is,
+
+75
+00:03:03,123 --> 00:03:06,490
+on the fly, it's gonna generate an HTML page
+
+76
+00:03:06,490 --> 00:03:08,746
+very similar to the screenshot we have here,
+
+77
+00:03:08,746 --> 00:03:10,698
+and it'll give us the time on the server,
+
+78
+00:03:10,698 --> 00:03:13,659
+and that's the basic idea of a servlet.
+
+79
+00:03:13,659 --> 00:03:15,742
+So again, similar to JSPs
+
+80
+00:03:17,394 --> 00:03:19,626
+in that we generate HTML on the fly,
+
+81
+00:03:19,626 --> 00:03:21,106
+but a tad bit different
+
+82
+00:03:21,106 --> 00:03:23,748
+in that we actually create a Java class first,
+
+83
+00:03:23,748 --> 00:03:27,218
+and then we do an out.println on all of the HTML
+
+84
+00:03:27,218 --> 00:03:30,718
+that we're gonna send back to the browser.
+
+85
+00:03:31,906 --> 00:03:33,866
+All right, so this is a lot of good stuff,
+
+86
+00:03:33,866 --> 00:03:36,018
+the Hello World servlet in a nutshell.
+
+87
+00:03:36,018 --> 00:03:38,546
+In the next video, we're actually gonna try it out,
+
+88
+00:03:38,546 --> 00:03:40,819
+and move into Eclipse, and start working with it.
+
+89
+00:03:40,819 --> 00:03:43,486
+All right, so I'll see you then.
+

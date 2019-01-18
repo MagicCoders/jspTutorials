@@ -1,0 +1,628 @@
+1
+00:00:01,078 --> 00:00:02,121
+<v Chad>Hey.</v>
+
+2
+00:00:02,121 --> 00:00:04,978
+In this video we're gonna learn how to set up Tomcat
+
+3
+00:00:04,978 --> 00:00:07,645
+for database connection pooling.
+
+4
+00:00:10,058 --> 00:00:12,209
+So, we start off with the following topics.
+
+5
+00:00:12,209 --> 00:00:15,069
+We'll discuss database connections in web apps,
+
+6
+00:00:15,069 --> 00:00:18,408
+we'll also learn about database connection pools.
+
+7
+00:00:18,408 --> 00:00:20,440
+Then we'll go through the step-by-step process
+
+8
+00:00:20,440 --> 00:00:23,571
+of setting up a pool in Tomcat.
+
+9
+00:00:23,571 --> 00:00:26,273
+And finally, we'll pull it all together
+
+10
+00:00:26,273 --> 00:00:30,348
+by testing our database connection pool configurations.
+
+11
+00:00:30,348 --> 00:00:32,444
+So a lot of great stuff in the video.
+
+12
+00:00:32,444 --> 00:00:35,027
+Let's go ahead and get started.
+
+13
+00:00:37,889 --> 00:00:39,718
+Alright, so whenever you need to connect
+
+14
+00:00:39,718 --> 00:00:42,708
+to a database using a web application you may think that
+
+15
+00:00:42,708 --> 00:00:45,725
+you only need a single database connection.
+
+16
+00:00:45,725 --> 00:00:48,548
+Unfortunately, this will not scale for multiple users.
+
+17
+00:00:48,548 --> 00:00:50,838
+This is very similar to, say for example,
+
+18
+00:00:50,838 --> 00:00:53,387
+you have a large number of users
+
+19
+00:00:53,387 --> 00:00:55,819
+and they all want to make use of one telephone.
+
+20
+00:00:55,819 --> 00:00:58,057
+So, your office only has one telephone
+
+21
+00:00:58,057 --> 00:00:59,929
+and you have 40 or 50 people
+
+22
+00:00:59,929 --> 00:01:01,342
+and they need to make use of the telephone
+
+23
+00:01:01,342 --> 00:01:03,214
+to make a phone call.
+
+24
+00:01:03,214 --> 00:01:04,433
+So, this wouldn't work out.
+
+25
+00:01:04,433 --> 00:01:06,592
+You'll have along queue and people will wait
+
+26
+00:01:06,592 --> 00:01:09,092
+to actually use the telephone.
+
+27
+00:01:12,218 --> 00:01:15,419
+So, we need to have a solution for this.
+
+28
+00:01:15,419 --> 00:01:17,236
+So, the best practice in the industry is
+
+29
+00:01:17,236 --> 00:01:20,214
+to make sure of database connection pools.
+
+30
+00:01:20,214 --> 00:01:22,114
+So, this will allow your app to scale
+
+31
+00:01:22,114 --> 00:01:24,682
+and handle multiple users quickly.
+
+32
+00:01:24,682 --> 00:01:26,312
+So, for all of those users who need
+
+33
+00:01:26,312 --> 00:01:28,283
+to make use of our application
+
+34
+00:01:28,283 --> 00:01:32,402
+and our Tomcat server will set up a pool of connections.
+
+35
+00:01:32,402 --> 00:01:35,263
+So, like a pre-configured pool of connections
+
+36
+00:01:35,263 --> 00:01:37,515
+that they can use and once they're done with it
+
+37
+00:01:37,515 --> 00:01:39,032
+they can put it back into the pool
+
+38
+00:01:39,032 --> 00:01:40,892
+and another user can reuse it.
+
+39
+00:01:40,892 --> 00:01:43,350
+So again, going back to our telephone analogy,
+
+40
+00:01:43,350 --> 00:01:46,781
+instead of simply having one phone in our office,
+
+41
+00:01:46,781 --> 00:01:49,173
+now our office may have 30 phones
+
+42
+00:01:49,173 --> 00:01:52,421
+or 50 phones for the various users to come in.
+
+43
+00:01:52,421 --> 00:01:54,330
+This'll give us high throughput and allow us
+
+44
+00:01:54,330 --> 00:01:58,501
+to handle more users in a shorter period of time.
+
+45
+00:01:58,501 --> 00:02:00,881
+Okay, so how do we set up a connection pool?
+
+46
+00:02:00,881 --> 00:02:03,760
+And you know how I love to do lists, I love step-by-steps.
+
+47
+00:02:03,760 --> 00:02:05,398
+So the first thing we need to do is
+
+48
+00:02:05,398 --> 00:02:08,197
+download the JDBC driver JAR file.
+
+49
+00:02:08,197 --> 00:02:09,453
+Then once we have that,
+
+50
+00:02:09,453 --> 00:02:11,763
+the next step is setting up the connection pool
+
+51
+00:02:11,763 --> 00:02:14,527
+in our context.xml file.
+
+52
+00:02:14,527 --> 00:02:16,669
+And then finally, one our thing's configured
+
+53
+00:02:16,669 --> 00:02:20,178
+and we can get a connection pool reference in our Java code
+
+54
+00:02:20,178 --> 00:02:22,365
+and I'll let you go through this step-by-step.
+
+55
+00:02:22,365 --> 00:02:24,179
+I'll show you have to work through it
+
+56
+00:02:24,179 --> 00:02:25,776
+and I will get everything configured
+
+57
+00:02:25,776 --> 00:02:29,943
+and we'll test everything at the end, so stay with me.
+
+58
+00:02:31,986 --> 00:02:34,050
+Alright so, let's take a look at step one:
+
+59
+00:02:34,050 --> 00:02:36,985
+downloading the JDBC driver JAR file.
+
+60
+00:02:36,985 --> 00:02:39,553
+In order to connect to a database you're gonna need
+
+61
+00:02:39,553 --> 00:02:42,803
+to have a JDBC driver for that given database.
+
+62
+00:02:42,803 --> 00:02:45,876
+So here we're gonna make use of mysql in the course,
+
+63
+00:02:45,876 --> 00:02:49,113
+so I can go through the URL listed here on mysql.com
+
+64
+00:02:49,113 --> 00:02:52,890
+and this will allow us to download the driver JAR file.
+
+65
+00:02:52,890 --> 00:02:55,088
+Once we have that JAR file downloaded,
+
+66
+00:02:55,088 --> 00:02:57,388
+then we can add it into a special directory
+
+67
+00:02:57,388 --> 00:03:00,833
+in our web app location called WEB-INF/lib.
+
+68
+00:03:00,833 --> 00:03:02,819
+This is a special directory where you place
+
+69
+00:03:02,819 --> 00:03:04,644
+any supporting JAR files
+
+70
+00:03:04,644 --> 00:03:08,738
+or any supporting libraries that your application will need.
+
+71
+00:03:08,738 --> 00:03:10,646
+So, in this case, we need to connect to the database,
+
+72
+00:03:10,646 --> 00:03:12,632
+so we'll place our JAR file inside of the
+
+73
+00:03:12,632 --> 00:03:14,188
+WEB-INF/lib directory,
+
+74
+00:03:14,188 --> 00:03:18,105
+and I'll show you that in the videos coming up.
+
+75
+00:03:19,800 --> 00:03:22,826
+Alright, step two: defining a connection pool.
+
+76
+00:03:22,826 --> 00:03:25,224
+So, we'll actually define the connection pool
+
+77
+00:03:25,224 --> 00:03:28,554
+inside of this file called context.xml.
+
+78
+00:03:28,554 --> 00:03:32,396
+This is a Tomcat specific file that basically tells Tomcat
+
+79
+00:03:32,396 --> 00:03:34,660
+how to connect to your database
+
+80
+00:03:34,660 --> 00:03:37,844
+and it also tells Tomcat how to configure your pool,
+
+81
+00:03:37,844 --> 00:03:40,210
+such as how many connections to create up front,
+
+82
+00:03:40,210 --> 00:03:42,035
+the minimum numbers of connections,
+
+83
+00:03:42,035 --> 00:03:44,071
+so on and so forth.
+
+84
+00:03:44,071 --> 00:03:45,560
+So, let's take a look at this file,
+
+85
+00:03:45,560 --> 00:03:50,266
+it's under directory WebContent/META-INF/
+
+86
+00:03:50,266 --> 00:03:53,098
+and the file name is context.xml.
+
+87
+00:03:53,098 --> 00:03:54,998
+So, since a small XML file,
+
+88
+00:03:54,998 --> 00:03:57,574
+we have a resource reference here in the middle.
+
+89
+00:03:57,574 --> 00:03:59,107
+So, the first thing you do,
+
+90
+00:03:59,107 --> 00:04:01,428
+is you give the actual name of the resource,
+
+91
+00:04:01,428 --> 00:04:04,440
+so here we have jdbc/web_student_tracker.
+
+92
+00:04:04,440 --> 00:04:08,326
+The name is basically the alias that we'll use later on
+
+93
+00:04:08,326 --> 00:04:10,880
+in our application to look up this connection pool,
+
+94
+00:04:10,880 --> 00:04:13,213
+so name is similar to alias.
+
+95
+00:04:14,182 --> 00:04:17,382
+On the next line here we tell Tomcat how we're going
+
+96
+00:04:17,382 --> 00:04:20,081
+to authenticate, so auth="Container" meaning that
+
+97
+00:04:20,081 --> 00:04:23,983
+the Tomcat server will actually handle the authentication.
+
+98
+00:04:23,983 --> 00:04:27,796
+Up next we have type="javax.sql.DataSource",
+
+99
+00:04:27,796 --> 00:04:30,945
+that's the actual name of the Java interface that we'll use
+
+100
+00:04:30,945 --> 00:04:33,372
+for communicating with the pool.
+
+101
+00:04:33,372 --> 00:04:37,209
+So, in the Java world, whenever you see DataSource,
+
+102
+00:04:37,209 --> 00:04:39,155
+just think connection pool.
+
+103
+00:04:39,155 --> 00:04:41,594
+Alright so, they use this generic term DataSource
+
+104
+00:04:41,594 --> 00:04:45,769
+but effectively that's the name of your connection pool.
+
+105
+00:04:45,769 --> 00:04:49,359
+Okay, on the next line here we discuss the actual size
+
+106
+00:04:49,359 --> 00:04:52,708
+of the connection pool so; maxActive="20",
+
+107
+00:04:52,708 --> 00:04:55,208
+so we're gonna have 20 connections in our pool
+
+108
+00:04:55,208 --> 00:04:56,071
+to start out with;
+
+109
+00:04:56,071 --> 00:05:00,410
+maxIdle="5" so you know if there are no users in our system,
+
+110
+00:05:00,410 --> 00:05:03,742
+we'll have at least 5 connections available;
+
+111
+00:05:03,742 --> 00:05:07,292
+and then the maxWait is the time in milliseconds
+
+112
+00:05:07,292 --> 00:05:09,270
+as for as how long someone can wait
+
+113
+00:05:09,270 --> 00:05:10,712
+before they get a connection.
+
+114
+00:05:10,712 --> 00:05:13,549
+So, right here its 10,000 milliseconds,
+
+115
+00:05:13,549 --> 00:05:16,799
+which translates over into ten seconds.
+
+116
+00:05:17,850 --> 00:05:20,780
+Alright so, that's kind of the size configuration stuff.
+
+117
+00:05:20,780 --> 00:05:23,869
+On the next line here-actually the next three lines-
+
+118
+00:05:23,869 --> 00:05:27,426
+we tell Tomcat how to connect to our database.
+
+119
+00:05:27,426 --> 00:05:30,236
+Alright so, we give it the username and password.
+
+120
+00:05:30,236 --> 00:05:33,123
+If you remember, that's the special mysql account
+
+121
+00:05:33,123 --> 00:05:37,886
+that we created earlier so those are our credentials.
+
+122
+00:05:37,886 --> 00:05:40,835
+Next, we give the actual driverClassName,
+
+123
+00:05:40,835 --> 00:05:43,338
+so the fully qualified name of the JDBC driver,
+
+124
+00:05:43,338 --> 00:05:45,505
+so we're using mysql here.
+
+125
+00:05:46,794 --> 00:05:49,721
+And then finally, we give the url to the database.
+
+126
+00:05:49,721 --> 00:05:51,680
+So our database is running on localhost
+
+127
+00:05:51,680 --> 00:05:54,696
+and the actual name of the database schema is called
+
+128
+00:05:54,696 --> 00:05:58,087
+student tracker and again we ran
+
+129
+00:05:58,087 --> 00:05:59,729
+some sequel code earlier
+
+130
+00:05:59,729 --> 00:06:03,337
+to create that database with the schema in mind,
+
+131
+00:06:03,337 --> 00:06:04,539
+tables and so on.
+
+132
+00:06:04,539 --> 00:06:06,979
+So basically, again,
+
+133
+00:06:06,979 --> 00:06:09,075
+this file here tells us how to connect
+
+134
+00:06:09,075 --> 00:06:12,326
+to mysql and also how to configure the pool,
+
+135
+00:06:12,326 --> 00:06:14,511
+as in regards to the actual size
+
+136
+00:06:14,511 --> 00:06:16,928
+or the number of connections.
+
+137
+00:06:18,501 --> 00:06:21,229
+Okay, great, so now that we've told Tomcat how to connect
+
+138
+00:06:21,229 --> 00:06:23,011
+to our database now we need
+
+139
+00:06:23,011 --> 00:06:27,610
+to somehow get that connection pool into our Java code.
+
+140
+00:06:27,610 --> 00:06:29,707
+So, using Java EE,
+
+141
+00:06:29,707 --> 00:06:32,831
+they have this technique called resource injection,
+
+142
+00:06:32,831 --> 00:06:34,031
+for your servlets,
+
+143
+00:06:34,031 --> 00:06:36,322
+so basically what this means is that
+
+144
+00:06:36,322 --> 00:06:39,934
+Tomcat will automagically set the connection pool
+
+145
+00:06:39,934 --> 00:06:41,147
+on your servlet.
+
+146
+00:06:41,147 --> 00:06:44,409
+And I'll actually show you the Java coding for it in a bit.
+
+147
+00:06:44,409 --> 00:06:47,649
+You simple make use of a special annotation called
+
+148
+00:06:47,649 --> 00:06:50,257
+a resource annotation in Tomcat
+
+149
+00:06:50,257 --> 00:06:51,927
+or your app server in general,
+
+150
+00:06:51,927 --> 00:06:55,742
+will actually set a connection pool servlet source code.
+
+151
+00:06:55,742 --> 00:06:57,551
+But don't worry, I'll show you all the code
+
+152
+00:06:57,551 --> 00:06:59,524
+and we'll kinda walk through it step-by-step
+
+153
+00:06:59,524 --> 00:07:01,497
+and we'll do everything from scratch.
+
+154
+00:07:01,497 --> 00:07:03,320
+Alright so, this kinda covers the theory.
+
+155
+00:07:03,320 --> 00:07:05,561
+In the following video we'll move into Eclipse
+
+156
+00:07:05,561 --> 00:07:07,183
+and we'll start writing some code.
+
+157
+00:07:07,183 --> 00:07:10,016
+So I'll see you in the next video.
+

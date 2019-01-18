@@ -1,0 +1,1140 @@
+1
+00:00:01,289 --> 00:00:02,907
+<v Instructor>Hello, in this video,</v>
+
+2
+00:00:02,907 --> 00:00:06,740
+we're gonna learn how to use cookies with ASP.
+
+3
+00:00:09,244 --> 00:00:11,045
+So we'll cover the following topics.
+
+4
+00:00:11,045 --> 00:00:13,010
+First off we'll find out what are cookies
+
+5
+00:00:13,010 --> 00:00:15,438
+and how we can use them and then we'll actually
+
+6
+00:00:15,438 --> 00:00:18,821
+explore the cookies API and learn how to write code
+
+7
+00:00:18,821 --> 00:00:20,461
+for reading and writing cookies.
+
+8
+00:00:20,461 --> 00:00:21,637
+Alright, so we have a lot of good things
+
+9
+00:00:21,637 --> 00:00:22,952
+in store in this video.
+
+10
+00:00:22,952 --> 00:00:24,987
+Let's go ahead and get started
+
+11
+00:00:24,987 --> 00:00:26,708
+so what's the purpose of cookies
+
+12
+00:00:26,708 --> 00:00:28,514
+and you may have heard of cookies before
+
+13
+00:00:28,514 --> 00:00:30,672
+but basically cookies allow you to personalize
+
+14
+00:00:30,672 --> 00:00:33,247
+a website for a user and so in effect
+
+15
+00:00:33,247 --> 00:00:36,759
+you can actually keep track of any user preferences.
+
+16
+00:00:36,759 --> 00:00:39,060
+Say for example you have a new site
+
+17
+00:00:39,060 --> 00:00:40,863
+and a user chose their favorite programming language
+
+18
+00:00:40,863 --> 00:00:42,720
+as Java, then you can keep track of that
+
+19
+00:00:42,720 --> 00:00:45,192
+and show them Java news in the future
+
+20
+00:00:45,192 --> 00:00:48,255
+or if you have a travel site and they frequently fly
+
+21
+00:00:48,255 --> 00:00:50,348
+from a given airport, then you can show them
+
+22
+00:00:50,348 --> 00:00:52,794
+all flights from that given airport.
+
+23
+00:00:52,794 --> 00:00:55,571
+So it allows you to keep track of long term preferences
+
+24
+00:00:55,571 --> 00:00:57,372
+for a user even after they close
+
+25
+00:00:57,372 --> 00:00:59,789
+their browser and restart it.
+
+26
+00:01:02,179 --> 00:01:04,174
+Alright so let's look at an example here
+
+27
+00:01:04,174 --> 00:01:07,282
+so I'll use that expedia.com travel site.
+
+28
+00:01:07,282 --> 00:01:09,068
+Again I use this website a lot
+
+29
+00:01:09,068 --> 00:01:13,018
+because I travel frequently between Philadelphia and India
+
+30
+00:01:13,018 --> 00:01:14,955
+so here in this form I'll just go ahead
+
+31
+00:01:14,955 --> 00:01:18,436
+and setup my departure city of where I'm flying from,
+
+32
+00:01:18,436 --> 00:01:22,887
+Philadelphia, PA in the US and I travel to Bangalore
+
+33
+00:01:22,887 --> 00:01:25,425
+at the deal in India so I'll just set up
+
+34
+00:01:25,425 --> 00:01:29,356
+the departure dates, I'm just making this up right now.
+
+35
+00:01:29,356 --> 00:01:31,824
+My departure date and my return date
+
+36
+00:01:31,824 --> 00:01:34,205
+but the key here is that once I do a search,
+
+37
+00:01:34,205 --> 00:01:36,121
+Expedia will go off and find flights for me
+
+38
+00:01:36,121 --> 00:01:38,012
+from Philadelphia to Bangalore.
+
+39
+00:01:38,012 --> 00:01:40,352
+Now the nice thing about it is that Expedia
+
+40
+00:01:40,352 --> 00:01:43,735
+will actually create a cookie and store it on my browser
+
+41
+00:01:43,735 --> 00:01:45,911
+such that when they come back at a later time
+
+42
+00:01:45,911 --> 00:01:48,701
+or actually when I come back at a later time,
+
+43
+00:01:48,701 --> 00:01:50,831
+Expedia will remember, it's like hey,
+
+44
+00:01:50,831 --> 00:01:52,498
+your last flight that you searched for
+
+45
+00:01:52,498 --> 00:01:55,481
+was Philadelphia to Bangalore and here's some new prices.
+
+46
+00:01:55,481 --> 00:01:58,882
+So I'll go ahead and quit my browser right now
+
+47
+00:01:58,882 --> 00:02:01,753
+and then I'll start up the browser again from scratch
+
+48
+00:02:01,753 --> 00:02:04,308
+and so now I have my browser back up
+
+49
+00:02:04,308 --> 00:02:06,631
+and then I actually go into Expedia again
+
+50
+00:02:06,631 --> 00:02:08,672
+and it'll actually remember information
+
+51
+00:02:08,672 --> 00:02:11,736
+about my previous operation and again,
+
+52
+00:02:11,736 --> 00:02:12,937
+they're making use of cookies,
+
+53
+00:02:12,937 --> 00:02:14,804
+they're keeping track of my preferences
+
+54
+00:02:14,804 --> 00:02:16,424
+so they automatically know that I'm gonna go
+
+55
+00:02:16,424 --> 00:02:18,908
+from Philadelphia to Bangalore,
+
+56
+00:02:18,908 --> 00:02:21,601
+just as a suggestion and they make use of cookies
+
+57
+00:02:21,601 --> 00:02:24,681
+for this type of functionality which is really cool
+
+58
+00:02:24,681 --> 00:02:27,295
+and I'll actually show you how to write Java code
+
+59
+00:02:27,295 --> 00:02:31,462
+or JSP code for reading cookies and also writing cookies.
+
+60
+00:02:33,611 --> 00:02:35,701
+Alright, so again what is a cookie?
+
+61
+00:02:35,701 --> 00:02:37,816
+Well it's basically text data that's exchanged
+
+62
+00:02:37,816 --> 00:02:39,941
+between the web browser and server
+
+63
+00:02:39,941 --> 00:02:42,651
+so this is functionality that's built into the browser
+
+64
+00:02:42,651 --> 00:02:45,782
+so you have your web browser when you visit a given server,
+
+65
+00:02:45,782 --> 00:02:49,949
+that browser will send over cookies to that server
+
+66
+00:02:50,878 --> 00:02:53,179
+and so that's how that expedia.com website
+
+67
+00:02:53,179 --> 00:02:54,691
+was able to remember my information,
+
+68
+00:02:54,691 --> 00:02:57,028
+it says oh great, you've been to Expedia before.
+
+69
+00:02:57,028 --> 00:02:59,187
+They read my cookies, they found out my departure
+
+70
+00:02:59,187 --> 00:03:03,815
+and destination city and displayed a custom form for me.
+
+71
+00:03:03,815 --> 00:03:06,396
+The site can also create new cookies
+
+72
+00:03:06,396 --> 00:03:08,862
+and send them to my browser to keep track
+
+73
+00:03:08,862 --> 00:03:12,148
+of information for any of my return visits.
+
+74
+00:03:12,148 --> 00:03:14,536
+So that's the idea of a cookie and so I'll actually show you
+
+75
+00:03:14,536 --> 00:03:17,593
+the server side code for reading cookies
+
+76
+00:03:17,593 --> 00:03:20,111
+and also writing cookies and sending them back
+
+77
+00:03:20,111 --> 00:03:21,361
+to the browser.
+
+78
+00:03:22,266 --> 00:03:24,073
+Now what exactly is in a cookie?
+
+79
+00:03:24,073 --> 00:03:25,419
+Well you can kind of think of a cookie
+
+80
+00:03:25,419 --> 00:03:30,304
+as just like a name, value pair so a cookie has a given name
+
+81
+00:03:30,304 --> 00:03:33,611
+like in this example, myApp.favoriteLanguage
+
+82
+00:03:33,611 --> 00:03:35,825
+and then the value could be Ruby,
+
+83
+00:03:35,825 --> 00:03:37,783
+alright so that's one cookie
+
+84
+00:03:37,783 --> 00:03:39,852
+and the application can actually make use
+
+85
+00:03:39,852 --> 00:03:43,731
+of multiple cookies so we can have another cookie here
+
+86
+00:03:43,731 --> 00:03:47,429
+called myApp.favoriteCity and then the value
+
+87
+00:03:47,429 --> 00:03:50,504
+could be Philadelphia, Pennsylvania
+
+88
+00:03:50,504 --> 00:03:53,978
+and your application can actually create many cookies,
+
+89
+00:03:53,978 --> 00:03:57,728
+the max is about 20 cookies per site per path
+
+90
+00:03:58,652 --> 00:04:01,216
+but that's more than enough for most examples
+
+91
+00:04:01,216 --> 00:04:03,383
+for building applications.
+
+92
+00:04:04,592 --> 00:04:07,025
+Now how are cookies passed back and forth?
+
+93
+00:04:07,025 --> 00:04:09,742
+Well the browser when it connects to the server,
+
+94
+00:04:09,742 --> 00:04:11,633
+the browser will only send cookies
+
+95
+00:04:11,633 --> 00:04:14,247
+that match that server's domain alright
+
+96
+00:04:14,247 --> 00:04:17,399
+so here's our browser, we're connecting to a given website,
+
+97
+00:04:17,399 --> 00:04:20,680
+the browser will only send over cookies that match
+
+98
+00:04:20,680 --> 00:04:23,375
+so for example, when I connect to expedia.com,
+
+99
+00:04:23,375 --> 00:04:27,754
+it will only send over cookies from expedia.com.
+
+100
+00:04:27,754 --> 00:04:31,813
+Likewise, if I was using like maybe CNN.com
+
+101
+00:04:31,813 --> 00:04:34,912
+and connected to CNN, the browser would only send cookies
+
+102
+00:04:34,912 --> 00:04:38,842
+that were set by CNN.com so they won't switch up
+
+103
+00:04:38,842 --> 00:04:41,714
+and send everything across like if I'm at Expedia,
+
+104
+00:04:41,714 --> 00:04:45,058
+it wouldn't send over CNN.com cookies to Expedia,
+
+105
+00:04:45,058 --> 00:04:47,277
+only matches on the actual domain name
+
+106
+00:04:47,277 --> 00:04:50,449
+and the given path of the application
+
+107
+00:04:50,449 --> 00:04:52,357
+so that's the key there so you know,
+
+108
+00:04:52,357 --> 00:04:56,357
+there's no security issues going on or whatever.
+
+109
+00:04:57,430 --> 00:04:59,696
+Alright so where are the cookies?
+
+110
+00:04:59,696 --> 00:05:01,775
+So I'm kinda moving back into my browser.
+
+111
+00:05:01,775 --> 00:05:03,490
+Depending on the browser you're using,
+
+112
+00:05:03,490 --> 00:05:05,489
+there's a different format for doing this
+
+113
+00:05:05,489 --> 00:05:09,572
+but here with Firefox, I can go under preferences
+
+114
+00:05:14,397 --> 00:05:15,759
+and once I'm on the preferences,
+
+115
+00:05:15,759 --> 00:05:17,172
+then over on the far left there's
+
+116
+00:05:17,172 --> 00:05:20,255
+a little menu option here for privacy
+
+117
+00:05:21,096 --> 00:05:23,387
+and I can select that link for privacy.
+
+118
+00:05:23,387 --> 00:05:26,078
+Now it's not really straightforward
+
+119
+00:05:26,078 --> 00:05:27,572
+but there's a little link here
+
+120
+00:05:27,572 --> 00:05:29,339
+called remove individual cookies.
+
+121
+00:05:29,339 --> 00:05:31,959
+This will allow you to view your cookies
+
+122
+00:05:31,959 --> 00:05:33,448
+so you can go ahead and select that link
+
+123
+00:05:33,448 --> 00:05:35,469
+and it'll show you a list of all cookies
+
+124
+00:05:35,469 --> 00:05:38,980
+that are set in this browser for the given domain names
+
+125
+00:05:38,980 --> 00:05:41,433
+so note here, you see all the sites,
+
+126
+00:05:41,433 --> 00:05:43,262
+the different sites that set cookies
+
+127
+00:05:43,262 --> 00:05:45,099
+and then the actual cookie name.
+
+128
+00:05:45,099 --> 00:05:47,702
+What I'm doing here is I'm actually searching for cookies
+
+129
+00:05:47,702 --> 00:05:50,259
+that were set by Expedia so we'll see all
+
+130
+00:05:50,259 --> 00:05:52,639
+these different Expedia sites
+
+131
+00:05:52,639 --> 00:05:54,912
+and the appropriate cookie names.
+
+132
+00:05:54,912 --> 00:05:56,803
+If you select one of these cookies,
+
+133
+00:05:56,803 --> 00:06:00,239
+then it'll actually show you the name of the cookie,
+
+134
+00:06:00,239 --> 00:06:03,400
+the actual content, whatever text that's stored there,
+
+135
+00:06:03,400 --> 00:06:05,433
+the host and the path.
+
+136
+00:06:05,433 --> 00:06:10,407
+Also at the bottom you'll see there's a expiration tab.
+
+137
+00:06:10,407 --> 00:06:13,180
+I'm sorry, an expiration field so this will tell you
+
+138
+00:06:13,180 --> 00:06:14,811
+how long this cookie will last
+
+139
+00:06:14,811 --> 00:06:17,561
+so basically one year from today,
+
+140
+00:06:20,777 --> 00:06:23,260
+one year from today is when that cookie will expire
+
+141
+00:06:23,260 --> 00:06:25,535
+so it'll always be on my system
+
+142
+00:06:25,535 --> 00:06:27,927
+until that given timeframe comes up
+
+143
+00:06:27,927 --> 00:06:30,467
+and I'll show you how to actually write the Java code
+
+144
+00:06:30,467 --> 00:06:33,009
+for setting the expiration time for cookies and so on
+
+145
+00:06:33,009 --> 00:06:37,176
+but anyway, just a nice little behind the scenes tour.
+
+146
+00:06:38,612 --> 00:06:40,298
+Alright so the cookie API.
+
+147
+00:06:40,298 --> 00:06:43,207
+Well there's a special class called cookie,
+
+148
+00:06:43,207 --> 00:06:47,520
+it's defined in the package javax.servlet.http.
+
+149
+00:06:47,520 --> 00:06:50,710
+This package is given to you for free in all JSP pages
+
+150
+00:06:50,710 --> 00:06:53,011
+so there's no hard requirement for you
+
+151
+00:06:53,011 --> 00:06:54,655
+to import this package.
+
+152
+00:06:54,655 --> 00:06:56,205
+You automatically get this package
+
+153
+00:06:56,205 --> 00:06:59,846
+so you can simply make use of the cookie class directly
+
+154
+00:06:59,846 --> 00:07:01,263
+in your JSP page.
+
+155
+00:07:03,196 --> 00:07:05,392
+Now when you use a cookie, the first thing you need to do
+
+156
+00:07:05,392 --> 00:07:08,155
+is construct it alright so here's the actual constructor
+
+157
+00:07:08,155 --> 00:07:11,606
+from the Java documentation so you create a cookie,
+
+158
+00:07:11,606 --> 00:07:14,310
+you pass in the name of the cookie and the value
+
+159
+00:07:14,310 --> 00:07:15,401
+for the cookie.
+
+160
+00:07:15,401 --> 00:07:18,117
+Now the name you can give any name that you want
+
+161
+00:07:18,117 --> 00:07:20,355
+as long as you're consistent within your application
+
+162
+00:07:20,355 --> 00:07:23,554
+and the value you can store any value or any data
+
+163
+00:07:23,554 --> 00:07:27,387
+that you want in the cookie as a string value.
+
+164
+00:07:28,780 --> 00:07:30,990
+Alright, so here's some real Java code
+
+165
+00:07:30,990 --> 00:07:32,925
+and you're probably wondering hey, where's the code.
+
+166
+00:07:32,925 --> 00:07:34,979
+Alright so here's the code that we'll use
+
+167
+00:07:34,979 --> 00:07:37,920
+for actually sending a cookie to a browser okay,
+
+168
+00:07:37,920 --> 00:07:40,595
+so let me set this up so let's say for example,
+
+169
+00:07:40,595 --> 00:07:43,189
+there's a form, the user can select
+
+170
+00:07:43,189 --> 00:07:45,154
+their favorite programming language
+
+171
+00:07:45,154 --> 00:07:47,638
+and they can send it over to this JSP page.
+
+172
+00:07:47,638 --> 00:07:49,879
+What this JSP page is gonna do is it's gonna read
+
+173
+00:07:49,879 --> 00:07:52,507
+that form data for their favorite programming language,
+
+174
+00:07:52,507 --> 00:07:55,794
+it's gonna create a cookie and it's gonna send it back
+
+175
+00:07:55,794 --> 00:07:58,372
+to the browser such that later on
+
+176
+00:07:58,372 --> 00:08:01,011
+when they come back to visit our site
+
+177
+00:08:01,011 --> 00:08:03,260
+a day later, a week later or a month later,
+
+178
+00:08:03,260 --> 00:08:05,995
+we'll remember their favorite language
+
+179
+00:08:05,995 --> 00:08:08,591
+and then we can customize the output page
+
+180
+00:08:08,591 --> 00:08:10,689
+for their favorite programming language.
+
+181
+00:08:10,689 --> 00:08:12,554
+Alright, so let's kind of walk through the code here
+
+182
+00:08:12,554 --> 00:08:13,635
+so the first one here,
+
+183
+00:08:13,635 --> 00:08:15,775
+request.getParameter("favoriteLanguage"),
+
+184
+00:08:15,775 --> 00:08:18,542
+again we're just reading something from the form data.
+
+185
+00:08:18,542 --> 00:08:20,362
+The next thing we need to do is create the cookie
+
+186
+00:08:20,362 --> 00:08:23,738
+so I say new cookie, I give the name value pair
+
+187
+00:08:23,738 --> 00:08:26,129
+so the name is myApp.favoriteLanguage
+
+188
+00:08:26,129 --> 00:08:29,367
+and again the name can be anything, comma favLang,
+
+189
+00:08:29,367 --> 00:08:31,094
+that's the variable from the previous line
+
+190
+00:08:31,094 --> 00:08:32,550
+so that's our cookie object.
+
+191
+00:08:32,550 --> 00:08:35,312
+Now we need to set the actual lifespan for the cookie,
+
+192
+00:08:35,312 --> 00:08:37,577
+how long do we want this cookie to last
+
+193
+00:08:37,577 --> 00:08:41,546
+so by default, a cookie has a lifespan of zero
+
+194
+00:08:41,546 --> 00:08:44,464
+which means that once the browser closes,
+
+195
+00:08:44,464 --> 00:08:46,373
+that cookie will expire.
+
+196
+00:08:46,373 --> 00:08:48,209
+So if you want the cookie to last for a longer time,
+
+197
+00:08:48,209 --> 00:08:50,081
+you have to set the lifespan
+
+198
+00:08:50,081 --> 00:08:53,286
+so here you have to say theCookie.setMaxAge
+
+199
+00:08:53,286 --> 00:08:54,984
+and you give the age.
+
+200
+00:08:54,984 --> 00:08:57,864
+Now this is the one part of the API
+
+201
+00:08:57,864 --> 00:09:00,345
+that I just don't like.
+
+202
+00:09:00,345 --> 00:09:01,759
+I wish they could make something easy
+
+203
+00:09:01,759 --> 00:09:05,540
+like setting a duration, you could say one month,
+
+204
+00:09:05,540 --> 00:09:08,104
+two years or you know five years or something
+
+205
+00:09:08,104 --> 00:09:11,066
+but you can't do that, it's not that simple.
+
+206
+00:09:11,066 --> 00:09:13,064
+You have to set the maximum age
+
+207
+00:09:13,064 --> 00:09:15,647
+as the total number of seconds.
+
+208
+00:09:17,226 --> 00:09:19,052
+Gosh I hate that.
+
+209
+00:09:19,052 --> 00:09:20,872
+Alright so anyway, so the bottom line
+
+210
+00:09:20,872 --> 00:09:22,420
+is that you have to do the math right
+
+211
+00:09:22,420 --> 00:09:24,544
+so if you want it for one week,
+
+212
+00:09:24,544 --> 00:09:26,470
+you have to compute the total number of seconds in a week.
+
+213
+00:09:26,470 --> 00:09:28,418
+If you want it for a year, the total number of seconds
+
+214
+00:09:28,418 --> 00:09:31,315
+in a year so this example here is for a year
+
+215
+00:09:31,315 --> 00:09:33,931
+so that's the total number of seconds for a year
+
+216
+00:09:33,931 --> 00:09:38,030
+and that's the API and that's just how it is.
+
+217
+00:09:38,030 --> 00:09:39,674
+But anyway, let's get that past that.
+
+218
+00:09:39,674 --> 00:09:40,794
+Once we have the cookie created,
+
+219
+00:09:40,794 --> 00:09:44,148
+we set the max age then we send the cookie to the browser
+
+220
+00:09:44,148 --> 00:09:46,308
+so we load it up into that response object
+
+221
+00:09:46,308 --> 00:09:48,043
+that's gonna go back to the browser
+
+222
+00:09:48,043 --> 00:09:51,111
+so here I say response.addCookie and I simply
+
+223
+00:09:51,111 --> 00:09:53,830
+give a reference to the cookie variable
+
+224
+00:09:53,830 --> 00:09:55,392
+and that's it basically so that's
+
+225
+00:09:55,392 --> 00:09:56,811
+for sending back one cookie.
+
+226
+00:09:56,811 --> 00:09:59,406
+If you wanted to send back multiple cookies,
+
+227
+00:09:59,406 --> 00:10:01,225
+well you simply create a new cookie object
+
+228
+00:10:01,225 --> 00:10:03,918
+and you say response.addCookie,
+
+229
+00:10:03,918 --> 00:10:05,580
+you know my cookie number two or whatever
+
+230
+00:10:05,580 --> 00:10:07,370
+and you repeat that process X number of times
+
+231
+00:10:07,370 --> 00:10:12,236
+but again there's a max on 20 cookies per domain per path
+
+232
+00:10:12,236 --> 00:10:13,616
+but anyway that's the basic code there
+
+233
+00:10:13,616 --> 00:10:16,449
+for sending a cookie to a browser.
+
+234
+00:10:18,754 --> 00:10:20,604
+Alright, so now the browser has a cookie
+
+235
+00:10:20,604 --> 00:10:22,381
+that's been set by our application
+
+236
+00:10:22,381 --> 00:10:24,857
+by our JSP from that previous slide.
+
+237
+00:10:24,857 --> 00:10:27,905
+Now when the user returns back at a later time,
+
+238
+00:10:27,905 --> 00:10:30,008
+we want to show them a custom page
+
+239
+00:10:30,008 --> 00:10:32,089
+based on their cookie information
+
+240
+00:10:32,089 --> 00:10:33,847
+so what I'm gonna do here is I'm gonna read
+
+241
+00:10:33,847 --> 00:10:35,901
+their favorite programming language cookie
+
+242
+00:10:35,901 --> 00:10:38,973
+and then do something with it.
+
+243
+00:10:38,973 --> 00:10:41,050
+So to get a handle to the cookies,
+
+244
+00:10:41,050 --> 00:10:43,049
+I make use of that request object
+
+245
+00:10:43,049 --> 00:10:45,582
+and I'll say request.getCookies.
+
+246
+00:10:45,582 --> 00:10:48,871
+This will return me an array of cookies
+
+247
+00:10:48,871 --> 00:10:50,315
+so note here on the left hand side,
+
+248
+00:10:50,315 --> 00:10:51,726
+cookie with the square bracket,
+
+249
+00:10:51,726 --> 00:10:55,305
+the square brackets means an array so that's the cookies.
+
+250
+00:10:55,305 --> 00:10:56,936
+Then I check to make sure theCookies
+
+251
+00:10:56,936 --> 00:10:58,528
+is not equal to null because maybe
+
+252
+00:10:58,528 --> 00:11:00,352
+they didn't have any to send over.
+
+253
+00:11:00,352 --> 00:11:01,777
+Once I know we have cookies,
+
+254
+00:11:01,777 --> 00:11:03,530
+then I simply do a for loop
+
+255
+00:11:03,530 --> 00:11:07,958
+so I set up a for loop, Cookie tempCookie : theCookies
+
+256
+00:11:07,958 --> 00:11:10,576
+and the cookies is the variable from that previous line
+
+257
+00:11:10,576 --> 00:11:13,263
+so then I simply go through each one of those cookies
+
+258
+00:11:13,263 --> 00:11:16,171
+and I compare that cookie name to the name
+
+259
+00:11:16,171 --> 00:11:18,089
+that I'm looking for so I'm actually looking
+
+260
+00:11:18,089 --> 00:11:21,848
+for the cookie name, myApp.favoriteLanguage
+
+261
+00:11:21,848 --> 00:11:24,514
+so I simply say if myApp.favoriteLanguage
+
+262
+00:11:24,514 --> 00:11:27,229
+equals tempCookie.getName,
+
+263
+00:11:27,229 --> 00:11:29,527
+then that's the favorite language
+
+264
+00:11:29,527 --> 00:11:32,551
+equals tempCookie.Value so I get the value of that cookie
+
+265
+00:11:32,551 --> 00:11:33,867
+and then I break out of that loop
+
+266
+00:11:33,867 --> 00:11:35,345
+and then later on in my JSP page,
+
+267
+00:11:35,345 --> 00:11:37,443
+I could maybe use that fave language
+
+268
+00:11:37,443 --> 00:11:40,384
+to display custom news for the user
+
+269
+00:11:40,384 --> 00:11:42,109
+like maybe I would hit the database
+
+270
+00:11:42,109 --> 00:11:45,854
+and get some information or hit a Twitter feed or something
+
+271
+00:11:45,854 --> 00:11:47,466
+but at that point, I have the key,
+
+272
+00:11:47,466 --> 00:11:50,179
+I have the actual value of the favorite cookie
+
+273
+00:11:50,179 --> 00:11:52,238
+that the user selected and I can do
+
+274
+00:11:52,238 --> 00:11:54,676
+whatever I'd like to do it so in a nutshell,
+
+275
+00:11:54,676 --> 00:11:58,209
+that's how you read cookies from the browser.
+
+276
+00:11:58,209 --> 00:11:59,934
+Now again this is kind of very high level,
+
+277
+00:11:59,934 --> 00:12:02,126
+we just saw some code snippets.
+
+278
+00:12:02,126 --> 00:12:05,471
+In the next video, we'll write some real code
+
+279
+00:12:05,471 --> 00:12:07,451
+and I'll pull together a nice little example
+
+280
+00:12:07,451 --> 00:12:09,709
+where we'll have some JSP pages,
+
+281
+00:12:09,709 --> 00:12:11,706
+we're reading cookies, we're setting cookies
+
+282
+00:12:11,706 --> 00:12:13,231
+and we're building custom pages
+
+283
+00:12:13,231 --> 00:12:16,349
+so don't worry, I'll put this altogether for you
+
+284
+00:12:16,349 --> 00:12:18,997
+and you'll see a nice working example, alright.
+
+285
+00:12:18,997 --> 00:12:20,875
+So I'll see you in the next video.
+

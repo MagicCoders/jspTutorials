@@ -1,0 +1,440 @@
+1
+00:00:01,375 --> 00:00:02,904
+<v Narrator>Hey, in this video we're gonna learn</v>
+
+2
+00:00:02,904 --> 00:00:04,571
+how to use JSP tags.
+
+3
+00:00:06,986 --> 00:00:08,791
+I'll cover the following topics.
+
+4
+00:00:08,791 --> 00:00:11,242
+We'll first learn, what are JSP tags,
+
+5
+00:00:11,242 --> 00:00:13,369
+then we'll look at a sample use case,
+
+6
+00:00:13,369 --> 00:00:16,676
+and then we'll also discuss the benefits of JSP tags.
+
+7
+00:00:16,676 --> 00:00:18,228
+Alright, so a lot of good stuff here.
+
+8
+00:00:18,228 --> 00:00:20,811
+Let's go ahead and get started.
+
+9
+00:00:22,320 --> 00:00:25,564
+There's actually two categories of JSP tags.
+
+10
+00:00:25,564 --> 00:00:27,824
+One is that you have JSP custom tags.
+
+11
+00:00:27,824 --> 00:00:30,855
+That's where you can write your own, custom code
+
+12
+00:00:30,855 --> 00:00:33,816
+and implement that code and use it as a tag.
+
+13
+00:00:33,816 --> 00:00:36,349
+And I'll show you how to do that later in the course.
+
+14
+00:00:36,349 --> 00:00:37,938
+There's also another category called
+
+15
+00:00:37,938 --> 00:00:40,522
+JSP standard tag libraries.
+
+16
+00:00:40,522 --> 00:00:43,355
+So the folks at Oracle, they've created a common set
+
+17
+00:00:43,355 --> 00:00:47,401
+of tags that you can make use of in your JSP environment.
+
+18
+00:00:47,401 --> 00:00:51,568
+And I'll show you how to do that also in this course.
+
+19
+00:00:53,783 --> 00:00:55,395
+Alright, so let's look at a problem here.
+
+20
+00:00:55,395 --> 00:00:59,087
+We get the email from the boss, and he says,
+
+21
+00:00:59,087 --> 00:01:02,228
+we want to include a weather report in our JSP pages.
+
+22
+00:01:02,228 --> 00:01:05,409
+And we need it by the end of today (laughs).
+
+23
+00:01:05,409 --> 00:01:06,242
+Right, that always happens.
+
+24
+00:01:06,242 --> 00:01:07,712
+You need it now.
+
+25
+00:01:07,712 --> 00:01:10,195
+What we're gonna do here is look at some solutions
+
+26
+00:01:10,195 --> 00:01:13,175
+and how we can implement this for the boss,
+
+27
+00:01:13,175 --> 00:01:15,530
+as far as making use of weather reports
+
+28
+00:01:15,530 --> 00:01:16,947
+in our JSP pages.
+
+29
+00:01:19,992 --> 00:01:24,159
+One option, is that we can make use of scriptlets.
+
+30
+00:01:25,513 --> 00:01:28,226
+With a scriptlet, you simply have an angle bracket percent,
+
+31
+00:01:28,226 --> 00:01:30,340
+and then you simply start writing Java code.
+
+32
+00:01:30,340 --> 00:01:31,781
+So here we could write codes that connect
+
+33
+00:01:31,781 --> 00:01:34,301
+to the remote service, submit our request,
+
+34
+00:01:34,301 --> 00:01:36,463
+get the results, parse the data,
+
+35
+00:01:36,463 --> 00:01:40,168
+maybe xml or json, and finally display the output
+
+36
+00:01:40,168 --> 00:01:41,904
+in a JSP page.
+
+37
+00:01:41,904 --> 00:01:44,307
+That's possible, and we can do it.
+
+38
+00:01:44,307 --> 00:01:47,101
+However, I wouldn't recommend it.
+
+39
+00:01:47,101 --> 00:01:49,184
+And it's actually bad practice.
+
+40
+00:01:49,184 --> 00:01:53,059
+Because one, we'll have a lot of Java code in our JSP pages.
+
+41
+00:01:53,059 --> 00:01:55,486
+And remember earlier, I always said minimize
+
+42
+00:01:55,486 --> 00:01:58,383
+the amount of scriptlet code in your JSP page,
+
+43
+00:01:58,383 --> 00:02:01,614
+and we're mixing business code and presentation code.
+
+44
+00:02:01,614 --> 00:02:03,697
+It's all getting woven together, so it's gonna look
+
+45
+00:02:03,697 --> 00:02:05,536
+really ugly at the end.
+
+46
+00:02:05,536 --> 00:02:08,076
+And then finally, it's not reusable
+
+47
+00:02:08,076 --> 00:02:10,778
+and not really maintainable either.
+
+48
+00:02:10,778 --> 00:02:12,609
+Ideally, what you'd want to do is make use
+
+49
+00:02:12,609 --> 00:02:14,909
+of JSP custom tags.
+
+50
+00:02:14,909 --> 00:02:17,900
+Basically, you're gonna move your heavy, business logic
+
+51
+00:02:17,900 --> 00:02:21,909
+into supporting classes, and then you simply insert
+
+52
+00:02:21,909 --> 00:02:25,961
+a custom tag to make use of that supporting class.
+
+53
+00:02:25,961 --> 00:02:29,006
+As an example, on our JSP page we can drop in
+
+54
+00:02:29,006 --> 00:02:31,411
+this custom tag called weather report.
+
+55
+00:02:31,411 --> 00:02:34,376
+Let's say city equals, insert your favorite city.
+
+56
+00:02:34,376 --> 00:02:37,403
+And then the real heavy lifting is implement it
+
+57
+00:02:37,403 --> 00:02:39,346
+by a supporting JAVA class.
+
+58
+00:02:39,346 --> 00:02:42,104
+So note here how a JSP page is really simple.
+
+59
+00:02:42,104 --> 00:02:45,003
+We simply have this one tag here, and all the real heavy
+
+60
+00:02:45,003 --> 00:02:47,590
+coding is in a backend JAVA class.
+
+61
+00:02:47,590 --> 00:02:50,385
+And using all of that information together,
+
+62
+00:02:50,385 --> 00:02:52,594
+this will allow us to get a weather report
+
+63
+00:02:52,594 --> 00:02:55,592
+and make use of it on our JSP page.
+
+64
+00:02:55,592 --> 00:02:56,572
+So that's the idea.
+
+65
+00:02:56,572 --> 00:02:58,241
+You want to make use of custom tags
+
+66
+00:02:58,241 --> 00:03:02,158
+to implement some of your custom functionality.
+
+67
+00:03:04,463 --> 00:03:06,890
+Now, what are the benefits of using custom tags?
+
+68
+00:03:06,890 --> 00:03:09,580
+Well, first off, it minimizes the amount of scriptlet code
+
+69
+00:03:09,580 --> 00:03:11,199
+in your JSP.
+
+70
+00:03:11,199 --> 00:03:15,868
+Also avoids dumping thousands of lines of code in your JSP.
+
+71
+00:03:15,868 --> 00:03:17,340
+And then the page is simple.
+
+72
+00:03:17,340 --> 00:03:20,678
+The main focus of the page is only the presentation.
+
+73
+00:03:20,678 --> 00:03:23,012
+And the tag itself is reusable.
+
+74
+00:03:23,012 --> 00:03:26,002
+You can easily reuse that tag in other JSP pages
+
+75
+00:03:26,002 --> 00:03:29,169
+in your project, or on other projects.
+
+76
+00:03:31,819 --> 00:03:34,212
+Alright, so that covers custom tags.
+
+77
+00:03:34,212 --> 00:03:36,705
+There's also what they call the standard tag library,
+
+78
+00:03:36,705 --> 00:03:38,406
+or the JSTL.
+
+79
+00:03:38,406 --> 00:03:41,353
+Oracle created a common set of tags that you can use
+
+80
+00:03:41,353 --> 00:03:42,686
+on any project.
+
+81
+00:03:42,686 --> 00:03:46,139
+There's some core tags for handling variables
+
+82
+00:03:46,139 --> 00:03:48,358
+and looping and conditionals.
+
+83
+00:03:48,358 --> 00:03:51,806
+There's also message tags for handling internationalization
+
+84
+00:03:51,806 --> 00:03:53,465
+and formatting.
+
+85
+00:03:53,465 --> 00:03:57,144
+There's function tags for doing string manipulation,
+
+86
+00:03:57,144 --> 00:04:00,455
+getting the sizes of a collection.
+
+87
+00:04:00,455 --> 00:04:03,939
+There's also a group of tags for XML for parsing
+
+88
+00:04:03,939 --> 00:04:06,317
+and setting XML data.
+
+89
+00:04:06,317 --> 00:04:09,460
+And finally there's a set of tags called SQL,
+
+90
+00:04:09,460 --> 00:04:11,760
+for accessing a database.
+
+91
+00:04:11,760 --> 00:04:14,761
+In the following videos, I'll cover the first four tags,
+
+92
+00:04:14,761 --> 00:04:17,773
+core, messaging, functions and XML.
+
+93
+00:04:17,773 --> 00:04:20,983
+However, I won't cover the SQL tags.
+
+94
+00:04:20,983 --> 00:04:25,150
+Because the SQL tags in general are considered bad practice.
+
+95
+00:04:26,250 --> 00:04:29,654
+So in the industry, they say that those SQL tags
+
+96
+00:04:29,654 --> 00:04:32,677
+are good for prototyping, but not for real-world
+
+97
+00:04:32,677 --> 00:04:34,677
+production applications.
+
+98
+00:04:37,291 --> 00:04:38,800
+Anyway, here's some resources for you.
+
+99
+00:04:38,800 --> 00:04:40,996
+So if you want to look at the custom tags tutorial,
+
+100
+00:04:40,996 --> 00:04:42,789
+I have a link here on the page.
+
+101
+00:04:42,789 --> 00:04:45,629
+The other JSTL tutorial, another link.
+
+102
+00:04:45,629 --> 00:04:48,149
+Those first two links, they basically just redirect
+
+103
+00:04:48,149 --> 00:04:52,092
+to the documentation from the Oracle site.
+
+104
+00:04:52,092 --> 00:04:55,380
+And then also there's the official JSTL website
+
+105
+00:04:55,380 --> 00:04:57,833
+that's available for you.
+
+106
+00:04:57,833 --> 00:05:00,500
+So I gave you a quick overview of JSP tags.
+
+107
+00:05:00,500 --> 00:05:03,350
+In the following videos, I'll drill down into each one
+
+108
+00:05:03,350 --> 00:05:05,570
+of those topics, and I'll show you some coding examples
+
+109
+00:05:05,570 --> 00:05:07,329
+on how those things work out.
+
+110
+00:05:07,329 --> 00:05:09,662
+Alrighty, I'll see you then.
+

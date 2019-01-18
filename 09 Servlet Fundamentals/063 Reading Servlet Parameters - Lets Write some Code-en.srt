@@ -1,0 +1,756 @@
+1
+00:00:01,036 --> 00:00:03,578
+<v ->All right, so let's go ahead and move into Eclipse</v>
+
+2
+00:00:03,578 --> 00:00:05,007
+and what I wanna do is continue
+
+3
+00:00:05,007 --> 00:00:06,533
+to use that servletdemo project
+
+4
+00:00:06,533 --> 00:00:09,716
+that we've been working on so far.
+
+5
+00:00:09,716 --> 00:00:10,897
+And what we wanna do is define
+
+6
+00:00:10,897 --> 00:00:12,472
+some configuration parameters,
+
+7
+00:00:12,472 --> 00:00:13,740
+so that's kinda our first step.
+
+8
+00:00:13,740 --> 00:00:15,758
+So, in web content, web inf,
+
+9
+00:00:15,758 --> 00:00:18,153
+there's a file here called web.xml.
+
+10
+00:00:18,153 --> 00:00:19,520
+let's go ahead and double click this file
+
+11
+00:00:19,520 --> 00:00:20,770
+and open it up.
+
+12
+00:00:22,775 --> 00:00:25,928
+All right, so this is our standard web XML file,
+
+13
+00:00:25,928 --> 00:00:27,726
+our configuration file.
+
+14
+00:00:27,726 --> 00:00:29,634
+There's a lot of other information in here
+
+15
+00:00:29,634 --> 00:00:32,548
+regarding other web app details,
+
+16
+00:00:32,548 --> 00:00:34,040
+but what I'll do right now is I'll simply
+
+17
+00:00:34,040 --> 00:00:36,992
+focus on adding some context parameters here
+
+18
+00:00:36,992 --> 00:00:39,596
+or some config information to this file
+
+19
+00:00:39,596 --> 00:00:42,042
+so I can read the data.
+
+20
+00:00:42,042 --> 00:00:45,359
+So, the first thing I do is I start out with a context param
+
+21
+00:00:45,359 --> 00:00:47,330
+and then I need to add two sub elements,
+
+22
+00:00:47,330 --> 00:00:49,126
+I need to add a param name.
+
+23
+00:00:49,126 --> 00:00:52,876
+So, here I'll call it max shopping cart size.
+
+24
+00:00:54,069 --> 00:00:57,486
+And then I need to provide a param value.
+
+25
+00:00:59,740 --> 00:01:01,576
+So, for this example we'll say our
+
+26
+00:01:01,576 --> 00:01:03,542
+max shopping cart size is 99.
+
+27
+00:01:03,542 --> 00:01:06,389
+We could always change this at a later time,
+
+28
+00:01:06,389 --> 00:01:10,306
+that's the whole idea of a configuration param.
+
+29
+00:01:11,470 --> 00:01:13,596
+All right, so, that's a param that's set up right now.
+
+30
+00:01:13,596 --> 00:01:16,655
+let's go ahead and add one more parameter here.
+
+31
+00:01:16,655 --> 00:01:19,738
+So, I'll set up another context param
+
+32
+00:01:20,840 --> 00:01:22,787
+and I'll give it another name,
+
+33
+00:01:22,787 --> 00:01:24,370
+I'll say param name
+
+34
+00:01:26,307 --> 00:01:27,911
+and I'll call it project team name,
+
+35
+00:01:27,911 --> 00:01:30,154
+and again I'm totally making up these parameter names.
+
+36
+00:01:30,154 --> 00:01:31,761
+You can give whatever parameter name
+
+37
+00:01:31,761 --> 00:01:34,190
+that you'd like along with any value.
+
+38
+00:01:34,190 --> 00:01:35,682
+So, here I'll say param name
+
+39
+00:01:35,682 --> 00:01:38,619
+and I'll call ourselves the coding gurus
+
+40
+00:01:38,619 --> 00:01:40,869
+'cause we're awesome, yeah.
+
+41
+00:01:41,738 --> 00:01:43,148
+I'm havin' some fun here.
+
+42
+00:01:43,148 --> 00:01:45,365
+So, anyway, that's our second parameter
+
+43
+00:01:45,365 --> 00:01:46,996
+we've set up, project team name,
+
+44
+00:01:46,996 --> 00:01:48,333
+value of coding gurus.
+
+45
+00:01:48,333 --> 00:01:49,166
+So, this is great.
+
+46
+00:01:49,166 --> 00:01:52,275
+This is our web.xml file and we can read this information
+
+47
+00:01:52,275 --> 00:01:54,442
+using our servlet context.
+
+48
+00:02:00,502 --> 00:02:03,064
+All right, so we can go ahead and save this file
+
+49
+00:02:03,064 --> 00:02:04,426
+and now we'll need to write a servlet
+
+50
+00:02:04,426 --> 00:02:06,462
+that can actually read the information
+
+51
+00:02:06,462 --> 00:02:08,219
+from this configuration.
+
+52
+00:02:08,219 --> 00:02:11,049
+So, I'll move into my Java package directory
+
+53
+00:02:11,049 --> 00:02:13,939
+and I will create a new servlet.
+
+54
+00:02:13,939 --> 00:02:14,909
+So, I'll right click,
+
+55
+00:02:14,909 --> 00:02:16,742
+I'll say new, servlet.
+
+56
+00:02:23,574 --> 00:02:24,928
+So, for this servlet here,
+
+57
+00:02:24,928 --> 00:02:27,130
+I'll call it TestParamServlet
+
+58
+00:02:27,130 --> 00:02:29,171
+and I'll keep all the other defaults here
+
+59
+00:02:29,171 --> 00:02:30,628
+in this screen.
+
+60
+00:02:30,628 --> 00:02:31,984
+And once I'm happy with this name
+
+61
+00:02:31,984 --> 00:02:33,817
+I'll go ahead and click on finish.
+
+62
+00:02:33,817 --> 00:02:35,780
+So, again, Eclipse does all the work,
+
+63
+00:02:35,780 --> 00:02:38,054
+they generate a servlet for us,
+
+64
+00:02:38,054 --> 00:02:39,183
+they help us get started,
+
+65
+00:02:39,183 --> 00:02:41,901
+they set up the at web servlet annotation,
+
+66
+00:02:41,901 --> 00:02:45,376
+and they also set up our class that extends HTP servlet.
+
+67
+00:02:45,376 --> 00:02:47,572
+So, again, Eclipse is doin' a lot of good stuff
+
+68
+00:02:47,572 --> 00:02:48,405
+for us.
+
+69
+00:02:48,405 --> 00:02:49,238
+Woohoo.
+
+70
+00:02:52,742 --> 00:02:54,900
+And what I wanna do is clear out some space here,
+
+71
+00:02:54,900 --> 00:02:56,976
+I need to clear my desk so I can get down
+
+72
+00:02:56,976 --> 00:02:58,284
+and do some work here,
+
+73
+00:02:58,284 --> 00:03:00,460
+and I'm gonna focus on the do get method.
+
+74
+00:03:00,460 --> 00:03:02,654
+This is where I'm gonna read the information
+
+75
+00:03:02,654 --> 00:03:04,220
+from that configuration.
+
+76
+00:03:04,220 --> 00:03:06,060
+And I'll get rid of that auto-generated code
+
+77
+00:03:06,060 --> 00:03:09,836
+because I want to write my own code from scratch.
+
+78
+00:03:09,836 --> 00:03:11,961
+So, again, I always like to put comments her,
+
+79
+00:03:11,961 --> 00:03:15,121
+so step one is us setting the content type,
+
+80
+00:03:15,121 --> 00:03:17,441
+step two is getting the printwriter,
+
+81
+00:03:17,441 --> 00:03:19,477
+and now my step three is gonna be a little different here,
+
+82
+00:03:19,477 --> 00:03:22,119
+so, step three is where I'm actually gonna read
+
+83
+00:03:22,119 --> 00:03:23,952
+the param information.
+
+84
+00:03:25,179 --> 00:03:28,868
+So, I'm gonna read the configuration parameters.
+
+85
+00:03:28,868 --> 00:03:29,701
+And then finally, step four,
+
+86
+00:03:29,701 --> 00:03:30,920
+I'll do the standard thing
+
+87
+00:03:30,920 --> 00:03:34,087
+of generating HTML content on the fly.
+
+88
+00:03:38,660 --> 00:03:41,424
+So, that's the basic outline here for this do get method.
+
+89
+00:03:41,424 --> 00:03:42,839
+Getting the content type,
+
+90
+00:03:42,839 --> 00:03:44,212
+getting the printwriter,
+
+91
+00:03:44,212 --> 00:03:45,494
+reading config params,
+
+92
+00:03:45,494 --> 00:03:48,244
+and then generating HTML content.
+
+93
+00:03:51,928 --> 00:03:53,782
+So, step one, setting content type.
+
+94
+00:03:53,782 --> 00:03:56,783
+I simply use the response.setcontenttype
+
+95
+00:03:56,783 --> 00:03:58,533
+and I give text HTML.
+
+96
+00:04:01,129 --> 00:04:02,391
+And then again for my printwriter
+
+97
+00:04:02,391 --> 00:04:04,516
+I'll say PrintWriter out equals
+
+98
+00:04:04,516 --> 00:04:06,099
+response.getwriter.
+
+99
+00:04:09,466 --> 00:04:10,589
+And I go through that standard process
+
+100
+00:04:10,589 --> 00:04:12,677
+of fixing the imports here,
+
+101
+00:04:12,677 --> 00:04:14,668
+so the import on printwriter
+
+102
+00:04:14,668 --> 00:04:17,168
+that's in the java.io package.
+
+103
+00:04:21,161 --> 00:04:21,994
+Now, step three,
+
+104
+00:04:21,994 --> 00:04:23,987
+this is kinda like my new part for this video,
+
+105
+00:04:23,987 --> 00:04:26,680
+so I'm gonna read those cont configuration parameters.
+
+106
+00:04:26,680 --> 00:04:29,529
+Remember, I need to make use of that servlet context,
+
+107
+00:04:29,529 --> 00:04:31,573
+so here I'll say servletContext
+
+108
+00:04:31,573 --> 00:04:33,579
+equals get servletcontext.
+
+109
+00:04:33,579 --> 00:04:36,375
+And remember that method getservletcontext
+
+110
+00:04:36,375 --> 00:04:39,603
+is actually inherited form HTP servlet.
+
+111
+00:04:39,603 --> 00:04:42,844
+So, that base class that our servlet inherits from,
+
+112
+00:04:42,844 --> 00:04:44,368
+that's where we get that method.
+
+113
+00:04:44,368 --> 00:04:46,890
+And over on the left I'll fix the imports here
+
+114
+00:04:46,890 --> 00:04:48,254
+for this servlet context.
+
+115
+00:04:48,254 --> 00:04:50,386
+It's in the javax.servlet package
+
+116
+00:04:50,386 --> 00:04:51,744
+and now I have a handle to it,
+
+117
+00:04:51,744 --> 00:04:53,077
+so that's great.
+
+118
+00:04:54,337 --> 00:04:56,029
+So, now I can really do some stuff here.
+
+119
+00:04:56,029 --> 00:04:57,411
+Now I have this context object,
+
+120
+00:04:57,411 --> 00:04:58,946
+I can actually read some information
+
+121
+00:04:58,946 --> 00:05:00,779
+from that config file.
+
+122
+00:05:02,838 --> 00:05:04,716
+So, here for reading the max cart size
+
+123
+00:05:04,716 --> 00:05:07,464
+I say context get init parameter
+
+124
+00:05:07,464 --> 00:05:10,104
+and then I give max shopping cart size.
+
+125
+00:05:10,104 --> 00:05:11,246
+So, that's the param name that's
+
+126
+00:05:11,246 --> 00:05:13,829
+in that XML configuration file.
+
+127
+00:05:16,419 --> 00:05:17,563
+And then my configuration file
+
+128
+00:05:17,563 --> 00:05:20,140
+actually has a second parameter
+
+129
+00:05:20,140 --> 00:05:23,407
+and that's the actual project team name.
+
+130
+00:05:23,407 --> 00:05:26,876
+So, again I say context get init parameter,
+
+131
+00:05:26,876 --> 00:05:28,991
+and I give project team name,
+
+132
+00:05:28,991 --> 00:05:33,158
+again the actual name from the configuration file.
+
+133
+00:05:34,809 --> 00:05:36,314
+All right, and that's basically it for step three,
+
+134
+00:05:36,314 --> 00:05:37,577
+reading the config param,
+
+135
+00:05:37,577 --> 00:05:40,184
+so we get the context and then we use that context
+
+136
+00:05:40,184 --> 00:05:42,108
+get init parameter to read the params
+
+137
+00:05:42,108 --> 00:05:43,551
+for a max shopping cart size
+
+138
+00:05:43,551 --> 00:05:45,085
+and project team name.
+
+139
+00:05:45,085 --> 00:05:47,335
+So, this looks good so far.
+
+140
+00:05:51,227 --> 00:05:53,990
+And then step four is just more of a validation for ourself,
+
+141
+00:05:53,990 --> 00:05:56,106
+we're simply gonna just
+
+142
+00:05:56,106 --> 00:05:57,269
+generate some HTML content,
+
+143
+00:05:57,269 --> 00:06:00,248
+so I take care of my html housekeeping up front
+
+144
+00:06:00,248 --> 00:06:01,415
+with HTML body
+
+145
+00:06:02,676 --> 00:06:03,811
+and I'll just do a copy paste
+
+146
+00:06:03,811 --> 00:06:06,247
+and I'll drop in the closing tags here
+
+147
+00:06:06,247 --> 00:06:08,497
+for slash body, slash html.
+
+148
+00:06:14,044 --> 00:06:15,853
+And now I simply just wanna print out those values
+
+149
+00:06:15,853 --> 00:06:17,693
+that I retrieved from a configuration file.
+
+150
+00:06:17,693 --> 00:06:20,776
+So, I'll print out the max cart size.
+
+151
+00:06:25,041 --> 00:06:26,131
+Oh and a small typo here,
+
+152
+00:06:26,131 --> 00:06:28,268
+this should be maxCartSize.
+
+153
+00:06:28,268 --> 00:06:29,553
+Okay, good, fixed that one.
+
+154
+00:06:29,553 --> 00:06:30,470
+Ooh, close.
+
+155
+00:06:32,242 --> 00:06:35,309
+And actually let me add a little br here,
+
+156
+00:06:35,309 --> 00:06:36,142
+line break,
+
+157
+00:06:36,142 --> 00:06:38,809
+just to separate the lines here.
+
+158
+00:06:41,999 --> 00:06:44,842
+And then let me just print out the team name
+
+159
+00:06:44,842 --> 00:06:48,509
+and that's what I read earlier in this code.
+
+160
+00:06:50,017 --> 00:06:51,512
+And that's kind of it.
+
+161
+00:06:51,512 --> 00:06:53,047
+This looks good.
+
+162
+00:06:53,047 --> 00:06:55,226
+So, this basically just prints out the values
+
+163
+00:06:55,226 --> 00:06:58,976
+that we retrieve from the configuration file.
+
+164
+00:07:00,270 --> 00:07:01,655
+Simply showing the output there
+
+165
+00:07:01,655 --> 00:07:03,190
+in our HTML.
+
+166
+00:07:03,190 --> 00:07:04,051
+So, this looks really good,
+
+167
+00:07:04,051 --> 00:07:05,145
+I'm excited about this.
+
+168
+00:07:05,145 --> 00:07:05,978
+Good job.
+
+169
+00:07:08,643 --> 00:07:10,225
+All right, so let's go ahead and test this out.
+
+170
+00:07:10,225 --> 00:07:13,123
+So, we can test this by running our servlet directly.
+
+171
+00:07:13,123 --> 00:07:15,773
+So, I can move down to this testparamservlet
+
+172
+00:07:15,773 --> 00:07:16,930
+and I can do a right click,
+
+173
+00:07:16,930 --> 00:07:18,451
+and I can choose run as,
+
+174
+00:07:18,451 --> 00:07:20,368
+and then run on server.
+
+175
+00:07:24,611 --> 00:07:26,404
+And wow, this looks really good.
+
+176
+00:07:26,404 --> 00:07:29,744
+So, here it said max cart of 99
+
+177
+00:07:29,744 --> 00:07:33,046
+and team project name of The Coding Gurus,
+
+178
+00:07:33,046 --> 00:07:34,435
+because we're awesome.
+
+179
+00:07:34,435 --> 00:07:35,899
+And that's all the information that we read
+
+180
+00:07:35,899 --> 00:07:38,580
+from that XML file that we set up,
+
+181
+00:07:38,580 --> 00:07:39,603
+our web.xml,
+
+182
+00:07:39,603 --> 00:07:41,619
+so it read the max shopping cart size
+
+183
+00:07:41,619 --> 00:07:43,345
+and also the project team name.
+
+184
+00:07:43,345 --> 00:07:44,782
+And our servlet read that information
+
+185
+00:07:44,782 --> 00:07:47,207
+and displayed the html content.
+
+186
+00:07:47,207 --> 00:07:48,168
+So, this is great.
+
+187
+00:07:48,168 --> 00:07:49,732
+This is exactly what we wanted to do.
+
+188
+00:07:49,732 --> 00:07:52,574
+So, I would say, mission accomplished.
+
+189
+00:07:52,574 --> 00:07:53,407
+Good job.
+

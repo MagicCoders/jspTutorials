@@ -1,0 +1,332 @@
+1
+00:00:01,890 --> 00:00:03,854
+<v Instructor>Hi, in this video we're going to learn</v>
+
+2
+00:00:03,854 --> 00:00:07,437
+how to update a student in our application.
+
+3
+00:00:09,460 --> 00:00:11,483
+So we'll cover the following topics:
+
+4
+00:00:11,483 --> 00:00:14,815
+first I'll give you a demo of the Update Student feature,
+
+5
+00:00:14,815 --> 00:00:17,609
+then we'll also take a look at the big picture,
+
+6
+00:00:17,609 --> 00:00:20,476
+and finally we'll take a look at the sequence diagram
+
+7
+00:00:20,476 --> 00:00:24,393
+just to see how all the parts work together....
+
+8
+00:00:26,888 --> 00:00:29,388
+All right, so here's a demo of the application,
+
+9
+00:00:29,388 --> 00:00:34,317
+so I'm going to show you how the new Update feature works.
+
+10
+00:00:34,317 --> 00:00:37,482
+So notice here we have a new column called Action,
+
+11
+00:00:37,482 --> 00:00:40,076
+and we have these Update links, so basically
+
+12
+00:00:40,076 --> 00:00:42,492
+what this Update link will do it'll actually show you
+
+13
+00:00:42,492 --> 00:00:46,884
+a new form and it'll pre-populate that form with data.
+
+14
+00:00:46,884 --> 00:00:49,736
+So here I'm updating the student Lisa Astor,
+
+15
+00:00:49,736 --> 00:00:52,609
+so again, notice how the form is already pre-populated
+
+16
+00:00:52,609 --> 00:00:54,214
+with her information.
+
+17
+00:00:54,214 --> 00:00:57,886
+Now let's say for example Lisa was married, recently married
+
+18
+00:00:57,886 --> 00:01:00,342
+and she wants to change her last name to
+
+19
+00:01:00,342 --> 00:01:04,405
+her new married last name, so we can type in
+
+20
+00:01:04,405 --> 00:01:07,451
+her new last name here, and then also she wants to change
+
+21
+00:01:07,451 --> 00:01:10,861
+her email address, so now this is funnylisa
+
+22
+00:01:10,861 --> 00:01:15,440
+and she's actually has a separate address for Gmail,
+
+23
+00:01:15,440 --> 00:01:19,239
+so funnylisa@gmail.com, so that's all of her new information
+
+24
+00:01:19,239 --> 00:01:23,650
+here that we want to update for her, uh, system.
+
+25
+00:01:23,650 --> 00:01:28,331
+All right, so let's go ahead and hit the Save button...
+
+26
+00:01:28,331 --> 00:01:30,842
+And good, so here's our new updated lists,
+
+27
+00:01:30,842 --> 00:01:33,280
+so again we sort the students by last name,
+
+28
+00:01:33,280 --> 00:01:35,364
+so Lisa Mangano, her new married name,
+
+29
+00:01:35,364 --> 00:01:39,868
+and then also her email address, funnylisa@gmail.com,
+
+30
+00:01:39,868 --> 00:01:42,421
+so this worked out just right, I mean,
+
+31
+00:01:42,421 --> 00:01:44,875
+we updated an existing student.
+
+32
+00:01:44,875 --> 00:01:47,683
+Now in the video series here, we're going to break it up
+
+33
+00:01:47,683 --> 00:01:50,045
+over multiple videos, and I'll actually show you
+
+34
+00:01:50,045 --> 00:01:54,109
+how to build all this functionality out from scratch.
+
+35
+00:01:54,109 --> 00:01:56,360
+All right, so here's the big picture.
+
+36
+00:01:56,360 --> 00:01:59,261
+So, up in the top left, we start off with
+
+37
+00:01:59,261 --> 00:02:02,748
+the list of students along with that new column there.
+
+38
+00:02:02,748 --> 00:02:06,579
+They select that new column action for update.
+
+39
+00:02:06,579 --> 00:02:09,943
+It'll take them to the form, pre-populated as we saw
+
+40
+00:02:09,943 --> 00:02:12,763
+in the demo, and from there we'll send the data
+
+41
+00:02:12,763 --> 00:02:14,476
+over to the Student Controller servlet
+
+42
+00:02:14,476 --> 00:02:17,510
+that'll read the form data and then it'll pass it off to
+
+43
+00:02:17,510 --> 00:02:21,086
+the Helper Class, our database util, and remember
+
+44
+00:02:21,086 --> 00:02:25,253
+the database util handles all the low-level JDBC work.
+
+45
+00:02:26,302 --> 00:02:28,615
+Now one little thing here about the action link.
+
+46
+00:02:28,615 --> 00:02:32,782
+When they click on update, each link has the student id
+
+47
+00:02:33,686 --> 00:02:37,082
+embedded in the link, so when they click the link,
+
+48
+00:02:37,082 --> 00:02:38,698
+what we'll actually do behind the scenes that,
+
+49
+00:02:38,698 --> 00:02:42,865
+we'll actually load the student data from the database
+
+50
+00:02:43,750 --> 00:02:48,745
+and then we'll use that to pre-populate the form, all right,
+
+51
+00:02:48,745 --> 00:02:50,727
+so you'll learn all the mechanics there
+
+52
+00:02:50,727 --> 00:02:54,615
+on how to pre-populate a form with data from the database,
+
+53
+00:02:54,615 --> 00:02:58,249
+so a nice little bonus there for you.
+
+54
+00:02:58,249 --> 00:03:00,754
+And finally, once you have the form pre-populated
+
+55
+00:03:00,754 --> 00:03:03,420
+with information, then this is the sequence diagram
+
+56
+00:03:03,420 --> 00:03:06,682
+for actually saving the student or updating the student,
+
+57
+00:03:06,682 --> 00:03:09,405
+so they hit the Save button, we call Update Student
+
+58
+00:03:09,405 --> 00:03:12,294
+on our controller, and we pass over special command
+
+59
+00:03:12,294 --> 00:03:14,356
+for update, and then from there we send it over
+
+60
+00:03:14,356 --> 00:03:18,125
+to our database util to actually update the student.
+
+61
+00:03:18,125 --> 00:03:20,688
+So that's the basic process, that's the basic
+
+62
+00:03:20,688 --> 00:03:24,061
+sequence diagram for how all the different components
+
+63
+00:03:24,061 --> 00:03:26,954
+work together, and again we'll walk through all of this
+
+64
+00:03:26,954 --> 00:03:28,787
+in the video setup....
+
+65
+00:03:33,847 --> 00:03:36,907
+All right, back to my favorite to-do list.
+
+66
+00:03:36,907 --> 00:03:38,941
+So, the first thing we're going to do is
+
+67
+00:03:38,941 --> 00:03:41,019
+we're going to update the list of students,
+
+68
+00:03:41,019 --> 00:03:42,915
+so we're going to add that new column there
+
+69
+00:03:42,915 --> 00:03:45,310
+for an update link, then we'll create
+
+70
+00:03:45,310 --> 00:03:47,925
+our update student form, and we'll use that form
+
+71
+00:03:47,925 --> 00:03:50,929
+to pre-populate it with data for a given student.
+
+72
+00:03:50,929 --> 00:03:53,959
+Then, we're going to update our controller servlet,
+
+73
+00:03:53,959 --> 00:03:55,725
+so we're going to handle requests that are coming in
+
+74
+00:03:55,725 --> 00:04:00,076
+to our updated student, and then finally we'll update
+
+75
+00:04:00,076 --> 00:04:02,084
+our Student DbUtil, so that's where we'll add
+
+76
+00:04:02,084 --> 00:04:05,751
+the low-level JDBC code for doing an update.
+
+77
+00:04:07,274 --> 00:04:11,226
+And again, we'll break this up over a series of videos,
+
+78
+00:04:11,226 --> 00:04:13,886
+we'll deep-dive into each step, we'll do everything
+
+79
+00:04:13,886 --> 00:04:17,801
+step by step, and we'll code everything from scratch,
+
+80
+00:04:17,801 --> 00:04:19,508
+just like we've done before.
+
+81
+00:04:19,508 --> 00:04:22,339
+All right, so, a lot of stuff in store,
+
+82
+00:04:22,339 --> 00:04:25,422
+I'm excited again and again, so let's go ahead and dive in,
+
+83
+00:04:25,422 --> 00:04:28,505
+and let's write some more code, yeah.
+

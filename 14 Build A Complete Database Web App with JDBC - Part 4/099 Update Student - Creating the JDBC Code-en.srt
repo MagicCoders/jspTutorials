@@ -1,0 +1,800 @@
+1
+00:00:01,240 --> 00:00:02,679
+<v Instructor>All right, so making good progress.</v>
+
+2
+00:00:02,679 --> 00:00:04,600
+We've just completed step three.
+
+3
+00:00:04,600 --> 00:00:06,669
+Now we're gonna focus on step four,
+
+4
+00:00:06,669 --> 00:00:08,859
+updating our student database util
+
+5
+00:00:08,859 --> 00:00:10,600
+and again, this is where we're gonna add
+
+6
+00:00:10,600 --> 00:00:12,388
+our low-level JDBC code
+
+7
+00:00:12,388 --> 00:00:15,805
+for updating the student in the database.
+
+8
+00:00:18,957 --> 00:00:22,059
+All right, so just moving back to our servlet here
+
+9
+00:00:22,059 --> 00:00:25,235
+on line 94 is where we actually have the code
+
+10
+00:00:25,235 --> 00:00:29,402 line:15% 
+where we make a call to the StudentDBUtil updateStudent
+
+11
+00:00:30,383 --> 00:00:32,383 line:15% 
+but right now that's just a placeholder
+
+12
+00:00:32,383 --> 00:00:34,803 line:15% 
+and we need to write some real code inside of that method,
+
+13
+00:00:34,803 --> 00:00:36,994 line:15% 
+so let me go ahead and navigate to that method,
+
+14
+00:00:36,994 --> 00:00:39,652
+so I'll simply do a right click,
+
+15
+00:00:39,652 --> 00:00:41,478
+and I'll say Open Declaration
+
+16
+00:00:41,478 --> 00:00:43,656
+and again, this is the Eclipse trick.
+
+17
+00:00:43,656 --> 00:00:45,510
+This will actually take us to the code here
+
+18
+00:00:45,510 --> 00:00:47,250
+for StudentDBUtil,
+
+19
+00:00:47,250 --> 00:00:49,716
+so that's where I'm at, I'm in StudentDBUtil right now
+
+20
+00:00:49,716 --> 00:00:52,327
+and I have just this empty shell of a method here
+
+21
+00:00:52,327 --> 00:00:53,744
+for updateStudent
+
+22
+00:00:55,501 --> 00:00:56,676
+and what I'll do is I'll go ahead
+
+23
+00:00:56,676 --> 00:00:57,909
+and write all my real code here
+
+24
+00:00:57,909 --> 00:01:01,242
+for doing all the real JDBC work for us.
+
+25
+00:01:03,700 --> 00:01:05,659
+And let me stretch out, get some more white space here
+
+26
+00:01:05,659 --> 00:01:06,826
+at the bottom.
+
+27
+00:01:08,833 --> 00:01:11,708
+I'll clear out all the comments there.
+
+28
+00:01:11,708 --> 00:01:14,314
+I know I'll have throws Execution up top,
+
+29
+00:01:14,314 --> 00:01:18,481
+so I'm gonna go ahead and put that in for right now.
+
+30
+00:01:20,566 --> 00:01:22,871
+And let me just set up some JDBC objects first
+
+31
+00:01:22,871 --> 00:01:24,946
+and set everything to null,
+
+32
+00:01:24,946 --> 00:01:27,471
+so I'll set up a connection for myConn,
+
+33
+00:01:27,471 --> 00:01:30,396
+I'll set up a PreparedStatement,
+
+34
+00:01:30,396 --> 00:01:31,563
+and that's it.
+
+35
+00:01:36,010 --> 00:01:37,618
+Now I'll go through and write some comments,
+
+36
+00:01:37,618 --> 00:01:39,520
+again just to keep myself on track.
+
+37
+00:01:39,520 --> 00:01:40,563
+So, the first thing I'll do
+
+38
+00:01:40,563 --> 00:01:43,144
+is get a connection to the database.
+
+39
+00:01:43,144 --> 00:01:43,977
+The next thing I'll do
+
+40
+00:01:43,977 --> 00:01:47,144
+is I'll create a SQL update statement.
+
+41
+00:01:48,771 --> 00:01:51,191
+Then I'll actually prepare that statement
+
+42
+00:01:51,191 --> 00:01:54,523
+and then I'll set the params for that statement
+
+43
+00:01:54,523 --> 00:01:57,904
+and then finally, I'll execute the SQL statement
+
+44
+00:01:57,904 --> 00:02:02,071
+that'll actually perform the update on the database.
+
+45
+00:02:06,851 --> 00:02:09,709
+So, that's kind of the main game plan here
+
+46
+00:02:09,709 --> 00:02:11,626
+for updating a student.
+
+47
+00:02:16,291 --> 00:02:18,568
+All right, so let's start cutting some code here.
+
+48
+00:02:18,568 --> 00:02:20,974
+So, first off I'll get the data connection,
+
+49
+00:02:20,974 --> 00:02:25,141
+so I'll say myConn equals dataSource.getConnection.
+
+50
+00:02:30,268 --> 00:02:32,542
+Now I'll go through and actually set a SQL string here,
+
+51
+00:02:32,542 --> 00:02:36,209
+so I'll say String sql equals update student
+
+52
+00:02:41,626 --> 00:02:45,018
+and I'll set first_name equals to a question mark,
+
+53
+00:02:45,018 --> 00:02:46,306
+last_names equals a question mark
+
+54
+00:02:46,306 --> 00:02:49,235
+and email equals the question mark
+
+55
+00:02:49,235 --> 00:02:51,464
+and again, these question marks are simply placeholders
+
+56
+00:02:51,464 --> 00:02:54,063
+for those prepared statements
+
+57
+00:02:54,063 --> 00:02:58,267
+and I'll update the student where ID equals
+
+58
+00:02:58,267 --> 00:03:02,429
+and that's whatever the ID that we pass in.
+
+59
+00:03:02,429 --> 00:03:03,330
+So, that's the SQL
+
+60
+00:03:03,330 --> 00:03:04,163
+and also one thing here,
+
+61
+00:03:04,163 --> 00:03:07,593
+make sure you have an extra white space at the end
+
+62
+00:03:07,593 --> 00:03:09,824
+on lines 172 and 173
+
+63
+00:03:09,824 --> 00:03:12,868
+'cause they're gonna concatenate this string altogether
+
+64
+00:03:12,868 --> 00:03:14,058
+and you need to have a space there
+
+65
+00:03:14,058 --> 00:03:16,537
+and so you don't run into any problems
+
+66
+00:03:16,537 --> 00:03:18,510
+but that's the basic SQL there
+
+67
+00:03:18,510 --> 00:03:20,427
+for updating a student.
+
+68
+00:03:23,788 --> 00:03:24,689
+So, the next thing we need to do
+
+69
+00:03:24,689 --> 00:03:26,153
+is prepare the statement,
+
+70
+00:03:26,153 --> 00:03:30,530
+so here I'll say myStatement equals myConn.prepareStatement,
+
+71
+00:03:30,530 --> 00:03:32,037
+I pass in that SQL that I just created
+
+72
+00:03:32,037 --> 00:03:34,040
+from the previous line,
+
+73
+00:03:34,040 --> 00:03:35,623
+so that looks good.
+
+74
+00:03:36,578 --> 00:03:39,007
+Now I'll go through and I'll actually set the parameters,
+
+75
+00:03:39,007 --> 00:03:40,691
+so again, these question marks
+
+76
+00:03:40,691 --> 00:03:44,521
+are parameters and they start at position one
+
+77
+00:03:44,521 --> 00:03:45,491
+and they go left to right,
+
+78
+00:03:45,491 --> 00:03:48,059
+so I simply set the first parameter
+
+79
+00:03:48,059 --> 00:03:50,917
+which is the student's first name
+
+80
+00:03:50,917 --> 00:03:53,021
+and I'll simply copy this line
+
+81
+00:03:53,021 --> 00:03:55,454
+and I'll paste it for the other lines
+
+82
+00:03:55,454 --> 00:03:57,789
+for LastName and email,
+
+83
+00:03:57,789 --> 00:04:00,706
+so position two is LastName
+
+84
+00:04:00,706 --> 00:04:02,413
+and position three is email
+
+85
+00:04:02,413 --> 00:04:05,681
+and again it's all one base starting at one
+
+86
+00:04:05,681 --> 00:04:07,069
+and then that fourth parameter,
+
+87
+00:04:07,069 --> 00:04:09,083
+or our fourth question mark here
+
+88
+00:04:09,083 --> 00:04:13,250
+is ID, so I'll say myStatement.setInt(4, theStudent.getId).
+
+89
+00:04:22,515 --> 00:04:24,081
+All right, so that looks good there for the params,
+
+90
+00:04:24,081 --> 00:04:26,426
+then finally we just execute the statement,
+
+91
+00:04:26,426 --> 00:04:30,259
+so I'll say myStatement.execute and that's it.
+
+92
+00:04:44,219 --> 00:04:47,295
+Now, I also need to put this code in a try finally block,
+
+93
+00:04:47,295 --> 00:04:49,219
+so let me go ahead and do the finally here
+
+94
+00:04:49,219 --> 00:04:51,222
+and in the finally I actually want to do a clean up
+
+95
+00:04:51,222 --> 00:04:52,847
+on those JDBC objects,
+
+96
+00:04:52,847 --> 00:04:57,014
+so I'll say close and I'll close myConn, myStatement
+
+97
+00:04:58,213 --> 00:04:59,269
+and there's no result set,
+
+98
+00:04:59,269 --> 00:05:01,373
+so I'll simply pass in null for that,
+
+99
+00:05:01,373 --> 00:05:03,027
+so null means results set,
+
+100
+00:05:03,027 --> 00:05:05,387
+but there's no results set in this example
+
+101
+00:05:05,387 --> 00:05:08,054
+and I have a finally but no try.
+
+102
+00:05:09,320 --> 00:05:10,699
+Yikes.
+
+103
+00:05:10,699 --> 00:05:11,532
+Yucky.
+
+104
+00:05:12,878 --> 00:05:14,746
+So, I need to kind of fix this code up a bit,
+
+105
+00:05:14,746 --> 00:05:17,330
+so let me copy this finally stuff
+
+106
+00:05:17,330 --> 00:05:20,163
+and cut it and move it right here,
+
+107
+00:05:22,879 --> 00:05:24,783
+so there's my finally
+
+108
+00:05:24,783 --> 00:05:27,637
+and now I need to move up top
+
+109
+00:05:27,637 --> 00:05:29,804
+right at 168 and do a try.
+
+110
+00:05:31,014 --> 00:05:32,625
+Okay, so that kind of takes care of that,
+
+111
+00:05:32,625 --> 00:05:35,815
+so now I have a try block at the beginning,
+
+112
+00:05:35,815 --> 00:05:39,426
+scroll down, end the try block on 188
+
+113
+00:05:39,426 --> 00:05:40,806
+and okay, so I'm okay.
+
+114
+00:05:40,806 --> 00:05:44,368
+So, now let me go ahead and just tab this stuff in,
+
+115
+00:05:44,368 --> 00:05:45,616
+there we go, that's tabbed in
+
+116
+00:05:45,616 --> 00:05:48,037
+and click this stuff, tab this in,
+
+117
+00:05:48,037 --> 00:05:48,967
+so I kind of made a mistake,
+
+118
+00:05:48,967 --> 00:05:50,532
+I'm having a clean up here
+
+119
+00:05:50,532 --> 00:05:54,115
+but anyways, we have this try block up top.
+
+120
+00:05:55,057 --> 00:05:56,300
+All right, actually we'll start from the top,
+
+121
+00:05:56,300 --> 00:05:58,300
+so we have updateStudent
+
+122
+00:06:01,058 --> 00:06:03,522
+and I set up my JDBC objects
+
+123
+00:06:03,522 --> 00:06:05,355
+and then I do the try.
+
+124
+00:06:07,758 --> 00:06:10,235
+We roll through and we get our database connection,
+
+125
+00:06:10,235 --> 00:06:11,902
+we do our SQL stuff,
+
+126
+00:06:16,918 --> 00:06:18,751
+prepare the statement,
+
+127
+00:06:20,139 --> 00:06:21,472
+set some params,
+
+128
+00:06:24,521 --> 00:06:26,067
+and then execute, okay, cool,
+
+129
+00:06:26,067 --> 00:06:29,779
+and so 188 we have our closed curly for that try
+
+130
+00:06:29,779 --> 00:06:32,910
+and then we have our finally block here
+
+131
+00:06:32,910 --> 00:06:34,218
+which we clean up
+
+132
+00:06:34,218 --> 00:06:35,758
+and that close curly, good.
+
+133
+00:06:35,758 --> 00:06:36,971
+So, that's good, so we're okay now,
+
+134
+00:06:36,971 --> 00:06:37,959
+we're in good shape
+
+135
+00:06:37,959 --> 00:06:39,284
+and also just as a good checkpoint,
+
+136
+00:06:39,284 --> 00:06:41,952
+make sure you have two curly braces
+
+137
+00:06:41,952 --> 00:06:44,180
+right after that and then you should be okay
+
+138
+00:06:44,180 --> 00:06:45,633
+and if there's any syntax errors,
+
+139
+00:06:45,633 --> 00:06:46,505
+Eclipse will let you know
+
+140
+00:06:46,505 --> 00:06:48,854
+but there we go, we're all kind of laid out here,
+
+141
+00:06:48,854 --> 00:06:50,635
+so this looks good so far.
+
+142
+00:06:50,635 --> 00:06:52,912
+Great, so that's our low-level JDBC code here
+
+143
+00:06:52,912 --> 00:06:56,537
+for updating a student in the database.
+
+144
+00:06:56,537 --> 00:06:57,565
+Good job.
+
+145
+00:06:57,565 --> 00:07:00,480
+So, now I think we can go ahead and test this thing out.
+
+146
+00:07:00,480 --> 00:07:03,813
+So, let's go back to our app and run it.
+
+147
+00:07:07,053 --> 00:07:08,254
+And our app's up and running.
+
+148
+00:07:08,254 --> 00:07:10,428
+Okay, great, so now we should be able to update
+
+149
+00:07:10,428 --> 00:07:12,675
+a student, so let's select one of these students here
+
+150
+00:07:12,675 --> 00:07:14,008
+and update them.
+
+151
+00:07:16,387 --> 00:07:19,678
+So, let's see, I'll try Maxwell Dixon.
+
+152
+00:07:19,678 --> 00:07:21,414
+Okay, click on Update
+
+153
+00:07:21,414 --> 00:07:25,164
+and I'm gonna change his last name to Apples.
+
+154
+00:07:30,697 --> 00:07:32,197
+So, Maxwell Apples
+
+155
+00:07:35,528 --> 00:07:38,278
+and then I'll hit the Save button
+
+156
+00:07:40,136 --> 00:07:41,125
+and I'll take a look at the list
+
+157
+00:07:41,125 --> 00:07:43,516
+and whoa, yeah, all right,
+
+158
+00:07:43,516 --> 00:07:46,009
+so his last name was updated,
+
+159
+00:07:46,009 --> 00:07:49,706
+so Maxwell Apples is now in our class.
+
+160
+00:07:49,706 --> 00:07:51,449
+Good, let's try it one more time.
+
+161
+00:07:51,449 --> 00:07:55,616
+Let's see, Mary Public, okay, let's change Mary Public.
+
+162
+00:07:57,842 --> 00:08:01,425
+So, let's go and hit the Update button here
+
+163
+00:08:02,354 --> 00:08:03,789
+and we'll change her last name,
+
+164
+00:08:03,789 --> 00:08:05,834
+instead of Public she's Private.
+
+165
+00:08:05,834 --> 00:08:07,951
+I don't know, being geeky
+
+166
+00:08:07,951 --> 00:08:11,777
+like a Java public private detective.
+
+167
+00:08:11,777 --> 00:08:14,762
+So, now she's Private and we'll change her email address,
+
+168
+00:08:14,762 --> 00:08:16,012
+mary@gmail.com,
+
+169
+00:08:17,720 --> 00:08:21,156
+so we're updating last name and email
+
+170
+00:08:21,156 --> 00:08:25,087
+and then we can go ahead and click on Save
+
+171
+00:08:25,087 --> 00:08:29,777
+and yeah, that looks good, Mary Private, mary@gmail.com.
+
+172
+00:08:29,777 --> 00:08:31,531
+Excellent, whoa.
+
+173
+00:08:31,531 --> 00:08:33,329
+Man, this is awesome.
+
+174
+00:08:33,329 --> 00:08:35,136
+Now, I'm happy, excited
+
+175
+00:08:35,136 --> 00:08:39,942 line:15% 
+but I'm thinking well, we should really check this
+
+176
+00:08:39,942 --> 00:08:41,275 line:15% 
+in the database.
+
+177
+00:08:42,515 --> 00:08:45,097 line:15% 
+We need to make sure this stuff is really out there
+
+178
+00:08:45,097 --> 00:08:46,924 line:15% 
+and there's no smoke and mirrors,
+
+179
+00:08:46,924 --> 00:08:49,461
+so let's go ahead and log into our database.
+
+180
+00:08:49,461 --> 00:08:52,378
+Let's go to our web_student_tracker
+
+181
+00:08:53,333 --> 00:08:55,854
+and our Tables, go to student,
+
+182
+00:08:55,854 --> 00:08:58,578
+select and there we go.
+
+183
+00:08:58,578 --> 00:08:59,411
+So, this looks good,
+
+184
+00:08:59,411 --> 00:09:03,454
+so there's Mary Private, mary@gmail.com,
+
+185
+00:09:03,454 --> 00:09:05,471
+so that's great and then the other person
+
+186
+00:09:05,471 --> 00:09:08,691
+we played around with was Maxwell, yeah, Maxwell Apples,
+
+187
+00:09:08,691 --> 00:09:09,574
+so this is great.
+
+188
+00:09:09,574 --> 00:09:11,157
+So, sigh of relief.
+
+189
+00:09:13,505 --> 00:09:15,039
+This works out just fine.
+
+190
+00:09:15,039 --> 00:09:17,099
+We're updating students in the database
+
+191
+00:09:17,099 --> 00:09:18,896
+and we kind of went through all
+
+192
+00:09:18,896 --> 00:09:21,432
+of the coding process for that.
+
+193
+00:09:21,432 --> 00:09:24,422
+That included pre-populating the form,
+
+194
+00:09:24,422 --> 00:09:25,655
+reading the input
+
+195
+00:09:25,655 --> 00:09:28,496
+and then saving it and updating it in the database,
+
+196
+00:09:28,496 --> 00:09:30,744
+so I'm excited now.
+
+197
+00:09:30,744 --> 00:09:33,862
+So, I would say good job for you,
+
+198
+00:09:33,862 --> 00:09:35,252
+give yourself a pat on the back
+
+199
+00:09:35,252 --> 00:09:38,109
+and we are making excellent progress here.
+
+200
+00:09:38,109 --> 00:09:39,609
+I'm excited, whoa.
+

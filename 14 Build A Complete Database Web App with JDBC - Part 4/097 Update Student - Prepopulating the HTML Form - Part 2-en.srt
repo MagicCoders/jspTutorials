@@ -1,0 +1,468 @@
+1
+00:00:01,500 --> 00:00:03,286 line:15% 
+<v ->In this video, we're gonna go ahead</v>
+
+2
+00:00:03,286 --> 00:00:07,453 line:15% 
+and create our form, and pre-populate our form with data.
+
+3
+00:00:08,470 --> 00:00:11,591 line:15% 
+So we'll actually start with this add-student-form.jsp
+
+4
+00:00:11,591 --> 00:00:15,017 line:15% 
+and I'll basically copy this form and rename it
+
+5
+00:00:15,017 --> 00:00:16,658
+for the update form.
+
+6
+00:00:16,658 --> 00:00:20,241
+So I just do a right-click and choose Copy,
+
+7
+00:00:21,970 --> 00:00:25,303
+and then I'll just go through and paste.
+
+8
+00:00:26,617 --> 00:00:28,283 line:15% 
+So the name of this form, here I'll call it
+
+9
+00:00:28,283 --> 00:00:30,616 line:15% 
+the update-student-form.jsp.
+
+10
+00:00:37,356 --> 00:00:39,054 line:15% 
+And once we're happy with that name, we go ahead
+
+11
+00:00:39,054 --> 00:00:40,387
+and click on OK.
+
+12
+00:00:41,986 --> 00:00:43,174
+Alright, so let's go ahead and open up
+
+13
+00:00:43,174 --> 00:00:45,507
+our update-student-form.jsp.
+
+14
+00:00:49,472 --> 00:00:50,829
+I'll just walk through this form
+
+15
+00:00:50,829 --> 00:00:53,297
+and just do some cosmetic changes.
+
+16
+00:00:53,297 --> 00:00:56,434
+I'll just say "Update Student" as far as the title,
+
+17
+00:00:56,434 --> 00:01:00,120
+and then for the header, here I'll say "Update Student."
+
+18
+00:01:00,120 --> 00:01:03,203
+So just basic cosmetic changes there.
+
+19
+00:01:06,234 --> 00:01:09,061
+Now moving down to line 23, we're gonna change the command.
+
+20
+00:01:09,061 --> 00:01:11,702
+So instead of the Add command,
+
+21
+00:01:11,702 --> 00:01:13,440
+we're gonna display this new command,
+
+22
+00:01:13,440 --> 00:01:16,566
+or we're gonna enter this new command called Update.
+
+23
+00:01:16,566 --> 00:01:18,688
+So we'll send over an Update command
+
+24
+00:01:18,688 --> 00:01:21,521
+to our student controller servlet.
+
+25
+00:01:31,979 --> 00:01:33,741
+So let's go ahead and set the value here
+
+26
+00:01:33,741 --> 00:01:34,889
+for this text field.
+
+27
+00:01:34,889 --> 00:01:36,897
+So this is the value that's actually displayed
+
+28
+00:01:36,897 --> 00:01:40,273
+when the user actually sees the form for the first time.
+
+29
+00:01:40,273 --> 00:01:42,168
+And for the actual value, what we'll do is
+
+30
+00:01:42,168 --> 00:01:44,313
+we'll actually make use of that student object
+
+31
+00:01:44,313 --> 00:01:46,468
+that was set by the servlet,
+
+32
+00:01:46,468 --> 00:01:49,376
+and we'll say "THE_STUDENT.firstname."
+
+33
+00:01:49,376 --> 00:01:52,177
+So basically here by saying value equals,
+
+34
+00:01:52,177 --> 00:01:54,518
+this will actually pre-populate the field
+
+35
+00:01:54,518 --> 00:01:57,018
+with the student's first name.
+
+36
+00:02:01,406 --> 00:02:02,770
+Now you're looking at this and you're probably wondering,
+
+37
+00:02:02,770 --> 00:02:05,642
+"Well, why is it THE_STUDENT?"
+
+38
+00:02:05,642 --> 00:02:08,987
+Let's go back and look at our servlet.
+
+39
+00:02:08,987 --> 00:02:13,433
+On our student controller servlet, for the load feature,
+
+40
+00:02:13,433 --> 00:02:17,016
+or the load method, I'll scroll down a bit.
+
+41
+00:02:22,002 --> 00:02:25,768
+So when we would actually load a student,
+
+42
+00:02:25,768 --> 00:02:29,826
+down on lines 86 and 87, that's how we actually
+
+43
+00:02:29,826 --> 00:02:32,740
+set the student in the request attribute.
+
+44
+00:02:32,740 --> 00:02:36,566
+So we'd say request.setAttribute, we'd give THE_STUDENT,
+
+45
+00:02:36,566 --> 00:02:39,431
+that's the attribute name, and that's the actual
+
+46
+00:02:39,431 --> 00:02:42,993
+attribute name that you use in the JSP page.
+
+47
+00:02:42,993 --> 00:02:46,704
+So THE_STUDENT is the actual attribute name,
+
+48
+00:02:46,704 --> 00:02:49,871
+and we'll use that in our actual form.
+
+49
+00:02:52,302 --> 00:02:55,340
+Alright, so that kind of clears up the attribute item.
+
+50
+00:02:55,340 --> 00:02:58,799
+So here, I'll use THE_STUDENT, so that's the attribute name
+
+51
+00:02:58,799 --> 00:03:03,010
+set by the servlet, and I'll say THE_STUDENT.firstname.
+
+52
+00:03:03,010 --> 00:03:04,516
+And it'll call the appropriate getter method
+
+53
+00:03:04,516 --> 00:03:06,906
+to get the first name.
+
+54
+00:03:06,906 --> 00:03:08,753
+Now I'll just copy this entry here
+
+55
+00:03:08,753 --> 00:03:10,986
+for each one of the other fields,
+
+56
+00:03:10,986 --> 00:03:14,486
+I'll do the same thing here for last name.
+
+57
+00:03:15,384 --> 00:03:18,967
+And I'll do a copy paste, and I will change
+
+58
+00:03:20,009 --> 00:03:22,630
+this field here to say lastname.
+
+59
+00:03:22,630 --> 00:03:24,451
+So, again, this will pre-populate the field
+
+60
+00:03:24,451 --> 00:03:26,868
+with the student's last name.
+
+61
+00:03:28,373 --> 00:03:31,735
+And I'll do a similar thing here for the email address.
+
+62
+00:03:31,735 --> 00:03:34,235
+So I'll say THE_STUDENT.email.
+
+63
+00:03:42,017 --> 00:03:43,230
+Alright, so this looks pretty good.
+
+64
+00:03:43,230 --> 00:03:46,018
+So basically, this section of code here's what we use
+
+65
+00:03:46,018 --> 00:03:49,213
+to pre-populate the form with the information
+
+66
+00:03:49,213 --> 00:03:50,109
+from the student.
+
+67
+00:03:50,109 --> 00:03:54,026
+Their first name, last name, and email address.
+
+68
+00:03:56,423 --> 00:03:59,288
+Actually, there's one other thing that I forgot to do here.
+
+69
+00:03:59,288 --> 00:04:01,388
+I need to add a new hidden field.
+
+70
+00:04:01,388 --> 00:04:05,555
+So let me copy line 23, and let me move down and paste
+
+71
+00:04:06,767 --> 00:04:08,488
+a copy of that,
+
+72
+00:04:08,488 --> 00:04:11,026
+and I need to set up the actual student ID,
+
+73
+00:04:11,026 --> 00:04:12,937
+so I need to say,
+
+74
+00:04:12,937 --> 00:04:17,104
+the name is studentId, and the value is THE_STUDENT.id.
+
+75
+00:04:19,602 --> 00:04:20,836
+What we need to do is we actually need to
+
+76
+00:04:20,836 --> 00:04:22,752
+track that student ID,
+
+77
+00:04:22,752 --> 00:04:24,330
+so when we actually do an update,
+
+78
+00:04:24,330 --> 00:04:26,033
+and we send it over to the servlet,
+
+79
+00:04:26,033 --> 00:04:28,246
+the servlet knows which student ID we need to
+
+80
+00:04:28,246 --> 00:04:29,647
+perform an update for.
+
+81
+00:04:29,647 --> 00:04:32,392
+So the ID here is actually very important.
+
+82
+00:04:32,392 --> 00:04:35,475
+So I'm glad I remembered to add that.
+
+83
+00:04:40,716 --> 00:04:42,517
+Alrighty, so we can save this,
+
+84
+00:04:42,517 --> 00:04:46,512
+and we can actually go through and test this form right now,
+
+85
+00:04:46,512 --> 00:04:48,896
+just to make sure that I can actually load
+
+86
+00:04:48,896 --> 00:04:50,444
+the student and pre-populate it.
+
+87
+00:04:50,444 --> 00:04:54,093
+So let me go ahead and run my application here.
+
+88
+00:04:54,093 --> 00:04:58,202
+They show the page, along with the update links.
+
+89
+00:04:58,202 --> 00:05:00,910
+So let me kind of focus in on one of these students,
+
+90
+00:05:00,910 --> 00:05:02,700
+and just test this out.
+
+91
+00:05:02,700 --> 00:05:05,912
+So, for this first student here, Maxwell Dixon,
+
+92
+00:05:05,912 --> 00:05:07,549
+let's go ahead and click the update link.
+
+93
+00:05:07,549 --> 00:05:11,716
+It should show the form with his information pre-populated.
+
+94
+00:05:16,040 --> 00:05:17,685
+Cool, this looks really, really good.
+
+95
+00:05:17,685 --> 00:05:20,163
+So look. Here's Maxwell Dixon.
+
+96
+00:05:20,163 --> 00:05:21,965
+So what happened with that update link
+
+97
+00:05:21,965 --> 00:05:23,366
+is that we actually retrieved the student
+
+98
+00:05:23,366 --> 00:05:25,692
+from the database, and then we would
+
+99
+00:05:25,692 --> 00:05:29,376
+actually use that information to pre-populate the form.
+
+100
+00:05:29,376 --> 00:05:30,209
+So this is great.
+
+101
+00:05:30,209 --> 00:05:32,667
+Let's try it one more time with another student.
+
+102
+00:05:32,667 --> 00:05:34,189
+Let's go back to our list,
+
+103
+00:05:34,189 --> 00:05:37,272
+and I'll zoom in here on Mary Public.
+
+104
+00:05:38,355 --> 00:05:40,549
+And I'll click on update, and, OK, again.
+
+105
+00:05:40,549 --> 00:05:41,985
+Works out just fine.
+
+106
+00:05:41,985 --> 00:05:44,654
+So great, so this all works out just fine.
+
+107
+00:05:44,654 --> 00:05:47,948
+So the whole idea of pre-populating a form,
+
+108
+00:05:47,948 --> 00:05:49,120
+we've accomplished this
+
+109
+00:05:49,120 --> 00:05:51,404
+by making use of that command equals load,
+
+110
+00:05:51,404 --> 00:05:53,808
+and then we pass in the appropriate student ID.
+
+111
+00:05:53,808 --> 00:05:56,874
+So our servlet and DB util does work on the back end,
+
+112
+00:05:56,874 --> 00:05:58,809
+and then it sends it over to the JSP
+
+113
+00:05:58,809 --> 00:06:00,478
+to pre-populate the form.
+
+114
+00:06:00,478 --> 00:06:02,779
+So this is really good.
+
+115
+00:06:02,779 --> 00:06:04,546
+I'm happy, I'm excited,
+
+116
+00:06:04,546 --> 00:06:07,011
+because we're making some really good progress.
+
+117
+00:06:07,011 --> 00:06:08,761
+So, good job so far.
+

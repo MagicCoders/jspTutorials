@@ -1,0 +1,444 @@
+1
+00:00:01,337 --> 00:00:02,967
+<v Instructor>In this video, we're gonna learn</v>
+
+2
+00:00:02,967 --> 00:00:07,134
+how to set up the database table for our classroom project.
+
+3
+00:00:08,421 --> 00:00:11,650
+So what we'll do is we'll make use of two database scripts.
+
+4
+00:00:11,650 --> 00:00:14,119
+The first script will create a user,
+
+5
+00:00:14,119 --> 00:00:15,675
+and the second script will set up
+
+6
+00:00:15,675 --> 00:00:17,663
+our student tracker database.
+
+7
+00:00:17,663 --> 00:00:19,888
+And in the following slides, I'll walk through
+
+8
+00:00:19,888 --> 00:00:21,971
+each one of these scripts and show you
+
+9
+00:00:21,971 --> 00:00:23,971
+how they work in detail.
+
+10
+00:00:29,044 --> 00:00:31,052
+All right, so let's go and take a look at our first script.
+
+11
+00:00:31,052 --> 00:00:33,363
+It's basically gonna create a new MySQL user
+
+12
+00:00:33,363 --> 00:00:34,788
+for our application.
+
+13
+00:00:34,788 --> 00:00:37,351
+The user's gonna have a user ID of webstudent
+
+14
+00:00:37,351 --> 00:00:40,310
+and it'll also have a password of webstudent.
+
+15
+00:00:40,310 --> 00:00:41,603
+All right, so let's go ahead and move into
+
+16
+00:00:41,603 --> 00:00:44,446
+MySQL Workbench and run this script.
+
+17
+00:00:44,446 --> 00:00:47,569
+So again, MySQL Workbench is basically just a GUI
+
+18
+00:00:47,569 --> 00:00:52,014
+for managing or administering your MySQL database.
+
+19
+00:00:52,014 --> 00:00:54,564
+Let's go ahead and connect to the database.
+
+20
+00:00:54,564 --> 00:00:56,830
+I'll use my root account, and I'll use the same
+
+21
+00:00:56,830 --> 00:01:01,442
+root password that I used when I installed a MySQL database.
+
+22
+00:01:01,442 --> 00:01:02,876
+Then I'll hit OK.
+
+23
+00:01:02,876 --> 00:01:05,157
+And so at this point, I'm in MySQL Workbench.
+
+24
+00:01:05,157 --> 00:01:07,176
+Now what I'll do is, I'll actually open that file
+
+25
+00:01:07,176 --> 00:01:09,938
+that we just discussed, the 01-create-user.
+
+26
+00:01:09,938 --> 00:01:12,606
+So I'll move up to the File menu, and I'll say
+
+27
+00:01:12,606 --> 00:01:14,439
+File, Open SQL Script,
+
+28
+00:01:17,270 --> 00:01:18,652
+and then I'll move over to
+
+29
+00:01:18,652 --> 00:01:20,736
+where I extracted the file, so in my case,
+
+30
+00:01:20,736 --> 00:01:22,852
+I have this folder called my-java-training.
+
+31
+00:01:22,852 --> 00:01:27,172
+And then the extract of that jsp-servlet-jdbc-source-code.
+
+32
+00:01:27,172 --> 00:01:30,022
+There's a folder here called sql-scripts.
+
+33
+00:01:30,022 --> 00:01:31,938
+The one script that I'm looking for here
+
+34
+00:01:31,938 --> 00:01:34,105
+is the 01-create-user.sql.
+
+35
+00:01:37,011 --> 00:01:40,316
+So again, this script basically creates a user.
+
+36
+00:01:40,316 --> 00:01:43,424
+Here we have CREATE USER 'webstudent'
+
+37
+00:01:43,424 --> 00:01:44,737
+IDENTIFIED BY 'webstudent'.
+
+38
+00:01:44,737 --> 00:01:46,878
+So we have the user ID and the password,
+
+39
+00:01:46,878 --> 00:01:49,177
+so that'll actually create a MySQL user for us.
+
+40
+00:01:49,177 --> 00:01:52,049
+And then on line three, we simply grant privileges,
+
+41
+00:01:52,049 --> 00:01:54,330
+so this allows the user to create more tables
+
+42
+00:01:54,330 --> 00:01:56,919
+and create more stored procedures and so on.
+
+43
+00:01:56,919 --> 00:01:59,013
+All right, so this looks good so far.
+
+44
+00:01:59,013 --> 00:02:01,412
+So now, to run this, I simply hit the little yellow
+
+45
+00:02:01,412 --> 00:02:04,823
+lightning bolt here, that will execute the SQL script.
+
+46
+00:02:04,823 --> 00:02:08,254
+At the bottom we'll have the little green check marks,
+
+47
+00:02:08,254 --> 00:02:11,877
+and that means, hey, everything's successful, we're happy.
+
+48
+00:02:11,877 --> 00:02:14,555
+So at this point, we have our user created.
+
+49
+00:02:14,555 --> 00:02:17,273
+So that looks good so far.
+
+50
+00:02:17,273 --> 00:02:19,390
+Now, the next part here is making use of the
+
+51
+00:02:19,390 --> 00:02:21,307
+02-student-tracker.sql.
+
+52
+00:02:22,188 --> 00:02:24,615
+What this is gonna do is it's gonna actually create
+
+53
+00:02:24,615 --> 00:02:27,467
+a new database table for us called student,
+
+54
+00:02:27,467 --> 00:02:30,155
+and then it's gonna load that database table
+
+55
+00:02:30,155 --> 00:02:32,095
+with some sample data.
+
+56
+00:02:32,095 --> 00:02:35,928
+So that's the main idea of this second script.
+
+57
+00:02:37,031 --> 00:02:38,260
+All right, so let's go ahead and move back
+
+58
+00:02:38,260 --> 00:02:40,269
+into SQL Workbench, and let's run this script.
+
+59
+00:02:40,269 --> 00:02:42,397
+So first, I have to open the file.
+
+60
+00:02:42,397 --> 00:02:45,730
+So I move back up to my File menu again,
+
+61
+00:02:46,791 --> 00:02:48,791
+and I'll say File, Open,
+
+62
+00:02:49,874 --> 00:02:51,958
+say Open SQL Script.
+
+63
+00:02:51,958 --> 00:02:54,398
+And in that same directory, I'm gonna look for that file,
+
+64
+00:02:54,398 --> 00:02:56,315
+02-student-tracker.sql,
+
+65
+00:02:59,025 --> 00:03:02,739
+so our same sql-scripts directory there.
+
+66
+00:03:02,739 --> 00:03:03,971
+All right, so that's the 02.
+
+67
+00:03:03,971 --> 00:03:06,959
+So let's go ahead and click Open.
+
+68
+00:03:06,959 --> 00:03:08,873
+All right, now, whoa.
+
+69
+00:03:08,873 --> 00:03:10,426
+There's a lot of stuff in this file.
+
+70
+00:03:10,426 --> 00:03:12,176
+Don't let this file overwhelm you.
+
+71
+00:03:12,176 --> 00:03:14,058
+It's simply an output of a dump.
+
+72
+00:03:14,058 --> 00:03:16,001
+But basically, what we're gonna do in this file
+
+73
+00:03:16,001 --> 00:03:17,385
+is two main things.
+
+74
+00:03:17,385 --> 00:03:19,113
+We're gonna create a table called student,
+
+75
+00:03:19,113 --> 00:03:21,635
+with the various columns, and then we'll go through
+
+76
+00:03:21,635 --> 00:03:23,525
+and we'll insert sample data.
+
+77
+00:03:23,525 --> 00:03:25,629
+So a lot of other stuff that's out there,
+
+78
+00:03:25,629 --> 00:03:28,060
+but the main items here, we create the table
+
+79
+00:03:28,060 --> 00:03:31,977
+and then we insert sample data into that table.
+
+80
+00:03:36,094 --> 00:03:37,605
+All right, so let's go ahead and run this one again.
+
+81
+00:03:37,605 --> 00:03:40,220
+So again, we make use of that little yellow lightning bolt
+
+82
+00:03:40,220 --> 00:03:41,762
+there on the tool bar.
+
+83
+00:03:41,762 --> 00:03:43,921
+We click that button there.
+
+84
+00:03:43,921 --> 00:03:46,092
+And that'll execute, and again, we'll see our
+
+85
+00:03:46,092 --> 00:03:48,080
+little green check marks here at the bottom.
+
+86
+00:03:48,080 --> 00:03:51,730
+So that means that, hey, this script executed successfully.
+
+87
+00:03:51,730 --> 00:03:53,758
+Now, over on the left-hand side, we need to do
+
+88
+00:03:53,758 --> 00:03:57,159
+a right-click, and then we need to say Refresh All.
+
+89
+00:03:57,159 --> 00:03:59,276
+So this will basically refresh the list of schemas
+
+90
+00:03:59,276 --> 00:04:02,181
+or tables, and we'll see our new item here.
+
+91
+00:04:02,181 --> 00:04:04,686
+So there we go, our web_student_tracker,
+
+92
+00:04:04,686 --> 00:04:06,880
+so that's our database that we've created.
+
+93
+00:04:06,880 --> 00:04:09,307
+And then inside of our database, we have a table
+
+94
+00:04:09,307 --> 00:04:12,795
+called student, right, so there's our table right there.
+
+95
+00:04:12,795 --> 00:04:15,073
+And the student table has four columns.
+
+96
+00:04:15,073 --> 00:04:18,873
+It has id, first_name, last_name and email.
+
+97
+00:04:18,873 --> 00:04:20,053
+So that's good.
+
+98
+00:04:20,053 --> 00:04:21,747
+And then, we can actually query this table
+
+99
+00:04:21,747 --> 00:04:24,384
+and look at the data by doing a right-click and
+
+100
+00:04:24,384 --> 00:04:26,134
+choosing Select Rows.
+
+101
+00:04:28,928 --> 00:04:31,345
+So once we do this then, here, there's our sample data.
+
+102
+00:04:31,345 --> 00:04:34,489
+So we added just five sample students here,
+
+103
+00:04:34,489 --> 00:04:37,481
+Mary, John, Ajay, Bill and Maxwell.
+
+104
+00:04:37,481 --> 00:04:38,518
+So this looks really good.
+
+105
+00:04:38,518 --> 00:04:42,093
+So we have our test user created.
+
+106
+00:04:42,093 --> 00:04:44,307
+We have our database table created,
+
+107
+00:04:44,307 --> 00:04:46,497
+and we've loaded some sample data.
+
+108
+00:04:46,497 --> 00:04:48,786
+So we're in really, really good shape now.
+
+109
+00:04:48,786 --> 00:04:50,296
+And in the following videos, we'll make use of
+
+110
+00:04:50,296 --> 00:04:51,377
+this database.
+
+111
+00:04:51,377 --> 00:04:53,044
+So, good job so far.
+

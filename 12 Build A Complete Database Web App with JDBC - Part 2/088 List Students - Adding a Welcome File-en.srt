@@ -1,0 +1,612 @@
+1
+00:00:01,507 --> 00:00:03,423
+<v Instructor>Hi, I this video we're gonna learn</v>
+
+2
+00:00:03,423 --> 00:00:06,840
+about adding welcome files with servlets.
+
+3
+00:00:07,903 --> 00:00:11,538
+So currently, in order to access our MVC application
+
+4
+00:00:11,538 --> 00:00:14,542
+we have to explicitly call the servlet URL.
+
+5
+00:00:14,542 --> 00:00:16,909
+So we give localhost, web student tracker,
+
+6
+00:00:16,909 --> 00:00:19,371
+slash student controller servlet
+
+7
+00:00:19,371 --> 00:00:21,808
+and that's fine for development and testing
+
+8
+00:00:21,808 --> 00:00:25,416
+but not really good for real world development
+
+9
+00:00:25,416 --> 00:00:27,312
+or real world deployment.
+
+10
+00:00:27,312 --> 00:00:29,052
+So, what I'd like to do is make things
+
+11
+00:00:29,052 --> 00:00:30,806
+just a little bit simpler
+
+12
+00:00:30,806 --> 00:00:33,470
+by simply just giving the URL to the web app
+
+13
+00:00:33,470 --> 00:00:36,464
+without having to explicitly call the servlet.
+
+14
+00:00:36,464 --> 00:00:38,086
+So, I'd like to take this URL
+
+15
+00:00:38,086 --> 00:00:39,978
+and be able to share it with somebody
+
+16
+00:00:39,978 --> 00:00:41,846
+without getting into all the gory details
+
+17
+00:00:41,846 --> 00:00:44,346
+of student control or servlet.
+
+18
+00:00:47,311 --> 00:00:49,435
+So, what you can do is make use of a feature
+
+19
+00:00:49,435 --> 00:00:51,793
+with the Java servlets or web apps
+
+20
+00:00:51,793 --> 00:00:54,353
+where there's a deployment descriptor file
+
+21
+00:00:54,353 --> 00:00:57,467
+called web.xml and it has various configs
+
+22
+00:00:57,467 --> 00:00:59,057
+for application deployment.
+
+23
+00:00:59,057 --> 00:01:02,742
+So, one of the options available is welcome files.
+
+24
+00:01:02,742 --> 00:01:04,812
+So this will basically tell the server,
+
+25
+00:01:04,812 --> 00:01:08,971
+hey, if no one accesses a servlet or file directly,
+
+26
+00:01:08,971 --> 00:01:10,878
+then go look for these welcome files
+
+27
+00:01:10,878 --> 00:01:13,128
+and serve those up instead.
+
+28
+00:01:17,424 --> 00:01:19,923
+So, basically it's gonna look for a welcome file
+
+29
+00:01:19,923 --> 00:01:22,904
+and it'll look for that welcome file in your web.xml file.
+
+30
+00:01:22,904 --> 00:01:24,583
+So you have this welcome file list
+
+31
+00:01:24,583 --> 00:01:26,666
+and you'll have a list of files.
+
+32
+00:01:26,666 --> 00:01:30,760
+Now, it's actually gonna search these files top down,
+
+33
+00:01:30,760 --> 00:01:32,000
+So it'll come through.
+
+34
+00:01:32,000 --> 00:01:33,878
+It'll say hey is there an index.html.
+
+35
+00:01:33,878 --> 00:01:36,387
+If so, it'll serve it up.
+
+36
+00:01:36,387 --> 00:01:39,158
+You can add as many welcome files here as you'd like.
+
+37
+00:01:39,158 --> 00:01:41,504
+You can also add references to servlets here
+
+38
+00:01:41,504 --> 00:01:42,933
+and this is what it'll look for
+
+39
+00:01:42,933 --> 00:01:46,537
+as far as a welcome file if the URL doesn't have
+
+40
+00:01:46,537 --> 00:01:48,577
+an explicit file reference.
+
+41
+00:01:48,577 --> 00:01:49,851
+So this is kind of cool.
+
+42
+00:01:49,851 --> 00:01:51,501
+So that's kind of the theory,
+
+43
+00:01:51,501 --> 00:01:55,501
+let's swing into Eclipse and let's try this out.
+
+44
+00:01:56,703 --> 00:01:58,527 line:15% 
+So first off before we get into coding
+
+45
+00:01:58,527 --> 00:02:00,858 line:15% 
+I just wanna show you what'll happen here
+
+46
+00:02:00,858 --> 00:02:02,551 line:15% 
+if we don't have a file reference.
+
+47
+00:02:02,551 --> 00:02:05,234 line:15% 
+So, note the URL, I have the big, long URL
+
+48
+00:02:05,234 --> 00:02:07,283 line:15% 
+with student controller servlet.
+
+49
+00:02:07,283 --> 00:02:09,242 line:15% 
+I'm gonna simply take that off
+
+50
+00:02:09,242 --> 00:02:10,784 line:15% 
+and just try and access my app directly
+
+51
+00:02:10,784 --> 00:02:12,930 line:15% 
+and I'll just hit the enter button.
+
+52
+00:02:12,930 --> 00:02:16,221 line:15% 
+And ugh yucky, we have this 404 error.
+
+53
+00:02:16,221 --> 00:02:18,830 line:15% 
+So basically it wasn't able to find a resource
+
+54
+00:02:18,830 --> 00:02:20,395 line:15% 
+because right now, this web app
+
+55
+00:02:20,395 --> 00:02:23,949 line:15% 
+doesn't have any welcome files to find or configure.
+
+56
+00:02:23,949 --> 00:02:25,949 line:15% 
+So, we need to fix that.
+
+57
+00:02:29,160 --> 00:02:30,240
+So in order to fix it,
+
+58
+00:02:30,240 --> 00:02:33,519
+we first need to add a web.xml file to our project
+
+59
+00:02:33,519 --> 00:02:35,386
+and configure it properly.
+
+60
+00:02:35,386 --> 00:02:37,822
+So I'll move back into our starter files.
+
+61
+00:02:37,822 --> 00:02:41,252
+I'll move into this directory here, WEB-INF
+
+62
+00:02:41,252 --> 00:02:43,681
+and I'll select this file web.xml.
+
+63
+00:02:43,681 --> 00:02:47,637
+I'll do a right click and I'll copy this file.
+
+64
+00:02:47,637 --> 00:02:50,512
+Then I'll move back over to Eclipse
+
+65
+00:02:50,512 --> 00:02:52,357
+and then I'll actually paste this file
+
+66
+00:02:52,357 --> 00:02:54,482
+into my WEB-INF directory.
+
+67
+00:02:54,482 --> 00:02:57,691
+So I'll paste it into WebContent/WEB-INF.
+
+68
+00:02:57,691 --> 00:02:59,941
+So that's the web.xml file.
+
+69
+00:03:02,298 --> 00:03:04,154
+And once I paste this new file here
+
+70
+00:03:04,154 --> 00:03:06,169
+I need to restart Tomcat,
+
+71
+00:03:06,169 --> 00:03:07,860
+just so it'll pick up these new configurations
+
+72
+00:03:07,860 --> 00:03:09,277
+for this project.
+
+73
+00:03:12,560 --> 00:03:14,526
+So you can just simply choose your Tomcat server,
+
+74
+00:03:14,526 --> 00:03:16,859
+right click, choose restart.
+
+75
+00:03:17,876 --> 00:03:21,374
+Alright, so WebContent, WEB-INF, web.xml,
+
+76
+00:03:21,374 --> 00:03:23,148
+double click it.
+
+77
+00:03:23,148 --> 00:03:25,091
+So here's the file that we had from the slides.
+
+78
+00:03:25,091 --> 00:03:28,397
+So basically it's just a web deployment descriptor
+
+79
+00:03:28,397 --> 00:03:30,333 line:15% 
+and it has those welcome files.
+
+80
+00:03:30,333 --> 00:03:33,100 line:15% 
+What I wanna do here is create a new welcome file
+
+81
+00:03:33,100 --> 00:03:35,344 line:15% 
+called index.html.
+
+82
+00:03:35,344 --> 00:03:36,556 line:15% 
+So I wanna solve the problem
+
+83
+00:03:36,556 --> 00:03:38,147 line:15% 
+that we were having a little earlier.
+
+84
+00:03:38,147 --> 00:03:41,147 line:15% 
+So, creating a new file, index.html.
+
+85
+00:03:44,898 --> 00:03:48,267 line:15% 
+Enter it here and once I'm happy with that file name,
+
+86
+00:03:48,267 --> 00:03:51,755 line:15% 
+I can go ahead and click on the finish button.
+
+87
+00:03:51,755 --> 00:03:53,568 line:15% 
+Okay great so blank file.
+
+88
+00:03:53,568 --> 00:03:57,411 line:15% 
+So let's just create a very simple html file
+
+89
+00:03:57,411 --> 00:04:01,425 line:15% 
+and with the body I'll set up just some very basic text,
+
+90
+00:04:01,425 --> 00:04:03,810 line:15% 
+Hello Brave New World.
+
+91
+00:04:03,810 --> 00:04:05,236 line:15% 
+Brave new world,
+
+92
+00:04:05,236 --> 00:04:08,486 line:15% 
+and I'll set up some h1 tags around it.
+
+93
+00:04:12,540 --> 00:04:16,180 line:15% 
+Alright, so just a very basic Hello World page.
+
+94
+00:04:16,180 --> 00:04:17,680 line:15% 
+Right, I'll save this file.
+
+95
+00:04:17,680 --> 00:04:19,899 line:15% 
+Now if I go back to my browser
+
+96
+00:04:19,899 --> 00:04:22,955 line:15% 
+I should be able to test this out.
+
+97
+00:04:22,955 --> 00:04:25,968
+So in my browser, instead of the 404 error,
+
+98
+00:04:25,968 --> 00:04:28,801
+if I click on reload for this URL,
+
+99
+00:04:30,109 --> 00:04:32,107
+then boom, good job.
+
+100
+00:04:32,107 --> 00:04:35,455
+So now I'm getting that html file that I just added
+
+101
+00:04:35,455 --> 00:04:38,147
+and that's because this index.html
+
+102
+00:04:38,147 --> 00:04:40,811
+that's listed as a welcome file
+
+103
+00:04:40,811 --> 00:04:42,394
+in my web.xml file.
+
+104
+00:04:43,416 --> 00:04:45,873
+So the system it went through looking for some file.
+
+105
+00:04:45,873 --> 00:04:48,244
+It looked for index.jsp, it didn't find it
+
+106
+00:04:48,244 --> 00:04:50,822
+and it looked for index.html, found one
+
+107
+00:04:50,822 --> 00:04:53,055
+and that's the file that it served up.
+
+108
+00:04:53,055 --> 00:04:54,498
+So this was working out really good.
+
+109
+00:04:54,498 --> 00:04:57,893
+So we have the basics going here for our welcome files.
+
+110
+00:04:57,893 --> 00:04:59,560
+So, good job so far.
+
+111
+00:05:02,645 --> 00:05:04,077 line:15% 
+But I really want more.
+
+112
+00:05:04,077 --> 00:05:05,295 line:15% 
+I don't want just the hello world,
+
+113
+00:05:05,295 --> 00:05:07,224 line:15% 
+I want my servlet, okay,
+
+114
+00:05:07,224 --> 00:05:09,433 line:15% 
+I want my student controller servlet.
+
+115
+00:05:09,433 --> 00:05:11,366 line:15% 
+So what I'll do is I'll actually add the servlet
+
+116
+00:05:11,366 --> 00:05:12,633 line:15% 
+as a welcome file.
+
+117
+00:05:12,633 --> 00:05:16,251 line:15% 
+So I'll simply grab the URL mapping for this servlet,
+
+118
+00:05:16,251 --> 00:05:17,251 line:15% 
+I'll copy it
+
+119
+00:05:19,030 --> 00:05:21,639 line:15% 
+and then I'll use that in that web.xml
+
+120
+00:05:21,639 --> 00:05:25,410 line:15% 
+for setting up a references to a welcome file.
+
+121
+00:05:25,410 --> 00:05:28,191 line:15% 
+So I'll move here into this web.xml
+
+122
+00:05:28,191 --> 00:05:31,661 line:15% 
+and I'll add a new entry here for our welcome file
+
+123
+00:05:31,661 --> 00:05:33,987 line:15% 
+and so instead of giving and actual file name
+
+124
+00:05:33,987 --> 00:05:36,416 line:15% 
+like a jsp or a html file,
+
+125
+00:05:36,416 --> 00:05:38,884 line:15% 
+I'll give the URL mapping of my servlet.
+
+126
+00:05:38,884 --> 00:05:40,340 line:15% 
+Student controller servlet
+
+127
+00:05:40,340 --> 00:05:41,870 line:15% 
+and it's listed first.
+
+128
+00:05:41,870 --> 00:05:42,812 line:15% 
+So it should pick that one up
+
+129
+00:05:42,812 --> 00:05:45,187 line:15% 
+before it makes it to the html page.
+
+130
+00:05:45,187 --> 00:05:46,474 line:15% 
+So just be careful on the order.
+
+131
+00:05:46,474 --> 00:05:49,891 line:15% 
+Remember it'll search for files top-down.
+
+132
+00:05:51,470 --> 00:05:53,965
+Again, go through and just refresh
+
+133
+00:05:53,965 --> 00:05:55,394
+or restart this Tomcat server
+
+134
+00:05:55,394 --> 00:05:59,561
+because we made some config changes to our web.xml file.
+
+135
+00:06:00,661 --> 00:06:03,089
+Alright, so now that Tomcat is restarted,
+
+136
+00:06:03,089 --> 00:06:04,778
+then I can go back into my browser
+
+137
+00:06:04,778 --> 00:06:06,689
+and test some things out.
+
+138
+00:06:06,689 --> 00:06:08,856
+So here I click on refresh
+
+139
+00:06:11,887 --> 00:06:12,720
+and booya,
+
+140
+00:06:14,595 --> 00:06:17,520
+now, note the URL is just web-student-tracker,
+
+141
+00:06:17,520 --> 00:06:20,317
+but behind the scenes it's automatically forwarding
+
+142
+00:06:20,317 --> 00:06:23,593
+or calling our student controller servlet.
+
+143
+00:06:23,593 --> 00:06:24,426
+So this looks great.
+
+144
+00:06:24,426 --> 00:06:27,228
+So there's no servlet reference in the URL.
+
+145
+00:06:27,228 --> 00:06:28,635
+But it's basically being served up,
+
+146
+00:06:28,635 --> 00:06:31,764
+processing all of our big MVC stuff
+
+147
+00:06:31,764 --> 00:06:33,610
+is working in the background
+
+148
+00:06:33,610 --> 00:06:34,859
+thanks to our database work.
+
+149
+00:06:34,859 --> 00:06:35,965
+So, this is great
+
+150
+00:06:35,965 --> 00:06:37,459
+so I just wanted to show you this little trick here
+
+151
+00:06:37,459 --> 00:06:40,499
+for making use of welcome files here
+
+152
+00:06:40,499 --> 00:06:41,916
+with the web.xml.
+
+153
+00:06:42,895 --> 00:06:44,395
+Alright, good job.
+

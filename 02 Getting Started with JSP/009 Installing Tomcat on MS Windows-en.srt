@@ -1,0 +1,444 @@
+1
+00:00:01,079 --> 00:00:02,410
+<v Narrator>Hey, welcome back!</v>
+
+2
+00:00:02,410 --> 00:00:04,455
+So let's go ahead and get our hands dirty.
+
+3
+00:00:04,455 --> 00:00:06,112
+So in this video, I'm gonna show you
+
+4
+00:00:06,112 --> 00:00:09,695
+how to install Tomcat on Microsoft Windows.
+
+5
+00:00:12,107 --> 00:00:13,725
+Alright, so the first thing we need to do
+
+6
+00:00:13,725 --> 00:00:15,844
+is we need to download Tomcat.
+
+7
+00:00:15,844 --> 00:00:18,084
+So in my browser, I'm gonna visit
+
+8
+00:00:18,084 --> 00:00:19,584
+tomcat.apache.org.
+
+9
+00:00:24,634 --> 00:00:27,114
+And so this'll take me to the Tomcat website.
+
+10
+00:00:27,114 --> 00:00:29,635
+Over on the left-hand side is a downloads section,
+
+11
+00:00:29,635 --> 00:00:33,802
+where we can actually download some of the software.
+
+12
+00:00:40,793 --> 00:00:41,851
+I'll move down to the section
+
+13
+00:00:41,851 --> 00:00:44,397
+for binary distributions, and I'll choose this
+
+14
+00:00:44,397 --> 00:00:48,373
+32-bit/64-bit Windows Service Installer.
+
+15
+00:00:48,373 --> 00:00:50,650
+So this is the normal MSI file.
+
+16
+00:00:50,650 --> 00:00:54,486
+It'll install Tomcat as a Windows service.
+
+17
+00:00:54,486 --> 00:00:57,653
+So I'll go ahead and select this link,
+
+18
+00:01:01,626 --> 00:01:02,952
+and right now my browser will start
+
+19
+00:01:02,952 --> 00:01:05,702
+downloading it to my file system.
+
+20
+00:01:09,143 --> 00:01:10,517
+Alright, great. So now we have it downloaded.
+
+21
+00:01:10,517 --> 00:01:13,458
+Let's go ahead and open up a Windows Explorer,
+
+22
+00:01:13,458 --> 00:01:16,802
+and I'll move into this "Downloads" folder,
+
+23
+00:01:16,802 --> 00:01:18,968
+and there's the file that was just downloaded:
+
+24
+00:01:18,968 --> 00:01:22,691
+Apache Tomcat. So that's the actual installer.
+
+25
+00:01:22,691 --> 00:01:24,462
+So let's go ahead and run this installer
+
+26
+00:01:24,462 --> 00:01:26,637
+just by double-clicking it.
+
+27
+00:01:26,637 --> 00:01:30,804
+So this'll start up the installer. I'll hit "Yes."
+
+28
+00:01:33,933 --> 00:01:35,781
+And here I'm at the first step of the Wizard.
+
+29
+00:01:35,781 --> 00:01:39,178
+I'll go ahead and click "Next." I'll agree.
+
+30
+00:01:39,178 --> 00:01:42,056
+And then, here we choose our components.
+
+31
+00:01:42,056 --> 00:01:43,713
+For the components I like to choose "Full,"
+
+32
+00:01:43,713 --> 00:01:46,238
+just so I can get all the examples in the host manager.
+
+33
+00:01:46,238 --> 00:01:48,646
+Again, a nice thing about this Tomcat installer
+
+34
+00:01:48,646 --> 00:01:50,648
+is that it installs it as a service,
+
+35
+00:01:50,648 --> 00:01:52,389
+so I'll make sure that the service thing
+
+36
+00:01:52,389 --> 00:01:54,668
+is enabled or checked there.
+
+37
+00:01:54,668 --> 00:01:56,328
+I'll go ahead and hit "Next."
+
+38
+00:01:56,328 --> 00:01:59,397
+By default, Tomcat listens on port 8080.
+
+39
+00:01:59,397 --> 00:02:02,112
+Feel free to change that, but I like to keep the defaults.
+
+40
+00:02:02,112 --> 00:02:04,736
+And then you can set up a administrator login.
+
+41
+00:02:04,736 --> 00:02:06,918
+So for now, I'll just say "admin" "admin."
+
+42
+00:02:06,918 --> 00:02:10,286
+Again, you can give any username and password that you want.
+
+43
+00:02:10,286 --> 00:02:12,369
+And then I'll hit "Next."
+
+44
+00:02:13,786 --> 00:02:17,953
+I'll accept the default installation here for my JRE.
+
+45
+00:02:18,889 --> 00:02:20,698
+I'll hit "Next."
+
+46
+00:02:20,698 --> 00:02:23,480
+And I'll also accept the default installation directory.
+
+47
+00:02:23,480 --> 00:02:25,473
+You can feel free to change this, but I'll go ahead
+
+48
+00:02:25,473 --> 00:02:28,418
+and keep the default installation directory for Tomcat.
+
+49
+00:02:28,418 --> 00:02:30,770
+And then I'll hit "Install."
+
+50
+00:02:30,770 --> 00:02:31,995
+And so, at this point, it'll go through
+
+51
+00:02:31,995 --> 00:02:34,113
+the process of installing the software.
+
+52
+00:02:34,113 --> 00:02:37,372
+And now it says, "Hey, the software's installed."
+
+53
+00:02:37,372 --> 00:02:39,887
+I'll turn off the option to show the readme.
+
+54
+00:02:39,887 --> 00:02:41,025
+I'll hit "Finish."
+
+55
+00:02:41,025 --> 00:02:42,820
+And now it'll actually start Tomcat
+
+56
+00:02:42,820 --> 00:02:44,570
+as a Windows service.
+
+57
+00:02:47,273 --> 00:02:48,959
+Alright, great. So Tomcat is started.
+
+58
+00:02:48,959 --> 00:02:51,070
+Let's go ahead and verify our installation.
+
+59
+00:02:51,070 --> 00:02:54,999
+And we can verify it by viewing a website, localhost:8080.
+
+60
+00:02:54,999 --> 00:02:59,166
+That's where our local Tomcat server's running right now.
+
+61
+00:03:00,173 --> 00:03:01,441
+So if everything works out right,
+
+62
+00:03:01,441 --> 00:03:03,393
+it should bring up this page that you see here.
+
+63
+00:03:03,393 --> 00:03:06,515
+So it'll say "Apache Tomcat."
+
+64
+00:03:06,515 --> 00:03:08,195
+And then, also, they even give you a message,
+
+65
+00:03:08,195 --> 00:03:10,046
+"If you're seeing this, you've successfully
+
+66
+00:03:10,046 --> 00:03:12,456
+"installed Tomcat. Congratulations!"
+
+67
+00:03:12,456 --> 00:03:13,535
+So we know that we're okay.
+
+68
+00:03:13,535 --> 00:03:15,914
+So Tomcat was installed successfully,
+
+69
+00:03:15,914 --> 00:03:20,453
+and Tomcat is up and running. So good job so far.
+
+70
+00:03:20,453 --> 00:03:21,671
+Now I'm going to show you one other thing can do
+
+71
+00:03:21,671 --> 00:03:23,769
+is you can actually configure Tomcat.
+
+72
+00:03:23,769 --> 00:03:24,763
+So you can just right-click on
+
+73
+00:03:24,763 --> 00:03:28,377
+the little Tomcat icon in the bottom-right.
+
+74
+00:03:28,377 --> 00:03:31,710
+And say right-click and hit "Configure."
+
+75
+00:03:33,060 --> 00:03:36,269
+And this'll bring up the configuration window for Tomcat.
+
+76
+00:03:36,269 --> 00:03:38,400
+So you can change, like, the display name
+
+77
+00:03:38,400 --> 00:03:41,921
+for the service, you can change the actual description.
+
+78
+00:03:41,921 --> 00:03:43,636
+At the bottom it shows you if the status,
+
+79
+00:03:43,636 --> 00:03:45,801
+if it's running or stopped.
+
+80
+00:03:45,801 --> 00:03:47,632
+You can play around with some logging stuff.
+
+81
+00:03:47,632 --> 00:03:49,229
+A lot of other things you can play around with.
+
+82
+00:03:49,229 --> 00:03:50,373
+But for right now I'll just go ahead
+
+83
+00:03:50,373 --> 00:03:52,403
+and keep everything as the defaults,
+
+84
+00:03:52,403 --> 00:03:55,486
+and I'll just hit "Cancel" right now.
+
+85
+00:03:56,681 --> 00:03:58,074
+Another nice thing's that you can actually
+
+86
+00:03:58,074 --> 00:04:02,157
+administer Tomcat via the Services control panel.
+
+87
+00:04:10,476 --> 00:04:12,556
+So I'll go ahead and click on "Services" here,
+
+88
+00:04:12,556 --> 00:04:14,603
+it'll bring it up, and we'll see in the list
+
+89
+00:04:14,603 --> 00:04:17,744
+we have Apache Tomcat that's listed as a service
+
+90
+00:04:17,744 --> 00:04:20,687
+and it's currently running.
+
+91
+00:04:20,687 --> 00:04:22,207
+So, just like any standard service,
+
+92
+00:04:22,207 --> 00:04:24,262
+you can just right-click, you can stop it,
+
+93
+00:04:24,262 --> 00:04:26,367
+pause it, resume it, restart it;
+
+94
+00:04:26,367 --> 00:04:30,031
+you can do all the normal things you can do with a service.
+
+95
+00:04:30,031 --> 00:04:32,738
+What I'd like to do now is actually stop Tomcat,
+
+96
+00:04:32,738 --> 00:04:35,331
+because we're gonna run it later via Eclipse.
+
+97
+00:04:35,331 --> 00:04:37,145
+So I'll go ahead and stop this service.
+
+98
+00:04:37,145 --> 00:04:40,974
+I'll just do a right-click, I'll hit "Stop,"
+
+99
+00:04:40,974 --> 00:04:42,101
+and it'll go through the process
+
+100
+00:04:42,101 --> 00:04:43,827
+of stopping the Tomcat server.
+
+101
+00:04:43,827 --> 00:04:45,875
+So right now it's not running. But don't worry.
+
+102
+00:04:45,875 --> 00:04:48,015
+Later on we'll actually hook up Tomcat
+
+103
+00:04:48,015 --> 00:04:49,790
+and Eclipse to run together,
+
+104
+00:04:49,790 --> 00:04:54,615
+and we'll cover that in one of the following videos.
+
+105
+00:04:54,615 --> 00:04:57,991
+Now, we were successful, we were able to download Tomcat
+
+106
+00:04:57,991 --> 00:05:00,416
+and install it, and then, also go through the process
+
+107
+00:05:00,416 --> 00:05:02,131
+of verifying our installation.
+
+108
+00:05:02,131 --> 00:05:03,592
+And then finally, we went around
+
+109
+00:05:03,592 --> 00:05:05,355
+and took a look at some of the configs,
+
+110
+00:05:05,355 --> 00:05:08,282
+and also looked at the Services control panel.
+
+111
+00:05:08,282 --> 00:05:09,865
+So good job so far.
+

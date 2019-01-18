@@ -1,0 +1,640 @@
+1
+00:00:00,000 --> 00:00:03,726
+<v luv2Code>Hi, in this video we're gonna add JSTL support</v>
+
+2
+00:00:03,726 --> 00:00:05,809
+to our classroom project.
+
+3
+00:00:09,282 --> 00:00:11,699
+So far we've built our MVC framework
+
+4
+00:00:11,699 --> 00:00:14,121
+but you may have noticed when I was writing the code for
+
+5
+00:00:14,121 --> 00:00:17,131
+the JSP, that I made use of Scriptlet code.
+
+6
+00:00:17,131 --> 00:00:18,264
+ohh
+
+7
+00:00:18,264 --> 00:00:22,092
+And you may have wondered 'Why not add JSTL?'
+
+8
+00:00:22,092 --> 00:00:24,315
+So, you may remember from some previous sessions
+
+9
+00:00:24,315 --> 00:00:27,836
+I covered JSTL and how the best practice is to replace
+
+10
+00:00:27,836 --> 00:00:30,695
+Scriptlet code with JSTL tags,
+
+11
+00:00:30,695 --> 00:00:34,730
+um so I think that I should follow my own advice here.
+
+12
+00:00:34,730 --> 00:00:37,804
+Or, I should practice what I preach.
+
+13
+00:00:37,804 --> 00:00:40,141
+So in this video we will actually replace our
+
+14
+00:00:40,141 --> 00:00:42,558
+JSP Scriptlet code with JSTL.
+
+15
+00:00:43,939 --> 00:00:46,444
+And, you know how I love To Do lists here.
+
+16
+00:00:46,444 --> 00:00:48,558
+So what we're gonna do in step one is that
+
+17
+00:00:48,558 --> 00:00:52,778
+we're gonna add our JSTL JAR files to our project.
+
+18
+00:00:52,778 --> 00:00:56,332
+Then we'll go through and we'll update our JSP page
+
+19
+00:00:56,332 --> 00:00:58,820
+to make use of the JSTL tags,
+
+20
+00:00:58,820 --> 00:01:02,331
+and in particular we'll make use of the &lt;c:forEach&gt; tag
+
+21
+00:01:02,331 --> 00:01:03,548
+And that's really all we have to do
+
+22
+00:01:03,548 --> 00:01:06,208
+all the servlet and database code stays the same,
+
+23
+00:01:06,208 --> 00:01:09,125
+we're simply updating the JSP page.
+
+24
+00:01:11,543 --> 00:01:13,601 line:15% 
+Alright so lets go ahead and move into Eclipse.
+
+25
+00:01:13,601 --> 00:01:15,382 line:15% 
+So the first step is adding
+
+26
+00:01:15,382 --> 00:01:18,132 line:15% 
+the JSTL JAR files to our project
+
+27
+00:01:19,951 --> 00:01:21,442 line:15% 
+Now we're going to add these files
+
+28
+00:01:21,442 --> 00:01:23,460 line:15% 
+into our WEB-INF/lib directory, and
+
+29
+00:01:23,460 --> 00:01:26,611 line:15% 
+remember the WEB-INF/lib directory is a special directory
+
+30
+00:01:26,611 --> 00:01:29,405 line:15% 
+where you place any third party JAR files.
+
+31
+00:01:29,405 --> 00:01:32,467 line:15% 
+So, as you see we're making use of this JDBC driver
+
+32
+00:01:32,467 --> 00:01:34,524 line:15% 
+and its already there in our lib directory.
+
+33
+00:01:34,524 --> 00:01:37,941 line:15% 
+So now we want to add the JSTL JAR files.
+
+34
+00:01:39,626 --> 00:01:43,346
+So I'll swing over to my finder or explorer here,
+
+35
+00:01:43,346 --> 00:01:45,898
+and moving back to the code we downloaded
+
+36
+00:01:45,898 --> 00:01:48,534
+earlier in the course, we have a directory here
+
+37
+00:01:48,534 --> 00:01:51,701
+for web student tracker starter files.
+
+38
+00:01:54,422 --> 00:01:58,737
+So I'll expand the directory down to WebContent/WEB-INF/lib
+
+39
+00:01:58,737 --> 00:02:03,530
+and in this directory we have two JAR files that we need.
+
+40
+00:02:03,530 --> 00:02:06,346
+We have two JSTL JAR files,
+
+41
+00:02:06,346 --> 00:02:07,915
+so what you should do is go ahead
+
+42
+00:02:07,915 --> 00:02:09,651
+and select both of those files,
+
+43
+00:02:09,651 --> 00:02:12,303
+do a right click and choose copy,
+
+44
+00:02:12,303 --> 00:02:15,386
+coz those are the files that we want.
+
+45
+00:02:20,958 --> 00:02:22,419 line:15% 
+Okay, great. So those files are copied
+
+46
+00:02:22,419 --> 00:02:24,919 line:15% 
+now lets move back over to the Eclipse and
+
+47
+00:02:24,919 --> 00:02:26,989 line:15% 
+in Eclipse we want to place this information into
+
+48
+00:02:26,989 --> 00:02:30,682 line:15% 
+the WebContent/WEB-INF/lib directory
+
+49
+00:02:30,682 --> 00:02:34,849 line:15% 
+and then simply do a right click and choose paste.
+
+50
+00:02:40,545 --> 00:02:41,569
+Okay, this looks really good now.
+
+51
+00:02:41,569 --> 00:02:44,699
+So we should have those two new JAR files for JSTL
+
+52
+00:02:44,699 --> 00:02:46,464
+in our WEB-INF/lb directory.
+
+53
+00:02:46,464 --> 00:02:47,297
+So this is really good,
+
+54
+00:02:47,297 --> 00:02:49,637
+so we're kind set up now with step one
+
+55
+00:02:49,637 --> 00:02:53,804
+so we've added those JAR files and we're ready to go.
+
+56
+00:02:54,641 --> 00:02:57,293 line:15% 
+Alright, so moving forward here on the next step
+
+57
+00:02:57,293 --> 00:02:58,883 line:15% 
+we want to update our JSP page
+
+58
+00:02:58,883 --> 00:03:01,636 line:15% 
+to make use of those JSTL tags.
+
+59
+00:03:01,636 --> 00:03:05,803 line:15% 
+So let me go ahead and open my file list-students.jsp
+
+60
+00:03:07,521 --> 00:03:08,949 line:15% 
+Currently we have Scriptlet code here
+
+61
+00:03:08,949 --> 00:03:13,670 line:15% 
+we're gonna make some modifications to this file.
+
+62
+00:03:13,670 --> 00:03:15,947
+So the first thing want to do is, on line one,
+
+63
+00:03:15,947 --> 00:03:19,662
+I want to move or delete this line of doing the page import
+
+64
+00:03:19,662 --> 00:03:21,430
+When we're using JSTL we don't have to any
+
+65
+00:03:21,430 --> 00:03:24,479
+imports here of java class libraries.
+
+66
+00:03:24,479 --> 00:03:26,062
+So I'll delete that file.
+
+67
+00:03:26,062 --> 00:03:29,248
+And now what I'm gonna do, is add in the reference here
+
+68
+00:03:29,248 --> 00:03:32,319
+for the JSTL tag libs for core.
+
+69
+00:03:32,319 --> 00:03:34,066
+So I just did a copy paste here,
+
+70
+00:03:34,066 --> 00:03:35,429
+you can go ahead and type it in,
+
+71
+00:03:35,429 --> 00:03:36,970
+just pause the video and type it in,
+
+72
+00:03:36,970 --> 00:03:38,841
+but I always like to make sure I get this right
+
+73
+00:03:38,841 --> 00:03:41,329
+because the uri has to match exactly or else
+
+74
+00:03:41,329 --> 00:03:42,936
+everything else will fall apart.
+
+75
+00:03:42,936 --> 00:03:47,019
+So make sure you get the first line correct here.
+
+76
+00:03:47,991 --> 00:03:49,395
+Okay so then we can move down
+
+77
+00:03:49,395 --> 00:03:52,316
+So we have this section of code here for a Scriptlet
+
+78
+00:03:52,316 --> 00:03:54,316 line:15% 
+where we would retrieve the object
+
+79
+00:03:54,316 --> 00:03:56,618 line:15% 
+from other request attributes.
+
+80
+00:03:56,618 --> 00:03:58,618 line:15% 
+We're actually gonna delete this because we don't have to
+
+81
+00:03:58,618 --> 00:04:00,785 line:15% 
+use it when we make use of JSTL
+
+82
+00:04:00,785 --> 00:04:03,077 line:15% 
+so JSTL will do a lot of this work for us
+
+83
+00:04:03,077 --> 00:04:04,957 line:15% 
+behind the scenes.
+
+84
+00:04:04,957 --> 00:04:08,142 line:15% 
+So lines 12 through 16 I can simply highlight them
+
+85
+00:04:08,142 --> 00:04:10,475 line:15% 
+and just hit the delete key.
+
+86
+00:04:11,572 --> 00:04:12,405
+And, boof! Goes away.
+
+87
+00:04:12,405 --> 00:04:14,783
+(chuckles)
+
+88
+00:04:14,783 --> 00:04:17,229
+Alright, now lets scroll on down here
+
+89
+00:04:17,229 --> 00:04:19,395 line:15% 
+and the next thing we want to do here is we actually
+
+90
+00:04:19,395 --> 00:04:23,805 line:15% 
+want to replace our Scriptlet code with JSTL &lt;c:forEach&gt;.
+
+91
+00:04:23,805 --> 00:04:26,562 line:15% 
+So on line 32, instead of having a normal
+
+92
+00:04:26,562 --> 00:04:30,729 line:15% 
+for loop using Scriptlet code, I'm going to have a JSTL tag.
+
+93
+00:04:32,817 --> 00:04:36,984 line:15% 
+And, I'm going to put in here for the JSTL &lt;c:forEach&gt; tag.
+
+94
+00:04:38,704 --> 00:04:42,655 line:15% 
+Then I'll grab the end tag and I'll move it down to line 42
+
+95
+00:04:42,655 --> 00:04:44,155 line:15% 
+Actually, line 41,
+
+96
+00:04:45,174 --> 00:04:46,563 line:15% 
+and I'll place it right there
+
+97
+00:04:46,563 --> 00:04:48,571 line:15% 
+just so we have a start for each tag
+
+98
+00:04:48,571 --> 00:04:50,830 line:15% 
+and an end for each tag.
+
+99
+00:04:50,830 --> 00:04:53,137 line:15% 
+Now I need to go ahead and flesh out some items here
+
+100
+00:04:53,137 --> 00:04:56,426 line:15% 
+so var="tempStudent", that's our temporary variable we use
+
+101
+00:04:56,426 --> 00:04:58,221 line:15% 
+when we go through the loop.
+
+102
+00:04:58,221 --> 00:05:01,503 line:15% 
+And then items='' will actually be the attribute name
+
+103
+00:05:01,503 --> 00:05:02,929 line:15% 
+of the data.
+
+104
+00:05:02,929 --> 00:05:04,389 line:15% 
+So this is the same attribute name
+
+105
+00:05:04,389 --> 00:05:07,759
+that was set by the Servlet STUDENT_LIST
+
+106
+00:05:07,759 --> 00:05:10,046
+so this JSTL tag they'll actually go into that
+
+107
+00:05:10,046 --> 00:05:12,436
+request attribute, or sorry,
+
+108
+00:05:12,436 --> 00:05:14,500
+they'll actually go into that request object
+
+109
+00:05:14,500 --> 00:05:16,923
+get the attribute called STUDENT_LIST
+
+110
+00:05:16,923 --> 00:05:18,604
+and then make it available.
+
+111
+00:05:18,604 --> 00:05:21,097
+So they'll do a lot of the work for us behind the scenes
+
+112
+00:05:21,097 --> 00:05:24,180
+which is a nice feature here of JSTL.
+
+113
+00:05:27,643 --> 00:05:29,310
+Alright great, so now what I'm gonna do here
+
+114
+00:05:29,310 --> 00:05:30,239
+is replace my
+
+115
+00:05:30,239 --> 00:05:32,739
+JSP Scriptlet expressions here
+
+116
+00:05:33,743 --> 00:05:37,397
+and I'll replace it with a JSP expression language
+
+117
+00:05:37,397 --> 00:05:39,276
+So, that's the dollar sign curly brace
+
+118
+00:05:39,276 --> 00:05:42,344
+and you simply give the object name dot the property name.
+
+119
+00:05:42,344 --> 00:05:45,031
+So here I have tempStudent.firstName
+
+120
+00:05:45,031 --> 00:05:47,563
+so then I'll just copy this line
+
+121
+00:05:47,563 --> 00:05:50,878
+and I'll simply paste it for all the others real quick
+
+122
+00:05:50,878 --> 00:05:52,557
+so I'll just copy this
+
+123
+00:05:52,557 --> 00:05:55,647
+and then I'll just paste it here for lastName
+
+124
+00:05:55,647 --> 00:05:58,397
+and I'll paste it here for email.
+
+125
+00:05:59,385 --> 00:06:01,553
+And I'll go through and do a quick update here,
+
+126
+00:06:01,553 --> 00:06:03,470
+so tempStudent.lastName
+
+127
+00:06:04,536 --> 00:06:07,036
+and I'll do tempStudent.email.
+
+128
+00:06:11,981 --> 00:06:12,834
+So as a reminder,
+
+129
+00:06:12,834 --> 00:06:14,918
+when we use this JSP expression langauge,
+
+130
+00:06:14,918 --> 00:06:18,808
+remember that it will actually call tempStudent.getemail
+
+131
+00:06:18,808 --> 00:06:22,480
+so it will actually call your getter method here for email.
+
+132
+00:06:22,480 --> 00:06:24,421
+So tempStudent.getemail,
+
+133
+00:06:24,421 --> 00:06:27,962
+it will do a similar thing for firstName, lastName and so on
+
+134
+00:06:27,962 --> 00:06:29,545
+So that's basically our for-loop now
+
+135
+00:06:29,545 --> 00:06:32,319
+so instead of using JSP Scriptlet here
+
+136
+00:06:32,319 --> 00:06:35,075
+we're making use of the JSTL tags
+
+137
+00:06:35,075 --> 00:06:37,222
+and making use of the &lt;c:forEach&gt; tags.
+
+138
+00:06:37,222 --> 00:06:39,186
+So, just kinda cleaned it up a bit.
+
+139
+00:06:39,186 --> 00:06:41,343
+Not much of a big deal there.
+
+140
+00:06:41,343 --> 00:06:43,468
+Alright so lets go ahead and try this out and run it.
+
+141
+00:06:43,468 --> 00:06:46,650
+So I need to go back and run my actual
+
+142
+00:06:46,650 --> 00:06:49,751
+Servlet here, our controller servlet.
+
+143
+00:06:49,751 --> 00:06:52,668
+So, move back up my java resources.
+
+144
+00:06:55,652 --> 00:06:58,820
+Right click on that StudentControllerServlet.java
+
+145
+00:06:58,820 --> 00:07:02,737
+And then select Run As, and then Run on Server.
+
+146
+00:07:05,463 --> 00:07:06,296
+And break.
+
+147
+00:07:06,296 --> 00:07:07,129
+So that's the output, so again no surprises here
+
+148
+00:07:07,129 --> 00:07:10,617
+everything is going to work exactly the same,
+
+149
+00:07:10,617 --> 00:07:12,702
+the only difference is that we simply modified
+
+150
+00:07:12,702 --> 00:07:15,084
+our JSP page to make use of JSTL.
+
+151
+00:07:15,084 --> 00:07:17,312
+But to the end user, no real difference,
+
+152
+00:07:17,312 --> 00:07:18,866
+everything still looks fine,
+
+153
+00:07:18,866 --> 00:07:23,286
+everything still looks beautiful our beautiful table again.
+
+154
+00:07:23,286 --> 00:07:27,274
+Alright so that covers it here, we went through and we
+
+155
+00:07:27,274 --> 00:07:29,984
+took our JSP Scriptlet code, removed it
+
+156
+00:07:29,984 --> 00:07:33,438
+and we replaced it with JSTL tags
+
+157
+00:07:33,438 --> 00:07:38,140
+So good job so far and good job for following best practices
+
+158
+00:07:38,140 --> 00:07:39,022
+Including myself
+
+159
+00:07:39,022 --> 00:07:40,462
+(chuckles)
+
+160
+00:07:40,462 --> 00:07:43,379
+Alright, see you in the next video.
+

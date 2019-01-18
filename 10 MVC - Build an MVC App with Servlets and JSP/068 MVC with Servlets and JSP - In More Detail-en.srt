@@ -1,0 +1,188 @@
+1
+00:00:01,272 --> 00:00:03,333
+<v Instructor>Hey, in this video we're going</v>
+
+2
+00:00:03,333 --> 00:00:06,020
+to cover MVC with servlets and JSP
+
+3
+00:00:06,020 --> 00:00:07,706
+and I'll actually go into more detail
+
+4
+00:00:07,706 --> 00:00:10,623
+than we did in the previous videos.
+
+5
+00:00:12,114 --> 00:00:15,641
+So in the previous video we had an overview of MVC, right,
+
+6
+00:00:15,641 --> 00:00:16,930
+so the first thing is that,
+
+7
+00:00:16,930 --> 00:00:19,673
+the request comes into the controllers servlet,
+
+8
+00:00:19,673 --> 00:00:22,710
+we make use of the model and then we have the view,
+
+9
+00:00:22,710 --> 00:00:25,375
+and then I'd sent it back to the web browser.
+
+10
+00:00:25,375 --> 00:00:27,593
+However, in the previous videos we didn't really get
+
+11
+00:00:27,593 --> 00:00:30,878
+into the details of step two as far as using the model.
+
+12
+00:00:30,878 --> 00:00:32,265
+So that's what we'll do in this video.
+
+13
+00:00:32,265 --> 00:00:34,153
+We'll actually create a helper class,
+
+14
+00:00:34,153 --> 00:00:37,848
+called StudentDataUtil.java and it's going to be our model.
+
+15
+00:00:37,848 --> 00:00:41,291
+It's basically going to give us a list of students,
+
+16
+00:00:41,291 --> 00:00:43,410
+so basically, for step two,
+
+17
+00:00:43,410 --> 00:00:45,650
+our controller servlet will make a call
+
+18
+00:00:45,650 --> 00:00:48,881
+to the student data util, get a list of students
+
+19
+00:00:48,881 --> 00:00:51,663
+and then it will put them into that request attribute,
+
+20
+00:00:51,663 --> 00:00:53,240
+send it over to the view
+
+21
+00:00:53,240 --> 00:00:55,966
+and then the view will generate a view page
+
+22
+00:00:55,966 --> 00:00:58,871
+that it'll send back to the browser.
+
+23
+00:00:58,871 --> 00:01:01,164
+So, this view page that the JSP sends back,
+
+24
+00:01:01,164 --> 00:01:03,033
+we're going to enhance it a little bit.
+
+25
+00:01:03,033 --> 00:01:06,335
+In the previous videos we simply made use of a list,
+
+26
+00:01:06,335 --> 00:01:08,536
+here we're actually going to make use of a table.
+
+27
+00:01:08,536 --> 00:01:09,765
+That's the most common thing
+
+28
+00:01:09,765 --> 00:01:11,422
+that you'll do in a real application,
+
+29
+00:01:11,422 --> 00:01:14,686
+is display your information in tabular format.
+
+30
+00:01:14,686 --> 00:01:18,853
+So, we'll modify our JSP page to make use of a table.
+
+31
+00:01:21,519 --> 00:01:24,080
+Now as you know, I love to do lists,
+
+32
+00:01:24,080 --> 00:01:26,260
+I like to do everything step by step.
+
+33
+00:01:26,260 --> 00:01:27,699
+So the first thing we're going to do is,
+
+34
+00:01:27,699 --> 00:01:29,846
+we're going to create a student class,
+
+35
+00:01:29,846 --> 00:01:31,953
+the second thing we'll do is create that helper class
+
+36
+00:01:31,953 --> 00:01:34,783
+for the model Student Data Util.
+
+37
+00:01:34,783 --> 00:01:37,391
+Then we'll create out MVC servlet
+
+38
+00:01:37,391 --> 00:01:40,788
+and then finally we'll create the view JSP.
+
+39
+00:01:40,788 --> 00:01:41,889
+And what I'll do is I'll show you
+
+40
+00:01:41,889 --> 00:01:44,057
+all of these steps in the following videos.
+
+41
+00:01:44,057 --> 00:01:47,196
+And I'll break it up to separate videos for each step.
+
+42
+00:01:47,196 --> 00:01:49,567
+But don't worry we'll see everything from scratch,
+
+43
+00:01:49,567 --> 00:01:51,729
+you'll see everything step by step
+
+44
+00:01:51,729 --> 00:01:55,417
+and then finally at the end we'll pull it all together
+
+45
+00:01:55,417 --> 00:01:59,506
+as one big application so you can see it works.
+
+46
+00:01:59,506 --> 00:02:01,888
+So we have a lot of coding in store for us.
+
+47
+00:02:01,888 --> 00:02:04,138
+Let's go ahead and dive in.
+

@@ -1,0 +1,300 @@
+1
+00:00:01,356 --> 00:00:04,076
+<v ->All right, so the first task in our to do list</v>
+
+2
+00:00:04,076 --> 00:00:06,627
+is to update the list-students.jsp
+
+3
+00:00:06,627 --> 00:00:10,673
+and we're actually gonna add that new button onto the page.
+
+4
+00:00:10,673 --> 00:00:15,456
+We're gonna have the Add Student button on our page.
+
+5
+00:00:15,456 --> 00:00:18,206
+So let's dive in and get started.
+
+6
+00:00:26,112 --> 00:00:27,636 line:15% 
+<v ->All right, so basically what I wanna do</v>
+
+7
+00:00:27,636 --> 00:00:31,817 line:15% 
+is add that button to this list-students.jsp page.
+
+8
+00:00:31,817 --> 00:00:35,067 line:15% 
+So I'll go ahead and open up that page.
+
+9
+00:00:37,900 --> 00:00:40,632
+I'll expand my window here.
+
+10
+00:00:40,632 --> 00:00:41,854
+And then I'll basically move down
+
+11
+00:00:41,854 --> 00:00:44,687
+to an area right below the header.
+
+12
+00:00:47,363 --> 00:00:50,502
+And right here in this content section
+
+13
+00:00:50,502 --> 00:00:53,002
+I want to put in a new button.
+
+14
+00:00:53,838 --> 00:00:55,649
+So I'll just write out a little HTML comment
+
+15
+00:00:55,649 --> 00:00:58,566
+just to again keep myself on track.
+
+16
+00:01:03,225 --> 00:01:07,392
+All right, so I'll set up this input type="button".
+
+17
+00:01:12,855 --> 00:01:15,632
+And the value is Add Student, so that's the actual label
+
+18
+00:01:15,632 --> 00:01:18,215
+that they'll see on the button.
+
+19
+00:01:20,356 --> 00:01:22,107
+And I also wanna add some other items here
+
+20
+00:01:22,107 --> 00:01:24,386
+so when they actually click the button
+
+21
+00:01:24,386 --> 00:01:26,967
+I wanna tell the system what to do.
+
+22
+00:01:26,967 --> 00:01:29,533
+So onclick then I basically wanna show
+
+23
+00:01:29,533 --> 00:01:32,366
+my HTML form for adding a student.
+
+24
+00:01:40,064 --> 00:01:41,954
+So again, onclick, I simply give
+
+25
+00:01:41,954 --> 00:01:45,199
+the name of the form that I want them to display.
+
+26
+00:01:45,199 --> 00:01:48,199
+So this is our add-student-form.jsp.
+
+27
+00:01:55,433 --> 00:01:59,745
+And then finally here I wanna add a little fancy CSS style.
+
+28
+00:01:59,745 --> 00:02:01,605
+So here I'll say add-student-button.
+
+29
+00:02:01,605 --> 00:02:04,110
+That's the style from the style sheet that we're using
+
+30
+00:02:04,110 --> 00:02:06,631
+that it'll apply to that button just to give it a color,
+
+31
+00:02:06,631 --> 00:02:09,798
+rounded edges and all that good stuff.
+
+32
+00:02:11,717 --> 00:02:13,751
+So that's basically really all we need to do
+
+33
+00:02:13,751 --> 00:02:17,918
+for adding a new button here on our list-student.jsp.
+
+34
+00:02:19,622 --> 00:02:21,252
+Now let's go over and try it out here.
+
+35
+00:02:21,252 --> 00:02:24,085
+So I'll just run my web app again.
+
+36
+00:02:29,417 --> 00:02:31,924
+So great, this looks really good.
+
+37
+00:02:31,924 --> 00:02:34,534
+Take a look, we have our new button here, Add Student.
+
+38
+00:02:34,534 --> 00:02:36,930
+Looks really fancy.
+
+39
+00:02:36,930 --> 00:02:38,142
+I'm impressed.
+
+40
+00:02:38,142 --> 00:02:40,225
+(laughs)
+
+41
+00:02:42,397 --> 00:02:44,548
+Now, actually, I'm not impressed.
+
+42
+00:02:44,548 --> 00:02:45,727
+(laughs)
+
+43
+00:02:45,727 --> 00:02:48,606
+Cause when I click that button it gives me a 404 error.
+
+44
+00:02:48,606 --> 00:02:50,326
+Like, what's up with that?
+
+45
+00:02:50,326 --> 00:02:53,310 line:15% 
+Well, of course right, we haven't created this file yet.
+
+46
+00:02:53,310 --> 00:02:55,740 line:15% 
+We haven't created the add-student-form
+
+47
+00:02:55,740 --> 00:02:57,540 line:15% 
+and that's our next order of business here.
+
+48
+00:02:57,540 --> 00:03:00,042 line:15% 
+So, what I'll do is actually just create
+
+49
+00:03:00,042 --> 00:03:01,902 line:15% 
+a placeholder for the form right now.
+
+50
+00:03:01,902 --> 00:03:04,091 line:15% 
+Just a very simple page but at least
+
+51
+00:03:04,091 --> 00:03:06,883 line:15% 
+I just wanna create that file.
+
+52
+00:03:06,883 --> 00:03:09,357 line:15% 
+So I'll just do a new file and then I'll give
+
+53
+00:03:09,357 --> 00:03:13,107 line:15% 
+the name of the file of add-student-form.jsp.
+
+54
+00:03:16,679 --> 00:03:19,967
+And for this again just a real simple placeholder here.
+
+55
+00:03:19,967 --> 00:03:22,884
+So, I just wanna put just something
+
+56
+00:03:23,861 --> 00:03:27,194
+real simple here just so the file exists
+
+57
+00:03:28,707 --> 00:03:32,736
+because were trying to make a good impression.
+
+58
+00:03:32,736 --> 00:03:34,563
+All right, so let's save this.
+
+59
+00:03:34,563 --> 00:03:37,250
+And now if we go back to our browser
+
+60
+00:03:37,250 --> 00:03:41,084
+we should see something slightly different.
+
+61
+00:03:41,084 --> 00:03:44,467
+So I'll just click on back, do a little refresh here,
+
+62
+00:03:44,467 --> 00:03:47,378
+and then click on Add Student.
+
+63
+00:03:47,378 --> 00:03:50,062
+And boom, cool, all right, great.
+
+64
+00:03:50,062 --> 00:03:51,847
+So we have this little placeholder file.
+
+65
+00:03:51,847 --> 00:03:53,626
+So we created that new file
+
+66
+00:03:53,626 --> 00:03:55,801
+and just put just some very basic text there.
+
+67
+00:03:55,801 --> 00:03:58,426
+But we're in good shape for right now.
+
+68
+00:03:58,426 --> 00:04:00,175
+What we'll do in the following video
+
+69
+00:04:00,175 --> 00:04:02,864
+is that we'll actually fill out the form
+
+70
+00:04:02,864 --> 00:04:06,471
+and put proper form fields and submit buttons
+
+71
+00:04:06,471 --> 00:04:08,309
+and all that good stuff but at least we have
+
+72
+00:04:08,309 --> 00:04:10,651
+kind of the basics in place for right now.
+
+73
+00:04:10,651 --> 00:04:12,555
+So, I'll see you in the next video
+
+74
+00:04:12,555 --> 00:04:14,863
+when we'll hook up our new form.
+
+75
+00:04:14,863 --> 00:04:15,946
+See you then.
+

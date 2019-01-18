@@ -1,0 +1,300 @@
+1
+00:00:01,279 --> 00:00:03,391
+<v Instructor>Hi, in this video we're gonna learn how to</v>
+
+2
+00:00:03,391 --> 00:00:05,891
+add a student to our database.
+
+3
+00:00:09,333 --> 00:00:10,634
+So we'll cover the following topics.
+
+4
+00:00:10,634 --> 00:00:14,998
+Fist we'll get a quick demo of the add student feature,
+
+5
+00:00:14,998 --> 00:00:15,983
+then we'll look at the big picture,
+
+6
+00:00:15,983 --> 00:00:19,024
+and then we'll also take a look at the sequence diagram
+
+7
+00:00:19,024 --> 00:00:22,441
+just to see how everything fits together.
+
+8
+00:00:25,453 --> 00:00:27,002
+Alright, so let's first start with the demo
+
+9
+00:00:27,002 --> 00:00:28,266
+of the add student feature.
+
+10
+00:00:28,266 --> 00:00:30,410
+So in our home page we're gonna have
+
+11
+00:00:30,410 --> 00:00:34,100
+this new button here called add student.
+
+12
+00:00:34,100 --> 00:00:36,520
+Basically the user will click on this add student button
+
+13
+00:00:36,520 --> 00:00:39,020
+and will show them a new form.
+
+14
+00:00:40,545 --> 00:00:42,244
+Okay great, so here's the form.
+
+15
+00:00:42,244 --> 00:00:43,739
+We'll collect the students first name,
+
+16
+00:00:43,739 --> 00:00:45,587
+last name and email address.
+
+17
+00:00:45,587 --> 00:00:49,670
+So I'll go ahead and enter some sample data here.
+
+18
+00:00:51,676 --> 00:00:53,314
+So I have this student Andrew Whittaker
+
+19
+00:00:53,314 --> 00:00:56,897
+and his email address is andy@luv2code.com.
+
+20
+00:00:58,346 --> 00:00:59,842
+So then once we're happy with the data
+
+21
+00:00:59,842 --> 00:01:03,592
+we can go ahead and click on the save button.
+
+22
+00:01:05,702 --> 00:01:08,858
+Okay great, so we just added the student.
+
+23
+00:01:08,858 --> 00:01:12,600
+So note here on our list we have the new student
+
+24
+00:01:12,600 --> 00:01:15,950
+Andrew Whittaker and his email address, andy@luv2code.com.
+
+25
+00:01:15,950 --> 00:01:18,962
+So we're actually reading this information from the database
+
+26
+00:01:18,962 --> 00:01:21,830
+so that previous screen at form, we would actually insert
+
+27
+00:01:21,830 --> 00:01:23,414
+or add the students to the database,
+
+28
+00:01:23,414 --> 00:01:26,344
+and now here we're seeing the results of that query.
+
+29
+00:01:26,344 --> 00:01:28,639
+So this looks really good, and we'll learn how to build up
+
+30
+00:01:28,639 --> 00:01:31,972
+all of the code in the following videos.
+
+31
+00:01:37,029 --> 00:01:38,395
+So this is kind of the big picture here.
+
+32
+00:01:38,395 --> 00:01:41,723
+So we start with our home page list students.jsp,
+
+33
+00:01:41,723 --> 00:01:43,323
+a list of all of our students.
+
+34
+00:01:43,323 --> 00:01:45,672
+Then we click the add student button.
+
+35
+00:01:45,672 --> 00:01:48,963
+It takes us to the add student form.
+
+36
+00:01:48,963 --> 00:01:49,796
+As you saw in the demo,
+
+37
+00:01:49,796 --> 00:01:51,471
+once you fill out the information in the form
+
+38
+00:01:51,471 --> 00:01:53,828
+and hit save, that actually sends it over
+
+39
+00:01:53,828 --> 00:01:55,829
+behind the scenes to our servlet
+
+40
+00:01:55,829 --> 00:01:58,496
+which is our student controller.
+
+41
+00:01:59,488 --> 00:02:01,068
+This student controller reads the form data
+
+42
+00:02:01,068 --> 00:02:04,127
+and then passes it over to our student database Util
+
+43
+00:02:04,127 --> 00:02:08,044
+who actually does the insert into the database.
+
+44
+00:02:10,744 --> 00:02:12,883
+Now some of the details behind the scenes here.
+
+45
+00:02:12,883 --> 00:02:15,345
+So that form we actually sent the data over
+
+46
+00:02:15,345 --> 00:02:17,458
+using the get method. So they'll call
+
+47
+00:02:17,458 --> 00:02:19,286
+the doGet method on the servlet.
+
+48
+00:02:19,286 --> 00:02:23,675
+And then we'll create this hidden form field called command.
+
+49
+00:02:23,675 --> 00:02:24,965
+So command equals add.
+
+50
+00:02:24,965 --> 00:02:27,218
+So this is something that we make up
+
+51
+00:02:27,218 --> 00:02:30,380
+specific for our project, I kinda just made that up
+
+52
+00:02:30,380 --> 00:02:31,463
+that command.
+
+53
+00:02:32,488 --> 00:02:34,152
+It's a hidden form fill, we'll send it over
+
+54
+00:02:34,152 --> 00:02:36,130
+then our servlet will read that command
+
+55
+00:02:36,130 --> 00:02:38,690
+and figure out that it needs to add a student.
+
+56
+00:02:38,690 --> 00:02:41,536
+Because, in the future we'll have other features for editing
+
+57
+00:02:41,536 --> 00:02:43,847
+a student and also deleting a student.
+
+58
+00:02:43,847 --> 00:02:48,538
+So I just wanted to give additional commands there.
+
+59
+00:02:48,538 --> 00:02:49,924
+So again, I love my to do list, right.
+
+60
+00:02:49,924 --> 00:02:52,619
+So the first thing we need to do it update our list students
+
+61
+00:02:52,619 --> 00:02:54,619
+jsp, to add that button.
+
+62
+00:02:55,702 --> 00:02:57,216
+Then we're gonna create the html form,
+
+63
+00:02:57,216 --> 00:03:00,873
+and then update our student controller servlet.
+
+64
+00:03:00,873 --> 00:03:04,684
+And then finally we'll work on our student database Util
+
+65
+00:03:04,684 --> 00:03:07,182
+to do all the low level JDBC work
+
+66
+00:03:07,182 --> 00:03:09,557
+of adding the student to the database.
+
+67
+00:03:09,557 --> 00:03:10,915
+So that's the big game plan.
+
+68
+00:03:10,915 --> 00:03:14,362
+So, we'll break this up over multiple videos
+
+69
+00:03:14,362 --> 00:03:15,594
+just like we've done before.
+
+70
+00:03:15,594 --> 00:03:18,311
+We'll wright all the code from scratch,
+
+71
+00:03:18,311 --> 00:03:22,384
+and at the end we'll have a full working example.
+
+72
+00:03:22,384 --> 00:03:23,249
+I'm excited,
+
+73
+00:03:23,249 --> 00:03:24,665
+a lot of work ahead,
+
+74
+00:03:24,665 --> 00:03:26,578
+and we'll knock it out together.
+
+75
+00:03:26,578 --> 00:03:29,328
+So I'll see ya in the next video.
+

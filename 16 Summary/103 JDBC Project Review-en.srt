@@ -1,0 +1,92 @@
+1
+00:00:01,312 --> 00:00:02,700
+<v Narrator>Hey, so let's go ahead and do</v>
+
+2
+00:00:02,700 --> 00:00:05,700
+a project review of our application.
+
+3
+00:00:07,884 --> 00:00:10,954
+So our main focus was to create a full working
+
+4
+00:00:10,954 --> 00:00:15,491
+JSP and Servlet application that connects to a database.
+
+5
+00:00:15,491 --> 00:00:19,658
+And we actually covered that in the previous videos.
+
+6
+00:00:20,889 --> 00:00:24,501
+So we went through and set up our database environment
+
+7
+00:00:24,501 --> 00:00:25,645
+and then we went through and wrote
+
+8
+00:00:25,645 --> 00:00:27,607
+the code for listing students.
+
+9
+00:00:27,607 --> 00:00:29,657
+Next we learned how to add a new student,
+
+10
+00:00:29,657 --> 00:00:32,744
+how to update a student, and how to delete a student.
+
+11
+00:00:32,744 --> 00:00:35,797
+So I'd like to say mission accomplished (chuckles).
+
+12
+00:00:35,797 --> 00:00:39,038
+We accomplished all the major features that you need
+
+13
+00:00:39,038 --> 00:00:41,195
+when you build a database application.
+
+14
+00:00:41,195 --> 00:00:42,837
+We covered all of the good stuff.
+
+15
+00:00:42,837 --> 00:00:46,222
+So you also have the source code that you can download.
+
+16
+00:00:46,222 --> 00:00:48,339
+There's also the database scripts, along with
+
+17
+00:00:48,339 --> 00:00:50,780
+setup instructions, and also, this is
+
+18
+00:00:50,780 --> 00:00:53,965
+a really good start for your own application.
+
+19
+00:00:53,965 --> 00:00:56,384
+So maybe it's a school project, or maybe
+
+20
+00:00:56,384 --> 00:00:59,196
+you're getting up to speed for a project at the office.
+
+21
+00:00:59,196 --> 00:01:02,166
+A good start to help you out, so anyway,
+
+22
+00:01:02,166 --> 00:01:04,347
+congratulations for making it this far,
+
+23
+00:01:04,347 --> 00:01:07,597
+and again, mission accomplished, oorah.
+

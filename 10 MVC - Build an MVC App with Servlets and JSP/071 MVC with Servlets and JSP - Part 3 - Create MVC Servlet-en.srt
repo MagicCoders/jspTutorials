@@ -1,0 +1,344 @@
+1
+00:00:01,357 --> 00:00:02,524
+<v Instructor>Okay, great, so we have our</v>
+
+2
+00:00:02,524 --> 00:00:04,443
+StudenDataUtil created.
+
+3
+00:00:04,443 --> 00:00:08,610
+The next step is that we need to create our MVC Servlet.
+
+4
+00:00:13,921 --> 00:00:16,450
+So what I'll do is I'll simply right click,
+
+5
+00:00:16,450 --> 00:00:18,283
+I'll say New, Servlet.
+
+6
+00:00:21,512 --> 00:00:23,781
+This will bring up the dialogue window here.
+
+7
+00:00:23,781 --> 00:00:25,822
+For the class name for our Servlet
+
+8
+00:00:25,822 --> 00:00:28,989
+we're gonna call it MvcDemoServletTwo,
+
+9
+00:00:30,795 --> 00:00:35,057
+so that's the name that we'll have here for it.
+
+10
+00:00:35,057 --> 00:00:36,298
+And actually I have a typo here.
+
+11
+00:00:36,298 --> 00:00:39,465
+Let me fix that typo to a lowercase W.
+
+12
+00:00:41,643 --> 00:00:44,552
+Good, and now you can go ahead and hit the Finish button
+
+13
+00:00:44,552 --> 00:00:46,885
+once you're happy with that.
+
+14
+00:00:51,943 --> 00:00:52,776
+Okay, great.
+
+15
+00:00:52,776 --> 00:00:53,818
+So again, Eclipse does a lot of work.
+
+16
+00:00:53,818 --> 00:00:57,068
+It creates a very basic Servlet for us.
+
+17
+00:00:58,005 --> 00:01:00,121
+The first two lines here, 13 and 14,
+
+18
+00:01:00,121 --> 00:01:04,647
+it sets up our @WebServlet for MvcDemoServletTwo.
+
+19
+00:01:04,647 --> 00:01:06,776
+So, that's the basic, off-the-shelf stuff
+
+20
+00:01:06,776 --> 00:01:09,137
+that Eclipse will generate for us.
+
+21
+00:01:09,137 --> 00:01:11,209
+What I wanna focus on is this doGet method,
+
+22
+00:01:11,209 --> 00:01:12,056
+'cause that's where the requests
+
+23
+00:01:12,056 --> 00:01:14,367
+are gonna come into, this doGet,
+
+24
+00:01:14,367 --> 00:01:16,239
+so I'll just kinda clean up,
+
+25
+00:01:16,239 --> 00:01:17,525
+make some white space here,
+
+26
+00:01:17,525 --> 00:01:19,812
+give me some room to work with.
+
+27
+00:01:19,812 --> 00:01:21,598
+And what I'm going to do is actually,
+
+28
+00:01:21,598 --> 00:01:23,315
+inside of this doGet method is
+
+29
+00:01:23,315 --> 00:01:25,705
+remove that auto-generated code.
+
+30
+00:01:25,705 --> 00:01:27,565
+I wanna put my own code there,
+
+31
+00:01:27,565 --> 00:01:31,739
+so I'll simply highlight this and delete it.
+
+32
+00:01:31,739 --> 00:01:34,533
+And again, you know, I like to kinda go step-by-step
+
+33
+00:01:34,533 --> 00:01:36,790
+and I also like to start my comments here.
+
+34
+00:01:36,790 --> 00:01:38,201
+So, I'll just write some comments for us
+
+35
+00:01:38,201 --> 00:01:39,091
+for what I have to do.
+
+36
+00:01:39,091 --> 00:01:40,122
+So, the first thing I need to do
+
+37
+00:01:40,122 --> 00:01:42,462
+is get data from the helper class.
+
+38
+00:01:42,462 --> 00:01:46,629
+That's the StudentDataUtil that we created a little earlier.
+
+39
+00:01:47,932 --> 00:01:50,808
+And then the next thing I need to do is
+
+40
+00:01:50,808 --> 00:01:55,396
+add this list of students to the request attribute,
+
+41
+00:01:55,396 --> 00:01:57,836
+or the request object.
+
+42
+00:01:57,836 --> 00:02:00,493
+Then the next thing I need to do is actually
+
+43
+00:02:00,493 --> 00:02:03,260
+get the request dispatcher,
+
+44
+00:02:03,260 --> 00:02:05,480
+and once I have the request dispatcher,
+
+45
+00:02:05,480 --> 00:02:09,647
+then I can forward it to the appropriate JSP page.
+
+46
+00:02:12,632 --> 00:02:14,559
+So, those are the basic steps of what I need to do
+
+47
+00:02:14,559 --> 00:02:18,476
+in my Servlet code inside of this doGet method.
+
+48
+00:02:23,252 --> 00:02:25,783
+All right, so let me start writing some code.
+
+49
+00:02:25,783 --> 00:02:28,661
+So, I'll get the list of students from that
+
+50
+00:02:28,661 --> 00:02:32,860
+StudentDataUtil, our model, or our helper class.
+
+51
+00:02:32,860 --> 00:02:36,596
+So, I'll simply say StudentDataUtil.getStudents,
+
+52
+00:02:36,596 --> 00:02:37,745
+and that's the method that we created
+
+53
+00:02:37,745 --> 00:02:40,212
+in that previous video.
+
+54
+00:02:40,212 --> 00:02:41,236
+And I need to go through and just
+
+55
+00:02:41,236 --> 00:02:44,027
+fix some of the imports here
+
+56
+00:02:44,027 --> 00:02:45,860
+for the JavaUtil.list.
+
+57
+00:02:51,777 --> 00:02:53,995
+All right, so now I need to add the students
+
+58
+00:02:53,995 --> 00:02:57,061
+to the request object, so I'll simply set an attribute,
+
+59
+00:02:57,061 --> 00:02:59,234
+so I say request.setAttribute,
+
+60
+00:02:59,234 --> 00:03:03,465
+and I give the name, so I'll call it student_list,
+
+61
+00:03:03,465 --> 00:03:05,817
+that's the name, and then I give a reference to the object
+
+62
+00:03:05,817 --> 00:03:07,864
+from the previous line, students.
+
+63
+00:03:07,864 --> 00:03:10,364
+So, give the name, the object.
+
+64
+00:03:11,612 --> 00:03:14,587
+Next, what I do is I get the request dispatcher.
+
+65
+00:03:14,587 --> 00:03:16,920
+So, I say RequestDispatcher,
+
+66
+00:03:19,324 --> 00:03:23,452
+dispatcher=request.getRequestDispatcher,
+
+67
+00:03:23,452 --> 00:03:26,869
+and I simply give a path to the JSP page.
+
+68
+00:03:33,932 --> 00:03:36,084
+So, the page I'm gonna send that over to is
+
+69
+00:03:36,084 --> 00:03:37,917
+view_students_two.jsp.
+
+70
+00:03:39,523 --> 00:03:42,063
+And again, go ahead and fix up some of the imports here
+
+71
+00:03:42,063 --> 00:03:44,813
+for the request dispatcher class.
+
+72
+00:03:50,244 --> 00:03:52,367
+All right, so that's my request dispatcher.
+
+73
+00:03:52,367 --> 00:03:54,922
+Now I need to actually forward the request
+
+74
+00:03:54,922 --> 00:03:59,564
+and response over, using this request dispatcher.
+
+75
+00:03:59,564 --> 00:04:01,565
+So here I say dispatcher.forward,
+
+76
+00:04:01,565 --> 00:04:03,983
+then I pass in the request response objects.
+
+77
+00:04:03,983 --> 00:04:06,844
+And these objects were actually passed in as method params
+
+78
+00:04:06,844 --> 00:04:08,011
+up on line 31.
+
+79
+00:04:13,680 --> 00:04:14,513
+All right, so this looks good.
+
+80
+00:04:14,513 --> 00:04:16,056
+This is basically the code that we need to add
+
+81
+00:04:16,056 --> 00:04:20,928
+in our MVC Servlet to talk to our helper class model,
+
+82
+00:04:20,928 --> 00:04:22,802
+add the students to the request object,
+
+83
+00:04:22,802 --> 00:04:24,909
+get the request dispatcher, and then forward.
+
+84
+00:04:24,909 --> 00:04:26,763
+So, this is all really good,
+
+85
+00:04:26,763 --> 00:04:30,197
+and we built all of this code from scratch.
+
+86
+00:04:30,197 --> 00:04:34,364
+So, in the next video, we'll build out the JSP page.
+

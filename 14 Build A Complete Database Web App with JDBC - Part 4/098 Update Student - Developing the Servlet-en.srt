@@ -1,0 +1,524 @@
+1
+00:00:01,352 --> 00:00:03,302
+<v Man>Alright, so we're making good progress here.</v>
+
+2
+00:00:03,302 --> 00:00:04,873
+So we just took care of step two,
+
+3
+00:00:04,873 --> 00:00:07,266
+where we prepopulated the form.
+
+4
+00:00:07,266 --> 00:00:08,706
+Now we're going to move on to step three
+
+5
+00:00:08,706 --> 00:00:10,822
+of updating the student controller servlet.
+
+6
+00:00:10,822 --> 00:00:12,181
+So we're going to write codes to handle
+
+7
+00:00:12,181 --> 00:00:15,598
+the request to actually update a student.
+
+8
+00:00:16,796 --> 00:00:19,455
+So let's go ahead and jump into Eclipse.
+
+9
+00:00:19,455 --> 00:00:21,183
+The first thing here is updating
+
+10
+00:00:21,183 --> 00:00:23,005
+our student controller servlet
+
+11
+00:00:23,005 --> 00:00:25,545
+but I want to take a look at that JSP page,
+
+12
+00:00:25,545 --> 00:00:28,455
+our update student form dot JSP,
+
+13
+00:00:28,455 --> 00:00:30,315
+because there's some good information in here
+
+14
+00:00:30,315 --> 00:00:35,009
+that can guide us for our next set of coding here.
+
+15
+00:00:35,009 --> 00:00:37,019
+So this is update student and this is the file
+
+16
+00:00:37,019 --> 00:00:39,536
+that we just worked on in the previous video.
+
+17
+00:00:39,536 --> 00:00:43,703
+On lines 23 and 25, we actually have two hidden fields.
+
+18
+00:00:46,523 --> 00:00:48,770
+So we have command equals update
+
+19
+00:00:48,770 --> 00:00:52,553
+and then we have student ID and we give the student dot ID.
+
+20
+00:00:52,553 --> 00:00:53,980
+So these are two perams that we're
+
+21
+00:00:53,980 --> 00:00:55,659
+sending over to the servlet.
+
+22
+00:00:55,659 --> 00:00:58,111
+Our servlet now needs to read that information
+
+23
+00:00:58,111 --> 00:01:00,913
+and process on it accordingly.
+
+24
+00:01:00,913 --> 00:01:02,363
+So let me go ahead and open up
+
+25
+00:01:02,363 --> 00:01:04,863
+my student controller servlet.
+
+26
+00:01:07,409 --> 00:01:09,932 line:15% 
+I'll expand the window here,
+
+27
+00:01:09,932 --> 00:01:12,932 line:15% 
+move down a bit to our doGet method.
+
+28
+00:01:13,861 --> 00:01:16,786 line:15% 
+So this is where we read in the command.
+
+29
+00:01:16,786 --> 00:01:21,330 line:15% 
+And we need to add support for the update command.
+
+30
+00:01:21,330 --> 00:01:25,667 line:15% 
+So basically, it's just a matter of adding a new case here.
+
+31
+00:01:25,667 --> 00:01:28,514
+So we saw the previous example of case of load.
+
+32
+00:01:28,514 --> 00:01:31,014
+Now we'll do a case of update.
+
+33
+00:01:33,282 --> 00:01:37,106
+So I'll say case update and for this case,
+
+34
+00:01:37,106 --> 00:01:39,396
+I want to update student,
+
+35
+00:01:39,396 --> 00:01:43,563
+pass in the request and response and then do a break.
+
+36
+00:01:45,843 --> 00:01:48,843
+Alright, so that's the basic layout.
+
+37
+00:01:51,368 --> 00:01:54,444
+But again, Eclipse has a little error message
+
+38
+00:01:54,444 --> 00:01:56,439
+here that's saying update student
+
+39
+00:01:56,439 --> 00:01:58,964
+and if we hover over this message,
+
+40
+00:01:58,964 --> 00:02:01,011
+it will give us the actual error.
+
+41
+00:02:01,011 --> 00:02:03,658
+So it says, hey this method is not defined.
+
+42
+00:02:03,658 --> 00:02:05,554
+And again, Eclipse is our buddy, right
+
+43
+00:02:05,554 --> 00:02:07,137
+so we simply say, hey Eclipse,
+
+44
+00:02:07,137 --> 00:02:09,463
+go ahead and create this method for me.
+
+45
+00:02:09,463 --> 00:02:13,742
+Woo-hoo, just love it when Eclipse creates code for us.
+
+46
+00:02:13,742 --> 00:02:16,277
+So here's our update student that they created.
+
+47
+00:02:16,277 --> 00:02:17,956
+It's dubbed out right now.
+
+48
+00:02:17,956 --> 00:02:19,609
+And what I want to do here, is go ahead
+
+49
+00:02:19,609 --> 00:02:23,192
+and start writing some code in this method.
+
+50
+00:02:24,833 --> 00:02:27,085
+So the first thing I know I'm going to need to do,
+
+51
+00:02:27,085 --> 00:02:29,187
+is actually throw an exception.
+
+52
+00:02:29,187 --> 00:02:33,052
+So here, I'll just say throws exception
+
+53
+00:02:33,052 --> 00:02:35,044
+and I'll just lay this out first,
+
+54
+00:02:35,044 --> 00:02:36,286
+just in case there are any errors,
+
+55
+00:02:36,286 --> 00:02:39,047
+we can handle for it accordingly, or actually,
+
+56
+00:02:39,047 --> 00:02:42,101
+throw the exception to the calling program.
+
+57
+00:02:42,101 --> 00:02:44,873
+Now, I always like to go through and set up comments here,
+
+58
+00:02:44,873 --> 00:02:46,169
+just to kind of keep me on tract
+
+59
+00:02:46,169 --> 00:02:48,531
+as far as code that I need to write.
+
+60
+00:02:48,531 --> 00:02:49,822
+And the first thing I need to do
+
+61
+00:02:49,822 --> 00:02:53,489
+is read the student info from the form data.
+
+62
+00:02:55,406 --> 00:02:57,571
+And then I need to create a new student object
+
+63
+00:02:57,571 --> 00:02:59,546
+based on that form data and then,
+
+64
+00:02:59,546 --> 00:03:04,118
+I actually perform the update on the database.
+
+65
+00:03:04,118 --> 00:03:05,777
+And then finally, I'll send the user
+
+66
+00:03:05,777 --> 00:03:08,360
+back to the list students page.
+
+67
+00:03:13,206 --> 00:03:14,968
+So that's my basic game plan here
+
+68
+00:03:14,968 --> 00:03:17,468
+for the update student method.
+
+69
+00:03:18,343 --> 00:03:20,206
+Alright, so let me roll my sleeves up here
+
+70
+00:03:20,206 --> 00:03:23,706
+and get dirty and start writing some code.
+
+71
+00:03:26,349 --> 00:03:29,008
+So for reading the student ID from the form
+
+72
+00:03:29,008 --> 00:03:30,689
+or reading the actual ID,
+
+73
+00:03:30,689 --> 00:03:32,831
+so I'll say integer dot parseInt.
+
+74
+00:03:32,831 --> 00:03:35,692
+I'll say request dot get parameter: student ID
+
+75
+00:03:35,692 --> 00:03:36,603
+and that's that hidden form fill
+
+76
+00:03:36,603 --> 00:03:39,436
+that came in from the update form.
+
+77
+00:03:42,075 --> 00:03:43,223
+And then I'll go through
+
+78
+00:03:43,223 --> 00:03:44,604
+and read all the standard information.
+
+79
+00:03:44,604 --> 00:03:45,881
+Read the first name by saying
+
+80
+00:03:45,881 --> 00:03:48,714
+request get parameter, first name.
+
+81
+00:03:53,973 --> 00:03:55,653
+We've seen this stuff before.
+
+82
+00:03:55,653 --> 00:03:58,026
+And I'll just kinda copy paste this line
+
+83
+00:03:58,026 --> 00:04:00,693
+for last name and email address.
+
+84
+00:04:01,847 --> 00:04:04,930
+So I'll update it here for last name.
+
+85
+00:04:08,792 --> 00:04:12,709
+And I'll also update it here for email address.
+
+86
+00:04:16,911 --> 00:04:18,762
+Alright, cool so that's the basic work there
+
+87
+00:04:18,762 --> 00:04:21,241
+for reading the student info from the form data.
+
+88
+00:04:21,241 --> 00:04:23,698
+So now we have everything for a student
+
+89
+00:04:23,698 --> 00:04:26,419
+and I can use that down here on line 91
+
+90
+00:04:26,419 --> 00:04:28,605
+to actually create a new student object.
+
+91
+00:04:28,605 --> 00:04:32,630
+So here I'll say student the student equals new student
+
+92
+00:04:32,630 --> 00:04:34,414
+and I just pass in those parameters:
+
+93
+00:04:34,414 --> 00:04:38,414
+so ID, first name, last name, and email address.
+
+94
+00:04:45,468 --> 00:04:46,806
+Alright, that's good.
+
+95
+00:04:46,806 --> 00:04:49,272
+Then using this information,
+
+96
+00:04:49,272 --> 00:04:52,842
+I'll actually perform an update on the database.
+
+97
+00:04:52,842 --> 00:04:55,925
+So I'll make use of my student Dbutil
+
+98
+00:04:57,189 --> 00:04:59,783
+and I'll say update student and then
+
+99
+00:04:59,783 --> 00:05:03,450
+I'll pass in my student object: the student.
+
+100
+00:05:10,238 --> 00:05:11,661
+And then finally, I'll send them back
+
+101
+00:05:11,661 --> 00:05:15,239
+to the list students page so list students request response.
+
+102
+00:05:15,239 --> 00:05:18,516
+And that's that same method we created many moons ago
+
+103
+00:05:18,516 --> 00:05:21,849
+and I will simply list all the students.
+
+104
+00:05:24,937 --> 00:05:27,148
+But again, there is an error message here
+
+105
+00:05:27,148 --> 00:05:29,815
+so on line 94, Eclipse says that
+
+106
+00:05:31,022 --> 00:05:34,586
+it can't find the method, update student.
+
+107
+00:05:34,586 --> 00:05:38,158
+And again, I'll say, hey Eclipse, why don't you help me out.
+
+108
+00:05:38,158 --> 00:05:39,960
+Why don't you go ahead and create that method
+
+109
+00:05:39,960 --> 00:05:42,431
+for me in that student Dbutil?
+
+110
+00:05:42,431 --> 00:05:44,339
+So I'll select the option and now,
+
+111
+00:05:44,339 --> 00:05:47,077
+I'm in student Dbutil dot java
+
+112
+00:05:47,077 --> 00:05:48,464
+and here is this new method
+
+113
+00:05:48,464 --> 00:05:50,043
+that Eclipse just created for me.
+
+114
+00:05:50,043 --> 00:05:52,225
+So for now, I'll say do nothing.
+
+115
+00:05:52,225 --> 00:05:54,373
+I'll get into the details for it later
+
+116
+00:05:54,373 --> 00:05:55,826
+but at least I want to have this method
+
+117
+00:05:55,826 --> 00:05:58,403
+defined here in this class,
+
+118
+00:05:58,403 --> 00:06:02,570
+just so the code will compile for my actual servlet.
+
+119
+00:06:03,899 --> 00:06:05,544
+So if I move back to my sevlet,
+
+120
+00:06:05,544 --> 00:06:08,377
+then that error message goes away.
+
+121
+00:06:12,064 --> 00:06:13,260
+So we're in pretty good shape.
+
+122
+00:06:13,260 --> 00:06:14,997
+So this is all the coding here required
+
+123
+00:06:14,997 --> 00:06:17,078
+for actually doing the update student
+
+124
+00:06:17,078 --> 00:06:20,224
+so we read to student info, create a new student object,
+
+125
+00:06:20,224 --> 00:06:22,251
+perform an update on the database, and then
+
+126
+00:06:22,251 --> 00:06:24,529
+send them back to the list students page.
+
+127
+00:06:24,529 --> 00:06:27,222
+In the next video, we'll actually drill down
+
+128
+00:06:27,222 --> 00:06:30,669
+into line 94 and we'll actually do the JDBC code
+
+129
+00:06:30,669 --> 00:06:32,652
+for updating the student.
+
+130
+00:06:32,652 --> 00:06:35,136
+And I'll cover that in the next video
+
+131
+00:06:35,136 --> 00:06:36,886
+so I'll see you soon.
+

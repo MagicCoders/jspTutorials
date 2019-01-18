@@ -1,0 +1,452 @@
+1
+00:00:01,274 --> 00:00:03,432
+<v Instructor>Hey, in this video I'm going to show you</v>
+
+2
+00:00:03,432 --> 00:00:05,765
+how to use JSP declarations.
+
+3
+00:00:09,230 --> 00:00:11,516
+JSP declarations basically allow you to
+
+4
+00:00:11,516 --> 00:00:15,095
+declare a method in the JSP page,
+
+5
+00:00:15,095 --> 00:00:18,815
+and then you can call them from the same JSP page.
+
+6
+00:00:18,815 --> 00:00:21,659
+So it's very useful like any normal code that you create.
+
+7
+00:00:21,659 --> 00:00:23,359
+If you need to execute some code
+
+8
+00:00:23,359 --> 00:00:26,077
+over and over again, you simply encapsulate it
+
+9
+00:00:26,077 --> 00:00:27,832
+in a method declaration.
+
+10
+00:00:27,832 --> 00:00:30,664
+And you can do a similar thing here with JSP.
+
+11
+00:00:30,664 --> 00:00:33,264
+The syntax is basically an angle bracket, percent,
+
+12
+00:00:33,264 --> 00:00:35,040
+with an exclamation point, and then you declare
+
+13
+00:00:35,040 --> 00:00:38,373
+your method like any normal Java method.
+
+14
+00:00:41,829 --> 00:00:43,760
+Alright, so let's take a look at an example here
+
+15
+00:00:43,760 --> 00:00:45,253
+of a JSP declaration.
+
+16
+00:00:45,253 --> 00:00:47,477
+Up top, I'm gonna declare a method.
+
+17
+00:00:47,477 --> 00:00:49,954
+So, again, declarations, angle bracket, percent,
+
+18
+00:00:49,954 --> 00:00:52,129
+with an exclamation point.
+
+19
+00:00:52,129 --> 00:00:54,025
+So once you're inside of here, this is just like
+
+20
+00:00:54,025 --> 00:00:56,701
+a normal Java method declaration.
+
+21
+00:00:56,701 --> 00:00:58,597
+You have a return type of string,
+
+22
+00:00:58,597 --> 00:01:00,423
+the name of the method, makeItLower,
+
+23
+00:01:00,423 --> 00:01:03,435
+any input parameters, in this case I have string data,
+
+24
+00:01:03,435 --> 00:01:05,227
+and then internally inside the body
+
+25
+00:01:05,227 --> 00:01:07,727
+you write your actual implementation code.
+
+26
+00:01:07,727 --> 00:01:10,013
+So in this example, my implementation code
+
+27
+00:01:10,013 --> 00:01:11,372
+is going to be real simple.
+
+28
+00:01:11,372 --> 00:01:13,351
+For makeItLower, I'll simply take the data
+
+29
+00:01:13,351 --> 00:01:15,742
+and call .toLowerCase.
+
+30
+00:01:15,742 --> 00:01:18,717
+And again, very trivial method here.
+
+31
+00:01:18,717 --> 00:01:20,548
+I just wanted to show you how to declare
+
+32
+00:01:20,548 --> 00:01:22,465
+a method in a JSP page.
+
+33
+00:01:24,863 --> 00:01:26,938
+And then at the bottom I can make use of that method.
+
+34
+00:01:26,938 --> 00:01:29,739
+So here I have a, make use of a JSP expression.
+
+35
+00:01:29,739 --> 00:01:32,401
+I'll do a angle bracket, percent, with an equals symbol,
+
+36
+00:01:32,401 --> 00:01:35,050
+and I say makeItLower and I pass in the string that
+
+37
+00:01:35,050 --> 00:01:37,800
+I want to convert, and that's it.
+
+38
+00:01:39,256 --> 00:01:40,367 line:15% 
+So at the bottom here,
+
+39
+00:01:40,367 --> 00:01:41,775 line:15% 
+this is what the output will look like.
+
+40
+00:01:41,775 --> 00:01:43,899 line:15% 
+So lower case "Hello World" then colon
+
+41
+00:01:43,899 --> 00:01:45,914 line:15% 
+and then I have the actual hello world.
+
+42
+00:01:45,914 --> 00:01:47,908 line:15% 
+So the result of making that expression
+
+43
+00:01:47,908 --> 00:01:49,130 line:15% 
+or that method call,
+
+44
+00:01:49,130 --> 00:01:52,802 line:15% 
+the results will be displayed right here in that JSP page.
+
+45
+00:01:52,802 --> 00:01:54,802 line:15% 
+And that's basically it.
+
+46
+00:02:00,321 --> 00:02:01,900
+Let's talk about some best practices.
+
+47
+00:02:01,900 --> 00:02:04,110
+This follows what I discussed earlier
+
+48
+00:02:04,110 --> 00:02:05,966
+with scriptlets, similar thing here.
+
+49
+00:02:05,966 --> 00:02:07,720
+You want to minimize the number of declarations
+
+50
+00:02:07,720 --> 00:02:10,511
+in a JSP page and also avoid dumping thousands
+
+51
+00:02:10,511 --> 00:02:13,253
+of lines of code in the JSP.
+
+52
+00:02:13,253 --> 00:02:15,149
+Also, you want to refactor this into
+
+53
+00:02:15,149 --> 00:02:19,083
+separate Java classes or make use of MVC,
+
+54
+00:02:19,083 --> 00:02:21,976
+and I'll cover all of that later in the course.
+
+55
+00:02:21,976 --> 00:02:26,143
+So in general, don't overdo it with JSP declarations.
+
+56
+00:02:32,379 --> 00:02:34,968
+Let's move into Eclipse and I want to continue
+
+57
+00:02:34,968 --> 00:02:38,051
+to use the existing project, jspdemo.
+
+58
+00:02:39,283 --> 00:02:40,455
+And what I'd like to do is move down
+
+59
+00:02:40,455 --> 00:02:44,449
+to this WebContent folder and I'm gonna add a new file.
+
+60
+00:02:44,449 --> 00:02:46,057
+So I'll simply do a right-click,
+
+61
+00:02:46,057 --> 00:02:47,640
+I'll say New, File.
+
+62
+00:02:51,927 --> 00:02:53,172
+So I'm gonna create this new file.
+
+63
+00:02:53,172 --> 00:02:57,339
+The name of the file I'll call it declaration-test.jsp.
+
+64
+00:02:59,556 --> 00:03:00,847
+And once you're happy with the file name,
+
+65
+00:03:00,847 --> 00:03:03,680
+you can go ahead and click Finish.
+
+66
+00:03:05,359 --> 00:03:06,349
+All right, so here's our file.
+
+67
+00:03:06,349 --> 00:03:08,615
+It's empty; we need to add some code here.
+
+68
+00:03:08,615 --> 00:03:12,404
+So I'll start off with my normal html and body.
+
+69
+00:03:12,404 --> 00:03:14,955
+And now what I'd like to do is actually declare
+
+70
+00:03:14,955 --> 00:03:16,666
+a method so I use the JSP syntax,
+
+71
+00:03:16,666 --> 00:03:19,450
+angle bracket, percent, with the exclamation point.
+
+72
+00:03:19,450 --> 00:03:21,568
+So at this point, I can actually start writing
+
+73
+00:03:21,568 --> 00:03:24,839
+normal Java code, so I'm going to write a Java method.
+
+74
+00:03:24,839 --> 00:03:26,814
+So we have return type string,
+
+75
+00:03:26,814 --> 00:03:28,450
+method name of makeItLower,
+
+76
+00:03:28,450 --> 00:03:31,540
+input data of string, and inside I'll actually
+
+77
+00:03:31,540 --> 00:03:33,414
+write the real implementation code.
+
+78
+00:03:33,414 --> 00:03:35,076
+And again, this very trivial example,
+
+79
+00:03:35,076 --> 00:03:38,016
+I'll just say data.toLowerCase.
+
+80
+00:03:38,016 --> 00:03:40,135
+And that's really it for this method declaration.
+
+81
+00:03:40,135 --> 00:03:43,059
+So again, with JSP, you make a declaration
+
+82
+00:03:43,059 --> 00:03:44,826
+by using the angle bracket, percent,
+
+83
+00:03:44,826 --> 00:03:47,076
+with the exclamation point.
+
+84
+00:03:50,699 --> 00:03:52,331
+Okay, great, so we have the method declared.
+
+85
+00:03:52,331 --> 00:03:53,500
+Now let's use this method.
+
+86
+00:03:53,500 --> 00:03:56,917
+So here, I'll have some text, lower case,
+
+87
+00:03:58,691 --> 00:04:01,459
+actually I'll say lower case hello world,
+
+88
+00:04:01,459 --> 00:04:03,934
+and then I'll make use of that JSP expression.
+
+89
+00:04:03,934 --> 00:04:06,753
+So I can call that method declaration.
+
+90
+00:04:06,753 --> 00:04:09,853
+So I say makeItLower, and I pass in some data,
+
+91
+00:04:09,853 --> 00:04:13,353
+call it hello world, and then there we go.
+
+92
+00:04:14,811 --> 00:04:18,225 line:15% 
+So that's an example here of making a call to that method.
+
+93
+00:04:18,225 --> 00:04:21,106 line:15% 
+And I call it by making use of a JSP expression.
+
+94
+00:04:21,106 --> 00:04:23,062 line:15% 
+So the result of this method call here
+
+95
+00:04:23,062 --> 00:04:26,479 line:15% 
+will be included here right in this page.
+
+96
+00:04:28,972 --> 00:04:31,337 line:15% 
+All right, so let's go ahead and run the application.
+
+97
+00:04:31,337 --> 00:04:34,635
+So I move over here to this file declaration.jsp,
+
+98
+00:04:34,635 --> 00:04:38,218 line:15% 
+I'll do a right-click, and I'll say Run As,
+
+99
+00:04:39,372 --> 00:04:40,539 line:15% 
+Run on Server.
+
+100
+00:04:44,256 --> 00:04:46,667
+And then the browser will come up with our result
+
+101
+00:04:46,667 --> 00:04:48,528
+so we have lower case hello world,
+
+102
+00:04:48,528 --> 00:04:50,966
+then we have, of course, the lower case version
+
+103
+00:04:50,966 --> 00:04:52,836
+of the hello world string.
+
+104
+00:04:52,836 --> 00:04:54,549
+And that's it, and that's the result of our
+
+105
+00:04:54,549 --> 00:04:58,017
+JSP expression making a call to our method
+
+106
+00:04:58,017 --> 00:05:01,464
+that we declared using a JSP declaration.
+
+107
+00:05:01,464 --> 00:05:02,917
+Good, so we kinda pulled it all together
+
+108
+00:05:02,917 --> 00:05:04,964
+with a nice little example.
+
+109
+00:05:04,964 --> 00:05:05,797
+Good job.
+
+110
+00:05:10,238 --> 00:05:12,155
+All right, so let's go ahead and wrap up this video.
+
+111
+00:05:12,155 --> 00:05:14,961
+So in this video I showed you how to use JSP declarations.
+
+112
+00:05:14,961 --> 00:05:17,326
+We created a declaration and then we called that
+
+113
+00:05:17,326 --> 00:05:19,659
+declaration from a JSP page.
+

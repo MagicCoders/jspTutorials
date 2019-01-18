@@ -1,0 +1,268 @@
+1
+00:00:01,223 --> 00:00:02,056
+<v Instructor>All right, so let's go ahead</v>
+
+2
+00:00:02,056 --> 00:00:06,306
+and move into Eclipse, and let's write some code.
+
+3
+00:00:06,306 --> 00:00:07,996 line:15% 
+So, in this tagdemo project,
+
+4
+00:00:07,996 --> 00:00:10,734 line:15% 
+I wanna move into my WebContent directory,
+
+5
+00:00:10,734 --> 00:00:13,181 line:15% 
+and I wanna add a new file.
+
+6
+00:00:13,181 --> 00:00:16,681
+So I'll just do right click, say new file.
+
+7
+00:00:20,185 --> 00:00:23,257
+So, the name of this new file, here, I'll call it
+
+8
+00:00:23,257 --> 00:00:25,257
+foreach-simple-test.jsp.
+
+9
+00:00:31,293 --> 00:00:32,740
+And once you're happy with that name,
+
+10
+00:00:32,740 --> 00:00:36,740
+you can go ahead and click on the finish button.
+
+11
+00:00:38,233 --> 00:00:41,589
+All right, so I'll expand the window here for a second.
+
+12
+00:00:41,589 --> 00:00:44,153
+I'm gonna go ahead and add in the taglib reference here.
+
+13
+00:00:44,153 --> 00:00:45,349
+So, I'm just gonna copy paste
+
+14
+00:00:45,349 --> 00:00:46,954
+from a little cheat sheet that I have because
+
+15
+00:00:46,954 --> 00:00:50,149
+I wanna make sure that I get this correct every time.
+
+16
+00:00:50,149 --> 00:00:52,447
+So, the angle bracket percent with the @,
+
+17
+00:00:52,447 --> 00:00:54,677
+taglib, and the uri, and basically follow
+
+18
+00:00:54,677 --> 00:00:58,772
+everything that I have here on this screen.
+
+19
+00:00:58,772 --> 00:01:01,050
+All right, so let's go ahead and set up a Scriplet.
+
+20
+00:01:01,050 --> 00:01:03,062
+I'm gonna set up a Scriptlet where I can
+
+21
+00:01:03,062 --> 00:01:06,263
+basically set up some sample data.
+
+22
+00:01:06,263 --> 00:01:08,182
+And again, like I said in a previous lecture,
+
+23
+00:01:08,182 --> 00:01:10,415
+this is normally set provided by your MVC system.
+
+24
+00:01:10,415 --> 00:01:13,228
+I'm just using this as a simple bootstrap here
+
+25
+00:01:13,228 --> 00:01:14,311
+for our demo.
+
+26
+00:01:17,037 --> 00:01:18,884
+So I'll define an array of cities,
+
+27
+00:01:18,884 --> 00:01:21,884
+Mumbai, Singapore, and Philadelphia.
+
+28
+00:01:24,161 --> 00:01:25,703
+And, as I mentioned earlier,
+
+29
+00:01:25,703 --> 00:01:28,408
+we need to set this as a page context attribute,
+
+30
+00:01:28,408 --> 00:01:31,421
+so here I'll say pageContext.setAttribute.
+
+31
+00:01:31,421 --> 00:01:33,182
+I'll simply give a name value here.
+
+32
+00:01:33,182 --> 00:01:35,849
+The name will be myCities, and the value will be
+
+33
+00:01:35,849 --> 00:01:38,367
+the reference to that city's array.
+
+34
+00:01:38,367 --> 00:01:42,534
+And that's basically it for setting up our sample data.
+
+35
+00:01:44,172 --> 00:01:45,237
+So here I'll just move down
+
+36
+00:01:45,237 --> 00:01:47,800
+and do some basic HTML body tags,
+
+37
+00:01:47,800 --> 00:01:49,547
+and now I'll make use of that core tag.
+
+38
+00:01:49,547 --> 00:01:51,464
+So, I'll say c:forEach.
+
+39
+00:01:53,444 --> 00:01:56,493
+And they'll kinda set up the basic tag here for me,
+
+40
+00:01:56,493 --> 00:01:59,070
+but I still need to fill in some of the blanks here.
+
+41
+00:01:59,070 --> 00:02:00,433
+So, on the forEach, I'll go through
+
+42
+00:02:00,433 --> 00:02:01,900
+and I'll set up the temporary variable.
+
+43
+00:02:01,900 --> 00:02:06,506
+I'll say var="tempCity," and then items=,
+
+44
+00:02:06,506 --> 00:02:08,289
+and I reference that attribute name,
+
+45
+00:02:08,289 --> 00:02:10,289
+so I'll use ${myCities}.
+
+46
+00:02:11,201 --> 00:02:13,524
+And again, remember, it matches with the name
+
+47
+00:02:13,524 --> 00:02:16,036
+for the actual attribute that we set up
+
+48
+00:02:16,036 --> 00:02:17,786
+on line number seven.
+
+49
+00:02:22,495 --> 00:02:24,327
+All right, great, so now I can simply move in here
+
+50
+00:02:24,327 --> 00:02:26,716
+and make use of the temporary variable.
+
+51
+00:02:26,716 --> 00:02:30,410
+So, I simply make use of the dollar sign, curly brace,
+
+52
+00:02:30,410 --> 00:02:31,993
+and I say tempCity.
+
+53
+00:02:34,318 --> 00:02:38,485
+And then I simply just give a br for a line break.
+
+54
+00:02:39,820 --> 00:02:43,987
+And that's basically it for the body of this forEach tag.
+
+55
+00:02:46,914 --> 00:02:49,637
+All right, so we can go ahead and save this file,
+
+56
+00:02:49,637 --> 00:02:50,936
+then we can actually run it,
+
+57
+00:02:50,936 --> 00:02:52,908
+so I'll simply just do a right click on this
+
+58
+00:02:52,908 --> 00:02:55,410
+foreach-simple-test.jsp,
+
+59
+00:02:55,410 --> 00:02:58,743
+I'll say Run As, and then Run on Server.
+
+60
+00:03:00,234 --> 00:03:03,036
+And our JSP will execute, and great, here's our results.
+
+61
+00:03:03,036 --> 00:03:04,446
+So, we have our three cities listed,
+
+62
+00:03:04,446 --> 00:03:06,897
+Mumbai, Singapore, and Philadelphia.
+
+63
+00:03:06,897 --> 00:03:08,072
+And so, the nice thing about this
+
+64
+00:03:08,072 --> 00:03:10,280
+is that the output here was actually generated
+
+65
+00:03:10,280 --> 00:03:12,544
+by making use of that forEach tag
+
+66
+00:03:12,544 --> 00:03:14,576
+that's part of the JSP core.
+
+67
+00:03:14,576 --> 00:03:16,243
+So, good job so far.
+

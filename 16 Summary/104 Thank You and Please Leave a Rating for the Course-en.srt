@@ -1,0 +1,76 @@
+1
+00:00:00,951 --> 00:00:03,190
+<v Instructor>Well, we made it to the end of the course.</v>
+
+2
+00:00:03,190 --> 00:00:05,101
+Thank you so much for taking the course.
+
+3
+00:00:05,101 --> 00:00:07,818
+I know you had to invest your time and money,
+
+4
+00:00:07,818 --> 00:00:11,735
+so a huge thank you for making that investment.
+
+5
+00:00:12,579 --> 00:00:15,447
+Also, I hope that you're happy with the course.
+
+6
+00:00:15,447 --> 00:00:16,999
+So if you're happy with the course,
+
+7
+00:00:16,999 --> 00:00:19,866
+please leave an honest rating for the course.
+
+8
+00:00:19,866 --> 00:00:21,637
+This will help other students decide
+
+9
+00:00:21,637 --> 00:00:23,486
+if this course is worth it.
+
+10
+00:00:23,486 --> 00:00:26,307
+Now, you don't have to type anything, simply click
+
+11
+00:00:26,307 --> 00:00:30,798
+the number of stars that you think the course deserves.
+
+12
+00:00:30,798 --> 00:00:33,051
+Also, let's keep in touch.
+
+13
+00:00:33,051 --> 00:00:36,696
+So here's my email address and also here's my website.
+
+14
+00:00:36,696 --> 00:00:38,192
+Just shoot me an email.
+
+15
+00:00:38,192 --> 00:00:41,316
+And I'll also list all my new courses at my website here
+
+16
+00:00:41,316 --> 00:00:42,399
+luv2code.com.
+
+17
+00:00:43,449 --> 00:00:44,757
+Hey, thanks for everything.
+
+18
+00:00:44,757 --> 00:00:46,041
+I'll see you later.
+
+19
+00:00:46,041 --> 00:00:46,874
+Bye bye.
+

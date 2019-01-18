@@ -1,0 +1,208 @@
+1
+00:00:01,249 --> 00:00:03,091
+<v Instructor>Hey, in this video we're gonna learn</v>
+
+2
+00:00:03,091 --> 00:00:06,508
+how to read HTML form data with servlets.
+
+3
+00:00:08,719 --> 00:00:11,543
+So we'll start off with a student-form.html;
+
+4
+00:00:11,543 --> 00:00:13,575
+that's gonna be our HTML form.
+
+5
+00:00:13,575 --> 00:00:16,835
+We're gonna gather the students first name and last name.
+
+6
+00:00:16,835 --> 00:00:19,547
+They'll hit the submit button, the request will go across
+
+7
+00:00:19,547 --> 00:00:22,078
+to our servlet, StudentServlet.java,
+
+8
+00:00:22,078 --> 00:00:24,096
+our servlet will process the request,
+
+9
+00:00:24,096 --> 00:00:26,353
+and then send back a response.
+
+10
+00:00:26,353 --> 00:00:27,848
+So that's the basic idea here
+
+11
+00:00:27,848 --> 00:00:30,765
+of having a servlet read form data.
+
+12
+00:00:33,505 --> 00:00:35,609
+All right, so let's kind of walk through this step-by-step.
+
+13
+00:00:35,609 --> 00:00:38,108
+So the first step is building the HTML form,
+
+14
+00:00:38,108 --> 00:00:39,955
+and we've seen most of this before.
+
+15
+00:00:39,955 --> 00:00:42,517
+So we start off with our form, and now the action
+
+16
+00:00:42,517 --> 00:00:44,303
+equals the student servlet; so that's the name
+
+17
+00:00:44,303 --> 00:00:46,915
+of the servlet that we're calling, and then we set up
+
+18
+00:00:46,915 --> 00:00:49,872
+method equals get because we wanna make use
+
+19
+00:00:49,872 --> 00:00:52,868
+of a get request to that servlet.
+
+20
+00:00:52,868 --> 00:00:56,069
+Then, from there, we simply set up the HTML form fields.
+
+21
+00:00:56,069 --> 00:00:57,823
+So we set up first name field,
+
+22
+00:00:57,823 --> 00:01:01,047
+last name field, and also a submit button.
+
+23
+00:01:01,047 --> 00:01:03,290
+So, again, we've seen a lot of this stuff before,
+
+24
+00:01:03,290 --> 00:01:08,045
+just a basic form that we're setting up for our example.
+
+25
+00:01:08,045 --> 00:01:10,187
+Now the one thing that's different here or unique
+
+26
+00:01:10,187 --> 00:01:12,811
+that I wanna point out here is that since this form
+
+27
+00:01:12,811 --> 00:01:16,273
+is gonna send the data using method equals get,
+
+28
+00:01:16,273 --> 00:01:20,621
+this actually calls the do get method in your servlet.
+
+29
+00:01:20,621 --> 00:01:22,348
+All right, so method equals get
+
+30
+00:01:22,348 --> 00:01:25,541
+will call the do get method in your servlet.
+
+31
+00:01:25,541 --> 00:01:28,130
+So you have to make sure that you override the appropriate
+
+32
+00:01:28,130 --> 00:01:32,297
+handler method or make sure you override the do get method.
+
+33
+00:01:33,819 --> 00:01:36,309
+Now the next step here is reading the form data
+
+34
+00:01:36,309 --> 00:01:38,646
+in the servlet, so at at the top I showed you
+
+35
+00:01:38,646 --> 00:01:41,470
+the first name and last name; and then at the bottom,
+
+36
+00:01:41,470 --> 00:01:43,124
+this is the actual servlet code.
+
+37
+00:01:43,124 --> 00:01:46,233
+So, again, we override the appropriate method here,
+
+38
+00:01:46,233 --> 00:01:49,454
+do get, they pass in a request, the request object
+
+39
+00:01:49,454 --> 00:01:53,608
+has your form data, or it contains the form data.
+
+40
+00:01:53,608 --> 00:01:56,403
+So here I simply use an out.print line,
+
+41
+00:01:56,403 --> 00:01:57,906
+the student is confirmed;
+
+42
+00:01:57,906 --> 00:02:00,313
+and here I say request.getParameter.
+
+43
+00:02:00,313 --> 00:02:02,466
+That allows me to read form data.
+
+44
+00:02:02,466 --> 00:02:04,935
+So request.getParameter on first name
+
+45
+00:02:04,935 --> 00:02:07,749
+and then request.getParameter for last name.
+
+46
+00:02:07,749 --> 00:02:09,479
+So those parameter names map
+
+47
+00:02:09,479 --> 00:02:12,479
+to the actual HTML form field names.
+
+48
+00:02:15,617 --> 00:02:18,218
+And that's basically it here for our servlet example.
+
+49
+00:02:18,218 --> 00:02:20,046
+What we're gonna do in the next video is we're gonna move
+
+50
+00:02:20,046 --> 00:02:22,808
+into eclipse, we're gonna get some hands on practice,
+
+51
+00:02:22,808 --> 00:02:25,794
+and we'll actually build this example from scratch.
+
+52
+00:02:25,794 --> 00:02:28,627
+So I'll see you in the next video.
+

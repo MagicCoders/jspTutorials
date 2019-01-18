@@ -1,0 +1,584 @@
+1
+00:00:01,325 --> 00:00:02,158
+<v Narrator>Hello.</v>
+
+2
+00:00:02,158 --> 00:00:03,448
+In this video, I'm going to show you how
+
+3
+00:00:03,448 --> 00:00:06,948
+to to build HTML forms with radio buttons.
+
+4
+00:00:09,158 --> 00:00:11,140
+So we'll cover the following topics.
+
+5
+00:00:11,140 --> 00:00:13,956
+First off, I'll start off with a radio button demo.
+
+6
+00:00:13,956 --> 00:00:16,322
+Then we'll look at the actual HTML code
+
+7
+00:00:16,322 --> 00:00:18,155
+for building radio buttons
+
+8
+00:00:18,155 --> 00:00:20,674
+and finally we'll pull it all together
+
+9
+00:00:20,674 --> 00:00:23,104
+with a full JSP page example.
+
+10
+00:00:23,104 --> 00:00:24,556
+So a lot of good things here.
+
+11
+00:00:24,556 --> 00:00:27,139
+Let's go ahead and get started.
+
+12
+00:00:29,566 --> 00:00:31,556
+All right, so here's the radio button demo.
+
+13
+00:00:31,556 --> 00:00:33,913
+So we'll have the student's first name and last name
+
+14
+00:00:33,913 --> 00:00:35,315
+but now we wanna have the student
+
+15
+00:00:35,315 --> 00:00:38,087
+choose their favorite programming language.
+
+16
+00:00:38,087 --> 00:00:40,706
+So here we'll give the first name and last name.
+
+17
+00:00:40,706 --> 00:00:42,624
+And then they can go through and select their language.
+
+18
+00:00:42,624 --> 00:00:44,541
+Java, PHP, C#, or Ruby.
+
+19
+00:00:46,465 --> 00:00:48,375
+Once they have their favorite language selected,
+
+20
+00:00:48,375 --> 00:00:49,967
+then they can go ahead and hit submit
+
+21
+00:00:49,967 --> 00:00:51,581
+and what we'll do is we'll actually generate
+
+22
+00:00:51,581 --> 00:00:56,319
+a confirmation page with the language that they selected.
+
+23
+00:00:56,319 --> 00:00:58,483
+So here I give the student's favorite programming language
+
+24
+00:00:58,483 --> 00:01:01,483
+in this example, the user chose PHP.
+
+25
+00:01:05,331 --> 00:01:07,217
+So let's go ahead and look at the HTML here
+
+26
+00:01:07,217 --> 00:01:08,547
+for radio buttons.
+
+27
+00:01:08,547 --> 00:01:11,237
+You'll set up your input type of radio,
+
+28
+00:01:11,237 --> 00:01:12,595
+and then you give the name,
+
+29
+00:01:12,595 --> 00:01:15,638
+favorite language, and then the value "Java".
+
+30
+00:01:15,638 --> 00:01:18,943
+And then an actual label for the user to see.
+
+31
+00:01:18,943 --> 00:01:20,811
+And you repeat this for each one of the languages here
+
+32
+00:01:20,811 --> 00:01:23,000
+for C#, PHP, and Ruby.
+
+33
+00:01:23,000 --> 00:01:26,292
+So the key here is that the input type="radio".
+
+34
+00:01:26,292 --> 00:01:29,459
+And that will give you a radio button.
+
+35
+00:01:33,847 --> 00:01:35,176
+All right, so let's go ahead and pull it together
+
+36
+00:01:35,176 --> 00:01:36,201
+with an example.
+
+37
+00:01:36,201 --> 00:01:38,495
+So we'll have a student radio form where our user
+
+38
+00:01:38,495 --> 00:01:40,689
+will enter their information and they can choose
+
+39
+00:01:40,689 --> 00:01:42,320
+their favorite programming language,
+
+40
+00:01:42,320 --> 00:01:43,601
+they'll hit submit,
+
+41
+00:01:43,601 --> 00:01:45,743
+and it will go across to a JSP page
+
+42
+00:01:45,743 --> 00:01:47,358
+that will actually process it
+
+43
+00:01:47,358 --> 00:01:51,525
+and display the student's favorite programming language.
+
+44
+00:01:54,163 --> 00:01:56,376
+Okay, and as you know, I love to-do lists here.
+
+45
+00:01:56,376 --> 00:01:59,490
+So the first thing we have to do is create our HTML form
+
+46
+00:01:59,490 --> 00:02:00,993
+and then the second thing is create
+
+47
+00:02:00,993 --> 00:02:03,021
+the JSP confirmation page.
+
+48
+00:02:03,021 --> 00:02:05,041
+All right, so a lot of good things here.
+
+49
+00:02:05,041 --> 00:02:07,708
+Let's go ahead and start coding.
+
+50
+00:02:10,613 --> 00:02:12,808
+Okay, so let's go ahead and move into Eclipse.
+
+51
+00:02:12,808 --> 00:02:14,144
+Just like all the previous videos,
+
+52
+00:02:14,144 --> 00:02:18,801
+we'll continue to use the same project, JSP demo.
+
+53
+00:02:18,801 --> 00:02:20,217
+And also like the previous video,
+
+54
+00:02:20,217 --> 00:02:21,829
+we're gonna make use of the student form
+
+55
+00:02:21,829 --> 00:02:23,232
+as our starting point.
+
+56
+00:02:23,232 --> 00:02:25,649
+And we're gonna simply copy and rename it.
+
+57
+00:02:25,649 --> 00:02:28,310
+So I'll just right click on student-form.html
+
+58
+00:02:28,310 --> 00:02:29,727
+I'll select copy,
+
+59
+00:02:32,728 --> 00:02:36,595
+and then I'll right click on it and select paste.
+
+60
+00:02:36,595 --> 00:02:39,624
+And when I paste it I'm gonna give it a new name.
+
+61
+00:02:39,624 --> 00:02:43,791
+So the new name I'll call it a student-radio-form.html
+
+62
+00:02:49,812 --> 00:02:50,809
+and once I'm happy with that,
+
+63
+00:02:50,809 --> 00:02:54,142
+I'll go ahead and click the okay button.
+
+64
+00:02:57,348 --> 00:02:58,929
+All right, so here's our form.
+
+65
+00:02:58,929 --> 00:03:01,423
+Student-radio-form.html
+
+66
+00:03:01,423 --> 00:03:03,395
+lets go ahead and double click this
+
+67
+00:03:03,395 --> 00:03:06,728
+lets expand the window here for a second
+
+68
+00:03:08,068 --> 00:03:09,868
+and the first thing that we need to do on line 7
+
+69
+00:03:09,868 --> 00:03:12,112
+is just update the response page
+
+70
+00:03:12,112 --> 00:03:16,149
+so the response is gonna be student-radio-response.jsp
+
+71
+00:03:16,149 --> 00:03:17,866
+all right, we haven't created that page yet,
+
+72
+00:03:17,866 --> 00:03:20,089
+that's where we'll actually send the data
+
+73
+00:03:20,089 --> 00:03:22,089
+when we submit the form.
+
+74
+00:03:25,995 --> 00:03:28,904
+All right, so a lot of this stuff is frpm before.
+
+75
+00:03:28,904 --> 00:03:31,237
+What I'd like to do is go ahead and enter the HTML here
+
+76
+00:03:31,237 --> 00:03:33,070
+for the radio buttons.
+
+77
+00:03:35,271 --> 00:03:36,629
+So I'll start off here with
+
+78
+00:03:36,629 --> 00:03:39,379
+the favorite programming language
+
+79
+00:03:44,720 --> 00:03:47,637
+and then I'll set up the input type
+
+80
+00:03:52,608 --> 00:03:55,108
+so the input type="radio"
+
+81
+00:03:59,585 --> 00:04:02,585
+and the name="favoriteLanguage"
+
+82
+00:04:03,732 --> 00:04:05,920
+so that's the actual form fill name
+
+83
+00:04:05,920 --> 00:04:07,819
+and then the value="Java"
+
+84
+00:04:07,819 --> 00:04:10,909
+so this is for this given radio button.
+
+85
+00:04:10,909 --> 00:04:13,969
+And I also just put the label out there to the right.
+
+86
+00:04:13,969 --> 00:04:16,073
+And now what I can do is just copy this
+
+87
+00:04:16,073 --> 00:04:20,240
+x number of times for all of the other programming languages
+
+88
+00:04:23,177 --> 00:04:25,251
+so I'll just kind of speed the video up here real quick
+
+89
+00:04:25,251 --> 00:04:28,668
+and just update it for C#, PHP, and Ruby.
+
+90
+00:04:30,741 --> 00:04:32,170
+But now here's the end result.
+
+91
+00:04:32,170 --> 00:04:35,088
+So basically I have four radio buttons here
+
+92
+00:04:35,088 --> 00:04:36,661
+and they're for each one of
+
+93
+00:04:36,661 --> 00:04:39,163
+the different programming languages.
+
+94
+00:04:39,163 --> 00:04:43,330
+Now the key here again is the input type="radio".
+
+95
+00:04:45,537 --> 00:04:48,070
+Okay so this looks good so far.
+
+96
+00:04:48,070 --> 00:04:51,013
+So now let's go ahead and work on our JSP page.
+
+97
+00:04:51,013 --> 00:04:54,462
+So again, we're simply gonna copy our student-response.jsp
+
+98
+00:04:54,462 --> 00:04:56,136
+from the previous video,
+
+99
+00:04:56,136 --> 00:04:58,052
+and we'll simply rename it.
+
+100
+00:04:58,052 --> 00:04:59,300
+So I just right-click,
+
+101
+00:04:59,300 --> 00:05:00,717
+I'll choose copy,
+
+102
+00:05:02,523 --> 00:05:03,918
+and then I'll do a right click,
+
+103
+00:05:03,918 --> 00:05:05,751
+and I'll choose paste.
+
+104
+00:05:09,347 --> 00:05:10,795
+And for the new name I'll call it
+
+105
+00:05:10,795 --> 00:05:13,045
+student-radio-response.jsp.
+
+106
+00:05:21,148 --> 00:05:23,315
+And then I'll select okay.
+
+107
+00:05:28,377 --> 00:05:30,416
+Nice. So now we should have a new page here,
+
+108
+00:05:30,416 --> 00:05:32,619
+student-radio-response.jsp.
+
+109
+00:05:32,619 --> 00:05:36,786
+Let's go ahead and double click it and open it up.
+
+110
+00:05:37,842 --> 00:05:40,429
+I'll expand the window here for a second.
+
+111
+00:05:40,429 --> 00:05:42,161
+And let's go ahead and enter just
+
+112
+00:05:42,161 --> 00:05:45,457
+a little line break here for it.
+
+113
+00:05:45,457 --> 00:05:47,277
+And then I'll simply say
+
+114
+00:05:47,277 --> 00:05:51,360
+The student's favorite programming language is x.
+
+115
+00:05:52,287 --> 00:05:54,300
+And that will be whatever the form data was supplied
+
+116
+00:05:54,300 --> 00:05:58,133
+so here I'll use the ${param.favoriteLanguage}
+
+117
+00:06:00,537 --> 00:06:01,492
+and that's it.
+
+118
+00:06:01,492 --> 00:06:02,897
+So that looks pretty good right now.
+
+119
+00:06:02,897 --> 00:06:05,322
+So this will basically read the form fill
+
+120
+00:06:05,322 --> 00:06:07,572
+for param.favoriteLanguage.
+
+121
+00:06:11,679 --> 00:06:12,823
+All right, so this look pretty good.
+
+122
+00:06:12,823 --> 00:06:14,548
+So let's go ahead and run this application.
+
+123
+00:06:14,548 --> 00:06:16,637
+So, I'll move over to our form,
+
+124
+00:06:16,637 --> 00:06:18,828
+student-radio-form.html
+
+125
+00:06:18,828 --> 00:06:20,239
+I simply do a right click
+
+126
+00:06:20,239 --> 00:06:21,327
+I choose run as
+
+127
+00:06:21,327 --> 00:06:24,122
+and I choose run on server.
+
+128
+00:06:24,122 --> 00:06:26,552
+Okay, great. So here's our form.
+
+129
+00:06:26,552 --> 00:06:31,045
+We can enter the student's first name and last name.
+
+130
+00:06:31,045 --> 00:06:32,340
+And then our new piece here is
+
+131
+00:06:32,340 --> 00:06:34,255
+the actual radio buttons here.
+
+132
+00:06:34,255 --> 00:06:37,781
+So they choose either one of the programming languages
+
+133
+00:06:37,781 --> 00:06:41,745
+and then we could actually hit submit.
+
+134
+00:06:41,745 --> 00:06:44,401
+Okay, great. So here's our confirmation page.
+
+135
+00:06:44,401 --> 00:06:47,294
+So here's the student's favorite programming language.
+
+136
+00:06:47,294 --> 00:06:48,170
+And in this scenario,
+
+137
+00:06:48,170 --> 00:06:49,274
+they chose PHP.
+
+138
+00:06:49,274 --> 00:06:50,477
+But basically that's the result
+
+139
+00:06:50,477 --> 00:06:53,998
+of that form fill param.favoriteLanguage.
+
+140
+00:06:53,998 --> 00:06:56,487
+So we're successful here in writing a jsp
+
+141
+00:06:56,487 --> 00:06:59,154
+for reading that form fill data.
+
+142
+00:07:02,641 --> 00:07:05,199
+Okay, great, so let's go ahead and wrap up this video.
+
+143
+00:07:05,199 --> 00:07:07,576
+In this video I showed you how to build HTML forms
+
+144
+00:07:07,576 --> 00:07:08,854
+with radio buttons
+
+145
+00:07:08,854 --> 00:07:12,812
+and then also how to write jsp to read that form data.
+
+146
+00:07:12,812 --> 00:07:13,645
+Good job.
+

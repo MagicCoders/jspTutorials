@@ -1,0 +1,908 @@
+1
+00:00:01,222 --> 00:00:02,612
+<v Instructor>All right, so in this video</v>
+
+2
+00:00:02,612 --> 00:00:03,936
+we're actually gonna add the code
+
+3
+00:00:03,936 --> 00:00:06,599
+for deleting the student from the controller servlet
+
+4
+00:00:06,599 --> 00:00:08,384
+and the database util.
+
+5
+00:00:08,384 --> 00:00:11,545
+We'll cover steps two and three in this one video,
+
+6
+00:00:11,545 --> 00:00:12,891
+we'll kind of just mash it altogether
+
+7
+00:00:12,891 --> 00:00:14,823
+because the code is really short
+
+8
+00:00:14,823 --> 00:00:16,906
+for those two operations.
+
+9
+00:00:20,130 --> 00:00:22,635
+All right, diving back into Eclipse,
+
+10
+00:00:22,635 --> 00:00:23,931
+first off, I want to take a look
+
+11
+00:00:23,931 --> 00:00:26,337
+at that list-students.jsp
+
+12
+00:00:26,337 --> 00:00:28,149
+just to get a handle on the parameters
+
+13
+00:00:28,149 --> 00:00:32,149
+that are being passed to our controller servlet.
+
+14
+00:00:33,223 --> 00:00:35,054
+So, moving on down we have this link
+
+15
+00:00:35,054 --> 00:00:37,562
+that we set up to actually delete a student,
+
+16
+00:00:37,562 --> 00:00:39,953
+that's lines 48 through 52,
+
+17
+00:00:39,953 --> 00:00:41,548
+so note here, there are two parameters
+
+18
+00:00:41,548 --> 00:00:44,273
+that are going to our student controller servlet.
+
+19
+00:00:44,273 --> 00:00:47,364
+We're passing over command equals delete
+
+20
+00:00:47,364 --> 00:00:48,969
+and then we're passing over a student ID
+
+21
+00:00:48,969 --> 00:00:51,386
+and that's the tempStudent.Id
+
+22
+00:00:52,393 --> 00:00:56,047
+and information's being passed over to our actual servlet
+
+23
+00:00:56,047 --> 00:00:59,178
+and then our servlet's gonna actually read that information.
+
+24
+00:00:59,178 --> 00:01:00,979
+So, let me go ahead and open up my servlet,
+
+25
+00:01:00,979 --> 00:01:03,312
+my StudentControllerServlet.
+
+26
+00:01:05,571 --> 00:01:08,633 line:15% 
+And let me move down to my doGet method
+
+27
+00:01:08,633 --> 00:01:11,256 line:15% 
+and here we're actually going to add support
+
+28
+00:01:11,256 --> 00:01:13,173 line:15% 
+for the delete command.
+
+29
+00:01:15,852 --> 00:01:18,360 line:15% 
+So, this is where we would normally read the commands
+
+30
+00:01:18,360 --> 00:01:22,110 line:15% 
+and now we need to add a new case for delete.
+
+31
+00:01:24,539 --> 00:01:25,961 line:15% 
+So, very similar to all the code
+
+32
+00:01:25,961 --> 00:01:27,510 line:15% 
+we've created so far,
+
+33
+00:01:27,510 --> 00:01:31,427 line:15% 
+so case DELETE and then I'll say deleteStudent,
+
+34
+00:01:32,642 --> 00:01:35,309 line:15% 
+pass in a request and a response
+
+35
+00:01:38,112 --> 00:01:39,779 line:15% 
+and then do a break.
+
+36
+00:01:42,636 --> 00:01:45,897
+All right and again, just like before,
+
+37
+00:01:45,897 --> 00:01:48,043
+Eclipse will say hey,
+
+38
+00:01:48,043 --> 00:01:52,454
+I don't know about this method called deleteStudent
+
+39
+00:01:52,454 --> 00:01:54,120
+and so, we simply tell Eclipse
+
+40
+00:01:54,120 --> 00:01:56,035
+to create that method for us,
+
+41
+00:01:56,035 --> 00:01:57,424
+so we just hover over,
+
+42
+00:01:57,424 --> 00:01:58,786
+they give us the options,
+
+43
+00:01:58,786 --> 00:02:02,869
+we choose the option create method deleteStudent.
+
+44
+00:02:06,097 --> 00:02:07,734
+And by now we're just so used to Eclipse
+
+45
+00:02:07,734 --> 00:02:09,309
+creating code for us,
+
+46
+00:02:09,309 --> 00:02:12,184
+we're just really good friends now.
+
+47
+00:02:12,184 --> 00:02:13,421
+All right, so here's the method
+
+48
+00:02:13,421 --> 00:02:16,838
+that Eclipse just created, deleteStudent.
+
+49
+00:02:19,319 --> 00:02:21,771
+I'll remove the auto generated code
+
+50
+00:02:21,771 --> 00:02:23,206
+and I'll add a throws here,
+
+51
+00:02:23,206 --> 00:02:26,628
+so let me move to the end of this method declaration,
+
+52
+00:02:26,628 --> 00:02:28,774
+right before the curly brace,
+
+53
+00:02:28,774 --> 00:02:31,149
+I'll hit enter, right before the curly brace
+
+54
+00:02:31,149 --> 00:02:34,443
+to get it down to the next line with me
+
+55
+00:02:34,443 --> 00:02:36,647
+and then I'll say throws Exception
+
+56
+00:02:36,647 --> 00:02:38,272
+and again, we're following the same pattern
+
+57
+00:02:38,272 --> 00:02:40,550
+that we've used for all of our other code here
+
+58
+00:02:40,550 --> 00:02:43,633
+in this servlet, so throws Exception.
+
+59
+00:02:48,917 --> 00:02:51,193
+And by now you know my procedure,
+
+60
+00:02:51,193 --> 00:02:52,540
+you know my process,
+
+61
+00:02:52,540 --> 00:02:54,641
+writing some comments here to keep me on track,
+
+62
+00:02:54,641 --> 00:02:57,165
+so the first thing I do is read the student ID
+
+63
+00:02:57,165 --> 00:02:58,748
+from the form data,
+
+64
+00:03:00,093 --> 00:03:03,676
+then I delete the student from the database
+
+65
+00:03:07,115 --> 00:03:10,246
+and then finally, I send the user back
+
+66
+00:03:10,246 --> 00:03:12,413
+to the list students page.
+
+67
+00:03:14,307 --> 00:03:16,218
+So, this is my basic game plan here
+
+68
+00:03:16,218 --> 00:03:18,044
+for the deleteStudent method
+
+69
+00:03:18,044 --> 00:03:19,961
+that's in this servlet.
+
+70
+00:03:26,018 --> 00:03:28,744
+All right, rolling up my sleeves here,
+
+71
+00:03:28,744 --> 00:03:29,676
+writing some code,
+
+72
+00:03:29,676 --> 00:03:31,154
+so to read theStudentId,
+
+73
+00:03:31,154 --> 00:03:35,321
+I simply say request.getParameter("studentId"),
+
+74
+00:03:36,604 --> 00:03:38,771
+I assign that accordingly.
+
+75
+00:03:40,811 --> 00:03:42,144
+Then to actually delete the student
+
+76
+00:03:42,144 --> 00:03:46,311
+from a database, I'll make use of my studentDbUtil
+
+77
+00:03:48,641 --> 00:03:51,974
+and I'll say studentDbUtil.deleteStudent
+
+78
+00:03:53,282 --> 00:03:56,115
+and then I pass in that StudentId.
+
+79
+00:04:01,666 --> 00:04:03,956
+And again, you're used to this part of it,
+
+80
+00:04:03,956 --> 00:04:05,839
+send them back to the list students page,
+
+81
+00:04:05,839 --> 00:04:07,174
+we simply say listStudents
+
+82
+00:04:07,174 --> 00:04:09,423
+and we pass the request response,
+
+83
+00:04:09,423 --> 00:04:11,262
+so we're kind of in the rhythm
+
+84
+00:04:11,262 --> 00:04:13,455
+of how we develop applications now
+
+85
+00:04:13,455 --> 00:04:16,759
+and again, another part of our motion or rhythm here
+
+86
+00:04:16,759 --> 00:04:19,267
+is that Eclipse will give us an error message
+
+87
+00:04:19,267 --> 00:04:22,370
+saying hey, we don't know about this method
+
+88
+00:04:22,370 --> 00:04:24,459
+deleteStudent in the studentDbUtil.
+
+89
+00:04:24,459 --> 00:04:25,965
+Well, of course, this is all new code,
+
+90
+00:04:25,965 --> 00:04:28,055
+so again, we'll highlight it
+
+91
+00:04:28,055 --> 00:04:29,822
+and then we'll go down and we'll choose the option
+
+92
+00:04:29,822 --> 00:04:32,487
+create the method deleteStudent
+
+93
+00:04:32,487 --> 00:04:34,320
+and the studentDbUtil.
+
+94
+00:04:43,223 --> 00:04:44,077
+All right, so there we go,
+
+95
+00:04:44,077 --> 00:04:46,278
+Eclipse is creating more code for us.
+
+96
+00:04:46,278 --> 00:04:49,657 line:15% 
+So, we're inside of studentDbUtil right now
+
+97
+00:04:49,657 --> 00:04:53,542 line:15% 
+and there's the method that Eclipse just created for us
+
+98
+00:04:53,542 --> 00:04:55,022 line:15% 
+and what we have to do here
+
+99
+00:04:55,022 --> 00:04:58,344 line:15% 
+is we actually have to add the JDBC code
+
+100
+00:04:58,344 --> 00:04:59,476 line:15% 
+to delete the student,
+
+101
+00:04:59,476 --> 00:05:01,711 line:15% 
+so we'll have to write the low-level code
+
+102
+00:05:01,711 --> 00:05:04,211 line:15% 
+to interact with the database.
+
+103
+00:05:07,494 --> 00:05:10,263
+So, up top I'll set up throws Exception
+
+104
+00:05:10,263 --> 00:05:12,599
+for this method signature.
+
+105
+00:05:12,599 --> 00:05:16,766
+Again, following the pattern that we've used before,
+
+106
+00:05:17,645 --> 00:05:20,061
+I'll define some of my JDBC objects up front,
+
+107
+00:05:20,061 --> 00:05:21,782
+so I'm gonna need a connection,
+
+108
+00:05:21,782 --> 00:05:23,608
+I'll say myConn equals null
+
+109
+00:05:23,608 --> 00:05:25,274
+and I also need a prepared statement,
+
+110
+00:05:25,274 --> 00:05:29,441
+I'll call it myStatement and I'll set this one to null also.
+
+111
+00:05:33,440 --> 00:05:35,557
+And then I'll set up a try finally block
+
+112
+00:05:35,557 --> 00:05:37,413
+and this time I'll actually do this first
+
+113
+00:05:37,413 --> 00:05:38,483
+as opposed to last time.
+
+114
+00:05:38,483 --> 00:05:40,630
+If you recall from one of the previous videos
+
+115
+00:05:40,630 --> 00:05:42,835
+I didn't write all the code properly
+
+116
+00:05:42,835 --> 00:05:44,302
+and I had to go back and clean up.
+
+117
+00:05:44,302 --> 00:05:47,143
+Got a little messy, so I'll make sure I'm on track here,
+
+118
+00:05:47,143 --> 00:05:48,972
+so try finally up front,
+
+119
+00:05:48,972 --> 00:05:50,640
+now I write the comments here,
+
+120
+00:05:50,640 --> 00:05:53,840
+so the first thing here is converting the student ID
+
+121
+00:05:53,840 --> 00:05:55,007
+to an integer,
+
+122
+00:05:56,351 --> 00:05:59,768
+then we get a connection to the database,
+
+123
+00:06:00,919 --> 00:06:05,169
+next we create the SQL to actually delete the student,
+
+124
+00:06:05,169 --> 00:06:08,111
+then we prepare the statement,
+
+125
+00:06:08,111 --> 00:06:09,791
+we set up the params
+
+126
+00:06:09,791 --> 00:06:14,318
+and then finally, we execute the SQL statement
+
+127
+00:06:14,318 --> 00:06:18,485
+and that'll actually perform the delete on the database.
+
+128
+00:06:20,088 --> 00:06:21,351
+And in my cleanup section here
+
+129
+00:06:21,351 --> 00:06:25,518
+I need to clean up those JDBC objects that I used.
+
+130
+00:06:29,847 --> 00:06:32,083
+All right, so this is basically the game plan here
+
+131
+00:06:32,083 --> 00:06:34,583
+for this deleteStudent method.
+
+132
+00:06:44,563 --> 00:06:46,089
+Okay, so let's go ahead and dig in.
+
+133
+00:06:46,089 --> 00:06:47,495
+So, the first item of business here
+
+134
+00:06:47,495 --> 00:06:49,623
+is converting the student ID to an int,
+
+135
+00:06:49,623 --> 00:06:52,221
+so here I say int studentId equals
+
+136
+00:06:52,221 --> 00:06:54,687
+and I make use of that Integer.parseInt
+
+137
+00:06:54,687 --> 00:06:57,604
+to convert from a string to an int.
+
+138
+00:07:00,285 --> 00:07:01,935
+Then I get a connection to the database
+
+139
+00:07:01,935 --> 00:07:05,935
+by using myConn equals dataSource.getConnection.
+
+140
+00:07:08,942 --> 00:07:12,393
+Then we just write out the SQL for doing a delete,
+
+141
+00:07:12,393 --> 00:07:15,145
+so here I say delete from student
+
+142
+00:07:15,145 --> 00:07:17,510
+where ID equals and then we use
+
+143
+00:07:17,510 --> 00:07:19,496
+that question mark placeholder.
+
+144
+00:07:19,496 --> 00:07:23,663
+That's the placeholder that we use for prepared statements.
+
+145
+00:07:29,282 --> 00:07:30,877
+Now let's go ahead and prepare the statement
+
+146
+00:07:30,877 --> 00:07:35,044
+by saying myStatement equals myConn.prepareStatement.
+
+147
+00:07:40,536 --> 00:07:42,320
+Then I'll go ahead and set the params here
+
+148
+00:07:42,320 --> 00:07:44,737
+by saying myStatement.setint,
+
+149
+00:07:46,335 --> 00:07:47,567
+that's the first param,
+
+150
+00:07:47,567 --> 00:07:49,900
+so one, the actual studentId
+
+151
+00:07:52,146 --> 00:07:54,696
+so they know which student to delete
+
+152
+00:07:54,696 --> 00:07:57,846
+and then we can get busy here,
+
+153
+00:07:57,846 --> 00:08:00,005
+so here I'll say myStatement.execute
+
+154
+00:08:00,005 --> 00:08:01,728
+and that'll actually perform the operation
+
+155
+00:08:01,728 --> 00:08:04,235
+on the database and actually delete the student
+
+156
+00:08:04,235 --> 00:08:05,735
+from the database.
+
+157
+00:08:11,833 --> 00:08:14,400
+And then finally, we just clean up our JDBC code,
+
+158
+00:08:14,400 --> 00:08:16,983
+so we close myConn, myStatement
+
+159
+00:08:17,878 --> 00:08:19,337
+and since we didn't have a result set here,
+
+160
+00:08:19,337 --> 00:08:21,355
+we just pass in the value of null
+
+161
+00:08:21,355 --> 00:08:23,355
+and that's basically it.
+
+162
+00:08:28,216 --> 00:08:31,799
+So, that's the code here for deleteStudent.
+
+163
+00:08:34,655 --> 00:08:36,391
+And so, you've seen this pattern before,
+
+164
+00:08:36,391 --> 00:08:38,177
+so you're probably really close
+
+165
+00:08:38,177 --> 00:08:40,001
+at being able to write all this code yourself
+
+166
+00:08:40,001 --> 00:08:41,831
+'cause we've gone through a number of iterations
+
+167
+00:08:41,831 --> 00:08:43,426
+for this already.
+
+168
+00:08:43,426 --> 00:08:46,926
+So, making some really good progress here.
+
+169
+00:08:53,068 --> 00:08:54,372
+Alrighty, so we can save this
+
+170
+00:08:54,372 --> 00:08:56,460
+and go ahead and move back to our servlet,
+
+171
+00:08:56,460 --> 00:08:57,898
+so this is our servlet code
+
+172
+00:08:57,898 --> 00:09:00,117
+and this is in pretty good shape for right now,
+
+173
+00:09:00,117 --> 00:09:02,116
+so our deleteStudent,
+
+174
+00:09:02,116 --> 00:09:03,669
+we read the student ID,
+
+175
+00:09:03,669 --> 00:09:05,327
+we delete the student from the database
+
+176
+00:09:05,327 --> 00:09:07,035
+and we send them back to the list students page
+
+177
+00:09:07,035 --> 00:09:08,947
+and that's basically everything involved here
+
+178
+00:09:08,947 --> 00:09:13,114
+for deleting a student from the servlet's point of view.
+
+179
+00:09:17,123 --> 00:09:21,096
+Okay, well, let's go ahead and run this and test it out.
+
+180
+00:09:21,096 --> 00:09:24,763
+So, here, right click, Run As, Run on Server
+
+181
+00:09:27,114 --> 00:09:29,939
+and great, so here's the output of our application.
+
+182
+00:09:29,939 --> 00:09:31,752
+Let's go ahead and choose the Delete link
+
+183
+00:09:31,752 --> 00:09:33,144
+along the far right
+
+184
+00:09:33,144 --> 00:09:33,977
+and I'll choose it
+
+185
+00:09:33,977 --> 00:09:36,668
+for this first student here, Maxwell Apples.
+
+186
+00:09:36,668 --> 00:09:38,751
+So, I'll click on Delete,
+
+187
+00:09:39,686 --> 00:09:40,871
+and the system's going to prompt me,
+
+188
+00:09:40,871 --> 00:09:42,918
+this is the little JavaScript prompt.
+
+189
+00:09:42,918 --> 00:09:44,151
+Here I'll hit Cancel
+
+190
+00:09:44,151 --> 00:09:46,091
+and note, nothing happened on the app
+
+191
+00:09:46,091 --> 00:09:49,012
+which is good 'cause we canceled that operation
+
+192
+00:09:49,012 --> 00:09:50,737
+but let's go ahead and really delete the person
+
+193
+00:09:50,737 --> 00:09:51,654
+and hit OK.
+
+194
+00:09:53,128 --> 00:09:54,970
+So, now Maxwell Apples is gone,
+
+195
+00:09:54,970 --> 00:09:58,634
+I'll list refresh and he's no longer in our list of students
+
+196
+00:09:58,634 --> 00:10:00,384
+which is really good.
+
+197
+00:10:01,684 --> 00:10:03,434
+Let's try this again.
+
+198
+00:10:04,874 --> 00:10:07,223
+Let's see Mary or Andrew, let's see which one,
+
+199
+00:10:07,223 --> 00:10:11,238
+not sure and let's go ahead and delete Mary Private.
+
+200
+00:10:11,238 --> 00:10:13,228
+So, let's go ahead and delete Mary Private.
+
+201
+00:10:13,228 --> 00:10:16,317
+We'll click Delete and then we'll hit OK.
+
+202
+00:10:16,317 --> 00:10:19,608
+And now let's delete Andrew Whittaker
+
+203
+00:10:19,608 --> 00:10:20,640
+and then we'll hit OK.
+
+204
+00:10:20,640 --> 00:10:22,731
+So, great, so we just deleted three students,
+
+205
+00:10:22,731 --> 00:10:26,397 line:15% 
+we only have three left and this looks really good
+
+206
+00:10:26,397 --> 00:10:29,314 line:15% 
+but again, let's check the database
+
+207
+00:10:31,124 --> 00:10:34,140 line:15% 
+just to make sure this thing is really working.
+
+208
+00:10:34,140 --> 00:10:37,272 line:15% 
+So, I'll go ahead and move into MySQL
+
+209
+00:10:37,272 --> 00:10:40,723 line:15% 
+and I will move over to my database here,
+
+210
+00:10:40,723 --> 00:10:44,233
+web_student_tracker, I'll choose Tables,
+
+211
+00:10:44,233 --> 00:10:46,380
+I'll right click on student
+
+212
+00:10:46,380 --> 00:10:48,213
+and boom, really good,
+
+213
+00:10:50,030 --> 00:10:52,699
+we only have three students in our database,
+
+214
+00:10:52,699 --> 00:10:56,866
+so that Apples and Mary Private and Andrew Whittaker,
+
+215
+00:10:58,008 --> 00:11:01,758
+they're gone, they're deleted, poof, be gone.
+
+216
+00:11:02,650 --> 00:11:03,807
+All right, so this is good stuff.
+
+217
+00:11:03,807 --> 00:11:06,362
+I'm having too much fun here.
+
+218
+00:11:06,362 --> 00:11:08,100
+So, anyway this works out just fine,
+
+219
+00:11:08,100 --> 00:11:11,377
+so we wrote the code for deleting a student
+
+220
+00:11:11,377 --> 00:11:12,927
+and we went through it step by step.
+
+221
+00:11:12,927 --> 00:11:14,637
+We built it all from scratch
+
+222
+00:11:14,637 --> 00:11:16,568
+and hopefully you have a good feel
+
+223
+00:11:16,568 --> 00:11:17,991
+for how this process works
+
+224
+00:11:17,991 --> 00:11:22,325
+especially after doing it for like a third or fourth time.
+
+225
+00:11:22,325 --> 00:11:25,718
+So, again, I'm happy, we've made some really good progress,
+
+226
+00:11:25,718 --> 00:11:27,371
+you can pat yourself on the back
+
+227
+00:11:27,371 --> 00:11:28,538
+and good job.
+

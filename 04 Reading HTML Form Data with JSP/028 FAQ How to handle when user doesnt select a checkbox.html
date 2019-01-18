@@ -1,0 +1,16 @@
+<html>
+                <head>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <title>028 FAQ How to handle when user doesnt select a checkbox</title>
+                </head>
+                <body>
+                <div class="container">
+                <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="lead"><p><strong class="redactor-inline-converted">FAQ: How to handle when user doesn't select a checkbox?</strong></p><p><strong>Answer</strong></p><p>If the user doesn't select a checkbox, you will have a null pointer exception.</p><p>You can handle this by checking for null before displaying the data.</p><p>Here's the code snippet</p><p>        &lt;%<br>            String[] langs = request.getParameterValues("favoriteLanguage");<br>        <br>            if (langs != null) {<br>                for (String tempLang : langs) {<br>                    out.println("&lt;li&gt;" + tempLang + "&lt;/li&gt;");<br>                }<br>            }<br>        %&gt;</p><br></p>
+                </div>
+                </div>
+                </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                </body>
+                </html>

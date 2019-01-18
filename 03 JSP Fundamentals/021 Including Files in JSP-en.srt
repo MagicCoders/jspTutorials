@@ -1,0 +1,416 @@
+1
+00:00:01,310 --> 00:00:04,447
+<v ->Hello, in this video I'm gonna show you how to use JSP</v>
+
+2
+00:00:04,447 --> 00:00:06,614
+for including other files.
+
+3
+00:00:09,852 --> 00:00:11,999
+So the common use case for including files is
+
+4
+00:00:11,999 --> 00:00:14,653
+including standard headers and footers.
+
+5
+00:00:14,653 --> 00:00:17,583
+So, say for example, you're building a website and you want
+
+6
+00:00:17,583 --> 00:00:20,130
+to have the same header and footer information displayed
+
+7
+00:00:20,130 --> 00:00:21,706
+on every page.
+
+8
+00:00:21,706 --> 00:00:23,516
+So you can simply create the header and footer
+
+9
+00:00:23,516 --> 00:00:27,683
+in separate files and include them in your JSP files.
+
+10
+00:00:32,199 --> 00:00:34,628
+Alright, so when you include a file, you can include
+
+11
+00:00:34,628 --> 00:00:38,349
+either HTML files or JSP files, it's totally up to you.
+
+12
+00:00:38,349 --> 00:00:41,456
+So at the top here, I do a jsp:include,
+
+13
+00:00:41,456 --> 00:00:44,039
+and page equals my-header.html.
+
+14
+00:00:45,524 --> 00:00:47,268
+A similar thing here at the bottom.
+
+15
+00:00:47,268 --> 00:00:51,739
+I can do a jsp:include, page equals my-footer.jsp.
+
+16
+00:00:51,739 --> 00:00:52,575
+And that's it.
+
+17
+00:00:52,575 --> 00:00:55,408
+Very simple, very straightforward.
+
+18
+00:00:58,323 --> 00:01:00,018
+Alright, so let's go ahead and try this out.
+
+19
+00:01:00,018 --> 00:01:01,586
+So let's move into Eclipse.
+
+20
+00:01:01,586 --> 00:01:03,532
+What I'd like to do is to continue to use
+
+21
+00:01:03,532 --> 00:01:06,115
+that existing project, jspdemo.
+
+22
+00:01:08,396 --> 00:01:11,075
+And let's move down to the WebContent folder,
+
+23
+00:01:11,075 --> 00:01:13,569
+and what I want to do first is create those files
+
+24
+00:01:13,569 --> 00:01:14,686
+I'm gonna include.
+
+25
+00:01:14,686 --> 00:01:16,341
+So first I'm gonna create the header file,
+
+26
+00:01:16,341 --> 00:01:18,091
+so I'll say New File,
+
+27
+00:01:19,417 --> 00:01:22,778
+and I'll give the file name of my-header.html.
+
+28
+00:01:22,778 --> 00:01:26,611
+So that's the header that we're gonna include.
+
+29
+00:01:28,307 --> 00:01:32,474
+And when you're happy with the file name here, click Finish.
+
+30
+00:01:33,335 --> 00:01:34,524
+So for the header, I simply want
+
+31
+00:01:34,524 --> 00:01:36,591
+to give the name JSP Tutorial.
+
+32
+00:01:36,591 --> 00:01:38,166
+So I'm going to set up h1,
+
+33
+00:01:38,166 --> 00:01:42,117
+and I'll make the alignment for it to be center.
+
+34
+00:01:42,117 --> 00:01:45,024
+And then inside the tag here, I'll just say JSP Tutorial.
+
+35
+00:01:45,024 --> 00:01:46,874
+So this'll be included on all pages
+
+36
+00:01:46,874 --> 00:01:51,041
+for my given website that I'm just making up right now.
+
+37
+00:01:53,115 --> 00:01:54,680
+So I'll go ahead and save this file.
+
+38
+00:01:54,680 --> 00:01:58,847
+So this is our header file that we have set up right now.
+
+39
+00:02:00,889 --> 00:02:02,878
+Now let's move over and let's create our footer.
+
+40
+00:02:02,878 --> 00:02:05,503
+So again, in WebContent, I'll do a right click,
+
+41
+00:02:05,503 --> 00:02:07,003
+I'll say New File,
+
+42
+00:02:09,311 --> 00:02:12,123
+and I'll call it my-footer.jsp.
+
+43
+00:02:12,123 --> 00:02:15,092
+So in the footer we actually want to add some JSP coding.
+
+44
+00:02:15,092 --> 00:02:16,892
+So once we're happy with the file name,
+
+45
+00:02:16,892 --> 00:02:19,059
+go ahead and click Finish.
+
+46
+00:02:21,197 --> 00:02:23,478
+So, for here, for the footer for every page,
+
+47
+00:02:23,478 --> 00:02:27,284
+I want to give the time the page was last modified,
+
+48
+00:02:27,284 --> 00:02:30,461
+or we're just gonna kind of make this up actually.
+
+49
+00:02:30,461 --> 00:02:34,177
+So here I'll just say last modified, or last updated,
+
+50
+00:02:34,177 --> 00:02:37,328
+and then I'll just drop in the actual date and time stamp.
+
+51
+00:02:37,328 --> 00:02:40,632
+So that way, all of our pages look fresh every time a user
+
+52
+00:02:40,632 --> 00:02:42,549
+will visit our website.
+
+53
+00:02:45,030 --> 00:02:46,995
+Now I'll just hit the Save button.
+
+54
+00:02:46,995 --> 00:02:48,128
+Okay, great, so now at this point
+
+55
+00:02:48,128 --> 00:02:49,809
+we have our header complete
+
+56
+00:02:49,809 --> 00:02:51,738
+and we also have our footer complete.
+
+57
+00:02:51,738 --> 00:02:54,174
+So now we can go ahead and create our main page,
+
+58
+00:02:54,174 --> 00:02:57,674
+that's actually gonna include these files.
+
+59
+00:03:00,926 --> 00:03:03,147
+So I'll move over to the WebContent folder,
+
+60
+00:03:03,147 --> 00:03:04,308
+I'll do a right click,
+
+61
+00:03:04,308 --> 00:03:05,808
+I'll say New File,
+
+62
+00:03:08,220 --> 00:03:10,887
+and I'll call this homepage.jsp.
+
+63
+00:03:13,692 --> 00:03:17,859
+And once we're happy with the name here, we'll click Finish.
+
+64
+00:03:22,791 --> 00:03:24,363
+So on this homepage, what we're gonna do is
+
+65
+00:03:24,363 --> 00:03:26,846
+we're actually gonna include information
+
+66
+00:03:26,846 --> 00:03:29,541
+from the headers and the footers, and also we'll put some
+
+67
+00:03:29,541 --> 00:03:32,004
+of our regular content here.
+
+68
+00:03:32,004 --> 00:03:35,332
+So I'll do the standard work here for our HTML and our body.
+
+69
+00:03:35,332 --> 00:03:38,819
+And now I want to do is import, or include, the header.
+
+70
+00:03:38,819 --> 00:03:40,774
+So I'll say jsp:include,
+
+71
+00:03:40,774 --> 00:03:43,607
+I give page equals my-header.html.
+
+72
+00:03:48,474 --> 00:03:50,069
+And now I can enter some regular content
+
+73
+00:03:50,069 --> 00:03:51,703
+that I'll have on my homepage.
+
+74
+00:03:51,703 --> 00:03:53,562
+Here I'm just gonna put in some filler stuff,
+
+75
+00:03:53,562 --> 00:03:55,033
+just some blah blah blah,
+
+76
+00:03:55,033 --> 00:03:56,544
+just to, you know,
+
+77
+00:03:56,544 --> 00:03:58,044
+placeholders here.
+
+78
+00:04:04,958 --> 00:04:08,671
+And then I'll copy this line x number of times,
+
+79
+00:04:08,671 --> 00:04:12,004
+just to kind of fill it up a little bit.
+
+80
+00:04:14,720 --> 00:04:15,688
+So that's our content.
+
+81
+00:04:15,688 --> 00:04:17,242
+Let's go ahead and include our footer.
+
+82
+00:04:17,242 --> 00:04:21,409
+So I'll say jsp:include, page equals my-footer.jsp,
+
+83
+00:04:22,489 --> 00:04:24,892
+because our footer is a JSP file.
+
+84
+00:04:24,892 --> 00:04:27,164
+And again, it can go either way, HTML or JSP,
+
+85
+00:04:27,164 --> 00:04:30,684
+depending on how you want to build out your pages.
+
+86
+00:04:30,684 --> 00:04:33,371
+And that's it, so I can go ahead and save this file,
+
+87
+00:04:33,371 --> 00:04:36,394
+and then I can go ahead and run it.
+
+88
+00:04:36,394 --> 00:04:39,694
+Alright, so I can move over to this file homepage.jsp,
+
+89
+00:04:39,694 --> 00:04:42,490
+I can do a right click, then I can say Run As,
+
+90
+00:04:42,490 --> 00:04:44,407
+and then Run on Server.
+
+91
+00:04:49,765 --> 00:04:51,974
+Okay, great, this looks really good.
+
+92
+00:04:51,974 --> 00:04:53,853
+So up top, we have our header file
+
+93
+00:04:53,853 --> 00:04:56,377
+that we included, JSP Tutorial.
+
+94
+00:04:56,377 --> 00:05:00,236
+Then we have all of our body, our blah blah blah stuff.
+
+95
+00:05:00,236 --> 00:05:02,121
+And then we have the actual footer.
+
+96
+00:05:02,121 --> 00:05:04,047
+And then notice how the footer is a JSP,
+
+97
+00:05:04,047 --> 00:05:06,442
+and it included the current timestamp
+
+98
+00:05:06,442 --> 00:05:08,301
+when this page was accessed.
+
+99
+00:05:08,301 --> 00:05:12,152
+So our site will always look fresh as far as fresh content,
+
+100
+00:05:12,152 --> 00:05:13,396
+which is a good thing, right?
+
+101
+00:05:13,396 --> 00:05:16,298
+(chuckles)
+
+102
+00:05:16,298 --> 00:05:17,131
+So, good job.
+
+103
+00:05:17,131 --> 00:05:19,281
+In this video, I showed you how to build JSP pages
+
+104
+00:05:19,281 --> 00:05:21,364
+by including other files.
+

@@ -1,0 +1,760 @@
+1
+00:00:01,428 --> 00:00:02,723
+<v Instructor>Hello, in this video</v>
+
+2
+00:00:02,723 --> 00:00:06,890
+I'm gonna show you how to use session tracking with JSP.
+
+3
+00:00:09,437 --> 00:00:11,521
+Now, we'll cover the following topics.
+
+4
+00:00:11,521 --> 00:00:14,285
+First off, I'll give you a session tracking demo
+
+5
+00:00:14,285 --> 00:00:17,339
+and then we'll look at the session coding steps
+
+6
+00:00:17,339 --> 00:00:19,230
+and then finally, we'll pull it altogether
+
+7
+00:00:19,230 --> 00:00:21,666
+with a full JSP page example.
+
+8
+00:00:21,666 --> 00:00:23,563
+Now, for this video I'll actually break it up
+
+9
+00:00:23,563 --> 00:00:24,705
+into two separate videos,
+
+10
+00:00:24,705 --> 00:00:26,688
+I'll cover just the slides in part one
+
+11
+00:00:26,688 --> 00:00:30,855
+and then I'll get into the coding portion in part two.
+
+12
+00:00:32,129 --> 00:00:34,663
+All right, so what exactly is the JSP session object?
+
+13
+00:00:34,663 --> 00:00:36,814
+Well, the session object is created once
+
+14
+00:00:36,814 --> 00:00:40,285
+for a browser session and it's unique for a given user.
+
+15
+00:00:40,285 --> 00:00:44,293
+So, you commonly use this to keep track of a user's actions.
+
+16
+00:00:44,293 --> 00:00:48,049
+So, if you can think of like an online banking application
+
+17
+00:00:48,049 --> 00:00:50,128
+or a shopping cart application,
+
+18
+00:00:50,128 --> 00:00:53,239
+or maybe like an online exam application,
+
+19
+00:00:53,239 --> 00:00:56,424
+for every user that's accessing the web application,
+
+20
+00:00:56,424 --> 00:00:59,098
+you need to keep track of those unique actions
+
+21
+00:00:59,098 --> 00:01:02,283
+and those actions specific to that given user.
+
+22
+00:01:02,283 --> 00:01:03,693
+That's the idea of a session,
+
+23
+00:01:03,693 --> 00:01:05,571
+so I always say a session,
+
+24
+00:01:05,571 --> 00:01:09,654
+think of it as a shopping cart for a unique user.
+
+25
+00:01:11,985 --> 00:01:12,978
+Now, I'm gonna actually show you
+
+26
+00:01:12,978 --> 00:01:16,213
+a demo of using JSP sessions,
+
+27
+00:01:16,213 --> 00:01:19,057
+a very simple demo where we'll manage a to-do list.
+
+28
+00:01:19,057 --> 00:01:20,831
+A user will have a list of items
+
+29
+00:01:20,831 --> 00:01:23,023
+stored in the session and then each user
+
+30
+00:01:23,023 --> 00:01:25,216
+will have their own list for tracking
+
+31
+00:01:25,216 --> 00:01:27,552
+and I'll show it to you in a nice little demo
+
+32
+00:01:27,552 --> 00:01:29,802
+coming up here in a second.
+
+33
+00:01:32,065 --> 00:01:33,280
+All right, so here's our demo,
+
+34
+00:01:33,280 --> 00:01:34,925
+so I'm in my web browser.
+
+35
+00:01:34,925 --> 00:01:38,118
+Up top you can add new items to your list,
+
+36
+00:01:38,118 --> 00:01:40,586
+so think of it as like your to-do list for today
+
+37
+00:01:40,586 --> 00:01:42,386
+and you can just enter some items,
+
+38
+00:01:42,386 --> 00:01:45,283
+so here I'll say I need to go buy groceries
+
+39
+00:01:45,283 --> 00:01:46,338
+and I'll hit Submit.
+
+40
+00:01:46,338 --> 00:01:47,607
+That will add it to my list,
+
+41
+00:01:47,607 --> 00:01:50,568
+so right now that's in my session.
+
+42
+00:01:50,568 --> 00:01:52,901
+Next one here, go to the gym
+
+43
+00:01:53,919 --> 00:01:56,318
+and then I can just add some additional items here,
+
+44
+00:01:56,318 --> 00:01:58,057
+mail letters and so on.
+
+45
+00:01:58,057 --> 00:01:59,151
+You get the idea.
+
+46
+00:01:59,151 --> 00:02:02,242
+So, basically here this browser here
+
+47
+00:02:02,242 --> 00:02:03,994
+actually has a unique session
+
+48
+00:02:03,994 --> 00:02:07,494
+associated with it in the server's memory.
+
+49
+00:02:10,113 --> 00:02:11,859
+Now, let me bring in another browser here
+
+50
+00:02:11,859 --> 00:02:14,705
+just to simulate a different user,
+
+51
+00:02:14,705 --> 00:02:16,833
+so let me just kind of resize the window here,
+
+52
+00:02:16,833 --> 00:02:18,890
+so I have Firefox on the left
+
+53
+00:02:18,890 --> 00:02:22,890
+and I'll bring in a Chrome browser on the right.
+
+54
+00:02:24,853 --> 00:02:26,224
+All right, so here's my Chrome browser,
+
+55
+00:02:26,224 --> 00:02:28,694
+so Firefox on the left, Chrome on the right.
+
+56
+00:02:28,694 --> 00:02:30,247
+I go to that same URL,
+
+57
+00:02:30,247 --> 00:02:33,570
+I'll increase the font here for a second
+
+58
+00:02:33,570 --> 00:02:35,596
+and now in the Chrome browser on the right
+
+59
+00:02:35,596 --> 00:02:37,036
+I'll add some items also,
+
+60
+00:02:37,036 --> 00:02:40,635
+so again, remember, each browser user
+
+61
+00:02:40,635 --> 00:02:42,512
+has a unique session,
+
+62
+00:02:42,512 --> 00:02:46,793
+so here the first item I'll enter go running,
+
+63
+00:02:46,793 --> 00:02:50,876
+hit Submit and then another one here, repair bike
+
+64
+00:02:51,921 --> 00:02:53,878
+and so on and I can keep adding items.
+
+65
+00:02:53,878 --> 00:02:56,185
+So, the key here is that each browser
+
+66
+00:02:56,185 --> 00:02:59,168
+has its own unique session object in the background,
+
+67
+00:02:59,168 --> 00:03:01,184
+so it's almost like a shopping cart,
+
+68
+00:03:01,184 --> 00:03:04,267
+each user has their own shopping cart
+
+69
+00:03:05,514 --> 00:03:07,340
+and the system can keep track of it,
+
+70
+00:03:07,340 --> 00:03:10,019
+so I can go back over here on the left-hand side in Firefox,
+
+71
+00:03:10,019 --> 00:03:13,229
+since I'm recording all these Java videos,
+
+72
+00:03:13,229 --> 00:03:15,751
+I need to go off and record more videos,
+
+73
+00:03:15,751 --> 00:03:17,547
+so anyway, the basic idea here
+
+74
+00:03:17,547 --> 00:03:22,210
+is that each browser has a unique session object
+
+75
+00:03:22,210 --> 00:03:24,882
+on the Tomcat server in memory
+
+76
+00:03:24,882 --> 00:03:29,054
+and you can keep track of each user's individual actions,
+
+77
+00:03:29,054 --> 00:03:31,430
+so on the next slide here I'll show you
+
+78
+00:03:31,430 --> 00:03:34,508
+kind of how it works as far the big picture
+
+79
+00:03:34,508 --> 00:03:38,675
+and then we'll get into some of the coding portion of it.
+
+80
+00:03:40,888 --> 00:03:43,276
+All right, so here's the big picture.
+
+81
+00:03:43,276 --> 00:03:46,549
+So, you can have multiple users of your application.
+
+82
+00:03:46,549 --> 00:03:49,107
+They're all accessing maybe one JSP or whatever,
+
+83
+00:03:49,107 --> 00:03:52,594
+that JSP can make use of a session object,
+
+84
+00:03:52,594 --> 00:03:54,563
+so each user of the system
+
+85
+00:03:54,563 --> 00:03:56,432
+will have their own session object.
+
+86
+00:03:56,432 --> 00:03:57,930
+Now, a couple things here,
+
+87
+00:03:57,930 --> 00:04:00,107
+the session object is kept in memory,
+
+88
+00:04:00,107 --> 00:04:01,974
+so it's not stored on a database
+
+89
+00:04:01,974 --> 00:04:03,552
+or it's not stored on the file system,
+
+90
+00:04:03,552 --> 00:04:05,058
+it's only in your server's memory
+
+91
+00:04:05,058 --> 00:04:07,504
+like in the Tomcat server memory
+
+92
+00:04:07,504 --> 00:04:11,297
+and each user has their own session ID,
+
+93
+00:04:11,297 --> 00:04:14,035
+so the Tomcat server will actually assign
+
+94
+00:04:14,035 --> 00:04:16,580
+a session ID to the user
+
+95
+00:04:16,580 --> 00:04:19,410
+and Tomcat has its own algorithm for assigning
+
+96
+00:04:19,410 --> 00:04:22,023
+but the key thing is that you the developer
+
+97
+00:04:22,023 --> 00:04:24,787
+you don't have to worry about the session ID generation,
+
+98
+00:04:24,787 --> 00:04:26,639
+you also don't have to worry about passing
+
+99
+00:04:26,639 --> 00:04:28,140
+a session ID back and forth,
+
+100
+00:04:28,140 --> 00:04:30,331
+the Tomcat server and the browser will handle that
+
+101
+00:04:30,331 --> 00:04:32,604
+for you automatically,
+
+102
+00:04:32,604 --> 00:04:35,053
+so in this slide here, we have three users,
+
+103
+00:04:35,053 --> 00:04:36,509
+Charles, Donald and Dawn
+
+104
+00:04:36,509 --> 00:04:38,956
+and they each have their own session object
+
+105
+00:04:38,956 --> 00:04:41,289
+in the Tomcat server memory.
+
+106
+00:04:43,353 --> 00:04:44,186
+All right, so let's look at some
+
+107
+00:04:44,186 --> 00:04:45,426
+of the coding mechanics here
+
+108
+00:04:45,426 --> 00:04:48,287
+like how do we add data to the session object?
+
+109
+00:04:48,287 --> 00:04:52,642
+Well, the method signature is session.setAttribute,
+
+110
+00:04:52,642 --> 00:04:54,898
+so you make use of the built-in session object
+
+111
+00:04:54,898 --> 00:04:56,113
+and you call setAttribute
+
+112
+00:04:56,113 --> 00:04:58,215
+and you give the name and the value,
+
+113
+00:04:58,215 --> 00:05:00,315
+so the name is basically just a label
+
+114
+00:05:00,315 --> 00:05:02,322
+and then the value is any object
+
+115
+00:05:02,322 --> 00:05:04,998
+that you want to place in the session.
+
+116
+00:05:04,998 --> 00:05:06,851
+So, here's a coding example,
+
+117
+00:05:06,851 --> 00:05:08,991
+in this example I want to place an ArrayList
+
+118
+00:05:08,991 --> 00:05:13,230
+into the session, so here I create the list upfront
+
+119
+00:05:13,230 --> 00:05:15,604
+and then I say session.setAttribute,
+
+120
+00:05:15,604 --> 00:05:18,332 line:15% 
+I give the name of myToDoList,
+
+121
+00:05:18,332 --> 00:05:20,857 line:15% 
+so that's the name, and you can use any name you want,
+
+122
+00:05:20,857 --> 00:05:23,547 line:15% 
+comma items and that's that ArrayList object
+
+123
+00:05:23,547 --> 00:05:24,719 line:15% 
+that I have.
+
+124
+00:05:24,719 --> 00:05:26,733 line:15% 
+Now you can place any type of data here.
+
+125
+00:05:26,733 --> 00:05:30,292 line:15% 
+You can place ArrayList, your own custom employee objects,
+
+126
+00:05:30,292 --> 00:05:33,828 line:15% 
+strings, any type of object you can place
+
+127
+00:05:33,828 --> 00:05:36,578 line:15% 
+inside of the JSP session object.
+
+128
+00:05:39,686 --> 00:05:40,940
+All right, now the next thing here
+
+129
+00:05:40,940 --> 00:05:43,390
+is how do you retrieve data from the session object?
+
+130
+00:05:43,390 --> 00:05:47,102
+So, the method signature is session.getAttribute
+
+131
+00:05:47,102 --> 00:05:49,215
+and you give the name of the item
+
+132
+00:05:49,215 --> 00:05:50,401
+that you're retrieving
+
+133
+00:05:50,401 --> 00:05:53,681
+and it's going to return you a plain object,
+
+134
+00:05:53,681 --> 00:05:57,097
+so here's a coding example of how to do this.
+
+135
+00:05:57,097 --> 00:05:58,791
+So, here I'll start on the right-hand side,
+
+136
+00:05:58,791 --> 00:06:00,502 line:15% 
+I'll say session.getAttribute,
+
+137
+00:06:00,502 --> 00:06:03,423 line:15% 
+I give myToDoList, that's the same name I used
+
+138
+00:06:03,423 --> 00:06:05,053 line:15% 
+in the previous slide.
+
+139
+00:06:05,053 --> 00:06:06,683 line:15% 
+It's gonna return me an object.
+
+140
+00:06:06,683 --> 00:06:09,063 line:15% 
+Now what I wanna do is down cast it
+
+141
+00:06:09,063 --> 00:06:11,462 line:15% 
+to the appropriate type of list&lt;String&gt;
+
+142
+00:06:11,462 --> 00:06:13,574 line:15% 
+and then I can assign it on the left-hand side,
+
+143
+00:06:13,574 --> 00:06:15,336 line:15% 
+so a variable my stuff,
+
+144
+00:06:15,336 --> 00:06:18,010 line:15% 
+so you basically say session.getAttribute
+
+145
+00:06:18,010 --> 00:06:19,907 line:15% 
+and you use the name of the object
+
+146
+00:06:19,907 --> 00:06:21,037 line:15% 
+that you want to reference
+
+147
+00:06:21,037 --> 00:06:23,242 line:15% 
+and it will return it back to you.
+
+148
+00:06:23,242 --> 00:06:25,462 line:15% 
+And again, remember, you'll have to down cast it
+
+149
+00:06:25,462 --> 00:06:26,756 line:15% 
+to the appropriate type
+
+150
+00:06:26,756 --> 00:06:30,589 line:15% 
+if you want to use that later on in your page.
+
+151
+00:06:32,193 --> 00:06:35,349
+Okay, great, now there's also some other useful methods
+
+152
+00:06:35,349 --> 00:06:37,594
+that you can use on a JSP session object.
+
+153
+00:06:37,594 --> 00:06:39,415
+This is not the full list.
+
+154
+00:06:39,415 --> 00:06:42,908
+You can go to the full Java doc to get all the details
+
+155
+00:06:42,908 --> 00:06:47,260
+but for right now you check this first method here is isNew.
+
+156
+00:06:47,260 --> 00:06:50,217
+You can find out if it's a new true or false.
+
+157
+00:06:50,217 --> 00:06:52,588
+You can also get the session ID
+
+158
+00:06:52,588 --> 00:06:53,905
+just by calling getId
+
+159
+00:06:53,905 --> 00:06:55,770
+and this is useful if you wanted to maybe log
+
+160
+00:06:55,770 --> 00:06:57,573
+some information in your server logs,
+
+161
+00:06:57,573 --> 00:07:00,194
+or maybe log something in the database.
+
+162
+00:07:00,194 --> 00:07:02,568
+You can also call invalidate,
+
+163
+00:07:02,568 --> 00:07:05,353
+so if you want to get rid of a user session object
+
+164
+00:07:05,353 --> 00:07:07,748
+like say for example, a user logs out,
+
+165
+00:07:07,748 --> 00:07:10,186
+then you can call session.invalidate
+
+166
+00:07:10,186 --> 00:07:13,410
+and that will basically clear up that user's session
+
+167
+00:07:13,410 --> 00:07:15,940
+and then finally, you may wonder well,
+
+168
+00:07:15,940 --> 00:07:19,051
+how long does a session stay around in memory?
+
+169
+00:07:19,051 --> 00:07:20,520
+Well, basically it stays around
+
+170
+00:07:20,520 --> 00:07:22,739
+for a certain idle time period
+
+171
+00:07:22,739 --> 00:07:24,317
+or an inactive interval.
+
+172
+00:07:24,317 --> 00:07:27,346
+So, by default, a Tomcat server,
+
+173
+00:07:27,346 --> 00:07:30,569
+the inactive interval is set for 30 minutes
+
+174
+00:07:30,569 --> 00:07:31,967
+but it varies by server,
+
+175
+00:07:31,967 --> 00:07:34,394
+so you need to check your server documentation for that
+
+176
+00:07:34,394 --> 00:07:37,514
+but you can explicitly set the inactive interval,
+
+177
+00:07:37,514 --> 00:07:40,368
+so like if you're doing like an online banking,
+
+178
+00:07:40,368 --> 00:07:42,079
+most banks are very aggressive and they say
+
+179
+00:07:42,079 --> 00:07:46,293
+only five minutes, so you can simply setMaxInactiveInterval
+
+180
+00:07:46,293 --> 00:07:47,598
+and you pass in the value.
+
+181
+00:07:47,598 --> 00:07:49,084
+The one thing to be aware of here
+
+182
+00:07:49,084 --> 00:07:53,235
+is that this method takes the value in milliseconds,
+
+183
+00:07:53,235 --> 00:07:55,322
+so you have to give the appropriate number
+
+184
+00:07:55,322 --> 00:07:58,531
+of milliseconds there for your inactive interval.
+
+185
+00:07:58,531 --> 00:07:59,698
+And that's it.
+
+186
+00:08:04,197 --> 00:08:05,865
+All right, so I kind of covered a high level here
+
+187
+00:08:05,865 --> 00:08:09,351
+as far as the mechanics we're using JSP session objects,
+
+188
+00:08:09,351 --> 00:08:11,121
+so in the next video we'll get our hands dirty
+
+189
+00:08:11,121 --> 00:08:15,637
+with all the full coding on the JSP session exam.
+
+190
+00:08:15,637 --> 00:08:17,220
+I'll see you then.
+

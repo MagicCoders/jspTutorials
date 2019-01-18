@@ -1,0 +1,537 @@
+<html>
+                <head>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <title>114 FAQ How to use Maven with Student Tracker Project</title>
+                </head>
+                <body>
+                <div class="container">
+                <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="lead"><p><strong>How to use Maven with Student Tracker Project</strong></p>
+
+<p>This document explains the step required to use the Maven with JSP-Servlet projects.</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>This document assumes you understand the basics of Maven. If not, here's a Maven tutorial:
+- <a href="https://maven.apache.org/guides/index.html" rel="nofollow" target="_blank">https://maven.apache.org/guides/index.html</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>You should already have Maven installed and configured. </p>
+
+
+
+
+
+
+
+
+
+<p>- Download: <a href="https://maven.apache.org/download.cgi" rel="nofollow" target="_blank">https://maven.apache.org/download.cgi</a> </p>
+
+
+
+
+
+
+
+
+
+<p>- Install: <a href="https://maven.apache.org/install.html" rel="nofollow" target="_blank">https://maven.apache.org/install.html</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>--</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><strong>Overview</strong></p>
+
+
+
+
+
+
+
+<p>At a high level, you will perform the following steps:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>1. Download Maven version of the project </p>
+
+
+
+
+
+
+
+
+
+<p>2. Compile the project</p>
+
+
+
+
+
+
+
+
+
+<p>3. Package the project as a WAR file </p>
+
+
+
+
+
+
+
+
+
+<p>4. Deploy the WAR file to Tomcat
+
+
+
+
+
+
+
+</p>
+
+
+
+
+
+
+
+
+
+<p>--</p>
+
+
+
+
+
+
+
+
+
+<p><strong>Detailed Steps</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><strong>1. Download the Maven version of the project files</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Download: http://www.luv2code.com/downloads/udemy-jsp/maven-web-student-tracker.zip</p>
+
+
+
+
+
+<p>Unzip the file.
+
+
+
+</p><p><br></p><strong>2. Compile the project</strong>
+
+
+
+
+
+
+
+
+
+
+
+<p>- Open a terminal window. </p><p>- Navigate to the directory where you unzipped the file. </p><p>- Compile the project by typing: mvn compile</p><p><br></p>
+
+
+
+
+
+
+
+
+
+
+
+<p><strong>3. Package the project as a WAR file</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+<p>- Create the WAR file using: mvn package</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>A WAR file is a compressed archive of your web app.</p><p><br></p>
+
+
+
+
+
+
+
+
+
+
+
+<p><strong>4. Deploy the WAR file to Tomcat</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+<p>- We will deploy the WAR file to Tomcat. We will run Tomcat outside of Eclipse.
+- If you have Eclipse running, make sure you stop Tomcat in Eclipse</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>- Open a terminal window. </p><p>- Navigate to your Tomcat installation directory </p><p>- Once you are in the Tomcat installation directory </p><p>-- Start Tomcat with the following command: bin\startup.bat  (or use bin/startup.sh if on Linux/Mac)</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>- In your web browser, visit http://localhost:8080</p><p> -- You should see the Tomcat success page.</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>- Open up your GUI File Manager for your operating system (Windows Explorer / Mac Finder)</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>-- Navigate to your project directory </p><p>-- Move into the sub-directory: target</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>-- Select the file: maven-student-web-tracker.war </p><p>-- Copy this file to your Tomcat installation directory: ${my-tomcat-install-dir}\webapps</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>This is Tomcat's hot-deployment directory. After about 15 seconds, 
+Tomcat will notice your new WAR file and automatically expand it.</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>- Test your app </p><p>-- Visit: http://localhost:8080/maven-student-web-tracker</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>Congrats! You deployed your app to Tomcat using Maven.</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>--</p>
+
+
+
+
+
+
+
+
+
+
+
+<p><strong>Bonus: Import the project to Eclipse</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+<p>If you'd like to import the Maven project into Eclipse, follow these steps.</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>1. Click File &gt; Import</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>2. Type Maven in the search box under Select an import source:</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>3. Select Existing Maven Projects</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>4. Click Next</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>5. Click Browse and select the folder that is the root of the Maven project (probably contains the pom.xml file)</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>6. Click OK</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>7. Under Projects: click the checkbox next to the pom.xml file</p>
+
+
+
+
+
+
+
+
+
+
+
+<p>8. Click Finish</p></p>
+                </div>
+                </div>
+                </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                </body>
+                </html>

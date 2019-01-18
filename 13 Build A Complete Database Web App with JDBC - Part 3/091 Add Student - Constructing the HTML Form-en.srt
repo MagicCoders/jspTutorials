@@ -1,0 +1,732 @@
+1
+00:00:01,309 --> 00:00:02,441
+<v Chad Darby>Alrighty, so we can go ahead</v>
+
+2
+00:00:02,441 --> 00:00:04,459
+and check the box there for the first step.
+
+3
+00:00:04,459 --> 00:00:05,530
+That's done.
+
+4
+00:00:05,530 --> 00:00:07,150
+Now we'll focus on step two, creating
+
+5
+00:00:07,150 --> 00:00:10,528
+the HTML form for our new student.
+
+6
+00:00:10,528 --> 00:00:13,463
+So we'll have a form, we'll have text fields
+
+7
+00:00:13,463 --> 00:00:15,884
+for first name, last name, and e-mail,
+
+8
+00:00:15,884 --> 00:00:17,796
+we'll have a save button, and then we'll have
+
+9
+00:00:17,796 --> 00:00:19,325
+a little link at the bottom to take them
+
+10
+00:00:19,325 --> 00:00:21,867
+back to the original list.
+
+11
+00:00:21,867 --> 00:00:24,163
+So that's the big picture, that's the game plan.
+
+12
+00:00:24,163 --> 00:00:25,815
+Let's go ahead and dive into Eclipse
+
+13
+00:00:25,815 --> 00:00:27,732
+and let's start coding.
+
+14
+00:00:32,418 --> 00:00:34,146 line:15% 
+Alright, so we have some unfinished business
+
+15
+00:00:34,146 --> 00:00:35,392 line:15% 
+here with the form.
+
+16
+00:00:35,392 --> 00:00:38,582 line:15% 
+Our previous form simply had a placeholder.
+
+17
+00:00:38,582 --> 00:00:42,665 line:15% 
+Now we need to get in here and do some real work.
+
+18
+00:00:44,311 --> 00:00:48,311 line:15% 
+So I'll just expand the window here, open it up.
+
+19
+00:00:50,111 --> 00:00:51,769
+And for this page, first I'll just
+
+20
+00:00:51,769 --> 00:00:54,344
+take care of some general HTMl housekeeping,
+
+21
+00:00:54,344 --> 00:00:56,833
+so I'll set up like the doc type,
+
+22
+00:00:56,833 --> 00:00:58,755
+and then I'll get in here and I'll set up
+
+23
+00:00:58,755 --> 00:01:00,838
+the header for this page.
+
+24
+00:01:10,400 --> 00:01:14,059
+So we'll set the page title for add student.
+
+25
+00:01:14,059 --> 00:01:16,896
+And this page is also gonna make use of some style sheets.
+
+26
+00:01:16,896 --> 00:01:20,896
+So I'll set up a reference for two style sheets.
+
+27
+00:01:27,939 --> 00:01:29,326
+So the first style sheet is basically
+
+28
+00:01:29,326 --> 00:01:32,547
+what we used before, style dot CSS,
+
+29
+00:01:32,547 --> 00:01:34,251
+and then we'll have another reference here
+
+30
+00:01:34,251 --> 00:01:36,977
+for a special style sheet specifically
+
+31
+00:01:36,977 --> 00:01:39,195
+for this add student form.
+
+32
+00:01:39,195 --> 00:01:42,260
+So the file is called add student style dot CSS.
+
+33
+00:01:42,260 --> 00:01:44,124 line:15% 
+But we don't have that right now.
+
+34
+00:01:44,124 --> 00:01:46,303 line:15% 
+It's actually in our starter files,
+
+35
+00:01:46,303 --> 00:01:49,353 line:15% 
+so what we'll do is we'll actually copy that CSS
+
+36
+00:01:49,353 --> 00:01:52,637 line:15% 
+from the starter files and put it into this project.
+
+37
+00:01:52,637 --> 00:01:55,669 line:15% 
+So let me just swing over to my finder window,
+
+38
+00:01:55,669 --> 00:01:59,169 line:15% 
+just bring it on screen here for a second.
+
+39
+00:02:00,182 --> 00:02:02,334 line:15% 
+Alright, there it is.
+
+40
+00:02:02,334 --> 00:02:05,182 line:15% 
+Again, on our source download,
+
+41
+00:02:05,182 --> 00:02:07,950 line:15% 
+then I'll go down to the starter files directory,
+
+42
+00:02:07,950 --> 00:02:10,937 line:15% 
+and I'll move into web content, CSS,
+
+43
+00:02:10,937 --> 00:02:12,178 line:15% 
+and there's a file in there called
+
+44
+00:02:12,178 --> 00:02:14,599 line:15% 
+add student style dot CSS, so that's
+
+45
+00:02:14,599 --> 00:02:16,746 line:15% 
+the new CSS file that we want.
+
+46
+00:02:16,746 --> 00:02:19,199 line:15% 
+So we'll simply copy that file,
+
+47
+00:02:19,199 --> 00:02:23,116
+and we're gonna copy it to our Eclipse project.
+
+48
+00:02:24,718 --> 00:02:26,753
+So I just do a copy here, then
+
+49
+00:02:26,753 --> 00:02:29,336
+I'll move back over to Eclipse.
+
+50
+00:02:30,339 --> 00:02:33,756
+And under CSS, then I'll paste that file.
+
+51
+00:02:41,712 --> 00:02:42,782
+Alright, so this looks pretty good.
+
+52
+00:02:42,782 --> 00:02:47,130
+So, on line eight, this is where we referenced that new file
+
+53
+00:02:47,130 --> 00:02:51,812
+and we referenced the CSS add student style dot CSS.
+
+54
+00:02:51,812 --> 00:02:53,617
+So that's the new file that we just copied over.
+
+55
+00:02:53,617 --> 00:02:55,066
+So that all works out.
+
+56
+00:02:55,066 --> 00:02:57,347
+So we're good to go with that.
+
+57
+00:02:57,347 --> 00:02:59,262
+And if you want to, you can go look at this CSS.
+
+58
+00:02:59,262 --> 00:03:01,575
+Again, I'm not a CSS guru.
+
+59
+00:03:01,575 --> 00:03:03,724
+You can peruse this on your own.
+
+60
+00:03:03,724 --> 00:03:05,303
+I normally have friends help me out
+
+61
+00:03:05,303 --> 00:03:08,441
+or I just kinda copy some stuff off the web.
+
+62
+00:03:08,441 --> 00:03:09,383
+That's the piece there.
+
+63
+00:03:09,383 --> 00:03:11,839
+But anyways, we have our header set up,
+
+64
+00:03:11,839 --> 00:03:13,204
+we're in good shape.
+
+65
+00:03:13,204 --> 00:03:14,634
+But now it's time for us to focus in
+
+66
+00:03:14,634 --> 00:03:16,537
+on the body of our page.
+
+67
+00:03:16,537 --> 00:03:20,423
+So, I'll actually put in some more housekeeping stuff here
+
+68
+00:03:20,423 --> 00:03:21,506
+for our body.
+
+69
+00:03:22,386 --> 00:03:26,693
+Primarily just like the header information
+
+70
+00:03:26,693 --> 00:03:27,976
+for the actual page.
+
+71
+00:03:27,976 --> 00:03:31,143
+I'll just put this in here real quick.
+
+72
+00:03:33,966 --> 00:03:36,345
+So, we simply just do some divs here again,
+
+73
+00:03:36,345 --> 00:03:38,745
+wrap our header, FooBar University.
+
+74
+00:03:38,745 --> 00:03:40,485
+Same thing that we saw before in
+
+75
+00:03:40,485 --> 00:03:43,164
+some of the previous videos.
+
+76
+00:03:43,164 --> 00:03:47,331
+Here I set up the H three for the add student header.
+
+77
+00:03:52,018 --> 00:03:53,674
+And now this is where I get down to business here.
+
+78
+00:03:53,674 --> 00:03:55,374
+So I set up this form.
+
+79
+00:03:55,374 --> 00:03:57,682
+Action equals student controller servlet.
+
+80
+00:03:57,682 --> 00:04:00,538
+So we're gonna send data to the student controller servlet
+
+81
+00:04:00,538 --> 00:04:02,645
+using the method equals get.
+
+82
+00:04:02,645 --> 00:04:05,112
+So this I'll actually call the do get method
+
+83
+00:04:05,112 --> 00:04:07,945
+on our student controller servlet.
+
+84
+00:04:08,806 --> 00:04:11,090
+And we learned about form submissions earlier in the class,
+
+85
+00:04:11,090 --> 00:04:14,243
+but this is just more of a refresher
+
+86
+00:04:14,243 --> 00:04:18,052
+and a real-world application for it.
+
+87
+00:04:18,052 --> 00:04:19,508
+Now, also remember, earlier I said
+
+88
+00:04:19,508 --> 00:04:21,169
+we're gonna have a hidden form field.
+
+89
+00:04:21,169 --> 00:04:23,538
+So I have this input type equals hidden,
+
+90
+00:04:23,538 --> 00:04:26,742
+and the name equals command, value equals add.
+
+91
+00:04:26,742 --> 00:04:30,044
+Again, this is specific to us.
+
+92
+00:04:30,044 --> 00:04:32,692
+We're kinda making this up, so name equals command,
+
+93
+00:04:32,692 --> 00:04:34,780
+we can give any name we want there.
+
+94
+00:04:34,780 --> 00:04:37,467
+Value equals add you can give any value.
+
+95
+00:04:37,467 --> 00:04:38,942
+But we're just gonna follow the convention of
+
+96
+00:04:38,942 --> 00:04:41,348
+name equals command, value equals add.
+
+97
+00:04:41,348 --> 00:04:42,798
+But add could be anything.
+
+98
+00:04:42,798 --> 00:04:47,254
+It could be add student, add data, add stuff, whatever.
+
+99
+00:04:47,254 --> 00:04:51,982
+But I'm just gonna keep it simple for right now.
+
+100
+00:04:51,982 --> 00:04:53,656
+Now I'm gonna set up a little table,
+
+101
+00:04:53,656 --> 00:04:57,847
+and this table's gonna hold the different form elements,
+
+102
+00:04:57,847 --> 00:05:01,298
+like the actual label and the actual text field
+
+103
+00:05:01,298 --> 00:05:02,626
+that the user will enter their data.
+
+104
+00:05:02,626 --> 00:05:05,543
+Just to kinda keep things lined up.
+
+105
+00:05:11,327 --> 00:05:13,298
+So, for this first table row, I'll just set up
+
+106
+00:05:13,298 --> 00:05:15,834
+the entry, the label, for first name.
+
+107
+00:05:15,834 --> 00:05:19,859
+And then I'll also set up a input type, or text field,
+
+108
+00:05:19,859 --> 00:05:21,109
+for first name.
+
+109
+00:05:25,590 --> 00:05:27,196
+So, again, this'll basically give me a label
+
+110
+00:05:27,196 --> 00:05:29,529
+and then a input text field.
+
+111
+00:05:32,171 --> 00:05:34,258
+Alright, so let's go ahead and try this out.
+
+112
+00:05:34,258 --> 00:05:37,490
+So let me move back over to my app,
+
+113
+00:05:37,490 --> 00:05:40,705
+and I will take a look at my add student form
+
+114
+00:05:40,705 --> 00:05:42,373
+and I'll just show it in the browser.
+
+115
+00:05:42,373 --> 00:05:45,378
+So I'll just simply right click, do a run as,
+
+116
+00:05:45,378 --> 00:05:48,192
+run on server, and then, boom, looks pretty good.
+
+117
+00:05:48,192 --> 00:05:49,506
+So this is our form.
+
+118
+00:05:49,506 --> 00:05:51,488
+It's very crude right now, but it's our form.
+
+119
+00:05:51,488 --> 00:05:53,256
+So we have our header, add student,
+
+120
+00:05:53,256 --> 00:05:55,969
+and then we have this first label here, first name,
+
+121
+00:05:55,969 --> 00:05:58,218
+and a text field.
+
+122
+00:05:58,218 --> 00:05:59,709
+So basically all we need to do now
+
+123
+00:05:59,709 --> 00:06:01,107
+is kinda more of the same.
+
+124
+00:06:01,107 --> 00:06:04,988
+Just kinda copy paste for all the other names there.
+
+125
+00:06:04,988 --> 00:06:07,349
+There's a little typo I had in this thing,
+
+126
+00:06:07,349 --> 00:06:08,938
+I just fixed that.
+
+127
+00:06:08,938 --> 00:06:10,671
+Lowercase T for student.
+
+128
+00:06:10,671 --> 00:06:13,558
+And again, just kinda copy paste this
+
+129
+00:06:13,558 --> 00:06:14,990
+x number of times.
+
+130
+00:06:14,990 --> 00:06:18,768
+So, drop in a copy paste here, another copy paste,
+
+131
+00:06:18,768 --> 00:06:21,160
+and then I'll just go through and update the labels.
+
+132
+00:06:21,160 --> 00:06:23,027
+So this is for last name.
+
+133
+00:06:23,027 --> 00:06:25,161
+I'll set the field name for last name.
+
+134
+00:06:25,161 --> 00:06:29,266
+And then the third one here is for e-mail.
+
+135
+00:06:29,266 --> 00:06:33,451
+And I'll set the name of this field as e-mail.
+
+136
+00:06:33,451 --> 00:06:34,853
+So, again, remember with the form,
+
+137
+00:06:34,853 --> 00:06:36,372
+when you have these name entries,
+
+138
+00:06:36,372 --> 00:06:39,039
+these are the actual parameter names that you'll use
+
+139
+00:06:39,039 --> 00:06:43,209
+when you read the form data in your actual servlet code.
+
+140
+00:06:43,209 --> 00:06:44,620
+And then the one last thing I need to do here
+
+141
+00:06:44,620 --> 00:06:46,204
+is another copy paste.
+
+142
+00:06:46,204 --> 00:06:50,371
+I need to just put in an entry here for the submit button.
+
+143
+00:06:55,188 --> 00:06:59,389
+And then the actual value for this button is save.
+
+144
+00:06:59,389 --> 00:07:01,535
+So value equals save.
+
+145
+00:07:01,535 --> 00:07:05,175
+And then I even have a CSS style that I wanna apply to it,
+
+146
+00:07:05,175 --> 00:07:06,813
+so here I have class equals save.
+
+147
+00:07:06,813 --> 00:07:10,186
+So that's something from the cascading style sheet.
+
+148
+00:07:10,186 --> 00:07:13,436
+And that's our submit button basically.
+
+149
+00:07:19,242 --> 00:07:20,730
+Alright, so let's go ahead and just do
+
+150
+00:07:20,730 --> 00:07:23,147
+a quick refresh on this form.
+
+151
+00:07:25,329 --> 00:07:26,682
+And, woo hoo.
+
+152
+00:07:26,682 --> 00:07:27,515
+Looks pretty good.
+
+153
+00:07:27,515 --> 00:07:29,667
+It's starting to shape up here.
+
+154
+00:07:29,667 --> 00:07:31,725
+So, we have our fields here for first name,
+
+155
+00:07:31,725 --> 00:07:34,356
+last name, and e-mail, and we have our submit button
+
+156
+00:07:34,356 --> 00:07:35,939
+here at the bottom.
+
+157
+00:07:36,932 --> 00:07:39,035
+So this looks really, really good so far.
+
+158
+00:07:39,035 --> 00:07:39,868
+Good job.
+
+159
+00:07:41,213 --> 00:07:42,526
+And now, one last thing I wanna do
+
+160
+00:07:42,526 --> 00:07:44,969
+is I wanna add a link at the bottom of that form,
+
+161
+00:07:44,969 --> 00:07:49,136
+just so the user can go back to the list students page.
+
+162
+00:07:50,027 --> 00:07:52,270
+So I'll just enter a quick little div here,
+
+163
+00:07:52,270 --> 00:07:55,687
+just to give us a nice little line break.
+
+164
+00:07:59,429 --> 00:08:00,919
+And then I'll just set up a link
+
+165
+00:08:00,919 --> 00:08:02,298
+back to the original page.
+
+166
+00:08:02,298 --> 00:08:06,465
+So, here I have, I'll set up an anchor href equals,
+
+167
+00:08:08,394 --> 00:08:09,855
+and I'll just basically point back to the
+
+168
+00:08:09,855 --> 00:08:12,105
+student controller servlet.
+
+169
+00:08:19,549 --> 00:08:22,966
+And then, here I'll just say back to list
+
+170
+00:08:24,234 --> 00:08:25,287
+or something like that.
+
+171
+00:08:25,287 --> 00:08:26,120
+Yeah, there we go.
+
+172
+00:08:26,120 --> 00:08:27,203
+That'll work.
+
+173
+00:08:28,570 --> 00:08:29,685
+And so that would give me a little link
+
+174
+00:08:29,685 --> 00:08:33,127
+that'll point back to the original page
+
+175
+00:08:33,127 --> 00:08:36,671
+that'll list all the students out.
+
+176
+00:08:36,671 --> 00:08:40,066
+Then I can go back over here and just do a little refresh.
+
+177
+00:08:40,066 --> 00:08:41,341
+And then, cool, so in the bottom right
+
+178
+00:08:41,341 --> 00:08:44,520
+I have that href link back to list.
+
+179
+00:08:44,520 --> 00:08:46,928
+So, cool, so we're in good shape for right now.
+
+180
+00:08:46,928 --> 00:08:48,797
+So anyways, mission accomplished.
+
+181
+00:08:48,797 --> 00:08:50,318
+We've created our form.
+
+182
+00:08:50,318 --> 00:08:52,597
+We have everything set up, and in the following video
+
+183
+00:08:52,597 --> 00:08:56,680
+we'll work in our servlet to read this form data.
+
